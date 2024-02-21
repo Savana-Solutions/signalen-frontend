@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MPL-2.0
 // Copyright (C) 2020 - 2023 Gemeente Amsterdam
 import type { FC } from 'react'
+import { useCallback } from 'react'
 
 import type { AutoSuggestProps } from 'components/AutoSuggest'
 import AutoSuggest from 'components/AutoSuggest'
@@ -12,12 +13,6 @@ import {
 import type { RevGeo } from 'types/pdok/revgeo'
 
 const municipalityFilterName = 'gemeentenaam'
-const serviceParams = [
-  ['fq', 'bron:BAG'],
-  ['fq', 'type:adres'],
-  ['q', ''],
-]
-
 const numOptionsDeterminer = (data?: RevGeo) =>
   data?.response?.docs?.length || 0
 
@@ -26,6 +21,7 @@ export interface PDOKAutoSuggestProps
     AutoSuggestProps,
     'url' | 'formatResponse' | 'numOptionsDeterminer'
   > {
+  streetNameOnly?: boolean
   fieldList?: Array<string>
   municipality?: string
 }
@@ -37,6 +33,7 @@ export interface PDOKAutoSuggestProps
  */
 const PDOKAutoSuggest: FC<PDOKAutoSuggestProps> = ({
   fieldList = [],
+  streetNameOnly = false,
   municipality = configuration.map.municipality,
   ...rest
 }) => {
@@ -47,15 +44,28 @@ const PDOKAutoSuggest: FC<PDOKAutoSuggestProps> = ({
   const fl = [
     ['fl', [...pdokResponseFieldList, ...(fieldList || [])].join(',')],
   ]
+
+  const serviceParams = [
+    ['fq', 'bron:BAG'],
+    ['fq', streetNameOnly ? 'type:weg' : 'type:adres'],
+    ['q', ''],
+  ]
   const params = [...fq, ...fl, ...serviceParams]
   const queryParams = params.map(([key, val]) => `${key}=${val}`).join('&')
   const url = `${configuration.map.pdok.suggest}?${queryParams}`
+
+  const onFormatResponse = useCallback(
+    (request) => {
+      return formatPDOKResponse(request, streetNameOnly)
+    },
+    [streetNameOnly]
+  )
 
   return (
     <AutoSuggest
       {...rest}
       url={url}
-      formatResponse={formatPDOKResponse}
+      formatResponse={onFormatResponse}
       numOptionsDeterminer={numOptionsDeterminer}
       tabIndex={0}
     />

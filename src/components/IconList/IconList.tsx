@@ -1,27 +1,21 @@
 // SPDX-License-Identifier: MPL-2.0
-// Copyright (C) 2021-2022 Gemeente Amsterdam
+// Copyright (C) 2021 - 2023 Gemeente Amsterdam
 import type { ReactNode } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 
-import { List, themeSpacing, ListItem } from '@amsterdam/asc-ui'
+import { List } from '@amsterdam/asc-ui'
+import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 
-import type { FeatureStatusType } from 'signals/incident/components/form/MapSelectors/types'
+import type {
+  FeatureStatusType,
+  Item,
+} from 'signals/incident/components/form/MapSelectors/types'
+import { makeSelectMaxAssetWarning } from 'signals/incident/containers/IncidentContainer/selectors'
 
-const StyledListItem = styled(ListItem)`
-  display: flex;
-  align-items: center;
-  margin: ${themeSpacing(3, 0, 0)};
-`
-
-const StyledImg = styled.img`
-  margin-right: ${themeSpacing(2)};
-  flex-shrink: 0;
-`
-
-const StatusIcon = styled.img`
-  margin-left: -20px;
-  margin-top: -30px;
-`
+import { StyledListItem, StyledImg, StatusIcon } from './styled'
+import type { SelectableFeature } from '../../signals/incident/components/form/MapSelectors/types'
+import Checkbox from '../Checkbox'
 
 export interface IconListItemProps {
   iconUrl?: string
@@ -30,6 +24,10 @@ export interface IconListItemProps {
   iconSize?: number
   featureStatusType?: FeatureStatusType
   children: ReactNode
+  onClick?: (item: Item) => void
+  item?: SelectableFeature | Item
+  checkboxDisabled?: boolean
+  checked?: boolean
 }
 
 export const IconListItem = ({
@@ -39,21 +37,67 @@ export const IconListItem = ({
   iconSize = 40,
   id,
   featureStatusType,
-}: IconListItemProps) => (
-  <StyledListItem data-testid={id} className={className}>
-    {iconUrl && (
-      <StyledImg alt="" height={iconSize} src={iconUrl} width={iconSize} />
-    )}
-    {featureStatusType && (
-      <StatusIcon
-        alt=""
-        height={20}
-        src={featureStatusType.icon.iconUrl}
-        width={20}
-      />
-    )}
-    {children}
-  </StyledListItem>
-)
+  onClick,
+  item,
+  checkboxDisabled,
+  checked,
+}: IconListItemProps) => {
+  const [checkedState, setCheckedState] = useState<boolean | undefined>(
+    undefined
+  )
+  const { maxAssetWarning } = useSelector(makeSelectMaxAssetWarning)
 
-export default List
+  useEffect(() => {
+    setCheckedState(checked)
+  }, [checked, maxAssetWarning])
+
+  const disableOnClick = useMemo(() => {
+    if (maxAssetWarning) {
+      return checked
+    }
+
+    return true
+  }, [checked, maxAssetWarning])
+
+  const onClickWithDelay = useCallback(
+    (item) => {
+      if (onClick && disableOnClick) {
+        setCheckedState(!checked)
+        const timeout = setTimeout(() => {
+          onClick(item)
+        }, 400)
+        return () => clearTimeout(timeout)
+      }
+    },
+    [checked, disableOnClick, onClick]
+  )
+
+  return (
+    <StyledListItem data-testid={id} className={className}>
+      {!checkboxDisabled && (
+        <Checkbox
+          onClick={() => onClickWithDelay(item)}
+          checked={checkedState === undefined ? checked : checkedState}
+        />
+      )}
+      {iconUrl && (
+        <StyledImg alt="" height={iconSize} src={iconUrl} width={iconSize} />
+      )}
+      {featureStatusType && (
+        <StatusIcon
+          alt=""
+          height={20}
+          src={featureStatusType.icon.iconUrl}
+          width={20}
+        />
+      )}
+      {children}
+    </StyledListItem>
+  )
+}
+
+const StyledList = styled(List)`
+  margin: 0;
+`
+
+export default StyledList

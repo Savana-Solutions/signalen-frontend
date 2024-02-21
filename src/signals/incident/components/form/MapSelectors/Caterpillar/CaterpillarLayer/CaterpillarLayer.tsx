@@ -21,6 +21,7 @@ import type { Geometrie, Location } from 'types/incident'
 import StatusLayer from '../../Asset/Selector/StatusLayer'
 import { getFeatureStatusType } from '../../Asset/Selector/StatusLayer/utils'
 
+/* istanbul ignore next */
 export const CaterpillarLayer: FC = () => {
   const { features } = useContext<FeatureCollection>(WfsDataContext)
   const { selection, meta, setItem, removeItem } = useContext(SelectContext)

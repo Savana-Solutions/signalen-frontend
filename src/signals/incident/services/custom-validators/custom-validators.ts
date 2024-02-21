@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MPL-2.0
-// Copyright (C) 2018 - 2023 Gemeente Amsterdam
+// Copyright (C) 2018 - 2024 Gemeente Amsterdam
 type Control<T> = {
   value: T
 }
@@ -20,8 +20,12 @@ export const validatePhoneNumber = (control?: Control<any>) => {
   }
 }
 
-export const falsyOrNumber = (control: Control<any>) => {
-  if (typeof control.value === 'number' || !control.value) {
+export const falsyOrNumberOrNow = (control: Control<any>) => {
+  if (
+    typeof control.value === 'number' ||
+    !control.value ||
+    control.value === 'now'
+  ) {
     return null
   }
   return {
@@ -29,10 +33,16 @@ export const falsyOrNumber = (control: Control<any>) => {
   }
 }
 
-export const inPast = (control: Control<number>) => {
+export const inPast = (control: Control<number | string>) => {
   const newDate = new Date()
 
-  if (!control.value || control.value <= newDate.getTime()) return null
+  if (
+    !control.value ||
+    control.value === 'now' ||
+    control.value === null ||
+    (control.value as number) <= newDate.getTime()
+  )
+    return null
   return {
     custom: `Vul een tijdstip uit het verleden in`,
   }
@@ -55,7 +65,7 @@ export const isBlocking = () => {
   return {
     custom: {
       globalMessage:
-        'U kunt dit formulier niet verder invullen. Lees in de rode tekst hieronder waar u uw melding wél kunt doen. ',
+        'U kunt dit formulier niet verder invullen. Lees onder de antwoorden waar u uw melding wel kunt doen. ',
     },
   }
 }

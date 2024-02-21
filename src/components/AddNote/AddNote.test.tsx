@@ -70,11 +70,16 @@ describe('AddNote', () => {
   })
 
   it('focuses the textarea', async () => {
-    const { unmount, rerender } = render(withAppContext(<AddNote />))
+    const { unmount, rerender } = render(
+      withAppContext(<AddNote label="Test label" />)
+    )
 
     // no ref, no focus
     userEvent.click(screen.getByTestId('add-note-new-note-button'))
     expect(screen.getByRole('textbox')).not.toHaveFocus()
+    expect(
+      screen.getByRole('textbox', { name: 'Test label' })
+    ).toBeInTheDocument()
 
     unmount()
 
@@ -250,5 +255,23 @@ describe('AddNote', () => {
     expect(
       screen.queryByTestId('add-note-new-note-button')
     ).not.toBeInTheDocument()
+  })
+
+  it('does not render a label when inForm is true', () => {
+    const { container } = render(
+      withAppContext(<AddNote label="Test label" inForm={true} />)
+    )
+
+    userEvent.click(screen.getByTestId('add-note-new-note-button'))
+
+    expect(container.querySelector('label')).not.toBeInTheDocument()
+  })
+
+  it('renders the passed id', () => {
+    const { container } = render(withAppContext(<AddNote id="test" />))
+
+    userEvent.click(screen.getByTestId('add-note-new-note-button'))
+
+    expect(container.querySelector('#test')).toBeInTheDocument()
   })
 })

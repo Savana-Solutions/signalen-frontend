@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MPL-2.0
 // Copyright (C) 2018 - 2023 Gemeente Amsterdam
 import type { FunctionComponent, ReactNode } from 'react'
+import { useEffect, useState } from 'react'
 
 import { Play } from '@amsterdam/asc-assets'
 import differenceInCalendarDays from 'date-fns/differenceInCalendarDays'
@@ -11,44 +12,46 @@ import ParentIncidentIcon from 'components/ParentIncidentIcon'
 import configuration from 'shared/services/configuration/configuration'
 import { formatAddress } from 'shared/services/format-address'
 import {
-  getListValueByKey,
   getListIconByKey,
+  getListValueByKey,
 } from 'shared/services/list-helpers/list-helpers'
 import { string2date, string2time } from 'shared/services/string-parser'
 import { statusList } from 'signals/incident-management/definitions'
 import type {
-  Status,
-  Priority,
   Definition,
+  Priority,
+  Status,
 } from 'signals/incident-management/definitions/types'
 import { INCIDENT_URL } from 'signals/incident-management/routes'
-import type { IncidentListItem, IncidentList } from 'types/api/incident-list'
+import type { IncidentList, IncidentListItem } from 'types/api/incident-list'
 import onButtonPress from 'utils/on-button-press'
 
 import {
+  BaseTh,
   ContentSpan,
-  Th,
-  ThId,
-  ThDay,
+  StyledIcon,
+  StyledList,
+  Table,
   TdStyle,
+  Th,
   ThArea,
   ThDate,
+  ThDay,
+  ThId,
   ThParent,
   ThPriority,
   ThStatus,
   ThSubcategory,
   Tr,
-  StyledList,
-  Table,
-  StyledIcon,
 } from './styles'
 import { useIncidentManagementContext } from '../../../../context'
+import { SortOptionLabels, SortOptions } from '../../contants'
+import { compareSortOptions } from '../../utils'
+import ThSort from '../Th'
 
 export const getDaysOpen = (incident: IncidentListItem) => {
   const statusesWithoutDaysOpen = statusList
-    .filter(
-      ({ shows_remaining_sla_days }) => shows_remaining_sla_days === false
-    )
+    .filter(({ shows_remaining_sla_days }) => !shows_remaining_sla_days)
     .map(({ key }) => key)
   const hasDaysOpen =
     incident.status && !statusesWithoutDaysOpen.includes(incident.status.state)
@@ -87,6 +90,9 @@ interface ListProps {
   priority: Priority[]
   stadsdeel: Definition[]
   status: Status[]
+  orderingChangedAction: (ordering: string) => void
+  ordering?: SortOptions
+  sortingDisabled?: boolean
 }
 
 const List: FunctionComponent<ListProps> = ({
@@ -96,13 +102,53 @@ const List: FunctionComponent<ListProps> = ({
   priority,
   stadsdeel,
   status,
+  ordering,
+  orderingChangedAction,
+  sortingDisabled = false,
 }) => {
-  const { districts } = useIncidentManagementContext()
+  const { districts, referrer } = useIncidentManagementContext()
   const navigate = useNavigate()
+
+  const [lastId, setLastId] = useState<number | undefined>()
 
   const navigateToIncident = (id: number) => {
     navigate(`../${INCIDENT_URL}/${id}`)
   }
+
+  /**
+   * This method reverses the ordering if the column is already ordered
+   * otherwise it will order the new column ascending
+   * @param column
+   */
+  const changeOrder = (column: SortOptions) => {
+    if (ordering && compareSortOptions(ordering, column)) {
+      if (ordering.startsWith('-')) {
+        orderingChangedAction(ordering.replace('-', ''))
+      } else {
+        orderingChangedAction(`-${ordering}`)
+      }
+    } else {
+      orderingChangedAction(column)
+    }
+  }
+
+  useEffect(() => {
+    // check if referrer is incident detail page
+    if (referrer?.startsWith('/manage/incident/')) {
+      const lastIncidentId = Number(referrer.replace('/manage/incident/', ''))
+      setLastId(lastIncidentId)
+    }
+  }, [referrer])
+
+  // reset lastId on click
+  useEffect(() => {
+    const handleClick = () => {
+      setLastId(undefined)
+    }
+
+    window.addEventListener('click', handleClick)
+    return () => window.removeEventListener('click', handleClick)
+  }, [])
 
   return (
     <StyledList
@@ -114,21 +160,66 @@ const List: FunctionComponent<ListProps> = ({
         <thead>
           <tr>
             <ThParent />
-            <ThPriority />
-            <ThId>Id</ThId>
-            <ThDay>Dag</ThDay>
-            <ThDate>Datum en tijd</ThDate>
-            <ThSubcategory>Subcategorie</ThSubcategory>
-            <ThStatus>Status</ThStatus>
-
-            {configuration.featureFlags.fetchDistrictsFromBackend ? (
-              <ThArea>{configuration.language.district}</ThArea>
-            ) : (
-              <ThArea>Stadsdeel</ThArea>
-            )}
-
-            <Th>Adres</Th>
-
+            <ThSort
+              StyledComponent={ThPriority}
+              sortOption={SortOptions.PRIORITY_ASC}
+              headerText={SortOptionLabels.URGENTIE}
+              ordering={ordering}
+              changeOrder={changeOrder}
+              sortingDisabled={sortingDisabled}
+            />
+            <ThSort
+              StyledComponent={ThId}
+              sortOption={SortOptions.ID_DESC}
+              headerText={SortOptionLabels.ID}
+              ordering={ordering}
+              changeOrder={changeOrder}
+              sortingDisabled={sortingDisabled}
+            />
+            <ThDay $isDisabled={true}>Dag</ThDay>
+            <ThSort
+              StyledComponent={ThDate}
+              sortOption={SortOptions.CREATED_AT_DESC}
+              headerText={SortOptionLabels.DATUM}
+              ordering={ordering}
+              changeOrder={changeOrder}
+            />
+            <ThSort
+              StyledComponent={ThSubcategory}
+              sortOption={SortOptions.SUBCATEGORY_ASC}
+              headerText={SortOptionLabels.SUBCATEGORY}
+              ordering={ordering}
+              changeOrder={changeOrder}
+              sortingDisabled={sortingDisabled}
+            />
+            <ThSort
+              StyledComponent={ThStatus}
+              sortOption={SortOptions.STATUS_ASC}
+              headerText={SortOptionLabels.STATUS}
+              ordering={ordering}
+              changeOrder={changeOrder}
+              sortingDisabled={sortingDisabled}
+            />
+            <ThSort
+              StyledComponent={ThArea}
+              sortOption={SortOptions.BUROUGH_ASC}
+              headerText={
+                configuration.featureFlags.fetchDistrictsFromBackend
+                  ? configuration.language.district
+                  : SortOptionLabels.STADSDEEL
+              }
+              ordering={ordering}
+              changeOrder={changeOrder}
+              sortingDisabled={sortingDisabled}
+            />
+            <ThSort
+              StyledComponent={BaseTh}
+              sortOption={SortOptions.ADDRESS_ASC}
+              headerText={SortOptionLabels.ADRES}
+              ordering={ordering}
+              changeOrder={changeOrder}
+              sortingDisabled={sortingDisabled}
+            />
             {configuration.featureFlags.assignSignalToEmployee && (
               <Th>Toegewezen aan</Th>
             )}
@@ -144,6 +235,7 @@ const List: FunctionComponent<ListProps> = ({
                 onKeyDown={(e) => {
                   onButtonPress(e, () => navigateToIncident(incident.id))
                 }}
+                $lastIncident={incident.id === lastId}
               >
                 <Td detailLink={detailLink} data-testid="incident-parent">
                   {incident.has_children && <ParentIncidentIcon />}

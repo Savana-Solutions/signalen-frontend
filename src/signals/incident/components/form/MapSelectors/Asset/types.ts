@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MPL-2.0
-// Copyright (C) 2021 - 2022 Gemeente Amsterdam
+// Copyright (C) 2021 - 2023 Gemeente Amsterdam
 import type { FC } from 'react'
 
 import type { LatLngLiteral } from 'leaflet'
@@ -9,20 +9,21 @@ import type { Address } from 'types/address'
 import type { Location } from 'types/incident'
 import type { FormOptions } from 'types/reactive-form'
 
-import type { Meta, Item, FeatureType } from '../types'
-
+import type { SelectableFeature, Meta, Item, FeatureType } from '../types'
 export interface AssetSelectValue {
   address?: Address
-  layer?: FC
   coordinates?: LatLngLiteral
+  fetchLocation: (latLng: LatLngLiteral) => void
+  layer?: FC
   message?: string
   meta: Meta
   removeItem: (item?: Item) => void
   selection?: Item[]
   setItem: (item: Item, location?: Location) => void
-  fetchLocation: (latLng: LatLngLiteral) => void
   setLocation: (location: Location) => void
   setMessage: (message?: string) => void
+  setSelectableFeatures: (features?: SelectableFeature[]) => void
+  selectableFeatures?: SelectableFeature[]
 }
 
 export interface AssetSelectRendererProps extends FormFieldProps {

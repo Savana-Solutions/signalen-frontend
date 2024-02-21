@@ -37,12 +37,14 @@ const straatverlichtingKlokken = {
   extra_straatverlichting_nummer: {
     meta: {
       language: {
-        title: 'Locatie',
+        title: 'Selecteer het lichtpunt',
         subTitle: 'Kies een lichtpunt op de kaart',
         unregistered: 'Het lichtpunt staat niet op de kaart',
         unregisteredId: 'Nummer van het lichtpunt',
         objectTypeSingular: 'lichtpunt',
         objectTypePlural: 'lichtpunten',
+        pdokLabel: 'Zoek op adres',
+        pdokInput: 'Adres',
         submit: 'Gebruik deze locatie',
       },
       label: 'Kies de lamp of lantaarnpaal waar het om gaat',
@@ -232,13 +234,13 @@ const straatverlichtingKlokken = {
   extra_klok_nummer: {
     meta: {
       language: {
-        title: 'Locatie',
+        title: 'Selecteer de klok',
         subTitle: 'Kies een klok op de kaart',
         unregistered: 'De klok staat niet op de kaart',
         unregisteredId: 'Nummer van de klok',
         objectTypeSingular: 'klok',
         objectTypePlural: 'klokken',
-        submit: 'Gebruik deze locatie',
+        submit: 'Bevestigen',
       },
       label: 'Kies de klok waar het om gaat',
       shortLabel: 'Klok(ken) op kaart',

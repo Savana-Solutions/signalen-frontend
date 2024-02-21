@@ -4,7 +4,7 @@ import { useEffect, useState, useCallback, useMemo } from 'react'
 
 import { Row, Column } from '@amsterdam/asc-ui'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
+import { connect, useDispatch, useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
 import { compose, bindActionCreators } from 'redux'
 import { createStructuredSelector } from 'reselect'
@@ -13,6 +13,8 @@ import { disablePageScroll, enablePageScroll } from 'scroll-lock'
 import LoadingIndicator from 'components/LoadingIndicator'
 import Modal from 'components/Modal'
 import OverviewMap from 'components/OverviewMap'
+import { showGlobalNotification } from 'containers/App/actions'
+import { makeSelectSearchQuery } from 'containers/App/selectors'
 import MapContext from 'containers/MapContext'
 import useEventEmitter from 'hooks/useEventEmitter'
 import * as types from 'shared/types'
@@ -29,6 +31,7 @@ import MyFilters from 'signals/incident-management/containers/MyFilters'
 import dataLists from 'signals/incident-management/definitions'
 import {
   makeSelectActiveFilter,
+  makeSelectErrorMessage,
   makeSelectFiltersOnOverview,
   makeSelectIncidents,
   makeSelectOrdering,
@@ -38,7 +41,6 @@ import { parseToAPIData } from 'signals/shared/filter/parse'
 
 import List from './components/List'
 import QuickFilter from './components/QuickFilter'
-import Sort from './components/Sort'
 import SubNav from './components/SubNav'
 import {
   TitleRow,
@@ -51,6 +53,13 @@ import {
   StyledButton,
   StyledPagination,
 } from './styled'
+import {
+  TYPE_GLOBAL,
+  TYPE_LOCAL,
+  VARIANT_ERROR,
+  VARIANT_NOTICE,
+} from '../../../../containers/Notification/constants'
+import useRestoreScrollPosition from '../../../../hooks/useRestoreScrollPosition'
 import { MAP_URL } from '../../routes'
 import FilterTagList from '../FilterTagList/FilterTagList'
 
@@ -66,13 +75,61 @@ export const IncidentOverviewPageContainerComponent = ({
   orderingChangedAction,
   page,
   pageChangedAction,
+  errorMessage,
 }) => {
+  const location = useLocation()
+  const dispatch = useDispatch()
+  const searchQueryIncidents = useSelector(makeSelectSearchQuery)
   const { listenFor, unlisten } = useEventEmitter()
+
   const [modalFilterIsOpen, toggleFilterModal] = useState(false)
   const [modalMyFiltersIsOpen, toggleMyFiltersModal] = useState(false)
+
   const { count, loadingIncidents, results } = incidents
-  const location = useLocation()
   const showsMap = location.pathname.split('/').pop() === MAP_URL
+  const hasActiveOrdering =
+    ordering && ordering !== '-created_at' && ordering !== 'created_at'
+
+  const totalPages = useMemo(() => Math.ceil(count / FILTER_PAGE_SIZE), [count])
+
+  const canRenderList = results && results.length > 0 && totalPages > 0
+
+  /* istanbul ignore next */
+  const hasActiveFilters = activeFilter.options
+    ? Boolean(
+        Object.keys(activeFilter.options).find(
+          (key) => activeFilter.options[key].length > 0
+        )
+      )
+    : false
+
+  const disableFilters = hasActiveOrdering || searchQueryIncidents
+  const disableSorting = hasActiveFilters || searchQueryIncidents
+
+  useEffect(() => {
+    if (errorMessage) {
+      dispatch(
+        showGlobalNotification({
+          title: 'Let op, het sorteren is niet gelukt',
+          message: errorMessage,
+          variant: VARIANT_ERROR,
+          type: TYPE_LOCAL,
+        })
+      )
+    }
+  }, [errorMessage, dispatch])
+
+  const showNotification = useCallback(() => {
+    dispatch(
+      showGlobalNotification({
+        variant: VARIANT_NOTICE,
+        title:
+          'Verwijder eerst uw zoekopdracht om de filteropties te gebruiken',
+        message: 'Daarna kunt u de filteropties gebruiken',
+        type: TYPE_GLOBAL,
+      })
+    )
+  }, [dispatch])
 
   const openMyFiltersModal = useCallback(() => {
     disablePageScroll()
@@ -131,18 +188,6 @@ export const IncidentOverviewPageContainerComponent = ({
     }
   }, [escFunction, openFilterModal, listenFor, unlisten])
 
-  const totalPages = useMemo(() => Math.ceil(count / FILTER_PAGE_SIZE), [count])
-
-  const canRenderList = results && results.length > 0 && totalPages > 0
-
-  const hasActiveFilters = activeFilter.options
-    ? Boolean(
-        Object.keys(activeFilter.options).find(
-          (key) => activeFilter.options[key].length > 0
-        )
-      )
-    : false
-
   const pagination =
     !showsMap && totalPages > 1 ? (
       <StyledPagination
@@ -157,6 +202,8 @@ export const IncidentOverviewPageContainerComponent = ({
       />
     ) : null
 
+  useRestoreScrollPosition('/manage/incidents', location)
+
   return (
     <div
       className="incident-overview-page"
@@ -164,12 +211,16 @@ export const IncidentOverviewPageContainerComponent = ({
     >
       <Row>
         <TitleRow>
-          <PageHeader />
+          <PageHeader
+            orderingChangedAction={orderingChangedAction}
+            showsMap={showsMap}
+          />
           <ButtonWrapper>
             <StyledButton
               data-testid="my-filters-modal-btn"
               color="primary"
-              onClick={openMyFiltersModal}
+              onClick={disableFilters ? showNotification : openMyFiltersModal}
+              $disabled={disableFilters}
             >
               Mijn filters
             </StyledButton>
@@ -177,7 +228,8 @@ export const IncidentOverviewPageContainerComponent = ({
             <StyledButton
               data-testid="filter-modal-btn"
               color="primary"
-              onClick={openFilterModal}
+              onClick={disableFilters ? showNotification : openFilterModal}
+              $disabled={disableFilters}
             >
               Filter
             </StyledButton>
@@ -206,9 +258,11 @@ export const IncidentOverviewPageContainerComponent = ({
           </Modal>
         )}
 
-        <Column span={12}>
-          <QuickFilter filters={filters} setFilter={handleSetFilter} />
-        </Column>
+        {!disableFilters && (
+          <Column span={12}>
+            <QuickFilter filters={filters} setFilter={handleSetFilter} />
+          </Column>
+        )}
 
         <Column span={12}>
           {hasActiveFilters && (
@@ -222,15 +276,7 @@ export const IncidentOverviewPageContainerComponent = ({
         </Column>
 
         <NavWrapper>
-          {!showsMap && (
-            <>
-              {pagination}
-              <Sort
-                activeOrdering={ordering}
-                onChangeOrdering={orderingChangedAction}
-              />
-            </>
-          )}
+          {!showsMap && <>{pagination}</>}
           <SubNav showsMap={showsMap} />
         </NavWrapper>
       </Row>
@@ -255,9 +301,12 @@ export const IncidentOverviewPageContainerComponent = ({
 
             {canRenderList && (
               <List
+                ordering={incidents.orderedAs}
+                orderingChangedAction={orderingChangedAction}
                 incidents={incidents.results}
                 incidentsCount={count}
                 isLoading={loadingIncidents}
+                sortingDisabled={disableSorting}
                 {...dataLists}
               />
             )}
@@ -292,6 +341,7 @@ IncidentOverviewPageContainerComponent.propTypes = {
   pageChangedAction: PropTypes.func.isRequired,
   ordering: PropTypes.string.isRequired,
   page: PropTypes.number,
+  errorMessage: PropTypes.string,
 }
 
 const mapStateToProps = createStructuredSelector({
@@ -300,6 +350,7 @@ const mapStateToProps = createStructuredSelector({
   incidents: makeSelectIncidents,
   ordering: makeSelectOrdering,
   page: makeSelectPage,
+  errorMessage: makeSelectErrorMessage,
 })
 
 export const mapDispatchToProps = (dispatch) =>

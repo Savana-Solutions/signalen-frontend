@@ -203,6 +203,7 @@ const IncidentDetail = () => {
       )
     }
 
+    /* istanbul ignore next */
     if (
       !configuration.featureFlags.showStandardTextAdminV1 &&
       configuration.featureFlags.showStandardTextAdminV2
@@ -210,9 +211,8 @@ const IncidentDetail = () => {
       const category = subcategories?.find(
         (cat) => cat.slug === incident.category?.sub_slug
       )
-
       getDefaultTexts(
-        `${configuration.STANDARD_TEXTS_ENDPOINT}?category_id=${category?.fk}`
+        `${configuration.STANDARD_TEXTS_ENDPOINT}?ordering=statusmessagecategory__position&category_id=${category?.fk}`
       )
     }
   }, [incident?.category, getDefaultTexts, subcategories])

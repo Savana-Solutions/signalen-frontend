@@ -16,6 +16,7 @@ import {
   DefaultTextBody,
   StyledButton,
   TextWrapper,
+  StyledWrapper,
   Wrapper,
 } from './styled'
 import { changeStatusOptionList } from '../../../../incident-management/definitions/statusList'
@@ -39,7 +40,7 @@ export const StandardTextsField = ({ name, onChange }: Props) => {
 
   useEffect(() => {
     get(
-      `${configuration.STANDARD_TEXTS_ENDPOINT}?ordering=statusmessagecategory__position&category_id=10&category_id=${params.categoryId}`
+      `${configuration.STANDARD_TEXTS_ENDPOINT}?ordering=statusmessagecategory__position&category_id=${params.categoryId}`
     )
   }, [get, params.categoryId])
 
@@ -95,10 +96,10 @@ export const StandardTextsField = ({ name, onChange }: Props) => {
           <Wrapper key={standardText.id}>
             <TextWrapper>
               <span data-testid="text-title">{index + 1}</span>
-              <div>
+              <StyledWrapper>
                 <span>{standardText.title}</span>
                 <DefaultTextBody>{standardText.text}</DefaultTextBody>
-              </div>
+              </StyledWrapper>
             </TextWrapper>
             <ButtonWrapper>
               <StyledButton

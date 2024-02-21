@@ -66,6 +66,9 @@
     "smallHeight": "29px"
   },
   "map": {
+    "keys": {
+      "dataPlatform": ""
+    },
     "municipality": "amsterdam",
     "options": {
       "crs": "EPSG:28992",

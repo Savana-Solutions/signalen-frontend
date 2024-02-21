@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MPL-2.0
-// Copyright (C) 2021 - 2022 Gemeente Amsterdam
+// Copyright (C) 2021 - 2023 Gemeente Amsterdam
 import type { ReactNode, ReactPortal } from 'react'
 
 import ReactDOM from 'react-dom'
@@ -37,10 +37,18 @@ export const contextValue: AssetSelectValue = {
       label: 'Plastic container - PL734',
     },
   ],
+  address: {
+    openbare_ruimte: 'Nieuwezijds Voorburgwal',
+    huisnummer: '147',
+    postcode: '1012RJ',
+    woonplaats: 'Amsterdam',
+  },
+  selectableFeatures: undefined,
   setItem: jest.fn(),
   fetchLocation: jest.fn(),
   setLocation: jest.fn(),
   setMessage: jest.fn(),
+  setSelectableFeatures: jest.fn(),
 }
 
 const withAssetSelectContext = (Component: ReactNode, context = contextValue) =>

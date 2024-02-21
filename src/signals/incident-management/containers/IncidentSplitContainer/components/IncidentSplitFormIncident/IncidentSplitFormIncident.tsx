@@ -1,11 +1,13 @@
 // SPDX-License-Identifier: MPL-2.0
-// Copyright (C) 2020 - 2021 Gemeente Amsterdam
+// Copyright (C) 2020 - 2023 Gemeente Amsterdam
 import { useCallback, useState } from 'react'
 import type { FC } from 'react'
 
+import { TrashBin } from '@amsterdam/asc-assets/lib/icons'
+import { uniqueId } from 'lodash'
 import { Controller, useFormContext } from 'react-hook-form'
 
-import AddNote, { getAddNoteError } from 'components/AddNote'
+import { getAddNoteError } from 'components/AddNote'
 import Button from 'components/Button'
 import SelectLoader from 'components/SelectLoader'
 import type { SubcategoriesGrouped } from 'models/categories/selectors'
@@ -14,7 +16,14 @@ import {
   typesList,
 } from 'signals/incident-management/definitions'
 
-import { StyledGrid, StyledHeading, StyledFieldset } from '../../styled'
+import {
+  RemoveButton,
+  StyledHeading,
+  StyledFieldset,
+  StyledHeadingWrapper,
+  StyledExtraIncidentButtonContainer,
+  StyledAddNote,
+} from './styled'
 import type { ParentIncident } from '../IncidentSplitForm'
 import IncidentSplitRadioInput from '../IncidentSplitRadioInput'
 import IncidentSplitSelectInput from '../IncidentSplitSelectInput'
@@ -30,39 +39,68 @@ const IncidentSplitFormIncident: FC<IncidentSplitFormIncidentProps> = ({
   parentIncident,
   subcategories,
 }) => {
-  const [splitCount, setSplitCount] = useState(1)
+  const [subIncidents, setSubIncidents] = useState([{ id: uniqueId() }])
+
+  const { control, unregister } = useFormContext()
+
   const [groups, options] = subcategories
   const maxDescriptionLength = 1000
-  const { control } = useFormContext()
 
-  const addIncident = useCallback((event) => {
+  const addSubIncident = useCallback((event) => {
     event.preventDefault()
-    setSplitCount((previousSplitCount) => previousSplitCount + 1)
+
+    setSubIncidents((map) => [...map, { id: uniqueId() }])
   }, [])
+
+  const removeSubIncident = useCallback(
+    (event, id) => {
+      event.preventDefault()
+
+      unregister(`incidents[${id}]`)
+
+      setSubIncidents((map11) => map11.filter((item) => item.id !== id))
+    },
+    [unregister]
+  )
 
   return (
     <>
-      {[...Array(splitCount + 1).keys()].slice(1).map((splitNumber) => (
-        <StyledFieldset key={`incident-splitform-incident-${splitNumber}`}>
-          <StyledGrid>
-            <StyledHeading
-              forwardedAs="h2"
-              data-testid="incident-split-form-incident-title"
-            >
-              Deelmelding {splitNumber + parentIncident.childrenCount}
-            </StyledHeading>
+      {subIncidents.map(({ id }, index) => {
+        const subIncidentNumber = index + parentIncident.childrenCount + 1
+        const canRemoveIncident = index !== 0 || subIncidents.length > 1
+
+        return (
+          <StyledFieldset key={`incident-splitform-incident-${id}`}>
+            <StyledHeadingWrapper>
+              <StyledHeading
+                forwardedAs="h2"
+                data-testid="incident-split-form-incident-title"
+              >
+                Deelmelding {subIncidentNumber}
+              </StyledHeading>
+
+              {canRemoveIncident && (
+                <RemoveButton
+                  icon={<TrashBin />}
+                  iconSize={16}
+                  onClick={(event) => removeSubIncident(event, id)}
+                  variant="application"
+                  aria-label="Verwijder deelmelding"
+                />
+              )}
+            </StyledHeadingWrapper>
 
             {groups.length > 0 && options.length > 0 ? (
               <Controller
-                name={`incidents[${splitNumber}].subcategory`}
+                name={`incidents.${id}.subcategory`}
                 control={control}
                 defaultValue={parentIncident.subcategory}
                 render={({ field: { onChange, name } }) => (
                   <IncidentSplitSelectInput
-                    data-testid={`incident-split-form-incident-subcategory-select-${splitNumber}`}
+                    data-testid={`incident-split-form-incident-subcategory-select-${id}`}
                     display="Subcategorie"
                     groups={groups}
-                    id={`subcategory-${splitNumber}`}
+                    id={`subcategory-${id}`}
                     initialValue={parentIncident.subcategory}
                     name={name}
                     onChange={onChange}
@@ -75,7 +113,7 @@ const IncidentSplitFormIncident: FC<IncidentSplitFormIncidentProps> = ({
             )}
 
             <Controller
-              name={`incidents[${splitNumber}].description`}
+              name={`incidents.${id}.description`}
               control={control}
               defaultValue={parentIncident.description}
               rules={{
@@ -90,7 +128,7 @@ const IncidentSplitFormIncident: FC<IncidentSplitFormIncidentProps> = ({
                 },
               }}
               render={({ field, fieldState: { error } }) => (
-                <AddNote
+                <StyledAddNote
                   {...field}
                   error={error && error.message}
                   isStandalone={false}
@@ -103,12 +141,12 @@ const IncidentSplitFormIncident: FC<IncidentSplitFormIncidentProps> = ({
             <Controller
               control={control}
               defaultValue={parentIncident.priority}
-              name={`incidents[${splitNumber}].priority`}
+              name={`incidents.${id}.priority`}
               render={({ field: { onChange, name } }) => (
                 <IncidentSplitRadioInput
-                  data-testid={`incident-split-form-incident-priority-radio-${splitNumber}`}
+                  data-testid={`incident-split-form-incident-priority-radio-${id}`}
                   display="Urgentie"
-                  id={`priority-${splitNumber}`}
+                  id={`priority-${id}`}
                   initialValue={parentIncident.priority}
                   name={name}
                   onChange={onChange}
@@ -120,12 +158,12 @@ const IncidentSplitFormIncident: FC<IncidentSplitFormIncidentProps> = ({
             <Controller
               control={control}
               defaultValue={parentIncident.type}
-              name={`incidents[${splitNumber}].type`}
+              name={`incidents.${id}.type`}
               render={({ field: { onChange, name } }) => (
                 <IncidentSplitRadioInput
-                  data-testid={`incident-split-form-incident-type-radio-${splitNumber}`}
+                  data-testid={`incident-split-form-incident-type-radio-${id}`}
                   display="Type"
-                  id={`type-${splitNumber}`}
+                  id={`type-${id}`}
                   initialValue={parentIncident.type}
                   name={name}
                   onChange={onChange}
@@ -133,21 +171,22 @@ const IncidentSplitFormIncident: FC<IncidentSplitFormIncidentProps> = ({
                 />
               )}
             />
-          </StyledGrid>
-        </StyledFieldset>
-      ))}
+          </StyledFieldset>
+        )
+      })}
 
-      {splitCount < INCIDENT_SPLIT_LIMIT - parentIncident.childrenCount && (
-        <fieldset>
+      {subIncidents.length <
+        INCIDENT_SPLIT_LIMIT - parentIncident.childrenCount && (
+        <StyledExtraIncidentButtonContainer>
           <Button
             data-testid="incident-split-form-incident-split-button"
             type="button"
             variant="primaryInverted"
-            onClick={addIncident}
+            onClick={addSubIncident}
           >
             Extra deelmelding toevoegen
           </Button>
-        </fieldset>
+        </StyledExtraIncidentButtonContainer>
       )}
     </>
   )

@@ -1,5 +1,5 @@
 export {
-  falsyOrNumber,
+  falsyOrNumberOrNow,
   inPast,
   isBlocking,
   validateObjectLocation,

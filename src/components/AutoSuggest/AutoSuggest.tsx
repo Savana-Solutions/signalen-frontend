@@ -1,8 +1,9 @@
 // SPDX-License-Identifier: MPL-2.0
-// Copyright (C) 2020 - 2021 Gemeente Amsterdam
+// Copyright (C) 2020 - 2023 Gemeente Amsterdam
 import { useCallback, useEffect, useState, useRef, useMemo } from 'react'
+import type { ChangeEvent } from 'react'
 
-import { Close } from '@amsterdam/asc-assets'
+import { Close, Search } from '@amsterdam/asc-assets'
 import { useDispatch } from 'react-redux'
 
 import { showGlobalNotification } from 'containers/App/actions'
@@ -13,7 +14,7 @@ import { getAuthHeaders } from 'shared/services/auth/auth'
 import type { PdokResponse } from 'shared/services/map-location'
 import type { RevGeo } from 'types/pdok/revgeo'
 
-import { Wrapper, Input, List, ClearInput } from './styled'
+import { Wrapper, Input, List, InlineButton } from './styled'
 
 export const INPUT_DELAY = 350
 
@@ -26,18 +27,21 @@ export interface AutoSuggestProps {
   autoFocus?: boolean
   className?: string
   disabled?: boolean
-  formatResponse: (data?: RevGeo) => Array<PdokResponse>
+  formatResponse: (data?: any) => Array<any>
   id?: string
   includeAuthHeaders?: boolean
-  numOptionsDeterminer: (data?: RevGeo) => number
+  numOptionsDeterminer: (data: any) => number
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void
   onClear?: () => void
   onData?: (optionsList: any) => void
   onFocus?: () => void
   onSelect: (option: PdokResponse) => void
   placeholder?: string
   showInlineList?: boolean
+  showNoResultFeedback?: boolean
   tabIndex?: number
   url: string
+  showListChanged?: (value: boolean) => void
   value?: string
 }
 
@@ -62,27 +66,41 @@ const AutoSuggest = ({
   id = '',
   includeAuthHeaders = false,
   numOptionsDeterminer,
+  onChange,
   onClear,
   onData,
   onFocus,
   onSelect,
   placeholder = '',
   showInlineList = true,
+  showNoResultFeedback = true,
   url,
   value = '',
+  showListChanged,
   ...rest
 }: AutoSuggestProps) => {
-  const [defaultValue, setDefaultValue] = useState(value)
+  const [showInlineButton, setShowInlineButton] = useState(!!value)
+
   const [data, setData] = useState<RevGeo>()
   const [initialRender, setInitialRender] = useState(false)
   const [showList, setShowList] = useState(false)
   const [activeIndex, setActiveIndex] = useState(-1)
   const wrapperRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
+
   const options = useMemo(
     () => data && formatResponse(data),
     [data, formatResponse]
   )
+
+  useEffect(() => {
+    let timeoutId: ReturnType<typeof setTimeout>
+    if (showListChanged) {
+      timeoutId = setTimeout(() => showListChanged(showList), 0)
+    }
+    return () => clearTimeout(timeoutId)
+  }, [showList, showListChanged])
+
   const activeId = options?.[activeIndex]?.id || ''
   const dispatch = useDispatch()
   const handleInputKeyDown = useCallback((event) => {
@@ -107,8 +125,7 @@ const AutoSuggest = ({
 
       setActiveIndex(-1)
       setShowList(false)
-      setDefaultValue('')
-
+      setShowInlineButton(false)
       if (onClear) {
         onClear()
       }
@@ -234,21 +251,20 @@ const AutoSuggest = ({
 
   const debouncedServiceRequest = useDebounce(serviceRequest, INPUT_DELAY)
 
-  const onChange = useCallback(
-    (event) => {
-      event.persist()
-      setDefaultValue(event.target.value)
-      debouncedServiceRequest(event.target.value)
-    },
-    [debouncedServiceRequest]
-  )
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    if (onChange) {
+      onChange(event)
+    }
+    event.persist()
+    setShowInlineButton(true)
+    debouncedServiceRequest(event.target.value)
+  }
 
   const onSelectOption = useCallback(
     (option) => {
       setActiveIndex(-1)
       setShowList(false)
-      setDefaultValue(option.value)
-
+      setShowInlineButton(true)
       if (inputRef.current) {
         inputRef.current.value = option.value
       }
@@ -303,12 +319,13 @@ const AutoSuggest = ({
    * Subscribe to changes in fetched data
    */
   useEffect(() => {
-    const hasResults = numOptionsDeterminer(data) > 0
+    const hasResults = data ? numOptionsDeterminer(data) > 0 : false
 
     setShowList(hasResults)
   }, [data, numOptionsDeterminer])
 
   useEffect(() => {
+    /* istanbul ignore next */
     if (data?.response?.numFound === 0) {
       setShowList(true)
     }
@@ -329,10 +346,11 @@ const AutoSuggest = ({
           onSelectOption={onSelectOption}
           options={options}
           role="listbox"
+          showNoResultFeedback={showNoResultFeedback}
         />
       )) ||
       null,
-    [activeIndex, options, onSelectOption]
+    [activeIndex, options, onSelectOption, showNoResultFeedback]
   )
 
   useEffect(() => {
@@ -354,17 +372,16 @@ const AutoSuggest = ({
           aria-activedescendant={activeId.toString()}
           aria-autocomplete="list"
           autoComplete="off"
-          defaultValue={defaultValue}
           disabled={disabled}
           id={id}
-          onChange={onChange}
+          onChange={handleChange}
           onFocus={onFocus}
           placeholder={placeholder}
           ref={inputRef}
           {...rest}
         />
-        {(defaultValue || value) && (
-          <ClearInput
+        {showInlineButton ? (
+          <InlineButton
             aria-label="Input verwijderen"
             title="Verwijderen"
             data-testid="clear-input"
@@ -373,6 +390,18 @@ const AutoSuggest = ({
             onClick={clearInput}
             size={24}
             variant="blank"
+          />
+        ) : (
+          <InlineButton
+            aria-label="Zoeken"
+            title="Zoeken"
+            data-testid="search-input"
+            icon={<Search />}
+            iconSize={20}
+            onClick={() => inputRef.current?.focus()}
+            size={24}
+            variant="blank"
+            type="button"
           />
         )}
       </div>

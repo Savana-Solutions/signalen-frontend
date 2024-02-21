@@ -25,7 +25,7 @@ const mockResponse = JSON.stringify(JSONResponse)
 const numOptionsDeterminer: AutoSuggestProps['numOptionsDeterminer'] = (data) =>
   data?.response?.docs?.length || 0
 const formatResponse: AutoSuggestProps['formatResponse'] = (requestData) =>
-  requestData?.response?.docs.map((result) => {
+  requestData?.response?.docs.map((result: any) => {
     const { id, weergavenaam } = result
     return {
       id,
@@ -78,6 +78,20 @@ describe('src/components/AutoSuggest', () => {
     expect(input.getAttribute('aria-autocomplete')).toEqual('list')
     expect(input.getAttribute('id')).toBe('')
     expect(input.hasAttribute('disabled')).toBe(false)
+  })
+
+  it('should render a combobox with input field with search-input', () => {
+    render(withAppContext(<AutoSuggest {...props} />))
+
+    expect(screen.getByTestId('search-input')).toBeInTheDocument()
+
+    const searchInput = screen.getByTestId('search-input')
+
+    expect(searchInput).toBeInTheDocument()
+
+    userEvent.click(searchInput)
+
+    expect(screen.getByRole('textbox')).toHaveFocus()
   })
 
   it('should set an id on the input field', () => {
@@ -727,5 +741,33 @@ describe('src/components/AutoSuggest', () => {
     fireEvent.focus(screen.getByRole('textbox'))
 
     expect(onFocus).toHaveBeenCalled()
+  })
+
+  it('calls onChange when passed', () => {
+    const onChange = jest.fn()
+
+    render(withAppContext(<AutoSuggest {...props} onChange={onChange} />))
+
+    expect(onChange).not.toHaveBeenCalled()
+
+    const input = screen.getByRole('textbox')
+
+    userEvent.type(input, 'Rembrandt')
+
+    expect(onChange).toHaveBeenCalled()
+  })
+
+  describe('inline button', () => {
+    it('should render a search input icon', () => {
+      render(withAppContext(<AutoSuggest {...props} />))
+
+      expect(screen.getByTestId('search-input')).toBeInTheDocument()
+    })
+
+    it('should render a clear input', () => {
+      render(withAppContext(<AutoSuggest {...props} value="Dam" />))
+
+      expect(screen.getByTestId('clear-input')).toBeInTheDocument()
+    })
   })
 })

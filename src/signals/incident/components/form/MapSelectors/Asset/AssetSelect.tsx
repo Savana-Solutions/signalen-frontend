@@ -1,14 +1,15 @@
 // SPDX-License-Identifier: MPL-2.0
-// Copyright (C) 2020 - 2022 Gemeente Amsterdam
+// Copyright (C) 2020 - 2023 Gemeente Amsterdam
 import type { FC } from 'react'
 import { useEffect } from 'react'
 import { useCallback, useState } from 'react'
 
 import type { LatLngLiteral } from 'leaflet'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import Summary from 'components/Summary'
 import reverseGeocoderService from 'shared/services/reverse-geocoder'
+import { updateIncident as updateReduxIncident } from 'signals/incident/containers/IncidentContainer/actions'
 import { makeSelectIncidentContainer } from 'signals/incident/containers/IncidentContainer/selectors'
 import type { Incident, Location } from 'types/incident'
 
@@ -16,7 +17,13 @@ import { AssetSelectProvider } from './context'
 import Intro from './Intro'
 import Selector from './Selector'
 import { UNKNOWN_TYPE, UNREGISTERED_TYPE } from '../constants'
-import type { FeatureStatusType, FeatureType, Item, Meta } from '../types'
+import type {
+  FeatureStatusType,
+  FeatureType,
+  Item,
+  Meta,
+  SelectableFeature,
+} from '../types'
 
 const defaultIconConfig: FeatureType['icon'] = {
   options: {
@@ -58,14 +65,17 @@ export interface AssetSelectProps {
 }
 
 const AssetSelect: FC<AssetSelectProps> = ({ value, layer, meta, parent }) => {
+  const dispatch = useDispatch()
   const { selection, location } = value || {}
   const [message, setMessage] = useState<string>()
+  const [selectableFeatures, setSelectableFeatures] = useState<
+    SelectableFeature[] | undefined
+  >(undefined)
   const { mapActive } = useSelector(makeSelectIncidentContainer)
   const [featureTypes, setFeatureTypes] = useState<FeatureType[]>([])
   const { coordinates, address } = location || {}
   const hasSelection = selection || coordinates
   const { maxNumberOfAssets } = meta
-
   const updateIncident = useCallback(
     (payload?: UpdatePayload) => {
       parent.meta.updateIncident({
@@ -101,6 +111,7 @@ const AssetSelect: FC<AssetSelectProps> = ({ value, layer, meta, parent }) => {
       selection: selectedItem ? [selectedItem] : undefined,
     }
 
+    dispatch(updateReduxIncident({ maxAssetWarning: false }))
     parent.meta.removeFromSelection({
       [meta.name as string]: payload,
       meta_name: meta.name,
@@ -144,9 +155,7 @@ const AssetSelect: FC<AssetSelectProps> = ({ value, layer, meta, parent }) => {
 
       if (payload.location) {
         const response = await reverseGeocoderService(latLng)
-
         payload.location.address = response?.data?.address
-
         updateIncident(payload)
       }
     },
@@ -197,6 +206,7 @@ const AssetSelect: FC<AssetSelectProps> = ({ value, layer, meta, parent }) => {
         coordinates,
         layer,
         message,
+        selectableFeatures,
         meta: {
           ...meta,
           featureTypes,
@@ -207,6 +217,7 @@ const AssetSelect: FC<AssetSelectProps> = ({ value, layer, meta, parent }) => {
         setItem,
         fetchLocation,
         setMessage,
+        setSelectableFeatures,
       }}
     >
       {!mapActive && !hasSelection && <Intro />}
