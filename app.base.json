@@ -1,5 +1,6 @@
 {
   "apiBaseUrl": "http://localhost:8000",
+  "signalenCanonicalUrl": "http://localhost:8000/security.txt",
   "areaTypeCodeForDistrict": "district",
   "featureFlags": {
     "appMode": false,
