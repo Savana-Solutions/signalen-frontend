@@ -11,11 +11,6 @@
           "type": "string",
           "format": "uri"
         },
-        "signalenCanonicalUrl": {
-          "description": "The canonical URL of signalen for security.txt",
-          "type": "string",
-          "format": "uri"
-        },
         "areaTypeCodeForDistrict": {
           "description": "The area_type_code that is being used as districts, fetched from the areas endpoint (when [fetchDistrictsFromBackend](#fetchDistrictsFromBackend) is set to true).",
           "type": "string"
