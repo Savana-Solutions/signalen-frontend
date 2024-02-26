@@ -89,8 +89,12 @@ RUN touch /run/nginx.pid && \
 # Switch back to root to run start.sh as root
 USER root
 
+# Before switching to appuser
+RUN mkdir -p /usr/share/nginx/html/.well-known/ && \
+    chmod -R 777 /usr/share/nginx/html/.well-known/
+
+# Switch back to appuser for security reasons
+USER appuser
+
 CMD ["/usr/local/bin/start.sh"]
 EXPOSE 8080
-
-# Switch back to non-root for security reasons
-USER appuser

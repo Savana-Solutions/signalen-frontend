@@ -2,8 +2,8 @@
 
 set -e
 
-# Create the .well-known directory if it doesn't exist
-mkdir -p /usr/share/nginx/html/.well-known/
+# Print the current user
+whoami
 
 echo "Contact: https://www.mycleancity.nl/index.php#contacttwo" > /usr/share/nginx/html/.well-known/security.txt
 echo "Expires: 2025-10-31T23:59:01+00:00" >> /usr/share/nginx/html/.well-known/security.txt
