@@ -86,7 +86,11 @@ RUN touch /run/nginx.pid && \
   /usr/share/nginx/html/index.html \
   /usr/share/nginx/html/manifest.json
 
-USER appuser
+# Switch back to root to run start.sh as root
+USER root
 
 CMD ["/usr/local/bin/start.sh"]
 EXPOSE 8080
+
+# Switch back to non-root for security reasons
+USER appuser
