@@ -66,6 +66,14 @@ const DetailPanel: FC<DetailPanelProps> = ({ language, zoomLevel }) => {
     (option: PdokResponse) => {
       const { location, address } = option.data
       setLocation({ coordinates: location, address })
+      ;(window as any)?.dataLayer?.push({
+        event: 'interaction.generic.component.mapInteraction',
+        meta: {
+          category: 'interaction.generic.component.mapInteraction',
+          action: 'useAutosuggest',
+          label: `${address.openbare_ruimte} ${address.huisnummer} ${address.postcode} ${address.woonplaats}`,
+        },
+      })
     },
     [setLocation]
   )
@@ -82,11 +90,14 @@ const DetailPanel: FC<DetailPanelProps> = ({ language, zoomLevel }) => {
 
   const topPositionDrawerMobile = useMemo(() => {
     return selection ||
-      (zoomLevel && zoomLevel >= 13 && featureTypes.length > 0) ||
+      (zoomLevel &&
+        zoomLevel >= 13 &&
+        selectableFeatures &&
+        selectableFeatures.length > 0) ||
       legendOpen
       ? 60
       : 100
-  }, [selection, zoomLevel, featureTypes, legendOpen])
+  }, [selection, zoomLevel, selectableFeatures, legendOpen])
 
   return (
     <DrawerOverlay
@@ -134,7 +145,8 @@ const DetailPanel: FC<DetailPanelProps> = ({ language, zoomLevel }) => {
               />
             </>
           )}
-          {((selection && selectionOnMap) || selectableFeatures) && (
+          {((selection && selectionOnMap) ||
+            (selectableFeatures && selectableFeatures.length > 0)) && (
             <StyledAssetList
               selection={selection}
               remove={removeItem}

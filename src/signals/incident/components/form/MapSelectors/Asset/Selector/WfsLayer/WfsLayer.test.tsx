@@ -4,13 +4,14 @@ import type { FunctionComponent, ReactNode } from 'react'
 import { useContext } from 'react'
 
 import { Map } from '@amsterdam/react-maps'
-import { act, render, screen } from '@testing-library/react'
+import { act, render, screen, waitFor } from '@testing-library/react'
 import type { FeatureCollection } from 'geojson'
 import type { FetchMock } from 'jest-fetch-mock'
-import type { MapOptions } from 'leaflet'
+import type { LatLngTuple, MapOptions } from 'leaflet'
 
 import configuration from 'shared/services/configuration/configuration'
 import MAP_OPTIONS from 'shared/services/configuration/map-options'
+import { sanitizeCoordinates } from 'shared/services/map-location'
 import assetsJson from 'utils/__tests__/fixtures/assets.json'
 
 import WfsDataContext, { NO_DATA } from './context'
@@ -100,9 +101,24 @@ describe('src/signals/incident/components/form/AssetSelect/WfsLayer', () => {
       )
     )
 
-    await screen.findByTestId('map-test')
-    expect(setContextData).toHaveBeenCalledWith(assetsJson)
-    expect(fetchMock).toHaveBeenCalledTimes(1)
+    const sanitizedAssetsJson = {
+      ...assetsJson,
+      features: assetsJson.features.map((feature) => {
+        return {
+          ...feature,
+          geometry: {
+            ...feature.geometry,
+            coordinates: sanitizeCoordinates(
+              feature.geometry.coordinates as LatLngTuple
+            ),
+          },
+        }
+      }),
+    }
+
+    await waitFor(() => {
+      expect(setContextData).toHaveBeenCalledWith(sanitizedAssetsJson)
+    })
   })
 
   it('should not render when an AbortError occurs in the wfs call', () => {
@@ -289,9 +305,16 @@ describe('src/signals/incident/components/form/AssetSelect/WfsLayer', () => {
     expect(fetchMock.mock.lastCall[1]?.headers).toBeFalsy()
   })
 
-  it('should only set x-api-key header when keys.dataPlatform is filled in the config', () => {
+  it('should only set x-api-key header when host is api.data.amsterdam.nl', () => {
     configuration.map.keys.dataPlatform = '1234'
-
+    const assetSelectProviderValue: AssetSelectValue = {
+      ...assetSelectContextValue,
+      meta: {
+        ...assetSelectContextValue.meta,
+        endpoint: 'https://api.data.amsterdam.nl',
+      },
+      setItem: jest.fn(() => promise),
+    }
     render(
       withMapAsset(
         <AssetSelectProvider value={assetSelectProviderValue}>

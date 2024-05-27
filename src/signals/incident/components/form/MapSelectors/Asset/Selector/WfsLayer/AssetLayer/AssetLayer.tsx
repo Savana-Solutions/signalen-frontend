@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MPL-2.0
-// Copyright (C) 2021 - 2022 Gemeente Amsterdam
+// Copyright (C) 2021 - 2024 Gemeente Amsterdam
 import { useCallback, useContext } from 'react'
 import type { FC } from 'react'
 
@@ -52,7 +52,7 @@ export const AssetLayer: FC = () => {
 
     const { description, typeValue, idField } = featureType
     const id = feature.properties[idField] || ''
-    const isSelected = Boolean(selection?.find((item) => item.id === id))
+    const isSelected = Boolean(selection?.find((item) => item.id == id))
 
     const iconUrl = isSelected
       ? '/assets/images/feature-selected-marker.svg'
@@ -75,6 +75,15 @@ export const AssetLayer: FC = () => {
         } (${id})`
 
     const onClick = async () => {
+      ;(window as any)?.dataLayer?.push({
+        event: 'interaction.generic.component.mapInteraction',
+        meta: {
+          category: 'interaction.generic.component.mapInteraction',
+          action: 'objectClick',
+          label: label,
+        },
+      })
+
       if (typeValue !== FeatureStatus.REPORTED) {
         const location: Location = { coordinates }
 
