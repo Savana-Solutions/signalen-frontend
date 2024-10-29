@@ -29,6 +29,7 @@ import MapContext from 'containers/MapContext/context'
 import useFetch from 'hooks/useFetch'
 import configuration from 'shared/services/configuration/configuration'
 import {
+  getIncidentIcon,
   incidentIcon,
   markerIcon,
 } from 'shared/services/configuration/map-markers'
@@ -205,25 +206,19 @@ const OverviewMap: FC<OverviewMapProps> = ({
       const latlng = featureToCoordinates(feature.geometry)
 
       const clusteredMarker = L.marker(latlng, {
-        icon: incidentIcon,
+        icon: getIncidentIcon(feature.properties.status),
       })
 
-      /* istanbul ignore next */
-      clusteredMarker.on(
-        'click',
-        (event: {
-          target: { setIcon: (icon: L.Icon<L.IconOptions>) => void }
-        }) => {
-          resetMarkerIcons()
+      clusteredMarker.on('click', (event) => {
+        resetMarkerIcons()
 
-          event.target.setIcon(markerIcon)
+        event.target.setIcon(markerIcon)
 
-          if (feature.properties?.id) {
-            setIncident(feature.properties)
-            setShowPanel(true)
-          }
+        if (feature.properties?.id) {
+          setIncident(feature.properties)
+          setShowPanel(true)
         }
-      )
+      })
 
       layerInstance.addLayer(clusteredMarker)
     })
