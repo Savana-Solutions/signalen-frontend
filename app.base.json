@@ -86,7 +86,7 @@
           5.10737
         ]
       ],
-      "maxNumberOfAssets" : {
+      "maxNumberOfAssets": {
         "straatverlichting": 3,
         "klokken": 1,
         "afvalContainer": 5,
@@ -137,13 +137,27 @@
       "zoom": 10
     },
     "tiles": {
-      "args": [
-        "https://service.pdok.nl/brt/achtergrondkaart/wmts/v2_0/standaard/EPSG:28992/{z}/{x}/{y}.png"
-      ],
-      "options": {
-        "attribution": "Kaartgegevens &copy; Kadaster",
-        "maxNativeZoom": 14,
-        "tms": false
+      "brt": {
+        "args": [
+          "https://service.pdok.nl/brt/achtergrondkaart/wmts/v2_0/standaard/EPSG:28992/{z}/{x}/{y}.png"
+        ],
+        "options": {
+          "attribution": "Kaartgegevens &copy; Kadaster",
+          "maxNativeZoom": 14,
+          "tms": false,
+          "maxZoom": 11
+        }
+      },
+      "bgt": {
+        "args": [
+          "https://service.pdok.nl/bgt/achtergrondkaart/wmts/v2_0/standaard/EPSG:28992/{z}/{x}/{y}.png"
+        ],
+        "options": {
+          "attribution": "Kaartgegevens &copy; Kadaster",
+          "maxNativeZoom": 14,
+          "tms": false,
+          "minZoom": 12
+        }
       }
     },
     "layers": {
@@ -181,7 +195,7 @@
     }
   },
   "frontPageAlert": {
-    "text":""
+    "text": ""
   },
   "additionalCode": {
     "css": ""
