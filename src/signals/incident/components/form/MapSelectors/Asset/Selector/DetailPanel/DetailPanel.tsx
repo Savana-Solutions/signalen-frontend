@@ -58,6 +58,8 @@ const DetailPanel: FC<DetailPanelProps> = ({ language, zoomLevel }) => {
   const { featureTypes } = meta
   const featureStatusTypes = meta.featureStatusTypes || []
   const addressValue = address ? formatAddress(address) : ''
+  const hasValidAddress = address && Object.keys(address).length > 0
+
   const selectionOnMap =
     selection && selectionIsObject(selection[0]) ? selection : undefined
 
@@ -164,8 +166,11 @@ const DetailPanel: FC<DetailPanelProps> = ({ language, zoomLevel }) => {
             variant="primary"
             data-testid="asset-select-submit-button"
             tabIndex={0}
+            disabled={!hasValidAddress}
           >
-            {submitButtonText}
+            {hasValidAddress
+              ? submitButtonText
+              : 'Selecteer eerst een geldig adres'}
           </StyledButton>
         )}
       </PanelContent>
@@ -182,10 +187,13 @@ const DetailPanel: FC<DetailPanelProps> = ({ language, zoomLevel }) => {
             variant="primary"
             data-testid="asset-select-submit-button"
             tabIndex={0}
+            disabled={!hasValidAddress}
             $isMobile={shouldRenderMobileVersion}
             $hasSubmitButton={hasLocation}
           >
-            {submitButtonText}
+            {hasValidAddress
+              ? submitButtonText
+              : 'Selecteer eerst een geldig adres'}
           </StyledButton>
         </StyledButtonWrapper>
       )}

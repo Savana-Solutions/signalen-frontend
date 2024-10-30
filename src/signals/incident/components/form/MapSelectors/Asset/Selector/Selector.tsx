@@ -62,6 +62,7 @@ import { formatAddress } from '../../../../../../../shared/services/format-addre
 import type { PdokResponse } from '../../../../../../../shared/services/map-location'
 import { MapMessage, ZoomMessage } from '../../components/MapMessage'
 import { selectionIsUndetermined } from '../../constants'
+import reverseGeocoderService from 'shared/services/reverse-geocoder'
 
 const MAP_ASSETS_ZOOM_LEVEL: ZoomLevel = {
   max: configuration.map.optionsAssetSelector.assetsZoom,
@@ -134,9 +135,18 @@ const Selector: FC = () => {
         },
       })
 
-      fetchLocation(latlng)
+      // First get the reverse geocoded address
+      reverseGeocoderService(latlng).then((response) => {
+        if (response?.data?.address) {
+          fetchLocation(latlng)
+        } else {
+          setMapMessage(
+            'Geen geldig adres gevonden op deze locatie. Probeer een andere locatie.'
+          )
+        }
+      })
     },
-    [fetchLocation]
+    [fetchLocation, setMapMessage]
   )
 
   const { click, doubleClick } = useDelayedDoubleClick(mapClick)
