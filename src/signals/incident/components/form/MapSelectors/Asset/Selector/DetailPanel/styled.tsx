@@ -42,12 +42,6 @@ export const StyledButton = styled(Button)<{
       margin: 0;
       position: relative;
     `}
-
-  &:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    pointer-events: none;
-  }
 `
 
 export const StyledButtonWrapper = styled.div`

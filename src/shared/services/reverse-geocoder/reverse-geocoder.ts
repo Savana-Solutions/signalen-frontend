@@ -28,20 +28,14 @@ const reverseGeocoderService = async (
 ): Promise<PdokResponse | undefined> => {
   const url = formatRequest(new URL(serviceURL), location)
 
-  try {
-    const result: RevGeo = await fetch(url).then((res) => res.json())
+  const result: RevGeo = await fetch(url)
+    .then((res) => res.json())
+    // make sure to catch any error responses from the geocoder service
+    .catch(() => ({}))
 
-    const formattedResponse = formatPDOKResponse(result)
+  const formattedResponse = formatPDOKResponse(result)
 
-    // Only return if we have a valid address
-    if (formattedResponse[0]?.data?.address) {
-      return formattedResponse[0]
-    }
-
-    return undefined
-  } catch (error) {
-    return undefined
-  }
+  return formattedResponse[0]
 }
 
 export default reverseGeocoderService
