@@ -449,20 +449,7 @@
           "$ref": "#/definitions/OptionsExternalReplyMap"
         },
         "tiles": {
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "brt": {
-              "$ref": "#/definitions/TileLayer"
-            },
-            "bgt": {
-              "$ref": "#/definitions/TileLayer"
-            }
-          },
-          "required": [
-            "brt",
-            "bgt"
-          ]
+          "$ref": "#/definitions/Tiles"
         },
         "layers": {
           "type": "object",
@@ -749,30 +736,29 @@
         }
       }
     },
-    "TileLayer": {
+    "Tiles": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
         "args": {
-          "description": "URL template string to initialise the Leaflet TileLayer. See https://leafletjs.com/reference-1.6.0.html#tilelayer for reference",
+          "description": "Array of URL template strings to initialise the Leaflet TileLayer. See https://leafletjs.com/reference-1.6.0.html#tilelayer for reference Used in the `Map` (src/components/Map/index.js)",
           "type": "array",
-          "minItems": 1,
-          "maxItems": 1,
           "items": {
             "type": "string"
           }
         },
         "options": {
-          "description": "Object with Leaflet TileLayer configuration properties. See https://leafletjs.com/reference-1.6.0.html#tilelayer for reference",
-          "$ref": "#/definitions/TileLayerOptions"
+          "description": "Object with Leaflet TileLayer configuration properties. See https://leafletjs.com/reference-1.6.0.html#tilelayer for reference\n\nUsed in the `Map` component (src/components/Map/index.js)",
+          "$ref": "#/definitions/TilesOptions"
         }
       },
       "required": [
         "args",
         "options"
-      ]
+      ],
+      "title": "Tiles"
     },
-    "TileLayerOptions": {
+    "TilesOptions": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -780,9 +766,6 @@
           "type": "string"
         },
         "maxZoom": {
-          "type": "integer"
-        },
-        "minZoom": {
           "type": "integer"
         },
         "maxNativeZoom": {
@@ -801,7 +784,8 @@
       "required": [
         "attribution",
         "tms"
-      ]
+      ],
+      "title": "TilesOptions"
     },
     "Sentry": {
       "type": "object",
@@ -870,3 +854,4 @@
     }
   }
 }
+

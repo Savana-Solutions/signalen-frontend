@@ -14,8 +14,6 @@ import configuration from 'shared/services/configuration/configuration'
 import { closeMap } from 'signals/incident/containers/IncidentContainer/actions'
 import { makeSelectIncidentContainer } from 'signals/incident/containers/IncidentContainer/selectors'
 
-const createTileLayerArgs = (url: string): [string] => [url]
-
 const StyledMap = styled(MapComponent)`
   cursor: default;
 
@@ -121,13 +119,8 @@ const Map: FC<PropsWithChildren<MapProps>> = ({
       />
 
       <TileLayer
-        args={createTileLayerArgs(configuration.map.tiles.brt.args[0])}
-        options={configuration.map.tiles.brt.options}
-      />
-
-      <TileLayer
-        args={createTileLayerArgs(configuration.map.tiles.bgt.args[0])}
-        options={configuration.map.tiles.bgt.options}
+        args={configuration.map.tiles.args as [string]}
+        options={configuration.map.tiles.options}
       />
     </StyledMap>
   )
