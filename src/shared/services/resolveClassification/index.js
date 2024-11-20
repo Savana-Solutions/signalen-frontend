@@ -25,20 +25,17 @@ const resolveClassification = ({
   hoofdrubriek = [[], []],
   subrubriek = [[], []],
 } = {}) => {
-  const subrubriekMeetsMinimumCertainty = MINIMUM_CERTAINTY <= subrubriek[1][0]
-  const hoofdrubriekMeetsMinimumCertainty =
-    MINIMUM_CERTAINTY <= hoofdrubriek[1][0]
-
-  if (subrubriekMeetsMinimumCertainty) {
+  // Always use the highest probability prediction from subrubriek if available
+  if (subrubriek[0].length > 0 && subrubriek[1].length > 0) {
     const [, category, subcategory] = subrubriek[0][0].match(reCategory)
-
     return {
       category,
       subcategory,
     }
   }
 
-  if (hoofdrubriekMeetsMinimumCertainty) {
+  // Fallback to hoofdrubriek if subrubriek is not available
+  if (hoofdrubriek[0].length > 0 && hoofdrubriek[1].length > 0) {
     const [, category] = hoofdrubriek[0][0].match(reCategory)
 
     if (configuration.featureFlags.enableAmsterdamSpecificOverigCategories) {
@@ -53,6 +50,7 @@ const resolveClassification = ({
     }
   }
 
+  // Only use default classification if no predictions are available
   return {
     category: DEFAULT_CLASSIFICATION,
     subcategory: DEFAULT_CLASSIFICATION,
