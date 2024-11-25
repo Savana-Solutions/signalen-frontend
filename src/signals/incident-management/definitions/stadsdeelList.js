@@ -1,16 +1,18 @@
 // SPDX-License-Identifier: MPL-2.0
 // Copyright (C) 2018 - 2021 Gemeente Amsterdam
 const stadsdeelList = [
-  { key: 'A', value: 'Centrum' },
-  { key: 'B', value: 'Westpoort' },
-  { key: 'E', value: 'West' },
-  { key: 'M', value: 'Oost' },
-  { key: 'N', value: 'Noord' },
-  { key: 'T', value: 'Zuidoost' },
-  { key: 'K', value: 'Zuid' },
-  { key: 'F', value: 'Nieuw-West' },
-  { key: 'H', value: 'Het Amsterdamse Bos' },
-  { key: 'W', value: 'Weesp' },
+  { key: 'berghem', value: 'Berghem' },
+  { key: 'ckm', value: 'CKM' },
+  { key: 'geffen', value: 'Geffen' },
+  { key: 'herpen', value: 'Herpen' },
+  { key: 'lith', value: 'Lith' },
+  { key: 'mhm', value: 'MHM' },
+  { key: 'nw', value: 'NW' },
+  { key: 'oijen-teeffelen', value: 'Oijen-Teeffelen' },
+  { key: 'oss-zuid', value: 'Oss-Zuid' },
+  { key: 'ravenstein', value: 'Ravenstein' },
+  { key: 'ruwaard', value: 'Ruwaard' },
+  { key: 'schadewijk', value: 'Schadewijk' },
   { key: 'null', value: 'Niet bepaald' },
 ]
 
