@@ -60,7 +60,7 @@ const Overview: FunctionComponent<Props> = ({ showItems }) => {
         <PageHeader title="Instellingen">
           <StyledVersionNumbers>
             {`
-            Versienummer frontend: ${process.env.FRONTEND_TAG}
+            Versienummer frontend: 2.26.4
             Versienummer backend: ${data?.version}
           `}
           </StyledVersionNumbers>
