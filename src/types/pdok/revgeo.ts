@@ -14,5 +14,6 @@ export type RevGeo = {
     maxScore: number
     numFound: number
     start: number
+    coordinateIsValid: boolean
   }
 }

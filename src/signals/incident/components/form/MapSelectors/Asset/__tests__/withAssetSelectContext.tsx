@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MPL-2.0
 // Copyright (C) 2021 - 2023 Gemeente Amsterdam
 import type { ReactNode, ReactPortal } from 'react'
+import type { Popup, Map } from 'leaflet'
 
 import ReactDOM from 'react-dom'
 
@@ -49,6 +50,10 @@ export const contextValue: AssetSelectValue = {
   setLocation: jest.fn(),
   setMessage: jest.fn(),
   setSelectableFeatures: jest.fn(),
+  popup: undefined,
+  setPopup: jest.fn<void, [Popup | undefined]>(),
+  map: undefined,
+  setMapInstance: jest.fn<void, [Map | undefined]>(),
 }
 
 const withAssetSelectContext = (Component: ReactNode, context = contextValue) =>

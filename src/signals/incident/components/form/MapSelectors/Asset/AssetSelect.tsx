@@ -1,13 +1,16 @@
+/* eslint-disable no-console */
 // SPDX-License-Identifier: MPL-2.0
 // Copyright (C) 2020 - 2023 Gemeente Amsterdam
 import type { FC } from 'react'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { useCallback, useState } from 'react'
 
 import type { LatLngLiteral } from 'leaflet'
+import L from 'leaflet'
 import { useDispatch, useSelector } from 'react-redux'
 
 import Summary from 'components/Summary'
+import configuration from 'shared/services/configuration/configuration'
 import reverseGeocoderService from 'shared/services/reverse-geocoder'
 import { updateIncident as updateReduxIncident } from 'signals/incident/containers/IncidentContainer/actions'
 import { makeSelectIncidentContainer } from 'signals/incident/containers/IncidentContainer/selectors'
@@ -44,6 +47,7 @@ interface UpdatePayload {
   selection?: Item[]
   location?: Location
 }
+
 export interface AssetSelectProps {
   value?: {
     selection?: Item[]
@@ -68,6 +72,13 @@ const AssetSelect: FC<AssetSelectProps> = ({ value, layer, meta, parent }) => {
   const dispatch = useDispatch()
   const { selection, location } = value || {}
   const [message, setMessage] = useState<string>()
+  const [popup, setPopup] = useState<L.Popup>()
+  const mapRef = useRef<L.Map>()
+
+  const setMapInstance = useCallback((instance: L.Map) => {
+    mapRef.current = instance
+  }, [])
+
   const [selectableFeatures, setSelectableFeatures] = useState<
     SelectableFeature[] | undefined
   >(undefined)
@@ -76,6 +87,7 @@ const AssetSelect: FC<AssetSelectProps> = ({ value, layer, meta, parent }) => {
   const { coordinates, address } = location || {}
   const hasSelection = selection || coordinates
   const { maxNumberOfAssets } = meta
+
   const updateIncident = useCallback(
     (payload?: UpdatePayload) => {
       parent.meta.updateIncident({
@@ -120,8 +132,6 @@ const AssetSelect: FC<AssetSelectProps> = ({ value, layer, meta, parent }) => {
 
   const getUpdatePayload = useCallback(
     (location: Location) => {
-      // Clicking the map should unset a previous selection and preset it with an item that we know
-      // doesn't exist on the map.
       const payload: UpdatePayload = { location, selection }
 
       const item = selection ? selection[0] : undefined
@@ -142,42 +152,89 @@ const AssetSelect: FC<AssetSelectProps> = ({ value, layer, meta, parent }) => {
    */
   const fetchLocation = useCallback(
     async (latLng: LatLngLiteral) => {
+      const response = await reverseGeocoderService(latLng)
+
+      if (response?.data?.coordinateIsValid === false) {
+        if (popup) {
+          popup.remove()
+        }
+
+        const gemeente = configuration.map?.municipality || ''
+
+        // Only create and open popup if map exists
+        if (mapRef.current) {
+          const newPopup = L.popup()
+            .setLatLng(latLng)
+            .setContent(`Deze app werkt alleen binnen de gemeente ${gemeente}.`)
+
+          // Use addTo instead of openOn to avoid the type error
+          newPopup.addTo(mapRef.current)
+          setPopup(newPopup)
+        }
+        return
+      }
+
+      // Remove existing popup if any
+      if (popup) {
+        popup.remove()
+        setPopup(undefined)
+      }
+
       const location = {
         coordinates: latLng,
-        address,
+        address: response?.data?.address,
       }
 
       const payload = getUpdatePayload(location)
-
-      // immediately set the location so that the marker is placed on the map; the reverse geocoder response
-      // might take some time to resolve, leaving the user wondering if the map click actually did anything
       updateIncident(payload)
-
-      if (payload.location) {
-        const response = await reverseGeocoderService(latLng)
-        payload.location.address = response?.data?.address
-        updateIncident(payload)
-      }
     },
-    [address, getUpdatePayload, updateIncident]
+    [popup, getUpdatePayload, updateIncident]
   )
 
   /**
    * Address auto complete selection
    */
   const setLocation = useCallback(
-    (location: Location) => {
-      const payload = getUpdatePayload(location)
+    async (location: Location) => {
+      const response = await reverseGeocoderService(location.coordinates)
+
+      if (response?.data?.coordinateIsValid === false) {
+        if (popup) {
+          popup.remove()
+        }
+
+        const gemeente = configuration.map?.municipality || ''
+
+        if (mapRef.current) {
+          const newPopup = L.popup()
+            .setLatLng(location.coordinates)
+            .setContent(`Deze app werkt alleen binnen de gemeente ${gemeente}.`)
+            .addTo(mapRef.current)
+
+          setPopup(newPopup)
+        }
+        return
+      }
+
+      if (popup) {
+        popup.remove()
+        setPopup(undefined)
+      }
+
+      const payload = getUpdatePayload({
+        ...location,
+        address: response?.data?.address,
+      })
 
       updateIncident(payload)
     },
-    [updateIncident, getUpdatePayload]
+    [popup, getUpdatePayload, updateIncident]
   )
 
   useEffect(() => {
     if (!meta.featureTypes.length) return
 
-    /* istanbul ignore next */ setFeatureTypes(
+    setFeatureTypes(
       meta.featureTypes.map((featureType) => {
         const defaultConfig =
           featureType.typeValue === UNREGISTERED_TYPE
@@ -218,6 +275,10 @@ const AssetSelect: FC<AssetSelectProps> = ({ value, layer, meta, parent }) => {
         fetchLocation,
         setMessage,
         setSelectableFeatures,
+        popup,
+        setPopup,
+        map: mapRef.current,
+        setMapInstance,
       }}
     >
       {!mapActive && !hasSelection && <Intro />}

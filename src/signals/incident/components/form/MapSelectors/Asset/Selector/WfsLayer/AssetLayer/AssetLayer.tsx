@@ -1,6 +1,4 @@
-// SPDX-License-Identifier: MPL-2.0
-// Copyright (C) 2021 - 2024 Gemeente Amsterdam
-import { useCallback, useContext } from 'react'
+import { useCallback, useContext, useState } from 'react'
 import type { FC } from 'react'
 
 import { Marker } from '@amsterdam/arm-core'
@@ -8,6 +6,7 @@ import type { FeatureCollection } from 'geojson'
 import L from 'leaflet'
 import 'types/address'
 
+import configuration from 'shared/services/configuration/configuration'
 import { featureToCoordinates } from 'shared/services/map-location'
 import reverseGeocoderService from 'shared/services/reverse-geocoder'
 import AssetSelectContext from 'signals/incident/components/form/MapSelectors/Asset/context'
@@ -32,6 +31,7 @@ export const AssetLayer: FC = () => {
     useContext(AssetSelectContext)
   const { featureTypes } = meta
   const featureStatusTypes = meta.featureStatusTypes || []
+  const [popup, setPopup] = useState<L.Popup>()
 
   const getFeatureType = useCallback(
     (feature: Feature) => {
@@ -43,7 +43,7 @@ export const AssetLayer: FC = () => {
     [featureTypes]
   )
 
-  const getMarker = (feat: any, featureStatusTypes: FeatureStatusType[]) => {
+  const renderMarker = (feat: any, featureStatusTypes: FeatureStatusType[]) => {
     const feature = feat as Feature
     const coordinates = featureToCoordinates(feature?.geometry as Geometrie)
 
@@ -79,6 +79,23 @@ export const AssetLayer: FC = () => {
       : description
 
     const onClick = async () => {
+      if (popup) {
+        popup.remove()
+        setPopup(undefined)
+      }
+
+      // Validate coordinates only when clicking
+      const response = await reverseGeocoderService(coordinates)
+      if (response?.data?.coordinateIsValid === false) {
+        const gemeente = configuration.map?.municipality || ''
+        const newPopup = L.popup()
+          .setLatLng(coordinates)
+          .setContent(`Deze app werkt alleen binnen de gemeente ${gemeente}.`)
+        setPopup(newPopup)
+        return
+      }
+
+      // eslint-disable-next-line @typescript-eslint/no-extra-semi
       ;(window as any)?.dataLayer?.push({
         event: 'interaction.generic.component.mapInteraction',
         meta: {
@@ -105,10 +122,6 @@ export const AssetLayer: FC = () => {
           return
         }
 
-        setItem(item, location)
-
-        const response = await reverseGeocoderService(coordinates)
-
         if (response) {
           location.address = response.data.address
           item.address = response.data.address
@@ -134,10 +147,9 @@ export const AssetLayer: FC = () => {
       />
     )
   }
+
   return (
-    <>
-      {data.features.map((feat) => getMarker(feat, featureStatusTypes || []))}
-    </>
+    <>{data.features.map((feat) => renderMarker(feat, featureStatusTypes))}</>
   )
 }
 

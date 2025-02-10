@@ -57,7 +57,7 @@ describe('VerificationPage', () => {
       expect(screen.getByText('Link ongeldig')).toBeInTheDocument()
       expect(
         screen.getByText(
-          'De link om uw e-mailadres te wijzigen is verlopen of ongeldig. Om een nieuwe verificatielink te ontvangen kunt u bellen met telefoonnummer 14 020, maandag tot en met vrijdag van 08.00 tot 18.00.'
+          'De link om uw e-mailadres te wijzigen is verlopen of ongeldig. Om een nieuwe verificatielink te ontvangen kunt u bellen met telefoonnummer 14 020, maandag tot en met vrijdag van 9.00 - 17.00 uur.'
         )
       ).toBeInTheDocument()
 

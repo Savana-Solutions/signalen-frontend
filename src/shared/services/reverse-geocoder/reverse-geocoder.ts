@@ -12,7 +12,13 @@ import type { PdokResponse } from 'shared/services/map-location'
 import type { RevGeo } from 'types/pdok/revgeo'
 
 const flParams = pdokResponseFieldList.join(',')
-export const serviceURL = `${configuration.map.pdok.reverse}?type=adres&rows=1&fl=${flParams}`
+
+// Create the base URL
+const baseUrl = configuration.map.pdok.reverse.startsWith('http')
+  ? configuration.map.pdok.reverse
+  : `${window.location.origin}${configuration.map.pdok.reverse}`
+
+export const serviceURL = `${baseUrl}?type=adres&rows=1&fl=${flParams}`
 
 export const formatRequest = (
   baseUrl: URL | string,
@@ -20,13 +26,14 @@ export const formatRequest = (
   distance = 30
 ) => {
   const { x, y } = wgs84ToRd(wgs84point)
-  return `${new URL(baseUrl).toString()}&X=${x}&Y=${y}&distance=${distance}`
+  const urlString = typeof baseUrl === 'string' ? baseUrl : baseUrl.toString()
+  return `${urlString}&X=${x}&Y=${y}&distance=${distance}`
 }
 
 const reverseGeocoderService = async (
   location: LatLngLiteral
 ): Promise<PdokResponse | undefined> => {
-  const url = formatRequest(new URL(serviceURL), location)
+  const url = formatRequest(serviceURL, location)
 
   const result: RevGeo = await fetch(url)
     .then((res) => res.json())

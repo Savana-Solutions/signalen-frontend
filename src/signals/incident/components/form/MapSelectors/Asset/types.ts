@@ -2,7 +2,7 @@
 // Copyright (C) 2021 - 2023 Gemeente Amsterdam
 import type { FC } from 'react'
 
-import type { LatLngLiteral } from 'leaflet'
+import type { Map, LatLngLiteral, Popup } from 'leaflet'
 
 import type { FormFieldProps } from 'components/FormField/FormField'
 import type { Address } from 'types/address'
@@ -10,6 +10,7 @@ import type { Location } from 'types/incident'
 import type { FormOptions } from 'types/reactive-form'
 
 import type { SelectableFeature, Meta, Item, FeatureType } from '../types'
+
 export interface AssetSelectValue {
   address?: Address
   coordinates?: LatLngLiteral
@@ -24,6 +25,10 @@ export interface AssetSelectValue {
   setMessage: (message?: string) => void
   setSelectableFeatures: (features?: SelectableFeature[]) => void
   selectableFeatures?: SelectableFeature[]
+  popup?: Popup
+  setPopup: (popup: Popup | undefined) => void
+  map?: Map
+  setMapInstance: (instance: L.Map) => void
 }
 
 export interface AssetSelectRendererProps extends FormFieldProps {

@@ -42,6 +42,7 @@ const mockPdokResponse = {
   data: {
     location: coords,
     address: mockPdokAddress,
+    coordinateIsValid: true,
   },
 }
 

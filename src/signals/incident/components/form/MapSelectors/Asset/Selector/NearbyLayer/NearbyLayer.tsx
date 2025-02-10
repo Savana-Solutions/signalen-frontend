@@ -7,7 +7,7 @@ import { useCallback, useContext, useEffect, useRef, useState } from 'react'
 
 import type { ZoomLevel } from '@amsterdam/arm-core/lib/types'
 import { useMapInstance } from '@amsterdam/react-maps'
-import type { FeatureCollection, Feature } from 'geojson'
+import type { FeatureCollection, Feature, Point } from 'geojson'
 import L from 'leaflet'
 import type { LeafletMouseEvent } from 'leaflet'
 import intersection from 'lodash/intersection'
@@ -15,8 +15,6 @@ import { useSelector } from 'react-redux'
 
 import { useFetch } from 'hooks'
 import configuration from 'shared/services/configuration/configuration'
-import { featureToCoordinates } from 'shared/services/map-location'
-import type { LatLng } from 'shared/services/map-location/map-location'
 import reverseGeocoderService from 'shared/services/reverse-geocoder'
 import AssetSelectContext from 'signals/incident/components/form/MapSelectors/Asset/context'
 import { NEARBY_TYPE } from 'signals/incident/components/form/MapSelectors/constants'
@@ -31,12 +29,6 @@ import type { Location } from 'types/incident'
 
 import { formattedDate } from '../utils'
 import WfsDataContext from '../WfsLayer/context'
-
-// Custom Point type, because the compiler complains about the coordinates type
-type Point = {
-  type: 'Point'
-  coordinates: LatLng
-}
 
 type Properties = {
   category: {
@@ -73,9 +65,8 @@ export function findAssetMatch(
 ) {
   return assetData.features.find(
     (assetFeature) =>
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      intersection(assetFeature.geometry?.coordinates, [lat, lng]).length === 2
+      intersection((assetFeature.geometry as Point).coordinates, [lat, lng])
+        .length === 2
   )
 }
 
@@ -88,17 +79,43 @@ export const NearbyLayer: FC<NearbyLayerProps> = ({ zoomLevel }) => {
   const { incident } = useSelector(makeSelectIncidentContainer)
   const { get, data, error } = useFetch<FeatureCollection<Point, Properties>>()
   const [activeLayer, setActiveLayer] = useState<NearbyMarker>()
+  const [popup, setPopup] = useState<L.Popup>()
   const featureGroup = useRef<L.FeatureGroup<NearbyMarker>>(L.featureGroup())
   const assetData = useContext<FeatureCollection>(WfsDataContext)
 
-  /* istanbul ignore next */
   const onMarkerClick = useCallback(
     (feature: Feature<Point, Properties>) =>
       async ({ sourceTarget }: MarkerMouseEvent) => {
+        const geometry = feature.geometry as Point
+        const [lng, lat] = geometry.coordinates
+        const coordinates = { lat, lng }
+
+        // Check if coordinate is valid
+        const response = await reverseGeocoderService(coordinates)
+
+        if (response?.data?.coordinateIsValid === false) {
+          if (popup) {
+            popup.remove()
+          }
+
+          const gemeente = configuration.map?.municipality || ''
+          const newPopup = L.popup()
+            .setLatLng(coordinates)
+            .setContent(`Deze app werkt alleen binnen de gemeente ${gemeente}.`)
+            .openOn(mapInstance)
+
+          setPopup(newPopup)
+          return
+        }
+
+        // Remove existing popup if any
+        if (popup) {
+          popup.remove()
+          setPopup(undefined)
+        }
+
         sourceTarget.setIcon(nearbyMarkerSelectedIcon)
         setActiveLayer(sourceTarget)
-
-        const coordinates = featureToCoordinates(feature.geometry)
 
         const location: Location = { coordinates }
         const item: Item = {
@@ -111,7 +128,6 @@ export const NearbyLayer: FC<NearbyLayerProps> = ({ zoomLevel }) => {
 
         setItem(item, location)
 
-        const response = await reverseGeocoderService(coordinates)
         if (response) {
           location.address = response.data.address
           item.address = response.data.address
@@ -119,7 +135,7 @@ export const NearbyLayer: FC<NearbyLayerProps> = ({ zoomLevel }) => {
 
         setItem(item, location)
       },
-    [setItem]
+    [setItem, mapInstance, popup]
   )
 
   useEffect(() => {
@@ -178,11 +194,20 @@ export const NearbyLayer: FC<NearbyLayerProps> = ({ zoomLevel }) => {
 
     const hasNearbySelection = selection && selection[0].type === NEARBY_TYPE
 
-    data.features.forEach((feature) => {
-      const { lat, lng } = featureToCoordinates(feature.geometry)
+    data.features.forEach(async (feature) => {
+      const geometry = feature.geometry as Point
+      const [lng, lat] = geometry.coordinates
+      const coordinates = { lat, lng }
 
       // if an asset exists in the exact same location, then don't draw a marker
       if (findAssetMatch(assetData, lat, lng)) return null
+
+      // Check if coordinate is valid before creating marker
+      const response = await reverseGeocoderService(coordinates)
+
+      if (response?.data?.coordinateIsValid === false) {
+        return null
+      }
 
       const uniqueId = `${lat}.${lng}.${feature.properties.created_at}`
       const marker = L.marker(
@@ -218,6 +243,7 @@ export const NearbyLayer: FC<NearbyLayerProps> = ({ zoomLevel }) => {
     assetData,
     selection,
   ])
+
   return (
     <>
       <span data-testid="nearby-layer" />

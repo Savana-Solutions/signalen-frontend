@@ -1,5 +1,6 @@
 {
   "response": {
+    "coordinateIsValid": true,
     "numFound": 2,
     "start": 0,
     "maxScore": 16.013206,

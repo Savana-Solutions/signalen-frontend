@@ -1,8 +1,10 @@
+/* eslint-disable no-console */
 // SPDX-License-Identifier: MPL-2.0
 // Copyright (C) 2022 - 2023 Gemeente Amsterdam
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 import type { LatLngLiteral, Map as MapType } from 'leaflet'
+import L from 'leaflet'
 import { throttle, isEqual } from 'lodash'
 
 import { useDeviceMode } from 'hooks/useDeviceMode'
@@ -50,6 +52,7 @@ export const IncidentMap = () => {
   const [mapMessage, setMapMessage] = useState<JSX.Element | string>('')
   const [coordinates, setCoordinates] = useState<LatLngLiteral>()
   const [address, setAddress] = useState<string>()
+  const [popup, setPopup] = useState<L.Popup>()
 
   const [showMessage, setShowMessage] = useState<boolean>(false)
 
@@ -79,11 +82,47 @@ export const IncidentMap = () => {
     [setMapMessage, setShowMessage]
   )
 
-  /* istanbul ignore next */
+  const handleCoordinateChange = useCallback(
+    async (newCoordinates?: LatLngLiteral) => {
+
+      if (!map || !newCoordinates) {
+        return
+      }
+
+      // Remove existing popup if any
+      if (popup) {
+        popup.remove()
+        setPopup(undefined)
+      }
+
+      // First check if coordinates are valid before setting any markers
+      const response = await reverseGeocoderService(newCoordinates)
+
+      if (response?.data?.coordinateIsValid == false) {
+        const gemeente = configuration.map?.municipality || ''
+        const message = `Deze app werkt alleen binnen de gemeente ${gemeente}.`
+
+        const newPopup = L.popup()
+          .setLatLng(newCoordinates)
+          .setContent(message)
+          .openOn(map)
+
+        setPopup(newPopup)
+        setCoordinates(undefined) // Ensure no coordinates are set
+        return
+      }
+
+      if (response?.data?.coordinateIsValid == true) {
+        // Only set coordinates if they are valid
+        setCoordinates(newCoordinates)
+      }
+    },
+    [map, popup]
+  )
+
   const handleIncidentSelect = useCallback(
     (incident: Incident) => {
       const sanitizedCoords = featureToCoordinates(incident.geometry)
-      // When marker is underneath the drawerOverlay, move the map slightly up
       if (
         map &&
         isMobile(deviceMode) &&
@@ -103,7 +142,6 @@ export const IncidentMap = () => {
     [map, isMobile, deviceMode]
   )
 
-  /* istanbul ignore next */
   const resetSelectedMarker = useCallback(() => {
     if (selectedMarkerRef?.current) {
       selectedMarkerRef.current.setIcon(
@@ -114,18 +152,27 @@ export const IncidentMap = () => {
     setSelectedIncident(undefined)
   }, [])
 
-  /* istanbul ignore next */
   useEffect(() => {
-    map?.on({
-      click: resetSelectedMarker,
-    })
-  }, [resetSelectedMarker, map])
+    const handleMapClick = async (e: L.LeafletMouseEvent) => {
+      // First reset any selected marker
+      resetSelectedMarker()
 
-  /* istanbul ignore next */
+      // Then handle the new coordinates
+      handleCoordinateChange(e.latlng)
+    }
+
+    if (map) {
+      map.on('click', handleMapClick)
+
+      // Cleanup
+      return () => {
+        map.off('click', handleMapClick)
+      }
+    }
+  }, [map, resetSelectedMarker, handleCoordinateChange])
+
   const { incidents: data, error, getIncidents } = usePaginatedIncidents()
 
-  /* istanbul ignore next */
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const throttledGetIncidents = useCallback(
     throttle((arg) => getIncidents(arg), 500, {
       trailing: false,
@@ -133,7 +180,6 @@ export const IncidentMap = () => {
     []
   )
 
-  /* istanbul ignore next */
   useEffect(() => {
     if (bbox) {
       throttledGetIncidents(bbox)
@@ -142,17 +188,13 @@ export const IncidentMap = () => {
 
   useEffect(() => {
     const incidentsWithIcons = addIconsToIncidents(filters, data, listedIcons)
-
     setIncidents(incidentsWithIcons)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data])
+  }, [data, filters, listedIcons])
 
-  /* istanbul ignore next */
   useEffect(() => {
     if (!incidents || incidents.length === 0) return
 
     const filteredIncidents = getFilteredIncidents(filters, incidents)
-
     setFilteredIncidents(filteredIncidents)
 
     const filterFromIncidents = countIncidentsPerFilter(filters, incidents)
@@ -198,7 +240,7 @@ export const IncidentMap = () => {
         {isMobile(deviceMode) && (
           <AddressSearchMobile
             address={address}
-            setCoordinates={setCoordinates}
+            setCoordinates={handleCoordinateChange}
             onFocus={() => setDrawerState(DrawerState.Closed)}
           />
         )}
@@ -238,7 +280,7 @@ export const IncidentMap = () => {
 
             {!isMobile(deviceMode) && (
               <AddressLocation
-                setCoordinates={setCoordinates}
+                setCoordinates={handleCoordinateChange}
                 address={address}
               />
             )}
@@ -258,7 +300,7 @@ export const IncidentMap = () => {
               {map && (
                 <GPSLocation
                   setNotification={setNotification}
-                  setCoordinates={setCoordinates}
+                  setCoordinates={handleCoordinateChange}
                 />
               )}
               {showMessage && mapMessage && (

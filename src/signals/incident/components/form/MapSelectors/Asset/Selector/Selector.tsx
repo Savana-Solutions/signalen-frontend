@@ -85,6 +85,7 @@ const Selector: FC = () => {
     removeItem,
     fetchLocation,
     address,
+    setMapInstance,
   } = useContext(AssetSelectContext)
   const { maxAssetWarning } = useSelector(makeSelectMaxAssetWarning)
   const maxNumberOfAssets = meta?.maxNumberOfAssets || 1
@@ -122,7 +123,12 @@ const Selector: FC = () => {
   const hasFeatureTypes = meta.featureTypes.length > 0
   const showMarker =
     coordinates && (!selection || selectionIsUndetermined(selection[0]))
-  map?.attributionControl.setPrefix(false)
+
+  useEffect(() => {
+    if (!map) return
+    map.attributionControl.getContainer()?.setAttribute('aria-hidden', 'true')
+    map.attributionControl.setPrefix(false)
+  }, [map])
 
   const mapClick = useCallback(
     ({ latlng }: LeafletMouseEvent) => {
@@ -285,7 +291,10 @@ const Selector: FC = () => {
           hasZoomControls={desktopView}
           mapOptions={mapOptions}
           events={{ click, dblclick: doubleClick }}
-          setInstance={setMap}
+          setInstance={(instance: MapType) => {
+            setMap(instance) // Keep local state for component functionality
+            setMapInstance(instance) // Set map instance in context for popups
+          }}
           hasGPSControl
         >
           <StyledViewerContainer

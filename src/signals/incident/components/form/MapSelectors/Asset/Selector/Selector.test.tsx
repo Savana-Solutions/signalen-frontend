@@ -77,6 +77,7 @@ const mockPDOKResponse: PdokResponse = {
       lng: 3.141,
     },
     address: mockAddress,
+    coordinateIsValid: true,
   },
 }
 

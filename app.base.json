@@ -36,10 +36,10 @@
     "themeColor": "#fff"
   },
   "language": {
-    "consentToContactSharing": "Ja, ik geef Signalen toestemming om mijn contactgegevens te delen met andere organisaties, als dat nodig is om mijn melding goed op te lossen.",
+    "consentToContactSharing": "Ja, ik geef de gemeente Oss toestemming om mijn contactgegevens te delen met andere organisaties, als dat nodig is om mijn melding goed op te lossen.",
     "district": "Wijk",
     "headerTitle": "",
-    "helpText": "Wij zijn bereikbaar van maandag tot en met vrijdag van 08.00 tot 18.00 uur.",
+    "helpText": "Wij zijn bereikbaar van maandag tot en met vrijdag van 9.00 - 17.00 uur.",
     "helpTextHeader": "Lukt het niet om een melding te doen? Bel het telefoonnummer [14 0412]",
     "logoDescription": "Logo gemeente",
     "mapDescription": "Weet u het adres niet, bel dan 14 0412 om telefonisch de melding te maken.",
@@ -47,7 +47,7 @@
     "shortTitle": "Signalen",
     "siteAddress": "signalen.org",
     "siteTitle": "Signalen",
-    "smallHeaderTitle": "Signalen",
+    "smallHeaderTitle": "",
     "title": "Signalen",
     "urgentContactInfo": "Voor spoedeisende zaken kunt u ook telefonisch contact opnemen."
   },

@@ -54,6 +54,13 @@ export interface FetchResponse<T> extends State<T> {
   ) => Promise<void>
 }
 
+export const ensureHttps = (url: string | URL | RequestInfo) => {
+  if (typeof url === 'string' && url.startsWith('http://')) {
+    return url.replace('http://', 'https://')
+  }
+  return url
+}
+
 /**
  * Custom hook useFetch
  *
@@ -166,7 +173,9 @@ const useFetch = <T>(): FetchResponse<T> => {
         .flatMap(([key, value]) => `${key}=${value}`)
 
       const queryParams = arrayParams.concat(scalarParams).join('&')
-      const requestURL = [url, queryParams].filter(Boolean).join('?')
+      let requestURL = [url, queryParams].filter(Boolean).join('?')
+      requestURL = ensureHttps(requestURL) as string
+
       try {
         const fetchResponse = await fetch(requestURL, {
           headers: { ...requestHeaders(), ...optionalHeaders },
@@ -220,7 +229,8 @@ const useFetch = <T>(): FetchResponse<T> => {
         dispatch({ type: 'SET_LOADING', payload: true })
 
         try {
-          const modifyResponse = await fetch(url, {
+          const secureUrl = ensureHttps(url)
+          const modifyResponse = await fetch(secureUrl, {
             headers: requestHeaders(),
             method,
             signal,
@@ -281,7 +291,8 @@ const useFetch = <T>(): FetchResponse<T> => {
       dispatch({ type: 'SET_LOADING', payload: true })
 
       try {
-        const deleteResponse = await fetch(url, {
+        const secureUrl = ensureHttps(url)
+        const deleteResponse = await fetch(secureUrl, {
           headers: requestHeaders(),
           method: 'DELETE',
           signal,
@@ -313,18 +324,6 @@ const useFetch = <T>(): FetchResponse<T> => {
     },
     [requestHeaders, signal]
   )
-
-  /**
-   * @typedef {Object} FetchResponse
-   * @property {Object} data - Fetch response
-   * @property {Error} error - Error object thrown during fetch and data parsing
-   * @property {Function} del - Function that expects a URL
-   * @property {Function} get - Function that expects a URL and a query parameter object
-   * @property {Boolean} isLoading - Indicator of fetch request status
-   * @property {Boolean} isSuccess - Indicator of post or patch request status
-   * @property {Function} patch - Function that expects a URL and a data object as parameters
-   * @property {Function} post - Function that expects a URL and a data object as parameters
-   */
 
   return {
     del,

@@ -117,6 +117,7 @@ export type PdokResponse = {
   data: {
     location: LatLngLiteral
     address: PdokAddress
+    coordinateIsValid: boolean
   }
 }
 
@@ -124,9 +125,30 @@ export const formatPDOKResponse = (
   request?: RevGeo | null,
   streetNameOnly?: boolean
 ): Array<PdokResponse> => {
+  if (!request?.response?.docs.length) {
+    // Return array with single response containing just coordinateIsValid
+    return [
+      {
+        id: '',
+        value: '',
+        data: {
+          location: { lat: 0, lng: 0 },
+          address: {
+            openbare_ruimte: '',
+            huisnummer: '',
+            postcode: '',
+            woonplaats: '',
+          },
+          coordinateIsValid: request?.response?.coordinateIsValid ?? false,
+        },
+      },
+    ]
+  }
+
   const uniqueAddressesList = new Map<string, PdokResponse>(
-    request?.response?.docs.map((result) => {
+    request.response.docs.map((result) => {
       const { id, weergavenaam, centroide_ll, straatnaam } = result
+      const { coordinateIsValid } = request.response
 
       const value = streetNameOnly ? straatnaam : weergavenaam
 
@@ -138,10 +160,11 @@ export const formatPDOKResponse = (
           data: {
             location: wktPointToLocation(centroide_ll),
             address: serviceResultToAddress(result),
+            coordinateIsValid: coordinateIsValid,
           },
         },
       ]
-    }) || []
+    })
   )
 
   return [...uniqueAddressesList.values()]

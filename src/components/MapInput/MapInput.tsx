@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 // SPDX-License-Identifier: MPL-2.0
 // Copyright (C) 2020 - 2023 Gemeente Amsterdam
 import {
@@ -37,6 +38,7 @@ import {
   StyledViewerContainer,
   StyledAutosuggest,
 } from './styled'
+import L from 'leaflet'
 
 interface Props {
   className?: string
@@ -60,9 +62,10 @@ const MapInput = ({
   ...rest
 }: Props) => {
   const { state, dispatch } = useContext(MapContext)
-  // const dispatch = useDispatch()
   const [map, setMap] = useState<L.Map>()
   const [marker, setMarker] = useState<MarkerType>()
+  const [popup, setPopup] = useState<L.Popup>()
+
   const { coordinates, addressText: addressValue } = state
   const hasLocation =
     Boolean(coordinates) && coordinates?.lat !== 0 && coordinates?.lng !== 0
@@ -81,12 +84,40 @@ const MapInput = ({
 
   const clickFunc = useCallback(
     async ({ latlng }) => {
-      hasInitialViewRef.current = false
 
+      hasInitialViewRef.current = false
       dispatch && dispatch(setLoadingAction(true))
       dispatch && dispatch(setLocationAction(latlng))
 
       const response = await reverseGeocoderService(latlng)
+
+      // Check if the coordinate is valid
+      if (response?.data?.coordinateIsValid === false) {
+        const gemeente = configuration.map?.municipality || ''
+
+        if (map) {
+          if (popup) {
+            popup.remove()
+          }
+          const newPopup = L.popup()
+            .setLatLng(latlng)
+            .setContent(`Deze app werkt alleen binnen de gemeente ${gemeente}.`)
+            .openOn(map)
+
+          setPopup(newPopup)
+        }
+
+        dispatch && dispatch(resetLocationAction())
+        dispatch && dispatch(setLoadingAction(false))
+        return
+      }
+
+      // Remove popup if it exists
+      if (popup) {
+        popup.remove()
+        setPopup(undefined)
+      }
+
       const onChangePayload = {
         coordinates: latlng,
         address: response && response.data.address,
@@ -99,7 +130,7 @@ const MapInput = ({
       onChange(onChangePayload)
       dispatch && dispatch(setLoadingAction(false))
     },
-    [dispatch, onChange]
+    [dispatch, onChange, map, popup]
   )
 
   const onSelect = useCallback(

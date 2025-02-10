@@ -224,6 +224,7 @@ describe('formatPDOKResponse', () => {
             postcode: '1017WN',
             woonplaats: 'Amsterdam',
           },
+          coordinateIsValid: true,
         },
       },
       {
@@ -262,6 +263,7 @@ describe('formatPDOKResponse', () => {
             postcode: '1017WN',
             woonplaats: 'Amsterdam',
           },
+          coordinateIsValid: true,
         },
       },
     ])

@@ -26,6 +26,7 @@ describe('utils', () => {
       data: {
         location: mockLatLng,
         address: mockAddress,
+        coordinateIsValid: true,
       },
     }
 

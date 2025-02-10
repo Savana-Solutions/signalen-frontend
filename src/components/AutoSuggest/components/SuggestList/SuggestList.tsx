@@ -126,6 +126,7 @@ const SuggestList: FC<SuggestListProps> = ({
             postcode: '',
             woonplaats: '',
           },
+          coordinateIsValid: true,
         },
       },
     ]

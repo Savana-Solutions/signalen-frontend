@@ -20,6 +20,7 @@ const data = {
     lat: 0,
     lng: 0,
   },
+  coordinateIsValid: true,
 }
 
 const options: Array<PdokResponse> = [

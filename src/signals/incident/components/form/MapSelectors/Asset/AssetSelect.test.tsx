@@ -128,6 +128,7 @@ const geocodedResponse = {
   data: {
     location: mockLatLng,
     address: mockAddress,
+    coordinateIsValid: true,
   },
 }
 
