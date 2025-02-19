@@ -23,7 +23,7 @@ export const serviceURL = `${baseUrl}?type=adres&rows=1&fl=${flParams}`
 export const formatRequest = (
   baseUrl: URL | string,
   wgs84point: LatLngLiteral,
-  distance = 30
+  distance = configuration.map.pdok.distance
 ) => {
   const { x, y } = wgs84ToRd(wgs84point)
   const urlString = typeof baseUrl === 'string' ? baseUrl : baseUrl.toString()

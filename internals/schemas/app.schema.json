@@ -467,6 +467,10 @@
               "description": "PDOK url to reverse coordinates to a readable address",
               "type": "string",
               "format": "uri-template"
+            },
+            "distance": {
+              "description": "PDOK distance to which an address will be fetched",
+              "type": "integer"
             }
           }
         }

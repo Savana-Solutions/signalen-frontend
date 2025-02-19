@@ -142,7 +142,8 @@
     },
     "pdok": {
       "suggest": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/suggest",
-      "reverse": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/reverse"
+      "reverse": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/reverse",
+      "distance": 150
     }
   },
   "oidc": {
