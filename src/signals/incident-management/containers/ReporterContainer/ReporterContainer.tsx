@@ -100,8 +100,7 @@ const ReporterContainer: FunctionComponent = () => {
 
         {incident.canView === false && (
           <NotPermittedMessage>
-            Je hebt geen toestemming om meldingen in deze subcategorie te
-            bekijken
+            You do not have permission to view reports in this subcategory
           </NotPermittedMessage>
         )}
       </Content>

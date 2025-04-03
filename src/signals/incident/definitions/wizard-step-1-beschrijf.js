@@ -71,9 +71,9 @@ const getControls = memoize(
       },
       description: {
         meta: {
-          label: 'Waar gaat het om?',
+          label: 'What is it about?',
           subtitle:
-            'Typ geen persoonsgegevens in deze omschrijving. We vragen dit later in dit formulier aan u.',
+            'Do not enter any personal information in this description. We will ask you for this later in this form.',
           path: 'text',
           rows: 7,
           maxLength: 1000,
@@ -85,7 +85,7 @@ const getControls = memoize(
       },
       subcategory: {
         meta: {
-          label: 'Subcategorie',
+          label: 'Subcategory',
           path: 'subcategory',
         },
         options: {
@@ -95,7 +95,7 @@ const getControls = memoize(
       },
       priority: {
         meta: {
-          label: 'Wat is de urgentie?',
+          label: 'What is the urgency?',
           path: 'priority',
           values: priorityValuesList,
         },
@@ -124,8 +124,8 @@ const getControls = memoize(
       },
       images: {
         meta: {
-          label: "Foto's toevoegen",
-          subtitle: 'Voeg een foto toe om de situatie te verduidelijken',
+          label: 'Add photos',
+          subtitle: 'Add a photo to clarify the situation',
           minFileSize: 30 * 2 ** 10, // 30 KiB.
           maxFileSize: 20 * 2 ** 20, // 20 MiB.
           allowedFileTypes: [
@@ -156,7 +156,7 @@ const getControls = memoize(
 )
 
 export default {
-  label: 'Beschrijf uw melding',
+  label: 'Describe your report',
   getNextStep: (wizard, incident) => {
     if (
       !some(getStepControls(wizard.vulaan, incident), (control) => {
@@ -170,7 +170,7 @@ export default {
     }
     return false
   },
-  nextButtonLabel: 'Volgende',
+  nextButtonLabel: 'Next',
   nextButtonClass: 'action primary arrow-right',
   formFactory: (incident, sources) => getControls(sources),
 }

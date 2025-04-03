@@ -444,7 +444,7 @@ CheckboxList.defaultProps = {
   onToggle: undefined,
   onSubmit: /* istanbul ignore next*/ () => {},
   title: null,
-  toggleAllLabel: 'Alles selecteren',
+  toggleAllLabel: 'Select everything',
   toggleNothingLabel: 'Niets selecteren',
 }
 

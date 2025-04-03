@@ -39,7 +39,7 @@ const TextAreaInput = (props: Props) => {
         infoText={
           maxLength &&
           maxLength > 0 &&
-          `${value ? value.length : '0'}/${maxLength} tekens`
+          `${value ? value.length : '0'}/${maxLength} characters`
         }
       />
     </Wrapper>

@@ -58,7 +58,7 @@ export const mapKeys = (key) => {
       return 'contact'
 
     case 'directing_department':
-      return 'verantwoordelijke afdeling'
+      return 'responsible department'
 
     case 'routing_department':
       return 'gekoppelde afdeling'

@@ -82,8 +82,8 @@ const KtoForm = ({
       is_satisfied: yup.boolean().required(),
       text_list: yup
         .array()
-        .min(1, 'Dit veld is verplicht')
-        .required('Dit veld is verplicht'),
+        .min(1, 'This field is required')
+        .required('This field is required'),
 
       text_extra: yup.string(),
     })
@@ -219,11 +219,11 @@ const KtoForm = ({
           {satisfactionIndication === 'nee' && (
             <GridArea>
               <StyledLabel htmlFor="text_extra">
-                {"Foto's toevoegen? "}
-                <Optional>(niet verplicht)</Optional>
+                {'Add photos? '}
+                <Optional>(not required)</Optional>
               </StyledLabel>
               <HelpText id="subtitle-kto">
-                Voeg een foto toe om de situatie te verduidelijken.
+                Add a photo to clarify the situation.
               </HelpText>
               <FileInput
                 handler={() => ({ value: incident.images })}
@@ -235,9 +235,8 @@ const KtoForm = ({
                 }}
                 meta={{
                   name: 'images',
-                  label: "Foto's toevoegen",
-                  subtitle:
-                    'Voeg een foto toe om de situatie te verduidelijken',
+                  label: 'Add photos',
+                  subtitle: 'Add a photo to clarify the situation',
                   minFileSize: 30 * 2 ** 10, // 30 KiB.
                   maxFileSize: 20 * 2 ** 20, // 20 MiB.
                   allowedFileTypes: Object.values(FileTypes),
@@ -249,13 +248,13 @@ const KtoForm = ({
 
           <GridArea>
             <StyledLabel htmlFor="text_extra">
-              Wilt u verder nog iets vermelden of toelichten?{' '}
-              <Optional>(niet verplicht)</Optional>
+              Would you like to mention or explain anything else?{' '}
+              <Optional>(not required)</Optional>
             </StyledLabel>
             <StyledTextArea
               id="text_extra"
               data-testid="kto-text-extra"
-              infoText={`${watchTextExtra?.length}/${extraTextMaxLength} tekens`}
+              infoText={`${watchTextExtra?.length}/${extraTextMaxLength} characters`}
               maxLength={extraTextMaxLength}
               name="text_extra"
               onChange={(event) => setValue('text_extra', event.target.value)}
@@ -271,15 +270,16 @@ const KtoForm = ({
                     id="subtitle-allows-contact"
                     data-testid="subtitle-allows-contact"
                   >
-                    Uw reactie is belangrijk voor ons. Wij laten u graag weten
-                    wat wij ermee doen. En misschien willen wij u nog iets
-                    vragen of vertellen. Wij bellen u dan of sturen een e-mail.{' '}
+                    Your response is important to us. We would like to let you
+                    know what we will do with it. And we might want to ask or
+                    tell you something more. We will then call you or send you
+                    an email.{' '}
                   </p>
                 </>
               ) : (
                 <StyledLabel id="subtitle-allows-contact">
-                  Mogen wij contact met u opnemen naar aanleiding van uw
-                  feedback? <Optional>(niet verplicht)</Optional>
+                  May we contact you regarding your feedback?{' '}
+                  <Optional>(not required)</Optional>
                 </StyledLabel>
               )}
 
@@ -305,15 +305,15 @@ const KtoForm = ({
                 />
 
                 {negativeContactEnabled
-                  ? 'Nee, bel of e-mail mij niet meer over deze melding of over mijn reactie.'
-                  : 'Ja'}
+                  ? 'No, do not call or email me anymore about this notification or about my response.'
+                  : 'Yes'}
               </CheckboxWrapper>
             </GridArea>
           )}
 
           <GridArea>
             <Button data-testid="kto-submit" type="submit" variant="secondary">
-              Verstuur
+              Send
             </Button>
           </GridArea>
         </Form>

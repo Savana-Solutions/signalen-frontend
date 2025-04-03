@@ -68,7 +68,7 @@ describe('ContactHistory', () => {
     render(withAppContext(<ContactHistory id={4440} />))
 
     expect(
-      await screen.findByText('Er is nog geen contact geweest met deze melder')
+      await screen.findByText('There has been no contact with this reporter')
     ).toBeInTheDocument()
     expect(screen.queryByRole('list')).not.toBeInTheDocument()
   })

@@ -98,7 +98,7 @@ const FormField = ({
           >
             <Fragment>
               {meta.label}
-              {isOptional && <Optional>(niet verplicht)</Optional>}
+              {isOptional && <Optional>(not required)</Optional>}
             </Fragment>
           </StyledLabel>
         )}
@@ -115,7 +115,7 @@ const FormField = ({
                   data-testid={`${meta.name}-required`}
                   message={
                     getError('required') || getError('min')
-                      ? 'Dit is een verplicht veld'
+                      ? 'This is a required field'
                       : (getError('required') as string)
                   }
                 />
@@ -132,7 +132,7 @@ const FormField = ({
                 <ErrorMessage
                   message={`U heeft meer dan de maximale ${String(
                     getError('max') as { requiredLength: number }
-                  )} tekens ingevoerd`}
+                  )} characters entered`}
                 />
               )}
 

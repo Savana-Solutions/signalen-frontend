@@ -110,13 +110,13 @@ const DetailPanel: FC<DetailPanelProps> = ({ language, zoomLevel }) => {
       <PanelContent data-testid="detail-panel">
         {!shouldRenderMobileVersion && (
           <StyledBackButton
-            aria-label="Terug"
+            aria-label="Back"
             aria-controls="addressPanel"
             icon={<ChevronLeft />}
             iconSize={20}
             onClick={() => dispatch(closeMap())}
             size={24}
-            title="Terug"
+            title="Back"
             variant="blank"
           />
         )}
@@ -127,21 +127,21 @@ const DetailPanel: FC<DetailPanelProps> = ({ language, zoomLevel }) => {
           {!shouldRenderMobileVersion && (
             <>
               <StyledParagraphPDOkAutoSuggest>
-                {language?.title || 'Selecteer de locatie'}
+                {language?.title || 'Select the location'}
                 <Description>
                   {language?.description ||
-                    'Typ het dichtstbijzijnde adres, klik de locatie aan op de kaart of gebruik "Mijn locatie"'}
+                    'Enter the nearest address, click the location on the map or use "My location"'}
                 </Description>
               </StyledParagraphPDOkAutoSuggest>
               <StyledLabelPDOkAutoSuggest htmlFor="location">
-                {meta?.language?.pdokLabel || 'Zoek op adres of postcode'}
+                {meta?.language?.pdokLabel || 'Search on adress or postcode'}
               </StyledLabelPDOkAutoSuggest>
               <StyledPDOKAutoSuggest
                 id={'location'}
                 onClear={removeItem}
                 onSelect={onAddressSelect}
                 value={addressValue}
-                placeholder={meta?.language?.pdokInput || 'Adres of postcode'}
+                placeholder={meta?.language?.pdokInput || 'Adress or postcode'}
               />
             </>
           )}

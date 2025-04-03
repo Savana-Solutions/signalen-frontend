@@ -23,6 +23,6 @@ describe('The map dynamic fields service', () => {
       mapDynamicFields('foo {incident.id} bar', {
         incident: {},
       })
-    ).toEqual('foo onbekend bar')
+    ).toEqual('foo Unknown bar')
   })
 })

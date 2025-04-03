@@ -24,7 +24,7 @@ const questions: Question[] = [
     key: null,
     uuid: 'bar',
     label: "Voeg aub wat foto's toe",
-    short_label: "Foto's toevoegen",
+    short_label: 'Add photos',
     field_type: FieldType.FileInput,
     next_rules: null,
     required: true,
@@ -42,8 +42,8 @@ describe('<Questionnaire />', () => {
     )
 
     screen.getByRole('textbox', { name: 'Wat voor kleur heeft de auto?' })
-    screen.getByLabelText(/Foto's toevoegen/)
-    screen.getByRole('button', { name: 'Verstuur' })
+    screen.getByLabelText(/Add photos/)
+    screen.getByRole('button', { name: 'Send' })
   })
 
   it('should submit plaintext and file input values', async () => {
@@ -74,8 +74,8 @@ describe('<Questionnaire />', () => {
       screen.getByRole('textbox', { name: 'Wat voor kleur heeft de auto?' }),
       plainTextValue
     )
-    userEvent.upload(screen.getByLabelText(/Foto's toevoegen/), fileValue)
-    userEvent.click(screen.getByRole('button', { name: 'Verstuur' }))
+    userEvent.upload(screen.getByLabelText(/Add photos/), fileValue)
+    userEvent.click(screen.getByRole('button', { name: 'Send' }))
 
     await waitFor(() => {
       expect(submitSpy).toHaveBeenCalledWith(expected)

@@ -139,7 +139,7 @@ describe('signals/settings/departments/Detail/components/CategoryLists', () => {
 
     const toggleIsResponsible = getAllByText(
       isResponsibleFieldset,
-      'Alles selecteren'
+      'Select everything'
     )[0]
     const checkboxListIsResponsible = toggleIsResponsible.closest(
       '[data-testid="checkbox-list"]'
@@ -154,7 +154,7 @@ describe('signals/settings/departments/Detail/components/CategoryLists', () => {
 
     const checkboxListCanView = getAllByText(
       canViewFieldset,
-      'Alles selecteren'
+      'Select everything'
     )[0].closest('[data-testid="checkbox-list"]')
 
     const numTickedCanView =
@@ -232,11 +232,11 @@ describe('signals/settings/departments/Detail/components/CategoryLists', () => {
       'fieldset'
     )
 
-    const toggle = getAllByText(canViewFieldset, 'Alles selecteren')[0]
+    const toggle = getAllByText(canViewFieldset, 'Select everything')[0]
 
     const checkboxList = getAllByText(
       canViewFieldset,
-      'Alles selecteren'
+      'Select everything selecteren'
     )[0].closest('[data-testid="checkbox-list"]')
 
     const numBoxes = checkboxList.querySelectorAll('input').length

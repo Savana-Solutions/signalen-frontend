@@ -76,7 +76,7 @@ const IncidentSplitFormIncident: FC<IncidentSplitFormIncidentProps> = ({
                 forwardedAs="h2"
                 data-testid="incident-split-form-incident-title"
               >
-                Deelmelding {subIncidentNumber}
+                Split report {subIncidentNumber}
               </StyledHeading>
 
               {canRemoveIncident && (
@@ -98,7 +98,7 @@ const IncidentSplitFormIncident: FC<IncidentSplitFormIncidentProps> = ({
                 render={({ field: { onChange, name } }) => (
                   <IncidentSplitSelectInput
                     data-testid={`incident-split-form-incident-subcategory-select-${id}`}
-                    display="Subcategorie"
+                    display="Subcategory"
                     groups={groups}
                     id={`subcategory-${id}`}
                     initialValue={parentIncident.subcategory}
@@ -109,7 +109,7 @@ const IncidentSplitFormIncident: FC<IncidentSplitFormIncidentProps> = ({
                 )}
               />
             ) : (
-              <SelectLoader label={<strong>Subcategorie</strong>} />
+              <SelectLoader label={<strong>Subcategory</strong>} />
             )}
 
             <Controller
@@ -148,7 +148,7 @@ const IncidentSplitFormIncident: FC<IncidentSplitFormIncidentProps> = ({
               render={({ field: { onChange, name } }) => (
                 <IncidentSplitRadioInput
                   data-testid={`incident-split-form-incident-priority-radio-${id}`}
-                  display="Urgentie"
+                  display="Urgency"
                   id={`priority-${id}`}
                   initialValue={parentIncident.priority}
                   name={name}

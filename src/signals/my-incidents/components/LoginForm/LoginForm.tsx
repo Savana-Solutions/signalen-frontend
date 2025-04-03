@@ -20,7 +20,7 @@ const schema = yup.object({
   email: yup
     .string()
     .email('Het veld moet een geldig e-mailadres bevatten')
-    .required('Dit veld is verplicht'),
+    .required('This field is required'),
 })
 
 interface Props {
@@ -46,7 +46,7 @@ export const LoginForm = ({ setErrorMessage }: Props) => {
       meta: {
         category: 'interaction.generic.component.linkClick',
         action: 'loginMail - intern',
-        label: 'Inloggen',
+        label: 'Login',
       },
     })
 
@@ -80,7 +80,7 @@ export const LoginForm = ({ setErrorMessage }: Props) => {
       </ErrorWrapper>
 
       <Button type="submit" variant="secondary">
-        Inloggen
+        Login
       </Button>
     </form>
   )

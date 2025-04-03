@@ -84,10 +84,10 @@ export const MyFiltersComponent = ({
         ))
       ) : (
         <NoFilters className="my-filters--empty">
-          <p>U heeft geen eigen filter opgeslagen.</p>
+          <p>You have not saved your filter.</p>
           <p>
-            Ga naar &lsquo;Filter&rsquo; en voer een naam in om een
-            filterinstelling op te slaan.
+            To save a filter setting, go to &lsquo;Filter&rsquo; and enter a
+            name.
           </p>
         </NoFilters>
       )}

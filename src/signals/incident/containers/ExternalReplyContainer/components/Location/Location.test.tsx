@@ -55,7 +55,7 @@ describe('Location', () => {
     )
 
     expect(
-      screen.getByText('Locatie is gepind op de kaart')
+      screen.getByText('Location is pinned on the map')
     ).toBeInTheDocument()
   })
 
@@ -72,7 +72,7 @@ describe('Location', () => {
     )
 
     expect(
-      screen.getByText('Locatie is gepind op de kaart')
+      screen.getByText('Location is pinned on the map')
     ).toBeInTheDocument()
   })
 

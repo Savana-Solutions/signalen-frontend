@@ -38,7 +38,7 @@ export default function EditAttachment({
     caption: yup
       .string()
       .nullable()
-      .max(120, 'Je hebt meer dan de maximale 120 tekens ingevoerd.'),
+      .max(120, 'You have entered more than the maximum of 120 characters.'),
   })
 
   const { handleSubmit, formState, control, getValues } = useForm<FormValues>({

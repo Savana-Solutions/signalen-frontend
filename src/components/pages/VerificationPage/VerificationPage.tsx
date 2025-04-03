@@ -27,7 +27,7 @@ export function VerificationPage() {
   let documentTitle = ''
   if (isSuccess) {
     documentTitle = 'E-mailadres bevestigd'
-    paragraph = `Uw e-mailadres voor de melding is nu gewijzigd. U heeft hierover een e-mail gekregen. Heeft u de e-mail niet ontvangen? Controleer dan ook uw spamfolder.`
+    paragraph = `Your email address for the report has now been changed. You have received an email about this. If you have not received the email, please check your spam folder.`
   } else if (error) {
     button = (
       <>
@@ -47,7 +47,7 @@ export function VerificationPage() {
       </>
     )
     documentTitle = 'Link ongeldig'
-    paragraph = `De link om uw e-mailadres te wijzigen is verlopen of ongeldig. Om een nieuwe verificatielink te ontvangen kunt u bellen met telefoonnummer 14 020, maandag tot en met vrijdag van 9.00 - 17.00 uur.`
+    paragraph = `The link to change your email address has expired or is invalid. To receive a new verification link, please call 14 020, Monday to Friday from 9:00 to 17:00.`
   }
 
   return (

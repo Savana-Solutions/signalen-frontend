@@ -414,7 +414,7 @@ const FilterForm = ({
             <legend className="hiddenvisually">Naam van het filter</legend>
 
             <Label htmlFor="filter_name" isGroupHeader>
-              Filternaam
+              Filter name
             </Label>
 
             <div className="invoer">
@@ -431,7 +431,7 @@ const FilterForm = ({
             </div>
 
             <Label htmlFor="filter_refresh" isGroupHeader>
-              Automatisch verversen
+              Refresh automatically
             </Label>
             <div>
               <Checkbox
@@ -445,7 +445,7 @@ const FilterForm = ({
                 htmlFor="filter_refresh"
                 label={
                   <Fragment>
-                    <RefreshIcon width={16} height={18} /> Automatisch verversen
+                    <RefreshIcon width={16} height={18} /> Refresh automatically
                   </Fragment>
                 }
               />
@@ -455,7 +455,7 @@ const FilterForm = ({
           <Fieldset>
             <FilterGroup>
               <Label htmlFor="filter_notes" isGroupHeader>
-                Zoek in notitie
+                Search in notes
               </Label>
               <Input
                 data-testid="filter-notes"
@@ -463,7 +463,7 @@ const FilterForm = ({
                 name="note_keyword"
                 onBlur={onNoteBlur}
                 onChange={onNoteChange}
-                placeholder="Zoek in notitie"
+                placeholder="Search in notes"
                 type="text"
                 value={controlledTextInput.note}
               />
@@ -502,7 +502,7 @@ const FilterForm = ({
             {!configuration.featureFlags.fetchDistrictsFromBackend && (
               <CheckboxGroup
                 defaultValue={state.options.stadsdeel}
-                label="Stadsdeel"
+                label="District"
                 name="stadsdeel"
                 onChange={onGroupChange}
                 onToggle={onGroupToggle}
@@ -516,7 +516,7 @@ const FilterForm = ({
             <CheckboxGroup
               defaultValue={state.options.priority}
               hasToggle={false}
-              label="Urgentie"
+              label="Urgency"
               name="priority"
               onChange={onGroupChange}
               onToggle={onGroupToggle}
@@ -568,7 +568,7 @@ const FilterForm = ({
             <CheckboxGroup
               defaultValue={state.options.kind}
               hasToggle={false}
-              label="Soort"
+              label="Sort"
               name="kind"
               onChange={onGroupChange}
               onToggle={onGroupToggle}
@@ -581,7 +581,7 @@ const FilterForm = ({
             {sources && (
               <CheckboxGroup
                 defaultValue={state.options.source}
-                label="Bron"
+                label="Source"
                 name="source"
                 onChange={onGroupChange}
                 onToggle={onGroupToggle}
@@ -594,7 +594,7 @@ const FilterForm = ({
 
             <Accordion
               id="punctuality"
-              title="Doorlooptijd"
+              title="Lead time"
               count={state.options.punctuality?.length ?? ''}
             >
               <RadioGroup
@@ -642,7 +642,7 @@ const FilterForm = ({
 
           <FilterGroup>
             <Label htmlFor="filter_address" isGroupHeader>
-              Adres
+              Adress
             </Label>
             <PDOKAutoSuggest
               id="filter_address"
@@ -660,12 +660,12 @@ const FilterForm = ({
           {configuration.featureFlags.assignSignalToEmployee && (
             <FilterGroup data-testid="filter-assigned-user-email">
               <Label htmlFor="filter_assigned_user_email" isGroupHeader>
-                Toegewezen aan
+                Assigned to
               </Label>
               <div>
                 <AscLabel
                   htmlFor="filter_not_assigned"
-                  label="Niet toegewezen"
+                  label="Not assigned"
                   noActiveState
                 >
                   <Checkbox
@@ -701,7 +701,7 @@ const FilterForm = ({
           {configuration.featureFlags.assignSignalToDepartment && (
             <FilterGroup data-testid="filter-routing-department">
               <Label htmlFor="filter_routing_department" isGroupHeader>
-                Afdeling
+                Department
               </Label>
               <div>
                 <AscLabel

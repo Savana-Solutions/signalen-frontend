@@ -12,7 +12,7 @@ import subcategoriesFixture from '../../../__tests__/subcategoriesFixture.json'
 describe('IncidentSplitSelectInput', () => {
   const props = {
     name: 'subcategory',
-    display: 'Subcategorie',
+    display: 'Subcategory',
     id: 'subcategory',
     initialValue: subcategoriesFixture[0].key,
     options: subcategoriesFixture,

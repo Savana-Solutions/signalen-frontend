@@ -33,7 +33,7 @@ describe('components/Map', () => {
     expect(getByTestId('map-base')).toBeInTheDocument()
 
     // Tile layer
-    expect(getByText(/Kaartgegevens . Kadaster/)).toBeInTheDocument()
+    expect(getByText(/Map information . Kadaster/)).toBeInTheDocument()
   })
 
   it('should call setInstance', () => {

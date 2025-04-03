@@ -38,8 +38,8 @@ export const woningdelen = {
       shortLabel: 'Weet u wie de eigenaar is?',
       pathMerge: 'extra_properties',
       values: {
-        ja: 'Ja',
-        nee: 'Nee',
+        ja: 'Yes',
+        nee: 'No',
       },
     },
     options: {
@@ -62,8 +62,8 @@ export const woningdelen = {
       shortLabel: 'Weet de eigenaar er vanaf?',
       pathMerge: 'extra_properties',
       values: {
-        ja: 'Ja',
-        nee: 'Nee',
+        ja: 'Yes',
+        nee: 'No',
         weet_ik_niet: 'Weet ik niet',
       },
     },
@@ -101,9 +101,9 @@ export const woningdelen = {
       shortLabel: 'Adres huurder',
       pathMerge: 'extra_properties',
       values: {
-        zelfde_adres: 'Ja, op hetzelfde adres als de bewoners',
-        ander_adres: 'Ja, op een ander adres dan de bewoners',
-        weet_ik_niet: 'Nee, weet ik niet',
+        zelfde_adres: 'Yes, op hetzelfde adres als de bewoners',
+        ander_adres: 'Yes, op een ander adres dan de bewoners',
+        weet_ik_niet: 'No, weet ik niet',
       },
     },
     options: {
@@ -152,8 +152,8 @@ export const woningdelen = {
       shortLabel: 'Bewoners familie',
       pathMerge: 'extra_properties',
       values: {
-        ja: 'Ja, de bewoners zijn familie',
-        nee: 'Nee, de bewoners zijn geen familie',
+        ja: 'Yes, de bewoners zijn familie',
+        nee: 'No, de bewoners zijn geen familie',
         weet_ik_niet: 'Weet ik niet',
       },
     },
@@ -180,8 +180,8 @@ export const woningdelen = {
       shortLabel: 'Samenwonen',
       pathMerge: 'extra_properties',
       values: {
-        ja: 'Ja, ze zijn tegelijk op het adres komen wonen',
-        nee: 'Nee, ze zijn op verschillende momenten op het adres komen wonen',
+        ja: 'Yes, ze zijn tegelijk op het adres komen wonen',
+        nee: 'No, ze zijn op verschillende momenten op het adres komen wonen',
         weet_ik_niet: 'Weet ik niet',
       },
     },
@@ -200,8 +200,8 @@ export const woningdelen = {
       shortLabel: 'Wisselende bewoners',
       pathMerge: 'extra_properties',
       values: {
-        ja: 'Ja, vaak andere bewoners op het adres',
-        nee: 'Nee, dezelfde bewoners',
+        ja: 'Yes, vaak andere bewoners op het adres',
+        nee: 'No, dezelfde bewoners',
         weet_ik_niet: 'Weet ik niet',
       },
     },
@@ -232,8 +232,8 @@ export const woningdelen = {
       shortLabel: 'Ervaart u overlast?',
       pathMerge: 'extra_properties',
       values: {
-        ja: 'Ja',
-        nee: 'Nee',
+        ja: 'Yes',
+        nee: 'No',
       },
     },
     options: {

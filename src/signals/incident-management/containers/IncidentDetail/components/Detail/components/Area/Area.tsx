@@ -7,7 +7,7 @@ import { INCIDENT_URL } from 'signals/incident-management/routes'
 
 const Area: React.FC<{ count: number; id: number }> = ({ count, id }) => (
   <>
-    <dt data-testid="detail-area-definition">Omgeving</dt>
+    <dt data-testid="detail-area-definition">Environment</dt>
     <dd data-testid="detail-area-value">
       <AscLink
         as={Link}

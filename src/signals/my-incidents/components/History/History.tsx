@@ -42,7 +42,7 @@ export const History = ({
         <Status>Status</Status>
         <StatusParagraph>{incident.status.state_display}</StatusParagraph>
       </StatusBlock>
-      <StyledH2 forwardedAs="h2">Geschiedenis</StyledH2>
+      <StyledH2 forwardedAs="h2">History</StyledH2>
 
       {data &&
         data.map((instance: HistoryInstance, index) => {

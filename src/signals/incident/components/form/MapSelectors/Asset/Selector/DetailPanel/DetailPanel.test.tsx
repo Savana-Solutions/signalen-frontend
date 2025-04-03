@@ -55,8 +55,8 @@ describe('DetailPanel', () => {
     typeValue: 'Glas',
   }
   const UNREGISTERED_FEATURE = {
-    description: 'Het object staat niet op de kaart',
-    label: 'Onbekend',
+    description: 'Object is not on the map',
+    label: 'Unknown',
     icon: {
       iconUrl: '/assets/images/feature-unknown-marker.svg',
     },
@@ -65,7 +65,7 @@ describe('DetailPanel', () => {
     typeValue: UNKNOWN_TYPE,
   }
   const UNREGISTERED_CONTAINER = {
-    description: 'Het object staat niet op de kaart',
+    description: 'Object is not on the map',
     id: '',
     type: UNKNOWN_TYPE,
   }
@@ -128,7 +128,7 @@ describe('DetailPanel', () => {
       })
     )
 
-    expect(screen.getByText('Selecteer de locatie')).toBeInTheDocument()
+    expect(screen.getByText('Select the location')).toBeInTheDocument()
 
     expect(screen.getByTestId('asset-select-submit-button')).toBeInTheDocument()
 
@@ -291,7 +291,7 @@ describe('DetailPanel', () => {
   it('renders closes the map when clicking on the close button', async () => {
     render(withAssetSelectContext(<DetailPanel {...props} />))
 
-    userEvent.click(screen.getByLabelText('Terug'))
+    userEvent.click(screen.getByLabelText('Back'))
 
     await waitFor(() => {
       expect(dispatch).toHaveBeenCalledWith(closeMap())
@@ -340,7 +340,7 @@ describe('DetailPanel', () => {
       {
         id: 'bla',
         label: 'Huisafval',
-        description: 'Gemeld op: 01-01-1970',
+        description: 'Reported on: 01-01-1970',
         type: NEARBY_TYPE,
       },
     ]

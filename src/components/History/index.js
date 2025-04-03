@@ -22,7 +22,7 @@ const History = ({ className, list }) =>
   list.length > 0 ? (
     <Section className={className} data-testid="history">
       <H2 forwardedAs="h2" styleAs="h4">
-        Geschiedenis
+        History
       </H2>
 
       <HistoryList list={list} />

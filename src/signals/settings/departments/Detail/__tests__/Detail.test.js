@@ -79,7 +79,7 @@ describe('signals/settings/departments/Detail', () => {
 
     await findByTestId('settings-page-header')
 
-    expect(getByText('Afdeling wijzigen')).toBeInTheDocument()
+    expect(getByText('Edit department')).toBeInTheDocument()
 
     jest.spyOn(reactRouterDom, 'useParams').mockImplementationOnce(() => ({
       departmentId: undefined,
@@ -91,7 +91,7 @@ describe('signals/settings/departments/Detail', () => {
 
     await findByTestId('settings-page-header')
 
-    expect(getByText('Afdeling toevoegen')).toBeInTheDocument()
+    expect(getByText('Add department')).toBeInTheDocument()
   })
 
   it('should render a loading indicator', async () => {

@@ -50,7 +50,7 @@ export default function Cancel({ onClose, onSubmit }: Props) {
             label={
               <>
                 <strong>Reden van de wijziging</strong>
-                <span>&nbsp;(niet verplicht)</span>
+                <span>&nbsp;(not required)</span>
               </>
             }
           />

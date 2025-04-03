@@ -48,7 +48,7 @@ export const wegenVerkeerStraatmeubilair = {
         subcategory: ['gladheid'],
       },
       label: 'Om wat voor soort wegdek gaat het?',
-      shortLabel: 'Soort wegdek',
+      shortLabel: 'Sort wegdek',
       subtitle: 'Bijvoorbeeld: asfalt, klinkers of stoeptegels',
       pathMerge: 'extra_properties',
     },
@@ -100,14 +100,14 @@ Is het glad bij een trein-, bus- of metrostation? Neem dan contact op met de NS 
         extra_verkeerslicht_welk: ['voetganger', 'fiets', 'auto', 'tram_bus'],
       },
       values: {
-        geen_beschadigingen: 'Nee, geen beschadigingen',
-        verkeerslicht_scheef: 'Ja, het verkeerslicht staat scheef',
+        geen_beschadigingen: 'No, geen beschadigingen',
+        verkeerslicht_scheef: 'Yes, het verkeerslicht staat scheef',
         verkeerslicht_op_grond:
-          'Ja, de lamp of het verkeerslicht ligt op de grond',
-        lamp_hangt_los: 'Ja, de lamp hangt los',
-        losse_kabels_zichtbaar: 'Ja, er hangen losse stroomkabels',
+          'Yes, de lamp of het verkeerslicht ligt op de grond',
+        lamp_hangt_los: 'Yes, de lamp hangt los',
+        losse_kabels_zichtbaar: 'Yes, er hangen losse stroomkabels',
         deurtje_weg_of_open:
-          'Ja, er zit geen deurtje in het verkeerslicht of het deurtje staat open',
+          'Yes, er zit geen deurtje in het verkeerslicht of het deurtje staat open',
       },
       pathMerge: 'extra_properties',
     },
@@ -235,8 +235,8 @@ Is het glad bij een trein-, bus- of metrostation? Neem dan contact op met de NS 
       shortLabel: 'Fietsenrek aanvragen',
       pathMerge: 'extra_properties',
       values: {
-        ja: 'Ja, dat ik wil ik',
-        nee: 'Nee, ik wil direct verder gaan',
+        ja: 'Yes, dat ik wil ik',
+        nee: 'No, ik wil direct verder gaan',
       },
     },
     options: {

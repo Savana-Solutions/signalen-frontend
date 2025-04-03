@@ -96,7 +96,7 @@ const Location = ({ location }) => {
           {!configuration.featureFlags.fetchDistrictsFromBackend &&
             location.stadsdeel && (
               <div data-testid="location-value-address-district">
-                Stadsdeel:{' '}
+                District:{' '}
                 {getListValueByKey(stadsdeelList, location.stadsdeel)}
               </div>
             )}
@@ -127,7 +127,7 @@ const Location = ({ location }) => {
           ) : (
             <div>
               <span data-testid="location-value-pinned">
-                Locatie is gepind op de kaart
+                Location is pinned on the map
               </span>
             </div>
           )}

@@ -82,14 +82,14 @@ describe('List', () => {
 
     const expectedHeaders = [
       '',
-      'Urgentie',
+      'Urgency',
       'Id',
-      'Dag',
-      'Datum',
-      'Subcategorie',
+      'Day',
+      'Date',
+      'Subcategory',
       'Status',
-      'Stadsdeel',
-      'Adres',
+      'District',
+      'Adress',
     ]
 
     const headers = screen.getAllByRole('columnheader')
@@ -215,7 +215,7 @@ describe('List', () => {
     const { container } = render(withContext(<List {...props} />))
 
     expect(container.querySelector('tr th:nth-child(10)')).toHaveTextContent(
-      'Toegewezen aan'
+      'Assigned to'
     )
     expect(
       container.querySelector('tr:nth-child(1) td:nth-child(10)')
@@ -291,7 +291,7 @@ describe('List', () => {
       expect(screen.queryAllByTestId('child-icon').length).toEqual(childCount)
       expect(screen.queryByTestId('child-icon')).toHaveAttribute(
         'aria-label',
-        'Deelmelding'
+        'Split report'
       )
     })
   })
@@ -325,13 +325,13 @@ describe('List', () => {
   it('should sort by clicking on the column header', () => {
     render(withContext(<List {...props} />))
 
-    userEvent.click(screen.getByRole('columnheader', { name: 'Datum' }))
+    userEvent.click(screen.getByRole('columnheader', { name: 'Date' }))
 
     expect(orderingChangedActionMock).toHaveBeenCalledWith('-created_at')
 
     orderingChangedActionMock.mockClear()
 
-    userEvent.click(screen.getByRole('columnheader', { name: 'Subcategorie' }))
+    userEvent.click(screen.getByRole('columnheader', { name: 'Subcategory' }))
 
     expect(orderingChangedActionMock).toHaveBeenCalledWith('sub_category')
   })
@@ -341,7 +341,7 @@ describe('List', () => {
       withContext(<List {...props} ordering={SortOptions.CREATED_AT_ASC} />)
     )
 
-    userEvent.click(screen.getByRole('columnheader', { name: 'Datum' }))
+    userEvent.click(screen.getByRole('columnheader', { name: 'Date' }))
 
     expect(orderingChangedActionMock).toHaveBeenCalledWith('-created_at')
   })
@@ -351,7 +351,7 @@ describe('List', () => {
       withContext(<List {...props} ordering={SortOptions.CREATED_AT_DESC} />)
     )
 
-    userEvent.click(screen.getByRole('columnheader', { name: 'Datum' }))
+    userEvent.click(screen.getByRole('columnheader', { name: 'Date' }))
 
     expect(orderingChangedActionMock).toHaveBeenCalledWith('created_at')
   })
@@ -359,16 +359,16 @@ describe('List', () => {
   it('should not sort when sorting is disabled except date', () => {
     render(withContext(<List {...props} sortingDisabled={true} />))
 
-    userEvent.click(screen.getByRole('columnheader', { name: 'Urgentie' }))
+    userEvent.click(screen.getByRole('columnheader', { name: 'Urgency' }))
     userEvent.click(screen.getByRole('columnheader', { name: 'Id' }))
-    userEvent.click(screen.getByRole('columnheader', { name: 'Subcategorie' }))
+    userEvent.click(screen.getByRole('columnheader', { name: 'Subcategory' }))
     userEvent.click(screen.getByRole('columnheader', { name: 'Status' }))
-    userEvent.click(screen.getByRole('columnheader', { name: 'Stadsdeel' }))
-    userEvent.click(screen.getByRole('columnheader', { name: 'Adres' }))
+    userEvent.click(screen.getByRole('columnheader', { name: 'District' }))
+    userEvent.click(screen.getByRole('columnheader', { name: 'Adress' }))
 
     expect(orderingChangedActionMock).not.toHaveBeenCalled()
 
-    userEvent.click(screen.getByRole('columnheader', { name: 'Datum' }))
+    userEvent.click(screen.getByRole('columnheader', { name: 'Date' }))
 
     expect(orderingChangedActionMock).toHaveBeenCalledTimes(1)
   })

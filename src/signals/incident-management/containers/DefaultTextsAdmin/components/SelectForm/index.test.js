@@ -36,7 +36,7 @@ describe('SelectForm', () => {
 
     expect(queryByTestId('select-form-form')).not.toBeNull()
 
-    expect(queryByText('Subcategorie')).not.toBeNull()
+    expect(queryByText('Subcategory')).not.toBeNull()
     expect(queryByTestId('category_url').value).not.toBeNull()
     expect(queryByTestId('category_url').value).toEqual(subcategories[0].key)
 

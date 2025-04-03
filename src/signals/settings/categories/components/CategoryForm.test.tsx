@@ -83,15 +83,15 @@ describe('CategoryForm', () => {
     expect(
       screen.getByRole('textbox', { name: 'Omschrijving' })
     ).toBeInTheDocument()
-    expect(screen.getByText('Verantwoordelijke afdeling')).toBeInTheDocument()
+    expect(screen.getByText('Responsible department')).toBeInTheDocument()
     expect(screen.getByText('Openbaar tonen')).toBeInTheDocument()
-    expect(screen.getByText('Afhandeltermijn')).toBeInTheDocument()
+    expect(screen.getByText('Closing period')).toBeInTheDocument()
     expect(
       screen.getByRole('textbox', { name: 'Servicebelofte' })
     ).toBeInTheDocument()
     expect(screen.getByText('Status')).toBeInTheDocument()
     expect(screen.getByRole('textbox', { name: 'Notitie' })).toBeInTheDocument()
-    expect(screen.getByText('Geschiedenis')).toBeInTheDocument()
+    expect(screen.getByText('History')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Annuleer' })).toBeInTheDocument()
     expect(
       screen.getByRole('checkbox', {
@@ -110,10 +110,10 @@ describe('CategoryForm', () => {
     render(<Wrapper isMainCategory={true} />)
 
     expect(screen.getByText('Afwatering brug')).toBeInTheDocument()
-    expect(screen.getByText('Verantwoordelijke afdeling')).toBeInTheDocument()
+    expect(screen.getByText('Responsible department')).toBeInTheDocument()
     expect(screen.getByText('Meldingenkaartfilter')).toBeInTheDocument()
     expect(screen.getByRole('textbox', { name: 'Notitie' })).toBeInTheDocument()
-    expect(screen.getByText('Geschiedenis')).toBeInTheDocument()
+    expect(screen.getByText('History')).toBeInTheDocument()
     expect(
       screen.getByRole('checkbox', {
         name: 'Toon alle subcategorieën in het filter op de meldingenkaart die openbaar getoond mogen worden',
@@ -126,7 +126,7 @@ describe('CategoryForm', () => {
         name: 'Toon meldingen van deze subcategorie op openbare kaarten en op de kaart in het meldformulier.',
       })
     ).not.toBeInTheDocument()
-    expect(screen.queryByText('Afhandeltermijn')).not.toBeInTheDocument()
+    expect(screen.queryByText('Closing period')).not.toBeInTheDocument()
     expect(
       screen.queryByRole('textbox', { name: 'Naam' })
     ).not.toBeInTheDocument()
@@ -143,7 +143,7 @@ describe('CategoryForm', () => {
     render(<Wrapper responsibleDepartments={[]} />)
 
     expect(
-      screen.queryByText('Verantwoordelijke afdeling')
+      screen.queryByText('Responsible department')
     ).not.toBeInTheDocument()
   })
 

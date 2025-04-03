@@ -29,13 +29,13 @@ describe('QuickFilter', () => {
   it('does not render without predefined filters', () => {
     render(<QuickFilter setFilter={setFilterSpy} filters={[]} />)
 
-    expect(screen.queryByText('Mijn filters:')).not.toBeInTheDocument()
+    expect(screen.queryByText('My filters:')).not.toBeInTheDocument()
   })
 
   it('renders list of filters', () => {
     render(<QuickFilter setFilter={setFilterSpy} filters={filters} />)
 
-    expect(screen.getByText('Mijn filters:')).toBeInTheDocument()
+    expect(screen.getByText('My filters:')).toBeInTheDocument()
     filters.map((filter) => {
       expect(screen.getByText(filter.name)).toBeInTheDocument()
     })

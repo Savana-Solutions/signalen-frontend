@@ -43,7 +43,7 @@ const useFormValidation = (formRef) => {
 
         if (!valid) {
           if (required && valueMissing) {
-            error = 'Dit veld is verplicht'
+            error = 'This field is required'
           }
         }
 

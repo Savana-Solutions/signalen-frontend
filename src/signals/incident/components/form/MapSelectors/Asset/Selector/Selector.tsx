@@ -182,7 +182,9 @@ const Selector: FC = () => {
         maxNumberOfAssets === 1
           ? meta?.language?.objectTypeSingular || 'object'
           : meta?.language?.objectTypePlural || 'objecten'
-      setMapMessage(`U kunt maximaal ${maxNumberOfAssets} ${number} kiezen.`)
+      setMapMessage(
+        `You can choose a maximum of ${maxNumberOfAssets} ${number}.`
+      )
     }
   }, [
     maxAssetWarning,
@@ -242,19 +244,18 @@ const Selector: FC = () => {
           setMapMessage(
             <>
               <strong>
-                {`${configuration.language.siteAddress} heeft geen
-                            toestemming om uw locatie te gebruiken.`}
+                {`${configuration.language.siteAddress} has no permission to use your location.`}
               </strong>
               <p>
-                Dit kunt u wijzigen in de voorkeuren of instellingen van uw
-                browser of systeem.
+                You can change this in the preferences or settings of your
+                browser or system.
               </p>
             </>
           )
         }}
         onLocationOutOfBounds={() => {
           setMapMessage(
-            'Uw locatie valt buiten de kaart en is daardoor niet te zien'
+            'Your location is outside the map and therefore not visible'
           )
         }}
       />
@@ -264,7 +265,7 @@ const Selector: FC = () => {
           data-testid="zoom-message"
           zoomLevel={MAP_ASSETS_ZOOM_LEVEL}
         >
-          Zoom in om de {meta?.language?.objectTypePlural || 'objecten'} te zien
+          Zoom in to see the {meta?.language?.objectTypePlural || 'objecten'}
         </ZoomMessage>
       )}
 
@@ -327,19 +328,20 @@ const Selector: FC = () => {
               <StyledHeader $smallView={showList}>
                 {topLeft}
                 <Button
-                  aria-label="Terug"
+                  aria-label="Back"
                   aria-controls="addressPanel"
                   icon={<ChevronLeft />}
                   iconSize={20}
                   onClick={() => dispatch(closeMap())}
                   size={24}
-                  title="Terug"
+                  title="Back"
                   variant="blank"
                 />
                 <InputGroup>
                   {!showList && (
                     <StyledLabel htmlFor="pdokautosuggest">
-                      {meta?.language?.pdokLabel || 'Zoek op adres of postcode'}
+                      {meta?.language?.pdokLabel ||
+                        'Search on adress or postcode'}
                     </StyledLabel>
                   )}
 
@@ -354,7 +356,7 @@ const Selector: FC = () => {
                     onSelect={onAddressSelect}
                     value={addressValue}
                     placeholder={
-                      meta?.language?.pdokInput || 'Adres of postcode'
+                      meta?.language?.pdokInput || 'Adress or postcode'
                     }
                     autoFocus={true}
                   />

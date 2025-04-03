@@ -107,10 +107,10 @@ const Detail = ({ context }) => {
             <Contact incident={incident} showPhone={showPhone} />
 
             <dt data-testid="detail-sharing-definition">
-              Toestemming contactgegevens delen
+              Permission to share contact information
             </dt>
             <dd data-testid="detail-sharing-value">
-              {incident.reporter.sharing_allowed ? 'Ja' : 'Nee'}
+              {incident.reporter.sharing_allowed ? 'Yes' : 'No'}
             </dd>
           </Fragment>
         )}

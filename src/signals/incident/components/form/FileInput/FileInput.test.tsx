@@ -15,8 +15,8 @@ describe('Form component <FileInput />', () => {
     name: 'input-field-name',
     isVisible: true,
 
-    label: "Foto's toevoegen",
-    subtitle: 'Voeg een foto toe om de situatie te verduidelijken',
+    label: 'Add photos',
+    subtitle: 'Add a photo to clarify the situation',
     minFileSize: 30720,
     maxFileSize: 20971520,
     allowedFileTypes: [

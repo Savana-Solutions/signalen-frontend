@@ -24,19 +24,19 @@ const SubNav: FC<SubNavProps> = ({ showsMap }) => (
       {showsMap ? (
         <>
           <Tab data-testid="sub-nav-list-link" as={Link} to={INCIDENTS_URL}>
-            Lijst
+            List
           </Tab>
           <Tab className="active">
-            <span>Kaart</span>
+            <span>Map</span>
           </Tab>
         </>
       ) : (
         <>
           <Tab className="active">
-            <span>Lijst</span>
+            <span>List</span>
           </Tab>
           <Tab data-testid="sub-nav-map-link" as={Link} to={MAP_URL}>
-            Kaart
+            Map
           </Tab>
         </>
       )}

@@ -43,7 +43,7 @@ export const MenuItems = ({ onLogOut, showItems, onLinkClick }: Props) => {
               to="/manage/incidents"
               $active={activeMenuItem.includes('/manage/incidents')}
             >
-              Overzicht
+              Overview
             </StyledMenuButton>
           </MenuItem>
         </>
@@ -57,7 +57,7 @@ export const MenuItems = ({ onLogOut, showItems, onLinkClick }: Props) => {
           href="/incident/beschrijf"
           $active={activeMenuItem.includes('/incident/beschrijf')}
         >
-          Melden
+          Report
         </StyledMenuButton>
       </MenuItem>
 
@@ -69,7 +69,7 @@ export const MenuItems = ({ onLogOut, showItems, onLinkClick }: Props) => {
             to="/manage/signalering"
             $active={activeMenuItem.includes('/manage/signalering')}
           >
-            Signalering
+            Notification
           </StyledMenuButton>
         </MenuItem>
       )}
@@ -83,7 +83,7 @@ export const MenuItems = ({ onLogOut, showItems, onLinkClick }: Props) => {
               to="/manage/v1/standaardteksten"
               $active={activeMenuItem.includes('/manage/v1/standaardteksten')}
             >
-              Standaard teksten
+              Standard texts
               {configuration.featureFlags.showStandardTextAdminV2 && ' (v1)'}
             </StyledMenuButton>
           </MenuItem>
@@ -98,7 +98,7 @@ export const MenuItems = ({ onLogOut, showItems, onLinkClick }: Props) => {
               to="/manage/v2/standaardteksten"
               $active={activeMenuItem.includes('/manage/v2/standaardteksten')}
             >
-              Standaard teksten
+              Standard texts
               {configuration.featureFlags.showStandardTextAdminV1 && ' (v2)'}
             </StyledMenuButton>
           </MenuItem>
@@ -112,7 +112,7 @@ export const MenuItems = ({ onLogOut, showItems, onLinkClick }: Props) => {
             to="/instellingen/"
             $active={activeMenuItem.includes('/instellingen/')}
           >
-            Instellingen
+            Settings
           </StyledMenuButton>
         </MenuItem>
       )}
@@ -142,7 +142,7 @@ export const MenuItems = ({ onLogOut, showItems, onLinkClick }: Props) => {
               iconSize={16}
               iconLeft={<LogoutIcon focusable="false" />}
             >
-              Uitloggen
+              Logout
             </StyledMenuButton>
           </MenuItem>
         </>

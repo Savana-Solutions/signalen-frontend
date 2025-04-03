@@ -12,8 +12,8 @@ import {
   makeSelectUserCanAccess,
 } from 'containers/App/selectors'
 
-export const NO_PAGE_ACCESS_MESSAGE = 'U heeft geen toegang tot deze pagina'
-export const NO_PAGE_FOUND_MESSAGE = 'We hebben de pagina niet gevonden'
+export const NO_PAGE_ACCESS_MESSAGE = 'You have no access to this page'
+export const NO_PAGE_FOUND_MESSAGE = 'We cannot find the page'
 
 type ProtectedRouteProps = RouteProps & {
   role?: string

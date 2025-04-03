@@ -14,7 +14,7 @@ describe('IncidentListItem', () => {
     id: 7744,
     createdAt: '2021-04-22T15:22:43.882134+02:00',
     category: 'Overig afval',
-    status: 'Verzoek tot heropenen',
+    status: 'Request to reopen',
     feedback: {
       isSatisfied: false,
       submittedAt: '2021-04-22T13:27:12.942554Z',
@@ -35,7 +35,7 @@ describe('IncidentListItem', () => {
     expect(screen.getByRole('listitem')).toBeInTheDocument()
     expect(screen.getByText('Niet tevreden')).toBeInTheDocument()
     expect(screen.getByText('7744 Overig afval')).toBeInTheDocument()
-    expect(screen.getByText('Verzoek tot heropenen')).toBeInTheDocument()
+    expect(screen.getByText('Request to reopen')).toBeInTheDocument()
     expect(screen.getByText('22-04-2021 15:22')).toBeInTheDocument()
     expect(screen.getByRole('listitem')).not.toHaveStyleRule(
       'background-color',

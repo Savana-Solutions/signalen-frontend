@@ -40,7 +40,7 @@ describe('signals/incident-management/containers/FilterTagList', () => {
   const tags = {
     status: [definitions.statusList[1]],
     feedback: 'satisfied',
-    priority: [{ key: 'normal', value: 'Normaal' }],
+    priority: [{ key: 'normal', value: 'Normal' }],
     stadsdeel: [definitions.stadsdeelList[0], definitions.stadsdeelList[1]],
     address_text: 'februariplein 1',
     incident_date: '2019-09-17',
@@ -571,7 +571,7 @@ describe('signals/incident-management/containers/FilterTagList', () => {
     expect(mapKeys('priority')).toEqual('urgentie')
     expect(mapKeys('contact_details')).toEqual('contact')
     expect(mapKeys('directing_department')).toEqual(
-      'verantwoordelijke afdeling'
+      'responsible department'
     )
     expect(mapKeys('routing_department')).toEqual('gekoppelde afdeling')
     expect(mapKeys('has_changed_children')).toEqual(

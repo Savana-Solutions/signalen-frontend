@@ -16,11 +16,11 @@ describe('Header', () => {
 
     expect(
       screen.getByRole('heading', {
-        name: 'Meldingen van example@amsterdam.nl (911)',
+        name: 'Reports of example@amsterdam.nl (911)',
       })
     ).toBeInTheDocument()
     expect(
-      screen.getByRole('link', { name: 'Terug naar melding' })
+      screen.getByRole('link', { name: 'Back to report' })
     ).toBeInTheDocument()
   })
 })

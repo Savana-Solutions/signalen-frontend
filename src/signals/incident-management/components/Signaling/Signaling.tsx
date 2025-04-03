@@ -80,8 +80,8 @@ const Signaling: FunctionComponent = () => {
   if (errorOpen || errorReopenRequested) {
     return (
       <Notification
-        title="Er is iets misgegaan"
-        message="De data kon niet worden opgehaald"
+        title="Something went wrong"
+        message="The data could not be retrieved"
         variant="error"
       />
     )
@@ -96,14 +96,14 @@ const Signaling: FunctionComponent = () => {
       <StyledColumn span={6} wrap>
         {totalOpen !== null ? (
           <GraphDescription
-            title="Buiten de afhandeltermijn"
-            description="Alle openstaande meldingen, waarvan de doorlooptijd langer is dan 3x de afhandeltermijn."
+            title="Outside the handling period"
+            description="All outstanding reports, the processing time of which is longer than 3x the processing time."
             total={totalOpen}
           />
         ) : null}
 
         {totalOpen === 0 ? (
-          <GraphEmpty text={'Hier is niks meer te signaleren'} />
+          <GraphEmpty text={'Here is nothing more to report'} />
         ) : (
           <BarGraph
             maxValue={1000}
@@ -115,14 +115,14 @@ const Signaling: FunctionComponent = () => {
       <StyledColumn span={6} wrap>
         {totalReopenRequested !== null && (
           <GraphDescription
-            title="Verzoek tot heropenen"
-            description={`Meldingen waarbij de melder langer dan 2 weken geleden een "verzoek tot heropenen" heeft gedaan.`}
+            title="Request to reopen"
+            description={`Reports where the reporter made a "request to reopen" more than 2 weeks ago.`}
             total={totalReopenRequested}
           />
         )}
 
         {totalReopenRequested === 0 ? (
-          <GraphEmpty text={'Hier is niks meer te signaleren'} />
+          <GraphEmpty text={'Here is nothing more to report'} />
         ) : (
           <BarGraph
             maxValue={1000}

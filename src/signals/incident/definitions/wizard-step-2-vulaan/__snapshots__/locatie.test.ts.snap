@@ -4,14 +4,15 @@ exports[`locatie return a config object 1`] = `
 {
   "meta": {
     "featureTypes": [],
-    "label": "Waar is het?",
+    "label": "Where is it?",
     "language": {
-      "description": "Typ het dichtstbijzijnde adres, klik de locatie aan op de kaart of gebruik "Mijn locatie"",
-      "subTitle": "Waar is het?",
+      "description": "Enter the nearest address, click the location on the map or use "My location"
+",
+      "subTitle": "Where is it?",
       "submit": "Bevestigen",
-      "title": "Selecteer de locatie",
+      "title": "Select the location",
     },
-    "shortLabel": "Waar is het?",
+    "shortLabel": "Where is it?",
   },
   "options": {
     "validators": [

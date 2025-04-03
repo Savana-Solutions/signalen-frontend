@@ -90,7 +90,7 @@ export const AssetLayer: FC = () => {
         const gemeente = configuration.map?.municipality || ''
         const newPopup = L.popup()
           .setLatLng(coordinates)
-          .setContent(`Deze app werkt alleen binnen de gemeente ${gemeente}.`)
+          .setContent(`This app only works within the municipality ${gemeente}.`)
         setPopup(newPopup)
         return
       }

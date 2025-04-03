@@ -95,7 +95,7 @@ describe('IncidentMap', () => {
     render(withAppContext(<IncidentMap />))
 
     expect(
-      screen.getByText('Er konden geen meldingen worden opgehaald.')
+      screen.getByText('No reports could be retrieved.')
     ).toBeInTheDocument()
   })
 
@@ -140,7 +140,7 @@ describe('IncidentMap', () => {
 
     render(withAppContext(<IncidentMap />))
     expect(
-      screen.queryByText('Er konden geen meldingen worden opgehaald.')
+      screen.queryByText('No reports could be retrieved.')
     ).toBeInTheDocument()
 
     const closeButton = screen.getByTestId('close-message')
@@ -150,7 +150,7 @@ describe('IncidentMap', () => {
     userEvent.click(closeButton)
 
     expect(
-      screen.queryByText('Er konden geen meldingen worden opgehaald.')
+      screen.queryByText('No reports could be retrieved.')
     ).not.toBeInTheDocument()
   })
 

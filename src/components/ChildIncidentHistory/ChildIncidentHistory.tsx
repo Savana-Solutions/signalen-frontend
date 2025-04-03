@@ -99,7 +99,7 @@ const ChildIncidentHistory: FunctionComponent<ChildIncidentHistoryProps> = ({
       {canView ? (
         <Fragment>
           {recentHistory.length === 0 && (
-            <StyledParagraph light>Geen nieuwe wijzigingen</StyledParagraph>
+            <StyledParagraph light>No new changes</StyledParagraph>
           )}
 
           {shownHistory.length !== 0 && (
@@ -108,13 +108,13 @@ const ChildIncidentHistory: FunctionComponent<ChildIncidentHistoryProps> = ({
 
           {showToggle && (
             <StyledLink href="#" variant="inline" onClick={handleClick}>
-              {showAllHistory ? 'Verberg geschiedenis' : 'Toon geschiedenis'}
+              {showAllHistory ? 'Hide history' : 'Show history'}
             </StyledLink>
           )}
         </Fragment>
       ) : (
         <StyledParagraph>
-          Je hebt geen toestemming om meldingen in deze categorie te bekijken
+          You have no permission to view reports in this category
         </StyledParagraph>
       )}
     </Wrapper>

@@ -37,7 +37,7 @@ export const DepartmentDetailContainer = ({
   const { isLoading, isSuccess, data, error, get, patch, type } = useFetch()
   const redirectURL = location.referrer || `${BASE_URL}/${routes.departments}`
   const confirmedCancel = useConfirmedCancel(redirectURL)
-  const entityName = `Afdeling${data ? ` '${data.name}'` : ''}`
+  const entityName = `Department${data ? ` '${data.name}'` : ''}`
   const title = `${entityName} ${
     isExistingDepartment ? 'wijzigen' : 'toevoegen'
   }`
@@ -75,7 +75,7 @@ export const DepartmentDetailContainer = ({
           title={title}
           BackLink={
             <BackLink to={`${BASE_URL}/${routes.departments}`}>
-              Terug naar overzicht
+              Back to overview
             </BackLink>
           }
         />
@@ -89,7 +89,7 @@ export const DepartmentDetailContainer = ({
             <Column span={12}>
               <div>
                 <Heading forwardedAs="h2" styleAs="h4">
-                  Afdeling
+                  Department
                 </Heading>
                 <Paragraph>{data.name}</Paragraph>
               </div>

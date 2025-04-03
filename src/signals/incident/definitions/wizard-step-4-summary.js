@@ -46,7 +46,7 @@ export const renderPreview = ({ render, meta }) => {
         return PreviewComponents.ListObjectValue
       }
 
-      return () => 'Ja'
+      return () => 'Yes'
 
     case QuestionFieldType.MultiTextInput:
       return SCSVLabel
@@ -224,22 +224,22 @@ const getExtraQuestions = (category, subcategory, questions) => {
 }
 
 export default {
-  label: 'Versturen',
-  subHeader: 'Controleer uw gegevens en verstuur uw melding.',
-  nextButtonLabel: 'Verstuur',
+  label: 'Send',
+  subHeader: 'Check your information and send the report.',
+  nextButtonLabel: 'Send',
   nextButtonClass: 'action primary',
-  previousButtonLabel: 'Vorige',
+  previousButtonLabel: 'Previous',
   previousButtonClass: 'action startagain',
   sectionLabels: {
     heading: {
-      beschrijf: '1. Beschrijf uw melding',
-      vulaan: '2. Locatie en vragen',
-      contact: '3. Contactgegevens',
+      beschrijf: '1. Describe your report',
+      vulaan: '2. Location and questions',
+      contact: '3. Contact details',
     },
     edit: {
-      beschrijf: 'Wijzig uw melding',
-      vulaan: 'Wijzig locatie en vragen',
-      contact: 'Wijzig contactgegevens',
+      beschrijf: 'Edit your report',
+      vulaan: 'Edit location and questions',
+      contact: 'Edit contact details',
     },
   },
   formAction: 'CREATE_INCIDENT',
@@ -255,26 +255,26 @@ export default {
   previewFactory: ({ category, subcategory, questions }) => ({
     beschrijf: {
       source: {
-        label: 'Bron',
+        label: 'Source',
         render: ({ value }) => value?.label,
         authenticated: true,
       },
       priority: {
-        label: 'Urgentie',
+        label: 'Urgency',
         render: ({ value }) => value?.label,
         authenticated: true,
       },
       description: {
-        label: 'Waar gaat het over?',
+        label: 'What is it about?',
         render: ({ value }) => value,
       },
       classification: {
-        label: 'Subcategorie',
+        label: 'Subcategory',
         render: ({ value }) => value?.name,
         authenticated: true,
       },
       images_previews: {
-        label: "Foto's toevoegen",
+        label: 'Add photos',
         render: PreviewComponents.Image,
         optional: true,
       },
@@ -284,19 +284,19 @@ export default {
 
     contact: {
       phone: {
-        label: 'Wat is uw telefoonnummer?',
+        label: 'What is your phonenumber?',
         optional: true,
         render: ({ value }) => value,
       },
 
       email: {
-        label: 'Wat is uw e-mailadres?',
+        label: 'What is your email address?',
         optional: true,
         render: ({ value }) => value,
       },
 
       sharing_allowed: {
-        label: 'Melding delen',
+        label: 'Share report',
         optional: true,
         render: ({ value }) => {
           if (!value) return null

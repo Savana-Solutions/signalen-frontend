@@ -42,9 +42,9 @@ describe('Contact', () => {
       render(withAppContext(<Contact showPhone incident={incidentFixture} />))
     })
 
-    expect(screen.getByText('Telefoon melder')).toBeInTheDocument()
+    expect(screen.getByText('Phone reporter')).toBeInTheDocument()
 
-    expect(screen.getByText('E-mail melder')).toBeInTheDocument()
+    expect(screen.getByText('Email reporter')).toBeInTheDocument()
 
     expect(screen.getByText('14020')).toBeInTheDocument()
 
@@ -88,7 +88,7 @@ describe('Contact', () => {
       'E-mailadres mag niet leeg zijn. Vul een geldig e-mailadres in, met een @ en een domeinnaam. Bijvoorbeeld: naam@domein.nl.'
     )
 
-    userEvent.type(screen.getByPlaceholderText('E-mail melder'), 'test')
+    userEvent.type(screen.getByPlaceholderText('Email reporter'), 'test')
 
     await act(async () => {
       userEvent.click(screen.getByTestId('contact-form-submit-button'))
@@ -98,7 +98,7 @@ describe('Contact', () => {
       'Vul een geldig e-mailadres in, met een @ en een domeinnaam. Bijvoorbeeld: naam@domein.nl.'
     )
 
-    userEvent.type(screen.getByPlaceholderText('Telefoon melder'), 'test')
+    userEvent.type(screen.getByPlaceholderText('Phone reporter'), 'test')
 
     await act(async () => {
       userEvent.click(screen.getByTestId('contact-form-submit-button'))
@@ -130,8 +130,8 @@ describe('Contact', () => {
       userEvent.click(screen.getByTestId('edit-contact-button'))
     })
 
-    userEvent.type(screen.getByPlaceholderText('E-mail melder'), 'm')
-    userEvent.type(screen.getByPlaceholderText('Telefoon melder'), '123123')
+    userEvent.type(screen.getByPlaceholderText('Email reporter'), 'm')
+    userEvent.type(screen.getByPlaceholderText('Phone reporter'), '123123')
 
     userEvent.click(screen.getByTestId('contact-form-submit-button'))
 

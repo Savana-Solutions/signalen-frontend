@@ -27,7 +27,7 @@ const ExportContainer = () => {
       <Row>
         <PageHeader
           title="CSV Export"
-          BackLink={<BackLink to={BASE_URL}>Terug naar instellingen</BackLink>}
+          BackLink={<BackLink to={BASE_URL}>Back to setings</BackLink>}
         />
       </Row>
       <Row>

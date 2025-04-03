@@ -42,22 +42,22 @@ export type WizardSectionProp = {
 
 export default {
   beschrijf: {
-    stepLabel: 'Beschrijf uw melding',
+    stepLabel: 'Describe your report',
     countAsStep: true,
     ...beschrijf,
   },
   vulaan: {
-    stepLabel: 'Locatie en vragen',
+    stepLabel: 'Location and questions',
     countAsStep: true,
     ...vulaan,
   },
   contact: {
-    stepLabel: 'Contactgegevens',
+    stepLabel: 'Contact details',
     countAsStep: true,
     ...contact,
   },
   summary: {
-    stepLabel: 'Versturen',
+    stepLabel: 'Send',
     countAsStep: true,
     ...summary,
   },

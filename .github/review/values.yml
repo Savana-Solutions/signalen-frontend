@@ -34,7 +34,7 @@ config:
     statusBarStyle: default
     themeColor: "#fff"
   language:
-    consentToContactSharing: Ja, ik geef de gemeente Amsterdam toestemming om mijn melding
+    consentToContactSharing: Yes, ik geef de gemeente Amsterdam toestemming om mijn melding
       door te sturen naar andere organisaties als de melding niet voor de gemeente is
       bestemd.
     district: Stadsdeel
@@ -94,7 +94,7 @@ config:
       args:
       - https://{s}.data.amsterdam.nl/topo_rd/{z}/{x}/{y}.png
       options:
-        attribution: "<span aria-hidden='true'>Kaartgegevens CC-BY-4.0 Gemeente Amsterdam</span>"
+        attribution: "<span aria-hidden='true'>Map information CC-BY-4.0 Gemeente Amsterdam</span>"
         subdomains:
         - t1
         - t2

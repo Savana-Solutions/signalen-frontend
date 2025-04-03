@@ -20,7 +20,7 @@ export const ModalHeader = ({ title, onClose }: Props) => (
       icon={<Close />}
       iconSize={20}
       size={32}
-      title="Sluiten"
+      title="Close"
     />
   </Header>
 )

@@ -32,7 +32,7 @@ export const RolesListContainer = ({
       <Row>
         <PageHeader
           title="Rollen"
-          BackLink={<BackLink to={BASE_URL}>Terug naar instellingen</BackLink>}
+          BackLink={<BackLink to={BASE_URL}>Back to setings</BackLink>}
         >
           {userCan('add_group') && (
             <HeaderButton

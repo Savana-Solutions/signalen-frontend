@@ -76,7 +76,7 @@ export const REACTIE_ONTVANGEN = {
 
 export const VERZOEK_TOT_HEROPENEN = {
   key: StatusCode.VerzoekTotHeropenen,
-  value: 'Verzoek tot heropenen',
+  value: 'Request to reopen',
   color: 'orange',
   email_sent_when_set: false,
   shows_remaining_sla_days: false,

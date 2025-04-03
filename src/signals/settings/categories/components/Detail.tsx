@@ -185,7 +185,7 @@ export const CategoryDetail = ({
         <PageHeader
           dataTestId={'settings-page-header'}
           title={title}
-          BackLink={<BackLink to={redirectURL}>Terug naar overzicht</BackLink>}
+          BackLink={<BackLink to={redirectURL}>Back to overview</BackLink>}
         />
       </Row>
 

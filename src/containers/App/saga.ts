@@ -57,7 +57,7 @@ export function* callLogin() {
     yield put(
       showGlobalNotification({
         variant: VARIANT_ERROR,
-        title: (error as Error)?.message || 'Inloggen is niet gelukt',
+        title: (error as Error)?.message || 'Login failed',
         type: TYPE_GLOBAL,
       })
     )
@@ -159,7 +159,7 @@ export function* callPostMessage(action: PostMessageAction) {
       yield put(
         showGlobalNotification({
           variant: VARIANT_ERROR,
-          title: 'Er is iets misgegaan',
+          title: 'Something went wrong',
           type: TYPE_GLOBAL,
         })
       )

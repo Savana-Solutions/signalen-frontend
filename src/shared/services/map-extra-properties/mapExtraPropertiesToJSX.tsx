@@ -45,7 +45,7 @@ export const mapExtraPropertiesToJSX = (
     }
 
     if (typeof (answer as CheckboxInput).value === 'boolean') {
-      return (answer as CheckboxInput).value ? answer.label : 'Nee'
+      return (answer as CheckboxInput).value ? answer.label : 'No'
     }
 
     return answer.label

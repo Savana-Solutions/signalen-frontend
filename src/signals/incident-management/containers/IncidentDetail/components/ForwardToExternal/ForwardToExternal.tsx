@@ -38,16 +38,16 @@ const schema = yup.object({
     .string()
     .email('Dit is geen geldig e-mail adres.')
     .required(
-      'Dit veld is verplicht voor het doorzetten naar een externe partij.'
+      'This field is required voor het doorzetten naar een externe partij.'
     ),
   message: yup
     .string()
     .max(
       MAX_MESSAGE_LENGTH,
-      `Je hebt meer dan de maximale ${MAX_MESSAGE_LENGTH} tekens ingevoerd.`
+      `You have entered more than the maximum of ${MAX_MESSAGE_LENGTH} characters.`
     )
     .required(
-      'Dit veld is verplicht voor het doorzetten naar een externe partij.'
+      'This field is required voor het doorzetten naar een externe partij.'
     ),
 })
 
@@ -208,7 +208,7 @@ const ForwardToExternal = ({ onClose }: ForwardToExternalProps) => {
           type="submit"
           variant="secondary"
         >
-          Verstuur
+          Send
         </StyledButton>
 
         <StyledButton

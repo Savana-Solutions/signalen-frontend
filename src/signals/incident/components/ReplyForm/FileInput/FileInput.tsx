@@ -56,7 +56,7 @@ const FileInput = ({
         },
         numberOfFiles: (files) => {
           if ((files as File[]).length > MAX_NUMBER_OF_FILES)
-            return `U kunt maximaal ${MAX_NUMBER_OF_FILES} bestanden uploaden`
+            return `You can upload a maximum of ${MAX_NUMBER_OF_FILES}`
         },
         minFileSize: (files) =>
           (files as File[]).find((file) => file.size < MIN) &&

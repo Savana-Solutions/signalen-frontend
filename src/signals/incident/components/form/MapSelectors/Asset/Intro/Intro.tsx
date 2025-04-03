@@ -69,7 +69,7 @@ const Intro = () => {
           onClick={() => dispatch(showMap())}
           variant="primary"
         >
-          Kies locatie
+          Choose location
         </Button>
       </ButtonBar>
     </Wrapper>

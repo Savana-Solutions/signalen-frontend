@@ -75,7 +75,7 @@ const GPSButton: FunctionComponent<GPSButtonProps & HTMLProps<HTMLElement>> = ({
         meta: {
           category: 'interaction.generic.component.mapInteraction',
           action: 'buttonClick',
-          label: 'Mijn locatie',
+          label: 'My location',
         },
       })
 
@@ -104,7 +104,7 @@ const GPSButton: FunctionComponent<GPSButtonProps & HTMLProps<HTMLElement>> = ({
       type="button"
       variant="blank"
     >
-      Mijn locatie
+      My location
     </StyledButton>
   )
 }

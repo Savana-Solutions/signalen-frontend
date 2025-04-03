@@ -27,7 +27,7 @@ export const useApiHealthCheck = async () => {
       } catch (error) {
         dispatch(
           showGlobalNotification({
-            title: 'Er kon geen health check worden uitgevoerd op de API.',
+            title: 'It was not possible to do a health check on the API.',
             variant: VARIANT_ERROR,
             type: TYPE_LOCAL,
           })

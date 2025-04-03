@@ -89,10 +89,10 @@ const expandQuestions = memoize(
 const fallback = expandQuestions({ locatie })
 
 export default {
-  label: 'Locatie en vragen',
-  nextButtonLabel: 'Volgende',
+  label: 'Location and questions',
+  nextButtonLabel: 'Next',
   nextButtonClass: 'action primary arrow-right',
-  previousButtonLabel: 'Vorige',
+  previousButtonLabel: 'Previous',
   previousButtonClass: 'action startagain',
   formAction: 'UPDATE_INCIDENT',
   formFactory: ({ category, subcategory, questions }) => {

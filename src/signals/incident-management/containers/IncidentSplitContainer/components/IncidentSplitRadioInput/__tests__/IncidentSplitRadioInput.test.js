@@ -11,7 +11,7 @@ import IncidentSplitRadioInput from '..'
 describe('IncidentSplitRadioInput', () => {
   const props = {
     className: 'foo bar',
-    display: 'Urgentie',
+    display: 'Urgency',
     id: 'priority',
     initialValue: 'null',
     name: 'priority',

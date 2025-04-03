@@ -69,7 +69,7 @@ export const AreaContainer: FunctionComponent = () => {
     if (contextError || selectedIncidentError || incidentError) {
       dispatch(
         showGlobalNotification({
-          title: 'De data kon niet worden opgehaald',
+          title: 'The data could not be retrieved',
           variant: VARIANT_ERROR,
           type: TYPE_LOCAL,
         })

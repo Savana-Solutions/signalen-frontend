@@ -230,7 +230,7 @@ const IncidentReplyContainer = () => {
           <StyledSubHeading as="h2">Uw melding</StyledSubHeading>
           <Content>
             <Paragraph>Nummer: {incident._display}</Paragraph>
-            <Paragraph>Gemeld op: {formattedDate}</Paragraph>
+            <Paragraph>Reported on: {formattedDate}</Paragraph>
           </Content>
           <QuestionnaireComponent
             onSubmit={submit}
@@ -239,8 +239,8 @@ const IncidentReplyContainer = () => {
               {
                 field_type: FieldType.FileInput,
                 uuid: 'file-input',
-                short_label: "Foto's toevoegen",
-                label: 'Voeg een foto toe om de situatie te verduidelijken',
+                short_label: 'Add photos',
+                label: 'Add a photo to clarify the situation',
               } as Question,
             ]}
           />

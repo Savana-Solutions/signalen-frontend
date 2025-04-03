@@ -64,7 +64,7 @@ export const OverviewContainer = () => {
           title={`Hoofdcategorieën ${
             mainCategories ? `(${mainCategories.length})` : ''
           }`}
-          BackLink={<BackLink to={BASE_URL}>Terug naar instellingen</BackLink>}
+          BackLink={<BackLink to={BASE_URL}>Back to setings</BackLink>}
         />
       </Row>
       <Row>

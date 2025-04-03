@@ -128,8 +128,8 @@
       "retrieval_key": null,
       "analysis_key": "photo_reaction",
       "uuid": "2d149951-21eb-4f7f-8530-592012c6f0e3",
-      "label": "Voeg een foto toe om de situatie te verduidelijken.",
-      "short_label": "Foto's toevoegen",
+      "label": "Add a photo to clarify the situation.",
+      "short_label": "Add photos",
       "field_type": "image",
       "next_rules": null,
       "required": false

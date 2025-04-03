@@ -216,7 +216,7 @@ describe('Overview component', () => {
       )
     )
 
-    expect(screen.getByText(/Versienummer backend: 123/)).toBeTruthy()
-    expect(screen.getByText(/Versienummer frontend: 123/)).toBeTruthy()
+    expect(screen.getByText(/Versionnumber backend: 123/)).toBeTruthy()
+    expect(screen.getByText(/Versionnumber frontend: 123/)).toBeTruthy()
   })
 })

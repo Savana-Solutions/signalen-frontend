@@ -38,7 +38,7 @@ describe('History', () => {
       )
     )
 
-    expect(screen.getByText('Geschiedenis')).toBeInTheDocument()
+    expect(screen.getByText('History')).toBeInTheDocument()
     expect(screen.getByText('16 december 2022, 13:00')).toBeInTheDocument()
   })
 
@@ -57,7 +57,7 @@ describe('History', () => {
       )
     )
 
-    expect(screen.getByText('Geschiedenis')).toBeInTheDocument()
+    expect(screen.getByText('History')).toBeInTheDocument()
     expect(
       screen.queryByText('16 december 2022, 13:00')
     ).not.toBeInTheDocument()

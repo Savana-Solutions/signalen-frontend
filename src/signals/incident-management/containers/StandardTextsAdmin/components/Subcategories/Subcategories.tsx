@@ -97,7 +97,7 @@ export const Subcategories = ({ onChange, value = [], defaultText }: Props) => {
         <PageHeader
           dataTestId={'defaulttextadmin-page-header'}
           title={'Standaardtekst toewijzen aan categorie(ën)'}
-          BackLink={<BackLink to={'../'}>Terug naar standaardtekst</BackLink>}
+          BackLink={<BackLink to={'../'}>Back to standdardtext</BackLink>}
         >
           <StyledUnderline>{defaultText}</StyledUnderline>
         </PageHeader>

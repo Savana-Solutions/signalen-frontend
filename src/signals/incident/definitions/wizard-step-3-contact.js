@@ -7,10 +7,10 @@ import IncidentNavigation from '../components/IncidentNavigation'
 import { validatePhoneNumber } from '../services/custom-validators/custom-validators'
 
 export default {
-  label: 'Contactgegevens',
-  nextButtonLabel: 'Volgende',
+  label: 'Contact details',
+  nextButtonLabel: 'Next',
   nextButtonClass: 'action primary arrow-right',
-  previousButtonLabel: 'Vorige',
+  previousButtonLabel: 'Previous',
   previousButtonClass: 'action startagain',
   formAction: 'UPDATE_INCIDENT',
   form: {
@@ -19,9 +19,9 @@ export default {
         meta: {
           type: 'message',
           heading:
-            'Mogen we u bellen voor vragen? En op de  hoogte houden via e-mail?',
-          value: `Vaak hebben we nog een vraag. Daarmee kunnen we het probleem sneller of beter oplossen. Of we willen iets uitleggen. Wij willen u dan graag even bellen. Of anders e-mailen wij u.
-            \n Wij gebruiken uw telefoonnummer en e-mailadres alléén voor deze melding.`,
+            'May we call you for questions? And keep you informed by email?',
+          value: `We often have a question. That way we can solve the problem faster or better. Or we want to explain something. We would like to call you. Or else we will email you.
+\n We only use your telephone number and email address for this message.`,
           wrappedComponent: FormComponents.PlainText,
         },
         render: FormComponents.WithHeading,
@@ -31,7 +31,7 @@ export default {
           // https://bytes.grubhub.com/disabling-safari-autofill-for-a-single-line-address-input-b83137b5b1c7
           autoComplete: 'search_tel',
           autoRemove: /[^\d ()+-]/g,
-          label: 'Wat is uw telefoonnummer?',
+          label: 'What is your phonenumber?',
           path: 'reporter.phone',
           subtitle: '',
           type: 'tel',
@@ -46,7 +46,7 @@ export default {
         meta: {
           autoComplete: 'search_email',
           autoRemove: /[^\w!#$%&'*+./;=?@^`{|}~-]/g,
-          label: 'Wat is uw e-mailadres?',
+          label: 'What is your email address?',
           path: 'reporter.email',
           subtitle: '',
           type: 'email',
@@ -59,16 +59,16 @@ export default {
       privacy_text: {
         meta: {
           type: 'message',
-          heading: 'Mogen we uw melding doorsturen?',
+          heading: 'Can we forward your report?',
           value:
-            'Soms kan de gemeente niets doen. Een andere organisatie moet dan aan het werk. Als dat zo is kunnen wij uw melding soms doorsturen. Wij sturen uw telefoonnummer of e-mailadres mee. Maar dat doen we alleen als u dat goed vindt.',
+            'Sometimes the municipality can do nothing. Another organization has to do the work. If that is the case, we can sometimes forward your report. We will send your telephone number or e-mail address. But we will only do that if you agree.',
           wrappedComponent: FormComponents.PlainText,
         },
         render: FormComponents.WithHeading,
       },
       sharing_allowed: {
         meta: {
-          shortLabel: 'Toestemming contactgegevens delen',
+          shortLabel: 'Permission to share contact information',
           value: configuration.language?.consentToContactSharing,
           path: 'reporter.sharing_allowed',
         },

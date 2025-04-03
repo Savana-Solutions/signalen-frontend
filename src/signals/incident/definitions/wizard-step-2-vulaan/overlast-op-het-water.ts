@@ -29,8 +29,8 @@ export const overlastOpHetWater = {
         subcategory: 'overlast-op-het-water-gezonken-boot',
       },
       values: {
-        ja: 'Ja, de boot ligt volledig onder water',
-        nee: 'Nee, de boot kan nog drijven',
+        ja: 'Yes, de boot ligt volledig onder water',
+        nee: 'No, de boot kan nog drijven',
       },
       label: 'Ligt de boot volledig onder water of kan hij nog drijven?',
       shortLabel: 'Drijfkracht',
@@ -44,8 +44,8 @@ export const overlastOpHetWater = {
         subcategory: 'overlast-op-het-water-gezonken-boot',
       },
       values: {
-        ja: 'Ja, de boot ligt vast',
-        nee: 'Nee, de boot kan wegdrijven',
+        ja: 'Yes, de boot ligt vast',
+        nee: 'No, de boot kan wegdrijven',
       },
       label:
         'Ligt de boot nog vast? Of kan de boot wegdrijven zodat hij de vaarweg blokkeert?',
@@ -60,8 +60,8 @@ export const overlastOpHetWater = {
         subcategory: 'overlast-op-het-water-gezonken-boot',
       },
       values: {
-        ja: 'Ja, boot lekt vloeistof',
-        nee: 'Nee, boot lekt geen vloeistof',
+        ja: 'Yes, boot lekt vloeistof',
+        nee: 'No, boot lekt geen vloeistof',
         weetniet: 'Weet ik niet',
       },
       label: 'Lekt de boot olie of een andere vloeistof?',

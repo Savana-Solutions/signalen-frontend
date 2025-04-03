@@ -121,24 +121,24 @@ describe('MetaList', () => {
 
       expect(
         screen.queryByTestId('meta-list-date-definition')
-      ).toHaveTextContent(/^Gemeld op$/)
+      ).toHaveTextContent(/^Reported on$/)
       expect(screen.queryByTestId('meta-list-date-value')).toHaveTextContent(
         /^21-07-1970 11:56$/
       )
 
       expect(
         screen.queryByTestId('meta-list-handling-time-definition')
-      ).toHaveTextContent(/^Afhandeltermijn$/)
+      ).toHaveTextContent(/^Closing period$/)
       expect(
         screen.queryByTestId('meta-list-handling-time-value')
       ).toHaveTextContent(/^4 werkdagen$/)
 
       expect(
         screen.queryByTestId('meta-list-process-time-definition')
-      ).toHaveTextContent(/^Doorlooptijd$/)
+      ).toHaveTextContent(/^Lead time$/)
       expect(
         screen.queryByTestId('meta-list-process-time-value')
-      ).toHaveTextContent(/^3x buiten de afhandeltermijn$/)
+      ).toHaveTextContent(/^3x Outside the handling period$/)
 
       expect(
         screen.queryByTestId('meta-list-status-definition')
@@ -147,19 +147,19 @@ describe('MetaList', () => {
         /^Gemeld$/
       )
 
-      expect(screen.queryByText('Urgentie')).toBeInTheDocument()
-      expect(screen.queryByText('Normaal')).toBeInTheDocument()
+      expect(screen.queryByText('Urgency')).toBeInTheDocument()
+      expect(screen.queryByText('Normal')).toBeInTheDocument()
 
       expect(
         screen.queryByTestId('meta-list-main-category-definition')
-      ).toHaveTextContent(/^Hoofdcategorie$/)
+      ).toHaveTextContent(/^Main category$/)
       expect(
         screen.queryByTestId('meta-list-main-category-value')
       ).toHaveTextContent(incidentFixture.category.main)
 
       expect(
         screen.queryByTestId('meta-list-source-definition')
-      ).toHaveTextContent(/^Bron$/)
+      ).toHaveTextContent(/^Source$/)
       expect(screen.queryByTestId('meta-list-source-value')).toHaveTextContent(
         incidentFixture.source
       )
@@ -181,14 +181,14 @@ describe('MetaList', () => {
 
       expect(
         screen.queryByTestId('meta-list-date-definition')
-      ).toHaveTextContent(/^Gemeld op$/)
+      ).toHaveTextContent(/^Reported on$/)
       expect(screen.queryByTestId('meta-list-date-value')).toHaveTextContent(
         /^21-07-1970 11:56$/
       )
 
       expect(
         screen.queryByTestId('meta-list-handling-time-definition')
-      ).toHaveTextContent(/^Afhandeltermijn$/)
+      ).toHaveTextContent(/^Closing period$/)
       expect(
         screen.queryByTestId('meta-list-handling-time-value')
       ).toHaveTextContent(/^4 werkdagen$/)
@@ -200,19 +200,19 @@ describe('MetaList', () => {
         /^Gemeld$/
       )
 
-      expect(screen.queryByText('Urgentie')).toBeInTheDocument()
-      expect(screen.queryByText('Normaal')).toBeInTheDocument()
+      expect(screen.queryByText('Urgency')).toBeInTheDocument()
+      expect(screen.queryByText('Normal')).toBeInTheDocument()
 
       expect(
         screen.queryByTestId('meta-list-main-category-definition')
-      ).toHaveTextContent(/^Hoofdcategorie$/)
+      ).toHaveTextContent(/^Main category$/)
       expect(
         screen.queryByTestId('meta-list-main-category-value')
       ).toHaveTextContent(incidentFixture.category.main)
 
       expect(
         screen.queryByTestId('meta-list-source-definition')
-      ).toHaveTextContent(/^Bron$/)
+      ).toHaveTextContent(/^Source$/)
       expect(screen.queryByTestId('meta-list-source-value')).toHaveTextContent(
         incidentFixture.source
       )
@@ -234,7 +234,7 @@ describe('MetaList', () => {
 
       expect(
         screen.queryByTestId('meta-list-date-definition')
-      ).toHaveTextContent(/^Gemeld op$/)
+      ).toHaveTextContent(/^Reported on$/)
       expect(screen.queryByTestId('meta-list-date-value')).toHaveTextContent(
         /^21-07-1970 11:56$/
       )
@@ -246,19 +246,19 @@ describe('MetaList', () => {
         /^Gemeld$/
       )
 
-      expect(screen.queryByText('Urgentie')).toBeInTheDocument()
-      expect(screen.queryByText('Normaal')).toBeInTheDocument()
+      expect(screen.queryByText('Urgency')).toBeInTheDocument()
+      expect(screen.queryByText('Normal')).toBeInTheDocument()
 
       expect(
         screen.queryByTestId('meta-list-main-category-definition')
-      ).toHaveTextContent(/^Hoofdcategorie$/)
+      ).toHaveTextContent(/^Main category$/)
       expect(
         screen.queryByTestId('meta-list-main-category-value')
       ).toHaveTextContent(incidentFixture.category.main)
 
       expect(
         screen.queryByTestId('meta-list-source-definition')
-      ).toHaveTextContent(/^Bron$/)
+      ).toHaveTextContent(/^Source$/)
       expect(screen.queryByTestId('meta-list-source-value')).toHaveTextContent(
         incidentFixture.source
       )
@@ -286,7 +286,7 @@ describe('MetaList', () => {
 
     expect(
       screen.queryByTestId('meta-list-handling-time-definition')
-    ).toHaveTextContent(/^Afhandeltermijn$/)
+    ).toHaveTextContent(/^Closing period$/)
     expect(
       screen.queryByTestId('meta-list-handling-time-value')
     ).toHaveTextContent(/^4 werkdagen$/)
@@ -299,7 +299,7 @@ describe('MetaList', () => {
     )
     expect(
       screen.queryByTestId('meta-list-handling-time-definition')
-    ).toHaveTextContent(/^Afhandeltermijn$/)
+    ).toHaveTextContent(/^Closing period$/)
     expect(
       screen.queryByTestId('meta-list-handling-time-value')
     ).toHaveTextContent(/^1 werkdag$/)
@@ -312,7 +312,7 @@ describe('MetaList', () => {
     )
     expect(
       screen.queryByTestId('meta-list-handling-time-definition')
-    ).toHaveTextContent(/^Afhandeltermijn$/)
+    ).toHaveTextContent(/^Closing period$/)
     expect(
       screen.queryByTestId('meta-list-handling-time-value')
     ).toHaveTextContent(/^1 dag$/)
@@ -325,7 +325,7 @@ describe('MetaList', () => {
     )
     expect(
       screen.queryByTestId('meta-list-handling-time-definition')
-    ).toHaveTextContent(/^Afhandeltermijn$/)
+    ).toHaveTextContent(/^Closing period$/)
     expect(
       screen.queryByTestId('meta-list-handling-time-value')
     ).toHaveTextContent(/^21 dagen$/)
@@ -348,10 +348,10 @@ describe('MetaList', () => {
     )
     expect(
       screen.queryByTestId('meta-list-process-time-definition')
-    ).toHaveTextContent(/^Doorlooptijd$/)
+    ).toHaveTextContent(/^Lead time$/)
     expect(
       screen.queryByTestId('meta-list-process-time-value')
-    ).toHaveTextContent(/^Buiten de afhandeltermijn$/)
+    ).toHaveTextContent(/^Outside the handling period$/)
     expect(
       screen.queryByTestId('meta-list-process-time-value')?.className
     ).toBe('alert')
@@ -370,10 +370,10 @@ describe('MetaList', () => {
     await waitFor(() => {
       expect(
         screen.queryByTestId('meta-list-process-time-definition')
-      ).toHaveTextContent(/^Doorlooptijd$/)
+      ).toHaveTextContent(/^Lead time$/)
       expect(
         screen.queryByTestId('meta-list-process-time-value')
-      ).toHaveTextContent(/^Binnen de afhandeltermijn$/)
+      ).toHaveTextContent(/^Inside the handling period$/)
       expect(
         screen.queryByTestId('meta-list-process-time-value')?.className
       ).toBe('')
@@ -389,10 +389,10 @@ describe('MetaList', () => {
     )
     expect(
       screen.queryByTestId('meta-list-process-time-definition')
-    ).toHaveTextContent(/^Doorlooptijd$/)
+    ).toHaveTextContent(/^Lead time$/)
     expect(
       screen.queryByTestId('meta-list-process-time-value')
-    ).toHaveTextContent(/^3x buiten de afhandeltermijn$/)
+    ).toHaveTextContent(/^3x Outside the handling period$/)
     expect(
       screen.queryByTestId('meta-list-process-time-value')?.className
     ).toBe('alert')
@@ -418,7 +418,7 @@ describe('MetaList', () => {
 
     expect(
       screen.queryByTestId('meta-list-process-time-value')
-    ).toHaveTextContent(/^Binnen de afhandeltermijn$/)
+    ).toHaveTextContent(/^Inside the handling period$/)
   })
 
   it('should show the status form', () => {
@@ -467,7 +467,7 @@ describe('MetaList', () => {
   })
 
   describe('subcategory', () => {
-    const subcategoryLabel = 'Subcategorie (verantwoordelijke afdeling)'
+    const subcategoryLabel = 'Subcategory (responsible department)'
     const selectedSubcategory = /Asbest \/ accu/
 
     it('should be visible', () => {
@@ -515,7 +515,7 @@ describe('MetaList', () => {
       expect(
         screen.getByTestId('meta-list-assigned_user_email-value')
       ).toBeInTheDocument()
-      expect(screen.getByText('Niet toegewezen')).toBeInTheDocument()
+      expect(screen.getByText('Not assigned')).toBeInTheDocument()
     })
 
     it('should not show assigned user without a selected department', async () => {
@@ -578,7 +578,7 @@ describe('MetaList', () => {
       expect(
         screen.getByTestId('meta-list-assigned_user_email-value')
       ).toBeInTheDocument()
-      expect(screen.getByText('Niet toegewezen')).toBeInTheDocument()
+      expect(screen.getByText('Not assigned')).toBeInTheDocument()
     })
 
     it('should not show assigned user when users not defined', async () => {
@@ -616,7 +616,7 @@ describe('MetaList', () => {
 
         await screen.findByTestId('meta-list-date-definition')
 
-        expect(screen.queryByText('Niet toegewezen')).not.toBeInTheDocument()
+        expect(screen.queryByText('Not assigned')).not.toBeInTheDocument()
         expect(
           screen.getByText(autocompleteUsernamesAscAegName)
         ).toBeInTheDocument()
@@ -647,7 +647,7 @@ describe('MetaList', () => {
 
         await screen.findByTestId('meta-list-date-definition')
 
-        expect(screen.queryByText('Niet toegewezen')).not.toBeInTheDocument()
+        expect(screen.queryByText('Not assigned')).not.toBeInTheDocument()
         expect(
           screen.getByText(autocompleteUsernamesAscAegName)
         ).toBeInTheDocument()
@@ -679,7 +679,7 @@ describe('MetaList', () => {
 
         await screen.findByTestId('meta-list-date-definition')
 
-        expect(screen.queryByText('Niet toegewezen')).not.toBeInTheDocument()
+        expect(screen.queryByText('Not assigned')).not.toBeInTheDocument()
         expect(
           screen.queryByText(autocompleteUsernamesAscAegName)
         ).not.toBeInTheDocument()
@@ -710,7 +710,7 @@ describe('MetaList', () => {
 
         await screen.findByTestId('meta-list-date-definition')
 
-        expect(screen.queryByText('Niet toegewezen')).not.toBeInTheDocument()
+        expect(screen.queryByText('Not assigned')).not.toBeInTheDocument()
         expect(
           screen.getByText(autocompleteUsernamesEmptyName)
         ).toBeInTheDocument()
@@ -745,7 +745,7 @@ describe('MetaList', () => {
 
         await screen.findByTestId('meta-list-date-definition')
 
-        expect(screen.queryByText('Niet toegewezen')).not.toBeInTheDocument()
+        expect(screen.queryByText('Not assigned')).not.toBeInTheDocument()
         expect(
           screen.queryByText(autocompleteUsernamesEmptyName)
         ).not.toBeInTheDocument()
@@ -978,7 +978,7 @@ describe('MetaList', () => {
   })
 
   describe('assign department', () => {
-    const departmentLabel = 'Afdeling'
+    const departmentLabel = 'Department'
     const notFound = 'Niet gevonden'
     const notLinked = 'Niet gekoppeld'
 

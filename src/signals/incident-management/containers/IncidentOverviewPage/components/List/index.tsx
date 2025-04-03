@@ -77,7 +77,7 @@ const Td = ({ detailLink, children, ...rest }: TdProps) => {
 }
 
 const ChildIcon: FunctionComponent = () => (
-  <StyledIcon aria-label="Deelmelding" data-testid="child-icon">
+  <StyledIcon aria-label="Split report" data-testid="child-icon">
     <Play />
   </StyledIcon>
 )

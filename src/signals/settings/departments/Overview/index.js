@@ -30,7 +30,7 @@ const StyledList = styled(ListComponent)`
 const colMap = {
   id: 'id',
   _display: 'Naam',
-  category_names: 'Subcategorie',
+  category_names: 'Subcategory',
 }
 
 const DepartmentOverview = () => {
@@ -68,7 +68,7 @@ const DepartmentOverview = () => {
           title={`Afdelingen${
             departments.count ? ` (${departments.count})` : ''
           }`}
-          BackLink={<BackLink to={BASE_URL}>Terug naar instellingen</BackLink>}
+          BackLink={<BackLink to={BASE_URL}>Back to setings</BackLink>}
         />
       </Row>
       <Row>
@@ -77,7 +77,7 @@ const DepartmentOverview = () => {
         <Column span={12}>
           {!departments.loading && data && (
             <StyledList
-              columnOrder={['Naam', 'Subcategorie']}
+              columnOrder={['Naam', 'Subcategory']}
               items={data}
               onItemClick={onItemClick}
               primaryKeyColumn="id"

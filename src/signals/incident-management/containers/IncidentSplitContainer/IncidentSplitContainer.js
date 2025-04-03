@@ -104,7 +104,7 @@ const IncidentSplitContainer = ({ FormComponent }) => {
       if (success) {
         dispatch(
           showGlobalNotification({
-            title: 'Deelmelding gemaakt',
+            title: 'Split report gemaakt',
             variant: VARIANT_SUCCESS,
             type: TYPE_LOCAL,
           })

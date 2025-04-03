@@ -107,12 +107,12 @@ describe('SubCategories', () => {
       expect(navigateMock).toBeCalledWith('../')
     })
 
-    it('click the "Alles selecteren", save the selections, and then navigate back', async () => {
+    it('click the "Select everything", save the selections, and then navigate back', async () => {
       render(
         withAppContext(<Subcategories onChange={onChangeMock} value={[]} />)
       )
 
-      userEvent.click(screen.getAllByText('Alles selecteren')[0])
+      userEvent.click(screen.getAllByText('Select everything')[0])
 
       act(() => {
         jest.runAllTimers()
@@ -129,7 +129,7 @@ describe('SubCategories', () => {
         withAppContext(<Subcategories onChange={onChangeMock} value={[]} />)
       )
 
-      userEvent.click(screen.getAllByText('Alles selecteren')[0])
+      userEvent.click(screen.getAllByText('Select everything')[0])
 
       act(() => {
         jest.runAllTimers()
@@ -156,13 +156,13 @@ describe('SubCategories', () => {
       })
 
       expect(
-        screen.getByText('Terug naar standaardtekst').parentNode
+        screen.getByText('Back to standdardtext').parentNode
       ).not.toHaveFocus()
 
-      userEvent.click(screen.getByText('Terug naar standaardtekst'))
+      userEvent.click(screen.getByText('Back to standdardtext'))
 
       expect(
-        screen.getByText('Terug naar standaardtekst').parentNode
+        screen.getByText('Back to standdardtext').parentNode
       ).toHaveFocus()
     })
   })

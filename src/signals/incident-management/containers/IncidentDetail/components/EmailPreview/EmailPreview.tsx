@@ -30,12 +30,12 @@ const EmailPreview = ({
 
   return (
     <ModalDialog
-      cancelBtnLabel="Wijzig"
+      cancelBtnLabel="Edit"
       data-testid="email-preview-modal"
       isConfirmation={true}
       onClose={onClose}
       onConfirm={onUpdate}
-      submitBtnLabel="Verstuur"
+      submitBtnLabel="Send"
       title={title}
       $hasIframe={true}
     >

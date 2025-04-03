@@ -26,7 +26,7 @@ describe('<Wizard>', () => {
   it('should render 3 steps', async () => {
     render(renderWizard())
 
-    userEvent.click(screen.getByRole('button', { name: 'Volgende' }))
+    userEvent.click(screen.getByRole('button', { name: 'Next' }))
 
     await waitFor(
       () => {
@@ -35,13 +35,13 @@ describe('<Wizard>', () => {
       { timeout: 1000 }
     )
 
-    userEvent.click(screen.getByRole('button', { name: 'Volgende' }))
+    userEvent.click(screen.getByRole('button', { name: 'Next' }))
 
     await waitFor(() => {
       expect(screen.getByText('contact')).toBeTruthy()
     })
 
-    userEvent.click(screen.getByRole('button', { name: 'Vorige' }))
+    userEvent.click(screen.getByRole('button', { name: 'Previous' }))
 
     await waitFor(() => {
       expect(screen.getByText('vul aan')).toBeTruthy()
@@ -55,7 +55,7 @@ describe('<Wizard>', () => {
       expect(screen.getByText('beschrijf')).toBeTruthy()
     })
 
-    userEvent.click(screen.getByRole('button', { name: 'Volgende' }))
+    userEvent.click(screen.getByRole('button', { name: 'Next' }))
 
     await waitFor(() => {
       expect(screen.getByText('vul aan')).toBeTruthy()
@@ -109,8 +109,8 @@ function Nav() {
 
   return (
     <>
-      <button onClick={wizard.previous}>Vorige</button>
-      <button onClick={wizard.next}>Volgende</button>
+      <button onClick={wizard.previous}>Previous</button>
+      <button onClick={wizard.next}>Next</button>
     </>
   )
 }

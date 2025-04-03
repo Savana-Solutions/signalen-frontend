@@ -88,7 +88,7 @@ const IncidentDetail: React.FC<IncidentDetailProps> = ({
   return (
     <Wrapper>
       <StyledBackLink to="#" onClick={() => onBack()}>
-        Terug naar filter
+        Back to filter
       </StyledBackLink>
 
       <StyledLink
@@ -109,11 +109,11 @@ const IncidentDetail: React.FC<IncidentDetailProps> = ({
         <SectionTerm data-testid="location-label">Locatie</SectionTerm>
         <SectionDescription>
           <span data-testid="location">
-            {incident.location?.address_text || 'Locatie is gepind op de kaart'}
+            {incident.location?.address_text || 'Location is pinned on the map'}
           </span>
         </SectionDescription>
 
-        <SectionTerm data-testid="date-label">Gemeld op</SectionTerm>
+        <SectionTerm data-testid="date-label">Reported on</SectionTerm>
         <SectionDescription>
           <span data-testid="date">
             {incident.created_at && formatDate(incident.created_at)}
@@ -130,7 +130,7 @@ const IncidentDetail: React.FC<IncidentDetailProps> = ({
         )}
 
         <SectionTerm data-testid="subcategory-label">
-          Subcategorie (verantwoordelijke afdeling)
+          Subcategory (responsible department)
         </SectionTerm>
         <SectionDescription>
           <span data-testid="subcategory">{incident.category?.sub} </span>

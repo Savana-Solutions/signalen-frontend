@@ -44,7 +44,7 @@ describe('signals/incident/components/form/DescriptionInfo', () => {
 
     await findByTestId('description-info')
     expect(
-      queryByText(`Subcategorie voorstel: ${subcategory.name}`)
+      queryByText(`Subcategory voorstel: ${subcategory.name}`)
     ).toBeInTheDocument()
   })
 
@@ -63,7 +63,7 @@ describe('signals/incident/components/form/DescriptionInfo', () => {
 
     await findByTestId('description-info')
     expect(
-      queryByText(`Subcategorie voorstel: ${subcategory.name}`)
+      queryByText(`Subcategory voorstel: ${subcategory.name}`)
     ).not.toBeInTheDocument()
   })
 })

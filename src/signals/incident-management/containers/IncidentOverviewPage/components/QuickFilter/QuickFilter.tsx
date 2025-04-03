@@ -16,7 +16,7 @@ const QuickFilter: FunctionComponent<QuickFilterProps> = ({
   filters.length > 0 ? (
     <StyledPageHeaderItem>
       <StyledParagraph>
-        <strong>Mijn filters:</strong>
+        <strong>My filters:</strong>
       </StyledParagraph>
 
       {filters.map((filter) => (

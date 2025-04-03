@@ -188,8 +188,8 @@ export const KtoContainer = () => {
             ) : (
               <StyledHeading>
                 {isSatisfied
-                  ? 'Ja, ik ben tevreden'
-                  : 'Nee, ik ben niet tevreden met de behandeling van mijn melding'}
+                  ? 'Yes, I am satisfied'
+                  : 'No, I am not satisfied with the handling of my report'}
               </StyledHeading>
             ))}
         </Column>

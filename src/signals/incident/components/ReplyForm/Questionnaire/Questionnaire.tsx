@@ -69,7 +69,7 @@ const Questionnaire = ({ questions, onSubmit }: QuestionnaireProps) => {
     <form onSubmit={handleSubmit(submitForm)}>
       <QuestionsWrapper>{questionsComponent}</QuestionsWrapper>
       <Button variant="secondary" type="submit">
-        Verstuur
+        Send
       </Button>
     </form>
   )

@@ -449,7 +449,7 @@ describe('signals/incident/components/form/AssetSelect/Selector', () => {
 
     expect(screen.getByTestId('map-message')).toBeInTheDocument()
     expect(screen.getByTestId('map-message')).toHaveTextContent(
-      'Uw locatie valt buiten de kaart en is daardoor niet te zien'
+      'Your location is outside the map and therefore not visible'
     )
 
     // closing notification
@@ -503,7 +503,7 @@ describe('signals/incident/components/form/AssetSelect/Selector', () => {
       )
 
       expect(
-        screen.getByText(`U kunt maximaal 1 ${objectTypeSingular} kiezen.`)
+        screen.getByText(`You can choose a maximum of 1 ${objectTypeSingular}.`)
       ).toBeInTheDocument()
     })
 
@@ -519,10 +519,12 @@ describe('signals/incident/components/form/AssetSelect/Selector', () => {
       )
 
       expect(
-        screen.queryByText(`U kunt maximaal 1 ${objectTypeSingular} kiezen.`)
+        screen.queryByText(
+          `You can choose a maximum of 1 ${objectTypeSingular}.`
+        )
       ).not.toBeInTheDocument()
       expect(
-        screen.getByText(`U kunt maximaal 2 ${objectTypePlural} kiezen.`)
+        screen.getByText(`You can choose a maximum of 1 ${objectTypePlural}.`)
       ).toBeInTheDocument()
     })
   })
@@ -579,7 +581,7 @@ describe('signals/incident/components/form/AssetSelect/Selector', () => {
 
     expect(screen.queryByTestId('address-panel')).toBeInTheDocument()
 
-    userEvent.click(screen.getByRole('button', { name: 'Terug' }))
+    userEvent.click(screen.getByRole('button', { name: 'Back' }))
 
     expect(dispatch).toHaveBeenCalledWith(closeMap())
   })

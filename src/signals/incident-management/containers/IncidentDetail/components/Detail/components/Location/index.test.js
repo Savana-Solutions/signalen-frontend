@@ -70,7 +70,7 @@ describe('<Location />', () => {
 
       expect(
         queryByTestId('location-value-address-district')
-      ).toHaveTextContent(/^Stadsdeel: Centrum$/)
+      ).toHaveTextContent(/^District: Centrum$/)
       expect(queryByTestId('location-value-address-street')).toHaveTextContent(
         /^Rokin 123A-H$/
       )
@@ -135,7 +135,7 @@ describe('<Location />', () => {
 
       const pinned = await findByTestId('location-value-pinned')
 
-      expect(pinned).toHaveTextContent(/^Locatie is gepind op de kaart$/)
+      expect(pinned).toHaveTextContent(/^Location is pinned on the map$/)
       expect(
         queryByTestId('location-value-address-district')
       ).toBeInTheDocument()

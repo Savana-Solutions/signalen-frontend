@@ -22,7 +22,7 @@ describe('<Reporter />', () => {
 
     expect(screen.getByRole('link', { name: '1 melding' })).toBeInTheDocument()
     expect(
-      screen.getByText('0x niet tevreden / 1x openstaand')
+      screen.getByText('0x not satisfied / 1x open')
     ).toBeInTheDocument()
   })
 
@@ -42,7 +42,7 @@ describe('<Reporter />', () => {
       screen.getByRole('link', { name: '4000 meldingen' })
     ).toBeInTheDocument()
     expect(
-      screen.getByText('1000x niet tevreden / 2000x openstaand')
+      screen.getByText('1000x not satisfied / 2000x open')
     ).toBeInTheDocument()
   })
 })

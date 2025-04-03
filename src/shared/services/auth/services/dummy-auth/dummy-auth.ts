@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MPL-2.0
 // Copyright (C) 2021 Gemeente Amsterdam
 export const AUTH_ERROR =
-  'Inloggen is niet gelukt. Controleer of je browser cookies toestaat, of probeer het met een andere browser.'
+  'Login failed. Check if your browser allows cookies, or try using a different browser.'
 
 /**
  * Dummy auth class

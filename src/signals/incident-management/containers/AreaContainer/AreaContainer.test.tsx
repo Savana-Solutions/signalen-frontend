@@ -145,7 +145,7 @@ describe('<AreaContainer />', () => {
     await waitFor(() => {
       expect(actions.showGlobalNotification).toHaveBeenCalledWith(
         expect.objectContaining({
-          title: 'De data kon niet worden opgehaald',
+          title: 'The data could not be retrieved',
         })
       )
     })

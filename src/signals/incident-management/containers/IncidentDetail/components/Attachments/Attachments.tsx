@@ -313,7 +313,7 @@ const Attachments: FC<AttachmentsProps> = ({
           <FileInput multiple={false} name="addPhoto" onChange={handleChange}>
             {files.length > 0 && !uploadError ? (
               <Button variant="application" disabled={true} type="button">
-                Bestand toevoegen
+                Add file
               </Button>
             ) : (
               <Button
@@ -322,7 +322,7 @@ const Attachments: FC<AttachmentsProps> = ({
                 variant="application"
                 type="button"
               >
-                Bestand toevoegen
+                Add file
               </Button>
             )}
           </FileInput>
@@ -332,7 +332,7 @@ const Attachments: FC<AttachmentsProps> = ({
           variant="application"
           onClick={() => setShowNoteForm(!showNoteForm)}
         >
-          Notitie toevoegen
+          Add note
         </Button>
       </StyledButtonWrapper>
       {showNoteForm && (

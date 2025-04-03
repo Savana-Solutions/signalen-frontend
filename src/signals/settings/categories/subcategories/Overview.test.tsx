@@ -76,7 +76,7 @@ describe('signals/settings/categories/containers/Overview', () => {
 
     expect(screen.getByText(`Subcategorieën (${count})`)).toBeInTheDocument()
     expect(
-      screen.getByRole('link', { name: 'Terug naar instellingen' })
+      screen.getByRole('link', { name: 'Back to setings' })
     ).toBeInTheDocument()
   })
 
@@ -122,8 +122,8 @@ describe('signals/settings/categories/containers/Overview', () => {
   it('should only render specific data columns', () => {
     render(withAppContext(<OverviewContainer />))
 
-    expect(screen.getByText('Subcategorie')).toBeInTheDocument()
-    expect(screen.getByText('Afhandeltermijn')).toBeInTheDocument()
+    expect(screen.getByText('Subcategory')).toBeInTheDocument()
+    expect(screen.getByText('Closing period')).toBeInTheDocument()
     expect(screen.getByText('Status')).toBeInTheDocument()
   })
 

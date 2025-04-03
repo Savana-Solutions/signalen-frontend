@@ -18,16 +18,16 @@ import FormComponents from '../form'
 import IncidentNavigation from '../IncidentNavigation'
 import { Wizard, Step, Steps } from '../StepWizard'
 
-const PHONE_LABEL_REQUIRED = 'Wat is uw telefoonnummer?'
-const PHONE_LABEL = `${PHONE_LABEL_REQUIRED}(niet verplicht)`
+const PHONE_LABEL_REQUIRED = 'What is your phonenumber?'
+const PHONE_LABEL = `${PHONE_LABEL_REQUIRED}(not required)`
 const mockForm = {
-  nextButtonLabel: 'Volgende',
-  previousButtonLabel: 'Vorige',
+  nextButtonLabel: 'Next',
+  previousButtonLabel: 'Previous',
   form: {
     controls: {
       phone: {
         meta: {
-          label: 'Wat is uw telefoonnummer?',
+          label: 'What is your phonenumber?',
         },
         render: FormComponents.TextInput,
       },
@@ -477,7 +477,7 @@ describe('<IncidentForm />', () => {
       })
 
       expect(screen.getByRole('alert')).toHaveTextContent(
-        'Dit is een verplicht veld'
+        'This is a required field'
       )
 
       await waitFor(() => {

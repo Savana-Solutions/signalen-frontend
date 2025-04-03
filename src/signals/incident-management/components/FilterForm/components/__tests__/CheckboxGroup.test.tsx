@@ -23,7 +23,7 @@ describe('signals/incident-management/components/FilterForm/components/CheckboxG
 
   it('should render correctly', () => {
     const label = 'Label text'
-    const toggleText = 'Alles selecteren'
+    const toggleText = 'Select everything'
 
     const { queryByText, getByTestId, rerender } = render(
       withAppContext(

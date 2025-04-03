@@ -69,11 +69,11 @@ export const mock: Incident = {
   dateTime: null,
   priority: {
     id: 'normal',
-    label: 'Normaal',
+    label: 'Normal',
   },
   sharing_allowed: {
     label:
-      'Ja, ik geef de gemeenten Amsterdam en Weesp toestemming om mijn melding door te sturen naar andere organisaties als de melding niet voor de gemeente is bestemd.',
+      'Yes, ik geef de gemeenten Amsterdam en Weesp toestemming om mijn melding door te sturen naar andere organisaties als de melding niet voor de gemeente is bestemd.',
     value: true,
   },
   classification: {

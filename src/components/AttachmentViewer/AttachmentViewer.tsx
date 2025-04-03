@@ -132,7 +132,7 @@ const AttachmentViewer: FC<Props> = ({ href, attachments, onClose }) => {
           size={64}
           iconSize={20}
           variant="blank"
-          title="Sluiten"
+          title="Close"
           icon={<CloseIcon />}
         />
       </Header>

@@ -109,7 +109,7 @@ describe('signals/incident/containers/KtoContainer/components/KtoForm', () => {
     expect(getByTestId('kto-submit')).toBeInTheDocument()
 
     expect(screen.queryByTestId('allows-contact')).toHaveTextContent(
-      'Nee, bel of e-mail mij niet meer over deze melding of over mijn reactie.'
+      'No, do not call or email me anymore about this notification or about my response.'
     )
 
     mockedUseParams.mockImplementation(() => ({
@@ -158,13 +158,13 @@ describe('signals/incident/containers/KtoContainer/components/KtoForm', () => {
       withAppContext(<KtoForm {...defaultProps} />)
     )
 
-    expect(queryByText('Dit is een verplicht veld')).not.toBeInTheDocument()
+    expect(queryByText('This is a required field')).not.toBeInTheDocument()
     expect(mockOnSubmit).not.toHaveBeenCalled()
 
     userEvent.click(getByTestId('kto-submit'))
 
     expect(
-      await screen.findByText('Dit is een verplicht veld')
+      await screen.findByText('This is a required field')
     ).toBeInTheDocument()
     expect(mockOnSubmit).not.toHaveBeenCalled()
   })
@@ -185,7 +185,7 @@ describe('signals/incident/containers/KtoContainer/components/KtoForm', () => {
     expect(firstOption).toBeChecked()
     expect(screen.queryByTestId('kto-text')).not.toBeInTheDocument()
     expect(
-      screen.queryByText('Dit is een verplicht veld')
+      screen.queryByText('This is a required field')
     ).not.toBeInTheDocument()
 
     expect(mockOnSubmit).not.toHaveBeenCalled()
@@ -345,12 +345,12 @@ describe('signals/incident/containers/KtoContainer/components/KtoForm', () => {
 
     expect(screen.getAllByRole('textbox')).toHaveLength(2)
 
-    const saveButton = screen.getByRole('button', { name: 'Verstuur' })
+    const saveButton = screen.getByRole('button', { name: 'Send' })
 
     userEvent.click(saveButton)
 
     expect(
-      await screen.findByText('Dit is een verplicht veld')
+      await screen.findByText('This is a required field')
     ).toBeInTheDocument()
 
     const textarea = screen.getByRole('textbox', { name: '' })
@@ -380,12 +380,12 @@ describe('signals/incident/containers/KtoContainer/components/KtoForm', () => {
 
     expect(screen.getAllByRole('textbox')).toHaveLength(2)
 
-    const saveButton = screen.getByRole('button', { name: 'Verstuur' })
+    const saveButton = screen.getByRole('button', { name: 'Send' })
 
     userEvent.click(saveButton)
 
     expect(
-      await screen.findByText('Dit is een verplicht veld')
+      await screen.findByText('This is a required field')
     ).toBeInTheDocument()
 
     const textarea = screen.getByRole('textbox', { name: '' })

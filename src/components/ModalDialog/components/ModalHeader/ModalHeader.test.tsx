@@ -16,7 +16,7 @@ describe('ModalHeader component', () => {
 
     expect(screen.getByText(title)).toBeInTheDocument()
 
-    userEvent.click(screen.getByTitle('Sluiten'))
+    userEvent.click(screen.getByTitle('Close'))
 
     expect(onClose).toHaveBeenCalled()
   })

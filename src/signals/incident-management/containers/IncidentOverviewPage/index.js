@@ -218,7 +218,7 @@ export const IncidentOverviewPageContainerComponent = ({
               }
               $disabled={disableFiltersAndSorting}
             >
-              Mijn filters
+              My filters
             </StyledButton>
 
             <StyledButton
@@ -239,7 +239,7 @@ export const IncidentOverviewPageContainerComponent = ({
             data-testid="my-filters-modal"
             onClose={closeMyFiltersModal}
             isOpen
-            title="Mijn filters"
+            title="My filters"
           >
             <MyFilters onClose={closeMyFiltersModal} />
           </Modal>
@@ -309,7 +309,7 @@ export const IncidentOverviewPageContainerComponent = ({
               />
             )}
 
-            {count === 0 && <NoResults>Geen meldingen</NoResults>}
+            {count === 0 && <NoResults>No reports</NoResults>}
           </Column>
 
           <PaginationWrapper>{pagination}</PaginationWrapper>

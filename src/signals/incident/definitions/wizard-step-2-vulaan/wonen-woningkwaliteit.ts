@@ -13,8 +13,8 @@ export const woningkwaliteit = {
       shortLabel: 'Direct gevaar',
       pathMerge: 'extra_properties',
       values: {
-        ja: 'Ja, er is direct gevaar',
-        nee: 'Nee',
+        ja: 'Yes, er is direct gevaar',
+        nee: 'No',
       },
     },
     options: {
@@ -49,8 +49,8 @@ export const woningkwaliteit = {
       shortLabel: 'Gemeld bij eigenaar',
       pathMerge: 'extra_properties',
       values: {
-        ja: 'Ja',
-        nee: 'Nee',
+        ja: 'Yes',
+        nee: 'No',
       },
     },
     options: {

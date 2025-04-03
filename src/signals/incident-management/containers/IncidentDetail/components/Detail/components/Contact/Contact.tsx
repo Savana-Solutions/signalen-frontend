@@ -132,7 +132,7 @@ export const Contact = ({ incident, showPhone }: Props) => {
    * the user can't do anything with it.
    */
   useFetchResponseNotification({
-    entityName: 'Contactgegevens',
+    entityName: 'Contact details',
     error: userCan(SIA_CAN_VIEW_CONTACT_DETAILS) ? error : undefined,
     isLoading: false,
     isSuccess: false,
@@ -148,7 +148,7 @@ export const Contact = ({ incident, showPhone }: Props) => {
   return (
     <Fragment>
       <dt data-testid="detail-phone-definition" aria-label="phone">
-        Telefoon melder
+        Phone reporter
       </dt>
       {configuration.featureFlags.showContactEdit && (
         <>
@@ -190,7 +190,7 @@ export const Contact = ({ incident, showPhone }: Props) => {
       )}
 
       <dt data-testid="detail-email-definition" aria-label="email">
-        E-mail melder
+        Email reporter
       </dt>
       {!activeComponent && (
         <dd data-testid="detail-email-value">

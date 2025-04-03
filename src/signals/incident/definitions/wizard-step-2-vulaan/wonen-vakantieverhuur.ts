@@ -26,8 +26,8 @@ export const vakantieverhuur = {
       shortLabel: 'Toeristen aanwezig',
       pathMerge: 'extra_properties',
       values: {
-        ja: 'Ja, er zijn nu toeristen aanwezig',
-        nee: 'Nee, er zijn nu geen toeristen aanwezig',
+        ja: 'Yes, er zijn nu toeristen aanwezig',
+        nee: 'No, er zijn nu geen toeristen aanwezig',
         weet_ik_niet: 'Weet ik niet',
       },
     },
@@ -68,7 +68,7 @@ export const vakantieverhuur = {
         maandelijks: 'Ongeveer één keer per maand',
         wekelijks: 'Ongeveer één keer per week',
         dagelijks: 'Bijna dagelijks',
-        eerste_keer: 'Nee, het is de eerste keer',
+        eerste_keer: 'No, het is de eerste keer',
       },
     },
     options: {
@@ -106,8 +106,8 @@ export const vakantieverhuur = {
       shortLabel: 'Bewoning',
       pathMerge: 'extra_properties',
       values: {
-        ja: 'Ja, er woont iemand op het adres',
-        nee: 'Nee, er woont niemand op het adres',
+        ja: 'Yes, er woont iemand op het adres',
+        nee: 'No, er woont niemand op het adres',
         weet_ik_niet: 'Weet ik niet',
       },
     },
@@ -126,8 +126,8 @@ export const vakantieverhuur = {
       shortLabel: 'Online aangeboden',
       pathMerge: 'extra_properties',
       values: {
-        ja: 'Ja, ik heb de woning op internet gezien',
-        nee: 'Nee, weet ik niet',
+        ja: 'Yes, ik heb de woning op internet gezien',
+        nee: 'No, weet ik niet',
       },
     },
     options: {

@@ -24,9 +24,9 @@ const LoginPage = () => {
   }
 
   return (
-    <BasePage documentTitle="Inloggen" data-testid="login-page">
+    <BasePage documentTitle="Login" data-testid="login-page">
       <Notification>
-        <Paragraph>Om deze pagina te zien dient u ingelogd te zijn.</Paragraph>
+        <Paragraph>To view this page, you need to be logged in.</Paragraph>
 
         <ButtonBar>
           <Button
@@ -35,7 +35,7 @@ const LoginPage = () => {
             onClick={handleLogin}
             type="button"
           >
-            <span>Inloggen</span>
+            <span>Login</span>
           </Button>
         </ButtonBar>
       </Notification>

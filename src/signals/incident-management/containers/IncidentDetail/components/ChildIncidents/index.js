@@ -92,7 +92,7 @@ const ChildIncidents = ({
   return (
     <Section>
       <Title data-testid="detail-title" forwardedAs="h2" styleAs="h4">
-        Deelmelding
+        Split report
       </Title>
 
       <StyledChildIncidentsList

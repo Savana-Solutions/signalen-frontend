@@ -19,8 +19,8 @@ export const overlastOpHetWaterThor = {
   extra_boten_frequentie: {
     meta: {
       values: {
-        ja: 'Ja, het gebeurt vaker',
-        nee: 'Nee, het is de eerste keer',
+        ja: 'Yes, het gebeurt vaker',
+        nee: 'No, het is de eerste keer',
       },
       label: 'Heeft u deze overlast al eerder gehad?',
       shortLabel: 'Eerder overlast',
@@ -43,8 +43,8 @@ export const overlastOpHetWaterThor = {
   extra_boten_beweging: {
     meta: {
       values: {
-        ja: 'Ja, de boot ligt stil',
-        nee: 'Nee, de boot vaart',
+        ja: 'Yes, de boot ligt stil',
+        nee: 'No, de boot vaart',
       },
       label: 'Ligt de boot stil?',
       shortLabel: 'Beweging boot',
@@ -71,7 +71,7 @@ export const overlastOpHetWaterThor = {
         weetniet: 'Weet ik niet',
       },
       label: 'Wat voor soort boot is het?',
-      shortLabel: 'Soort boot',
+      shortLabel: 'Sort boot',
       pathMerge: 'extra_properties',
     },
     options: { validators: ['required'] },
@@ -88,8 +88,8 @@ export const overlastOpHetWaterThor = {
         ],
       },
       values: {
-        ja: 'Ja, het is een open boot (bijvoorbeeld een sloep, roeiboot, rondvaartboot met dak open)',
-        nee: 'Nee, het is een gesloten boot (bijvoorbeeld een rondvaartboot, salonboot, kajuitboot)',
+        ja: 'Yes, het is een open boot (bijvoorbeeld een sloep, roeiboot, rondvaartboot met dak open)',
+        nee: 'No, het is een gesloten boot (bijvoorbeeld een rondvaartboot, salonboot, kajuitboot)',
         onduidelijk: 'Ik kan het niet zien',
       },
       label: 'Is het een open of een gesloten boot?',

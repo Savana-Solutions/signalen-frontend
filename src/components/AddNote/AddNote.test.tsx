@@ -23,7 +23,7 @@ describe('getNoteError', () => {
         text: Array(maxContentLength + 2).join('.'),
       })
     ).toEqual(
-      `Je hebt meer dan de maximale ${maxContentLength} tekens ingevoerd.`
+      `You have entered more than the maximum of ${maxContentLength} characters`
     )
     expect(
       getAddNoteError({ maxContentLength, text: 'Hic sunt dracones' })

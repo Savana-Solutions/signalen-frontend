@@ -66,7 +66,7 @@ describe('signals/incident/containers/IncidentContainer/reducer', () => {
         dateTime: undefined,
         priority: {
           id: 'normal',
-          label: 'Normaal',
+          label: 'Normal',
         },
         type: {
           id: 'SIG',

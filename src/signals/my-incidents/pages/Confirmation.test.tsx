@@ -37,7 +37,7 @@ describe('BasePage', () => {
       )
     ).toBeInTheDocument()
     expect(
-      screen.getByRole('button', { name: 'Verstuur opnieuw' })
+      screen.getByRole('button', { name: 'Send opnieuw' })
     ).toBeInTheDocument()
     expect(
       screen.getByRole('button', { name: 'Annuleren' })
@@ -54,7 +54,7 @@ describe('BasePage', () => {
     )
 
     const resendButton = screen.getByRole('button', {
-      name: 'Verstuur opnieuw',
+      name: 'Send opnieuw',
     })
 
     userEvent.click(resendButton)

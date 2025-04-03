@@ -39,7 +39,7 @@ const overlastBedrijvenEnHoreca = {
         '1-3': '1, 2 of 3',
         '4-6': '4, 5 of 6',
         '7_of_meer': '7 of meer',
-        onbekend: 'Onbekend',
+        Unknown: 'Unknown',
       },
     },
     options: {
@@ -60,8 +60,8 @@ const overlastBedrijvenEnHoreca = {
         ],
       },
       values: {
-        ja: 'Ja, het gebeurt vaker',
-        nee: 'Nee, het is de eerste keer',
+        ja: 'Yes, het gebeurt vaker',
+        nee: 'No, het is de eerste keer',
       },
       label: 'Heeft u deze overlast al eerder gehad?',
       shortLabel: 'Eerder overlast',
@@ -95,7 +95,7 @@ const overlastBedrijvenEnHoreca = {
         ],
       },
       label: 'Uw melding gaat over:',
-      shortLabel: 'Soort bedrijf',
+      shortLabel: 'Sort bedrijf',
       pathMerge: 'extra_properties',
       values: {
         horecabedrijf:
@@ -184,7 +184,7 @@ const overlastBedrijvenEnHoreca = {
         naast: 'Naast',
         boven: 'Boven',
         onder: 'Onder',
-        nee: 'Nee, ik woon er niet direct naast, boven of onder',
+        nee: 'No, ik woon er niet direct naast, boven of onder',
       },
     },
     render: QuestionFieldType.RadioInput,
@@ -204,8 +204,8 @@ const overlastBedrijvenEnHoreca = {
         'In de vergunning staan hierover afspraken. Zo weten wij of het bedrijf zich aan de afspraken houdt.',
       pathMerge: 'extra_properties',
       values: {
-        ja: 'Ja',
-        nee: 'Nee',
+        ja: 'Yes',
+        nee: 'No',
         misschien: 'Dat weet ik niet',
       },
     },
@@ -226,8 +226,8 @@ const overlastBedrijvenEnHoreca = {
       shortLabel: 'Geïnformeerd door organisator',
       pathMerge: 'extra_properties',
       values: {
-        ja: 'Ja, ik heb een brief gekregen van de organisatie',
-        nee: 'Nee, ik heb geen brief gekregen van de organisatie',
+        ja: 'Yes, ik heb een brief gekregen van de organisatie',
+        nee: 'No, ik heb geen brief gekregen van de organisatie',
       },
     },
     options: { validators: ['required'] },
@@ -274,8 +274,8 @@ const overlastBedrijvenEnHoreca = {
         'In de vergunning staan hierover afspraken. Zo weten wij of het bedrijf zich aan de afspraken houdt.',
       pathMerge: 'extra_properties',
       values: {
-        ja: 'Ja',
-        nee: 'Nee',
+        ja: 'Yes',
+        nee: 'No',
         misschien: 'Dat weet ik niet',
       },
     },
@@ -300,8 +300,8 @@ const overlastBedrijvenEnHoreca = {
       shortLabel: 'Doorsturen melding',
       pathMerge: 'extra_properties',
       values: {
-        ja: 'Ja',
-        nee: 'Nee',
+        ja: 'Yes',
+        nee: 'No',
       },
     },
     options: { validators: ['required'] },
@@ -341,8 +341,8 @@ const overlastBedrijvenEnHoreca = {
       shortLabel: 'Doorsturen melding',
       pathMerge: 'extra_properties',
       values: {
-        ja: 'Ja',
-        nee: 'Nee',
+        ja: 'Yes',
+        nee: 'No',
       },
     },
     options: { validators: ['required'] },

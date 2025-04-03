@@ -167,14 +167,14 @@ describe('signals/incident/components/form/AssetSelect/Summary', () => {
 
     const { rerender } = render(withContext(<Summary {...summaryProps} />))
     expect(
-      screen.queryByText('Locatie is gepind op de kaart')
+      screen.queryByText('Location is pinned on the map')
     ).not.toBeInTheDocument()
     expect(screen.getByText(formatAddress(address))).toBeInTheDocument()
 
     rerender(withContext(<Summary {...propsNoAddress} />))
 
     expect(
-      screen.getByText('Locatie is gepind op de kaart')
+      screen.getByText('Location is pinned on the map')
     ).toBeInTheDocument()
     expect(screen.queryByText(formatAddress(address))).not.toBeInTheDocument()
   })

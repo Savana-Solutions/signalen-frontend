@@ -400,7 +400,7 @@ describe('containers/App/saga', () => {
         .put(
           showGlobalNotification({
             variant: VARIANT_ERROR,
-            title: 'Er is iets misgegaan',
+            title: 'Something went wrong',
             type: TYPE_GLOBAL,
           })
         )

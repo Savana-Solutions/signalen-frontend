@@ -74,7 +74,7 @@ const Location = ({ onClick, location }: LocationProps) => {
 
         `${location.address?.postcode} ${location.address?.woonplaats}`,
       ].filter(Boolean)
-    : ['Locatie is gepind op de kaart']
+    : ['Location is pinned on the map']
 
   return (
     <LocationSection>

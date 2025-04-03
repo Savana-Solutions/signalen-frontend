@@ -20,7 +20,7 @@ export const RequestAccess = () => {
   return (
     <BasePage
       pageInfo={{
-        documentTitle: 'Inloggen',
+        documentTitle: 'Login',
         dataTestId: 'requestAccessMyIncidents',
         pageTitle: 'Mijn meldingen',
       }}

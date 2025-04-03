@@ -36,7 +36,7 @@ const Filter: React.FC<FilterProps> = (props) => {
   const subcategory = props.subcategory ? (
     <Field>
       <Title data-testid="subcategory-label">
-        Subcategorie (verantwoordelijke afdeling)
+        Subcategory (responsible department)
       </Title>
       <List>
         <ListItem>
@@ -61,7 +61,7 @@ const Filter: React.FC<FilterProps> = (props) => {
                 src="/assets/images/area-map/icon-pin.svg"
               />
             </StyledIcon>
-            Openstaand
+            Open
           </ListItem>
           <ListItem>
             <StyledIcon size={ICON_SIZE}>
@@ -70,22 +70,22 @@ const Filter: React.FC<FilterProps> = (props) => {
                 src="/assets/images/area-map/icon-pin-green.svg"
               />
             </StyledIcon>
-            Afgehandeld
+            Handled
           </ListItem>
         </List>
       </Field>
 
       <Field>
-        <Title data-testid="period-label">Periode</Title>
+        <Title data-testid="period-label">Period</Title>
         <List>
           <ListItem data-testid="period">
-            Van {dateToString(new Date(props.startDate))} t/m NU
+            From {dateToString(new Date(props.startDate))} till NOW
           </ListItem>
         </List>
       </Field>
 
       <Field>
-        <Title data-testid="area-label">Omgeving</Title>
+        <Title data-testid="area-label">Environment</Title>
         <List>
           <ListItem>
             <StyledIcon size={ICON_SIZE}>
@@ -94,7 +94,7 @@ const Filter: React.FC<FilterProps> = (props) => {
                 src="/assets/images/area-map/icon-cross-small.svg"
               />
             </StyledIcon>
-            Locatie huidige melding
+            Location current report
           </ListItem>
           <ListItem>
             <StyledIcon size={ICON_SIZE}>
@@ -106,11 +106,11 @@ const Filter: React.FC<FilterProps> = (props) => {
       </Field>
       <Field>
         <Title forwardedAs="h4" data-testid="kind-label">
-          Soort
+          Sort
         </Title>
         <List>
-          <ListItem>Standaardmelding</ListItem>
-          <ListItem>Deelmelding</ListItem>
+          <ListItem>Standard report</ListItem>
+          <ListItem>Split report</ListItem>
         </List>
       </Field>
     </Wrapper>

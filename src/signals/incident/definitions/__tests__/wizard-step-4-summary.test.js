@@ -22,7 +22,7 @@ jest.mock('lodash/memoize', () => ({
 
 const expectedLocation = {
   locatie: {
-    label: 'Waar is het?',
+    label: 'Where is it?',
     optional: true,
     render: expect.any(Function),
     canBeNull: false,
@@ -91,42 +91,42 @@ describe('Wizard summary', () => {
       beschrijf: {
         classification: {
           authenticated: true,
-          label: 'Subcategorie',
+          label: 'Subcategory',
           render: expect.any(Function),
         },
         description: {
-          label: 'Waar gaat het over?',
+          label: 'What is it about?',
           render: expect.any(Function),
         },
         images_previews: {
-          label: "Foto's toevoegen",
+          label: 'Add photos',
           optional: true,
           render: expect.any(Function),
         },
         priority: {
           authenticated: true,
-          label: 'Urgentie',
+          label: 'Urgency',
           render: expect.any(Function),
         },
         source: {
           authenticated: true,
-          label: 'Bron',
+          label: 'Source',
           render: expect.any(Function),
         },
       },
       contact: {
         email: {
-          label: 'Wat is uw e-mailadres?',
+          label: 'What is your email address?',
           optional: true,
           render: expect.any(Function),
         },
         phone: {
-          label: 'Wat is uw telefoonnummer?',
+          label: 'What is your phonenumber?',
           optional: true,
           render: expect.any(Function),
         },
         sharing_allowed: {
-          label: 'Melding delen',
+          label: 'Share report',
           optional: true,
           render: expect.any(Function),
         },

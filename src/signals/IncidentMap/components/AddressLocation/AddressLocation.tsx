@@ -26,11 +26,11 @@ export const AddressLocation = ({ setCoordinates, address }: Props) => {
 
   return (
     <Wrapper>
-      <Heading as="h4">Zoom naar adres</Heading>
+      <Heading as="h4">Zoom to adress</Heading>
       <StyledPDOKAutoSuggest
         data-testid="search-address-bar"
         aria-label="veld zoek naar adres"
-        placeholder="Adres"
+        placeholder="Adress"
         onSelect={onAddressSelect}
         value={address}
         onClear={() => setCoordinates(undefined)}

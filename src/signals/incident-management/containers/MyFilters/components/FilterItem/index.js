@@ -125,7 +125,7 @@ const FilterItem = ({
         onClick={handleEditFilter}
         data-testid="handle-edit-filter-button"
       >
-        Wijzig
+        Edit
       </StyledLink>
       <StyledLink
         href="/"

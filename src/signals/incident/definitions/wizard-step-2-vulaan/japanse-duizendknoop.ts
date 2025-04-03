@@ -10,8 +10,8 @@ const japanseDuizendknoop = {
   extra_japanse_duizendknoop_onveilig: {
     meta: {
       values: {
-        ja: 'Ja',
-        nee: 'Nee',
+        ja: 'Yes',
+        nee: 'No',
       },
       label: 'Zorgt de plant voor een onveilige situatie in het verkeer?',
       shortLabel: 'Onveilige situatie in het verkeer',

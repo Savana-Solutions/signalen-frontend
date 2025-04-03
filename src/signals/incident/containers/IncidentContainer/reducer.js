@@ -42,7 +42,7 @@ export const initialState = fromJS({
     phone: undefined,
     priority: {
       id: 'normal',
-      label: 'Normaal',
+      label: 'Normal',
     },
     questions: [],
     source: undefined,

@@ -44,7 +44,7 @@ const TextArea: FunctionComponent<FieldProps> = ({
   const maxLength = rules?.maxLength ?? DEFAULT_MAX_LENGTH
 
   const infoText = useMemo(
-    () => `${value.length}/${maxLength} tekens`,
+    () => `${value.length}/${maxLength} characters`,
     [maxLength, value.length]
   )
 
@@ -64,12 +64,12 @@ const TextArea: FunctionComponent<FieldProps> = ({
           validate: {
             required: (value: string) => {
               if (!value.trim()) {
-                return 'Dit is een verplicht veld'
+                return 'This is a required field'
               }
             },
           },
           maxLength: {
-            message: `U heeft meer dan de maximale ${maxLength} tekens ingevoerd`,
+            message: `U heeft meer dan de maximale ${maxLength} characters entered`,
             value: maxLength,
           },
         })}

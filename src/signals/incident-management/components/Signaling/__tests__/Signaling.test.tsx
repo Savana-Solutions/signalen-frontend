@@ -39,7 +39,7 @@ describe('<Signaling />', () => {
 
     // Render error
     expect(await screen.findByTestId('notification')).toHaveTextContent(
-      'Er is iets misgegaan'
+      'Something went wrong'
     )
     expect(screen.queryByText('13.000')).not.toBeInTheDocument()
   })

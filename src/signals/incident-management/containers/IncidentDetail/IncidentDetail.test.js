@@ -364,7 +364,7 @@ describe('signals/incident-management/containers/IncidentDetail', () => {
 
     await screen.findByTestId('incident-detail')
 
-    userEvent.click(screen.getByText('Notitie toevoegen'))
+    userEvent.click(screen.getByText('Add note'))
 
     userEvent.type(screen.getByTestId('add-note-text'), 'Foo bar baz')
 
@@ -392,7 +392,7 @@ describe('signals/incident-management/containers/IncidentDetail', () => {
         type: 'image/jpeg',
       },
     ]
-    const fileInputElement = screen.getByLabelText(/Bestand toevoegen/i)
+    const fileInputElement = screen.getByLabelText(/Add file/i)
     fireEvent.change(fileInputElement, {
       target: { files },
     })
@@ -456,7 +456,7 @@ describe('signals/incident-management/containers/IncidentDetail', () => {
       await screen.findByTestId('incident-detail')
 
       act(() => {
-        userEvent.click(screen.getByText('Notitie toevoegen'))
+        userEvent.click(screen.getByText('Add note'))
       })
 
       act(() => {

@@ -55,21 +55,21 @@ describe('<Detail />', () => {
     expect(getByTestId('detail-title')).toHaveTextContent(incidentFixture.text)
 
     expect(getByTestId('detail-email-definition')).toHaveTextContent(
-      /^E-mail melder$/
+      /^Email reporter$/
     )
     expect(getByTestId('detail-email-value')).toHaveTextContent(
       incidentFixture.reporter.email
     )
     expect(getByTestId('detail-phone-definition')).toHaveTextContent(
-      /^Telefoon melder$/
+      /^Phone reporter$/
     )
     expect(getByTestId('detail-phone-value')).toHaveTextContent(
       incidentFixture.reporter.phone
     )
     expect(getByTestId('detail-sharing-definition')).toHaveTextContent(
-      'Toestemming contactgegevens delen'
+      'Permission to share contact information'
     )
-    expect(getByTestId('detail-sharing-value')).toHaveTextContent('Nee')
+    expect(getByTestId('detail-sharing-value')).toHaveTextContent('No')
 
     expect(
       getByText(incidentFixture.extra_properties[0].label)

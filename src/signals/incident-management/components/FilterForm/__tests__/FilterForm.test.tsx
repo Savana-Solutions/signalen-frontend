@@ -209,25 +209,25 @@ describe.skip('signals/incident-management/components/FilterForm', () => {
 
     userEvent.click(
       screen.getByRole('checkbox', {
-        name: 'Automatisch verversen Automatisch verversen',
+        name: 'Refresh automatically Refresh automatically',
       })
     )
 
     expect(
       screen.getByRole('checkbox', {
-        name: 'Automatisch verversen Automatisch verversen',
+        name: 'Refresh automatically Refresh automatically',
       })
     ).toBeChecked()
 
     userEvent.click(
       screen.getByRole('checkbox', {
-        name: 'Automatisch verversen Automatisch verversen',
+        name: 'Refresh automatically Refresh automatically',
       })
     )
 
     expect(
       screen.getByRole('checkbox', {
-        name: 'Automatisch verversen Automatisch verversen',
+        name: 'Refresh automatically Refresh automatically',
       })
     ).not.toBeChecked()
   })
@@ -423,7 +423,7 @@ describe.skip('signals/incident-management/components/FilterForm', () => {
   })
 
   describe('routing_department', () => {
-    const label = 'Afdeling'
+    const label = 'Department'
     const submitLabel = 'Filter'
     const notName = departmentOptions[0].value
     const ascName = departmentOptions[1].value
@@ -577,8 +577,8 @@ describe.skip('signals/incident-management/components/FilterForm', () => {
   })
 
   describe('assigned_user_email', () => {
-    const label = /toegewezen aan/i
-    const notAssignedLabel = 'Niet toegewezen'
+    const label = /assigned to/i
+    const notAssignedLabel = 'Not assigned'
     const submitLabel = 'Filter'
     const username = autocompleteUsernames.results[0].username
 
@@ -847,8 +847,8 @@ describe.skip('signals/incident-management/components/FilterForm', () => {
         )
       )
 
-      const nameField = screen.getByRole('textbox', { name: 'Filternaam' })
-      const noteField = screen.getByRole('textbox', { name: 'Zoek in notitie' })
+      const nameField = screen.getByRole('textbox', { name: 'Filter name' })
+      const noteField = screen.getByRole('textbox', { name: 'Search in notes' })
 
       expect(nameField).toHaveValue('Initial name')
       expect(noteField).toHaveValue('Initial note')
@@ -868,8 +868,8 @@ describe.skip('signals/incident-management/components/FilterForm', () => {
         withContext(<FilterForm {...formProps} onClearFilter={onClearFilter} />)
       )
 
-      const nameField = screen.getByRole('textbox', { name: 'Filternaam' })
-      const noteField = screen.getByRole('textbox', { name: 'Zoek in notitie' })
+      const nameField = screen.getByRole('textbox', { name: 'Filter name' })
+      const noteField = screen.getByRole('textbox', { name: 'Search in notes' })
       const dateField = screen.getByRole('textbox', { name: 'Tot en met' })
       const afvalToggle = container.querySelector(
         'input[type="checkbox"][value="afval"]'
@@ -959,14 +959,14 @@ describe.skip('signals/incident-management/components/FilterForm', () => {
       )
     )
 
-    const noteField = screen.getByRole('textbox', { name: 'Zoek in notitie' })
+    const noteField = screen.getByRole('textbox', { name: 'Search in notes' })
 
     act(() => {
       fireEvent.blur(noteField, { target: { value: 'test123' } })
     })
 
     expect(
-      screen.getByRole('textbox', { name: 'Zoek in notitie' })
+      screen.getByRole('textbox', { name: 'Search in notes' })
     ).toHaveValue('test123')
   })
 
@@ -1210,7 +1210,7 @@ describe.skip('signals/incident-management/components/FilterForm', () => {
       // values haven't changed, update should not be called
       expect(handlers.onUpdateFilter).not.toHaveBeenCalled()
 
-      const nameField = screen.getByLabelText('Filternaam')
+      const nameField = screen.getByLabelText('Filter name')
 
       act(() => {
         userEvent.type(nameField, ' ')

@@ -50,9 +50,9 @@ describe('components/TextArea', () => {
   })
 
   it('renders error', () => {
-    render(withAppContext(<TextArea errorMessage="Dit veld is verplicht" />))
+    render(withAppContext(<TextArea errorMessage="This field is required" />))
 
-    expect(screen.getByText('Dit veld is verplicht')).toBeInTheDocument()
+    expect(screen.getByText('This field is required')).toBeInTheDocument()
   })
 
   it('prefers defaultValue over value', () => {
@@ -99,7 +99,7 @@ describe('components/TextArea', () => {
 
     render(withAppContext(<TextArea maxContentLength={maxContentLength} />))
 
-    expect(screen.getByText(`0/${maxContentLength} tekens`)).toBeInTheDocument()
+    expect(screen.getByText(`0/${maxContentLength} characters`)).toBeInTheDocument()
 
     render(
       withAppContext(
@@ -111,7 +111,7 @@ describe('components/TextArea', () => {
     )
 
     expect(
-      screen.getByText(`10/${maxContentLength} tekens`)
+      screen.getByText(`10/${maxContentLength} characters`)
     ).toBeInTheDocument()
 
     render(
@@ -120,6 +120,6 @@ describe('components/TextArea', () => {
       )
     )
 
-    expect(screen.getByText(`8/${maxContentLength} tekens`)).toBeInTheDocument()
+    expect(screen.getByText(`8/${maxContentLength} characters`)).toBeInTheDocument()
   })
 })

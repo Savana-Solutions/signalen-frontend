@@ -391,7 +391,7 @@ describe.skip('signals/incident-management/containers/IncidentSplitContainer', (
     await waitFor(() => {
       expect(dispatch).toHaveBeenCalledWith(
         showGlobalNotification({
-          title: 'Deelmelding gemaakt',
+          title: 'Split report gemaakt',
           variant: VARIANT_SUCCESS,
           type: TYPE_LOCAL,
         })
@@ -456,7 +456,7 @@ describe.skip('signals/incident-management/containers/IncidentSplitContainer', (
     await waitFor(() => {
       expect(dispatch).toHaveBeenCalledWith(
         showGlobalNotification({
-          title: 'Deelmelding gemaakt',
+          title: 'Split report gemaakt',
           variant: VARIANT_SUCCESS,
           type: TYPE_LOCAL,
         })

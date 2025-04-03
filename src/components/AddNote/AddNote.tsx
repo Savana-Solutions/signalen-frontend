@@ -56,7 +56,7 @@ export const getAddNoteError = (config: {
   }
 
   if (text.length > maxContentLength) {
-    return `Je hebt meer dan de maximale ${maxContentLength} tekens ingevoerd.`
+    return `You have entered more than the maximum of ${maxContentLength} characters`
   }
 
   return ''
@@ -120,7 +120,7 @@ const AddNote = forwardRef<HTMLTextAreaElement, AddNoteProps>(
             data-testid="add-note-new-note-button"
             onClick={() => setShowForm(true)}
           >
-            Notitie toevoegen
+            Add note
           </Button>
         </section>
       )
@@ -172,7 +172,7 @@ AddNote.defaultProps = {
   className: '',
   isStandalone: true,
   inForm: false,
-  label: 'Notitie toevoegen',
+  label: 'Add note',
   rows: 10,
   withToggle: true,
 }

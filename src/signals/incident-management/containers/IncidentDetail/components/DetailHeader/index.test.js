@@ -61,10 +61,10 @@ describe('signals/incident-management/containers/IncidentDetail/components/Detai
     )
 
     expect(screen.queryByTestId('backlink')).toHaveTextContent(
-      /^Terug naar overzicht$/
+      /^Back to overview$/
     )
     expect(screen.queryByTestId('detail-header-title')).toHaveTextContent(
-      `Standaardmelding ${incidentFixture.id}`
+      `Standard report ${incidentFixture.id}`
     )
     expect(screen.queryByTestId('detail-header-button-thor')).toHaveTextContent(
       /^THOR$/
@@ -117,7 +117,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Detai
     )
 
     expect(screen.queryByTestId('detail-header-title')).toHaveTextContent(
-      `Deelmelding ${incidentFixture.id}`
+      `Split report ${incidentFixture.id}`
     )
   })
 

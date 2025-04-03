@@ -57,11 +57,11 @@ const Overview: FunctionComponent<Props> = ({ showItems }) => {
   return (
     <CompactThemeProvider>
       <Row>
-        <PageHeader title="Instellingen">
+        <PageHeader title="Settings">
           <StyledVersionNumbers>
             {`
-            Versienummer frontend: 2.26.4
-            Versienummer backend: ${data?.version}
+            Versionnumber frontend: 2.26.4
+            Versionnumber backend: ${data?.version}
           `}
           </StyledVersionNumbers>
         </PageHeader>
@@ -78,15 +78,14 @@ const Overview: FunctionComponent<Props> = ({ showItems }) => {
                 />
               </StyledNavLink>
               <p>
-                Om toegang te krijgen tot de applicatie Signalen is het
-                noodzakelijk dat een medewerker is toegevoegd, waarbij het
-                emailadres gelijk is aan het inlogaccount. Het wachtwoord kan
-                niet worden aangepast in dit instellingenscherm. Elke gebruiker
-                moet een rol toegekend krijgen en een afdeling, deze combinatie
-                zorgt voor de juiste rechten. Het is niet mogelijk om in dit
-                instellingenscherm een medewerker rechten te geven om gebruikers
-                aan te maken of te muteren, deze zogenaamde superrol kan enkel
-                worden aangemaakt in Django door de functioneel beheerder.
+                To gain access to the Signals application, it is necessary to
+                add an employee, where the email address is the same as the
+                login account. The password cannot be changed in this settings
+                screen. Each user must be assigned a role and a department, this
+                combination ensures the correct rights. It is not possible to
+                give an employee rights in this settings screen to create or
+                change users, this so-called super role can only be created in
+                Django by the functional manager.
               </p>
             </Item>
           )}
@@ -100,12 +99,11 @@ const Overview: FunctionComponent<Props> = ({ showItems }) => {
                 />
               </StyledNavLink>
               <p>
-                De applicatie Signalen kent verscheidene rollen. In het
-                instellingenscherm is het mogelijk om de rechten per rol aan te
-                passen. Te denken valt aan enkel leesrechten, het wijzingen van
-                statussen, een notitie toevoegen of het kunnen gebruiken van de
-                THOR knop. Wijzigingen in een rol worden van toepassing op alle
-                gebruikers met deze betreffende rol.
+                The Signals application has several roles. In the settings
+                screen it is possible to adjust the rights per role. This
+                includes only reading rights, changing statuses, adding a note
+                or being able to use the THOR button. Changes in a role are
+                applied to all users with this role.
               </p>
             </Item>
           )}
@@ -119,20 +117,17 @@ const Overview: FunctionComponent<Props> = ({ showItems }) => {
                 />
               </StyledNavLink>
               <p>
-                De applicatie Signalen maakt gebruik van afdelingen. Per
-                afdeling is het mogelijk om in te stellen welke subcategorieën
-                ingezien mogen worden. Door het geven van toegang aan een
-                afdeling tot een subcategorie kunnen alle medewerkers die zijn
-                toegekend aan deze betreffende afdelingen alle meldingen zien
-                die op deze subcategorie staan. Daarnaast is het mogelijk om een
-                afdeling verantwoordelijk te maken voor een bepaalde
-                subcategorie. Indien een afdeling verantwoordelijk voor een
-                bepaalde subcategorie is dat zichtbaar op de detailpagina, de
-                betreffende afdeling staat dan tussen haakjes aan de
-                subcategorie. De rol van verantwoordelijkheid wordt ook gebruikt
-                in de maandrapportages. Het toekennen van deze
-                verantwoordelijkheid heeft automatisch tot gevolg dat er toegang
-                is toegekend aan deze subcategorie.
+                The Signals application uses departments. Per department it is
+                possible to set which subcategories may be viewed. By granting
+                access to a department to a subcategory, all employees assigned
+                to this department can see all reports in this subcategory. In
+                addition, it is possible to make a department responsible for a
+                specific subcategory. If a department is responsible for a
+                specific subcategory, this is visible on the detail page; the
+                relevant department is then shown in brackets next to the
+                subcategory. The role of responsibility is also used in the
+                monthly reports. Assigning this responsibility automatically
+                results in access being granted to this subcategory.
               </p>
             </Item>
           )}
@@ -146,18 +141,16 @@ const Overview: FunctionComponent<Props> = ({ showItems }) => {
                 />
               </StyledNavLink>
               <p>
-                Elke melding in de applicatie Signalen wordt bij het aanmaken
-                door een machinelearning tool toegekend aan een subcategorie.
-                Elke subcategorie heeft een omschrijving, die enkel gebruikt
-                worden voor intern gebruik. De servicebelofte die hoort bij de
-                subcategorie die is toegekend door de machinelearning tool,
-                wordt gebruikt bij de terugkoppeling aan de melder. Indien een
-                melding eenmaal in de applicatie staat, is het mogelijk de
-                subcategorie aan te passen. De afhandeltermijn in week of
-                werkdagen wordt niet teruggekoppeld aan de melder, die is
-                bedoeld om intern te sturen op de afhandeling van meldingen. In
-                deze instellingspagina is het mogelijk om de gegevens per
-                subcategorie aan te passen.
+                Each report in the Signals application is assigned to a
+                subcategory by a machine learning tool when it is created. Each
+                subcategory has a description, which is only used for internal
+                use. The service promise that belongs to the subcategory that is
+                assigned by the machine learning tool, is used for feedback to
+                the reporter. Once a report is in the application, it is
+                possible to adjust the subcategory. The processing period in
+                week or working days is not fed back to the reporter, who is
+                intended to internally manage the processing of reports. In this
+                settings page it is possible to adjust the data per subcategory.
               </p>
             </Item>
           )}
@@ -172,15 +165,13 @@ const Overview: FunctionComponent<Props> = ({ showItems }) => {
                   />
                 </StyledNavLink>
                 <p>
-                  Een melding in Signalen wordt automatisch door de machine
-                  learning tool toegekend aan een hoofdcategorie. In deze
-                  instellingspagina is het per hoofdcategorie mogelijk om de
-                  weergave op de publieke kaarten aan te passen. De
-                  zichtbaarheid van de hoofdcategorie op de kaart kan worden
-                  ingesteld. De openbare naam en het icoon kan worden gewijzigd.
-                  Voor de meldingenkaart kan worden aangegeven of de
-                  subcategorieën van de hoofdcategorie zichtbaar moeten zijn in
-                  het filtermenu.
+                  A report in Signals is automatically assigned to a main
+                  category by the machine learning tool. In this settings page,
+                  it is possible to adjust the display on the public maps per
+                  main category. The visibility of the main category on the map
+                  can be set. The public name and icon can be changed. For the
+                  report card, it can be indicated whether the subcategories of
+                  the main category should be visible in the filter menu.
                 </p>
               </Item>
             )}
@@ -193,7 +184,7 @@ const Overview: FunctionComponent<Props> = ({ showItems }) => {
                   title="CSV Export"
                 />
               </StyledNavLink>
-              <p>Voor het downloaden van alle meldingen in CSV formaat.</p>
+              <p>To download all reports in CSV format.</p>
             </Item>
           )}
         </Wrapper>

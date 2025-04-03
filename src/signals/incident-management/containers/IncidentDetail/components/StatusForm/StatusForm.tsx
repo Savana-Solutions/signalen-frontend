@@ -143,7 +143,7 @@ const StatusForm: FunctionComponent<StatusFormProps> = ({
       if (state.text.required && !textValue) {
         dispatch({
           type: 'SET_ERRORS',
-          payload: { text: 'Dit veld is verplicht' },
+          payload: { text: 'This field is required' },
         })
         return
       }
@@ -152,7 +152,7 @@ const StatusForm: FunctionComponent<StatusFormProps> = ({
         dispatch({
           type: 'SET_ERRORS',
           payload: {
-            text: `Je hebt meer dan de maximale ${state.text.maxLength} tekens ingevoerd.`,
+            text: `You have entered more than the maximum of ${state.text.maxLength} characters.`,
           },
         })
         return
@@ -301,7 +301,7 @@ const StatusForm: FunctionComponent<StatusFormProps> = ({
           ))}
 
         <fieldset>
-          <StyledLegend>Versturen</StyledLegend>
+          <StyledLegend>Send</StyledLegend>
 
           {state.flags.isSplitIncident &&
             (state.status.key === StatusCode.ReactieGevraagd ? (
@@ -363,7 +363,7 @@ const StatusForm: FunctionComponent<StatusFormProps> = ({
                     ? state.text.label
                     : 'Toelichting'}
                 </strong>
-                {!state.text.required && <span>&nbsp;(niet verplicht)</span>}
+                {!state.text.required && <span>&nbsp;(not required)</span>}
               </>
             }
           />
@@ -420,7 +420,7 @@ const StatusForm: FunctionComponent<StatusFormProps> = ({
           variant="secondary"
           disabled={disableSubmit}
         >
-          {state.flags.hasEmail && state.check.checked ? 'Verstuur' : 'Opslaan'}
+          {state.flags.hasEmail && state.check.checked ? 'Send' : 'Opslaan'}
         </StyledButton>
 
         <StyledButton

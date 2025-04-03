@@ -20,7 +20,7 @@ const WrappedFileInput: FunctionComponent = () => {
   return (
     <FileInput
       id="file-input"
-      label="Voeg een foto toe om de situatie te verduidelijken."
+      label="Add a photo to clarify the situation."
       shortLabel="Foto toevoegen"
       control={control}
       trigger={trigger}
@@ -35,7 +35,7 @@ describe('FileInput', () => {
 
     expect(screen.getByText('Foto toevoegen')).toBeInTheDocument()
     expect(
-      screen.getByText('Voeg een foto toe om de situatie te verduidelijken.')
+      screen.getByText('Add a photo to clarify the situation.')
     ).toBeInTheDocument()
   })
 
@@ -85,7 +85,7 @@ describe('FileInput', () => {
 
       await waitFor(() => {
         expect(
-          screen.getByText(/U kunt maximaal 3 bestanden uploaden/)
+          screen.getByText(/You can upload a maximum of 3 bestanden/)
         ).toBeInTheDocument()
       })
     })

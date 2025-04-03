@@ -37,7 +37,7 @@ describe('IncidentDetail/components/ChildIncidents', () => {
       )
     )
 
-    expect(screen.queryByText('Deelmelding')).not.toBeInTheDocument()
+    expect(screen.queryByText('Split report')).not.toBeInTheDocument()
     expect(screen.queryByTestId('child-incidents')).not.toBeInTheDocument()
     expect(screen.queryByTestId('no-action-button')).not.toBeInTheDocument()
   })
@@ -58,7 +58,7 @@ describe('IncidentDetail/components/ChildIncidents', () => {
       )
     )
 
-    expect(screen.queryByText('Deelmelding')).toBeInTheDocument()
+    expect(screen.queryByText('Split report')).toBeInTheDocument()
     expect(screen.queryByTestId('child-incidents')).toBeInTheDocument()
     expect(screen.queryByTestId('no-action-button')).toBeInTheDocument()
 
@@ -74,7 +74,7 @@ describe('IncidentDetail/components/ChildIncidents', () => {
       )
     )
 
-    expect(screen.queryByText('Deelmelding')).toBeInTheDocument()
+    expect(screen.queryByText('Split report')).toBeInTheDocument()
     expect(screen.queryByTestId('child-incidents')).toBeInTheDocument()
     expect(screen.queryByTestId('no-action-button')).not.toBeInTheDocument()
   })

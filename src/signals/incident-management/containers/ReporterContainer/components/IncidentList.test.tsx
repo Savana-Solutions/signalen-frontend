@@ -12,7 +12,7 @@ describe('IncidentList', () => {
       id: 7744,
       createdAt: '2021-04-22T15:22:43.882134+02:00',
       category: 'Overig afval',
-      status: 'Verzoek tot heropenen',
+      status: 'Request to reopen',
       feedback: {
         isSatisfied: false,
         submittedAt: '2021-04-22T13:27:12.942554Z',

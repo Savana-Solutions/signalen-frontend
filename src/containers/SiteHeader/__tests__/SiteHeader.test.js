@@ -26,7 +26,7 @@ describe('containers/SiteHeader', () => {
   it('should render', () => {
     render(withAppContext(<SiteHeader />))
 
-    expect(screen.getByText('Instellingen')).toBeInTheDocument()
+    expect(screen.getByText('Settings')).toBeInTheDocument()
     expect(screen.getByText('Uitloggen')).toBeInTheDocument()
   })
 

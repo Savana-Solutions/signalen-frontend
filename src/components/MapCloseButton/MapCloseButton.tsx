@@ -20,8 +20,8 @@ const MapCloseButton: FunctionComponent<
     icon={<Close />}
     onClick={onClick}
     size={MAP_ICON_SIZE}
-    title="Sluiten"
-    aria-label="Kaart sluiten"
+    title="Close"
+    aria-label="Close map"
     variant="blank"
     className={className}
     tabIndex={tabIndex}

@@ -26,8 +26,7 @@ export const GPSLocation = ({ setNotification, setCoordinates }: Props) => (
       setNotification(
         <>
           <strong>
-            {`${configuration.language.siteAddress} heeft geen
-                            toestemming om uw locatie te gebruiken.`}
+            {`${configuration.language.siteAddress} has no permission to use your location.`}
           </strong>
           <p>
             Dit kunt u wijzigen in de voorkeuren of instellingen van uw browser
@@ -38,7 +37,7 @@ export const GPSLocation = ({ setNotification, setCoordinates }: Props) => (
     }
     onLocationOutOfBounds={() =>
       setNotification(
-        'Uw locatie valt buiten de kaart en is daardoor niet te zien'
+        'Your location is outside the map and therefore not visible'
       )
     }
   />

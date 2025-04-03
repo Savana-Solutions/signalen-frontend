@@ -33,7 +33,7 @@ export const usePostEmail = (): [
         `U hebt te vaak gevraagd om de e-mail opnieuw te versturen. Over 20 minuten kunt u het opnieuw proberen.`
       )
     } else if (postError && postError.status >= 400) {
-      setErrorMessage(`Het inloggen is mislukt. Probeer het later opnieuw.`)
+      setErrorMessage(`Login failed. Please try again later.`)
     } else {
       setErrorMessage('')
     }

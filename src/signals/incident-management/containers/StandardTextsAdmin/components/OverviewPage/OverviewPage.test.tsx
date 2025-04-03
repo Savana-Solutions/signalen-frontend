@@ -122,7 +122,7 @@ describe('OverviewPage', () => {
       expect(screen.getByText(/van 2/)).toBeInTheDocument()
     })
 
-    const nextButton = screen.getByRole('button', { name: 'Volgende pagina' })
+    const nextButton = screen.getByRole('button', { name: 'Next page' })
 
     userEvent.click(nextButton)
 

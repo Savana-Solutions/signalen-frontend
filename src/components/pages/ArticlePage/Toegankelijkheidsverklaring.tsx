@@ -6,22 +6,22 @@ import BasePage from '../BasePage'
 
 const Toegankelijkheidsverklaring: FC = () => (
   <BasePage
-    documentTitle="Toegankelijkheidsverklaring"
-    pageTitle="Toegankelijkheidsverklaring"
+    documentTitle="Accessibility Statement"
+    pageTitle="Accessibility Statement"
   >
     <aside>
-      <Paragraph>Opgesteld op 01-10-2021</Paragraph>
+      <Paragraph>Created on 01-10-2021</Paragraph>
 
       <Paragraph>
-        Wij streven ernaar het meldingsformulier toegankelijk te maken voor
-        iedereen en op alle apparaten. Dit doen we door de eisen voor
-        toegankelijkheid van DigiToegankelijk.nl na te leven. De eisen die
-        hierin staan zijn gebaseerd op de internationale
-        toegankelijkheidsstandaard WCAG 2.1 niveau AA. In deze verklaring leest
-        u op welke punten we afwijken van deze eisen.
+        We strive to make the reporting form accessible to everyone and on all
+        devices. We do this by complying with the accessibility requirements of
+        DigiToegankelijk.nl. The requirements contained therein are based on the
+        international accessibility standard WCAG 2.1 level AA. In this
+        statement, you can read on which points we deviate from these
+        requirements.
       </Paragraph>
 
-      <Paragraph>Deze verklaring geldt voor de websites:</Paragraph>
+      <Paragraph>This statement applies to the websites:</Paragraph>
 
       <List>
         <ListItem>
@@ -44,31 +44,31 @@ const Toegankelijkheidsverklaring: FC = () => (
 
     <section>
       <header>
-        <Heading as="h2">Toegankelijkheidsonderzoek</Heading>
+        <Heading as="h2">Accessibility Assessment</Heading>
       </header>
       <List variant="bullet">
         <ListItem>
-          17-10-2024: Handmatig onderzoek door Digitaal Toegankelijk:{' '}
+          17-10-2024: Manual assessment by Digitaal Toegankelijk:{' '}
           <Link
             variant="inline"
             icon="download"
             href="/assets/2024-04_meldingen.amsterdam.nl_Digitaal-Toegankelijk-WCAG-EM.pdf"
           >
-            document downloaden
+            download document
           </Link>
         </ListItem>
         <ListItem>
-          23-07-2021: Handmatig onderzoek door Firm Ground:{' '}
+          23-07-2021: Manual assessment by Firm Ground:{' '}
           <Link
             variant="inline"
             icon="download"
             href="/assets/files/2021-07-23 Toegankelijkheidsonderzoek Meldingen-systeem Amsterdam, Amsterdamse Bos en Weesp (www.meldingen.amsterdam.nl) versie 2.0.pdf"
           >
-            document downloaden
+            download document
           </Link>
         </ListItem>
         <ListItem>
-          De onderzoeksresultaten zijn terug te lezen op de site:{' '}
+          The research results can be reviewed on the site:{' '}
           <Link
             variant="inline"
             href="https://www.toegankelijkheidsverklaring.nl/register/5621/"
@@ -81,61 +81,59 @@ const Toegankelijkheidsverklaring: FC = () => (
 
     <section>
       <header>
-        <Heading as="h2">Onderdelen die nog niet toegankelijk zijn</Heading>
+        <Heading as="h2">Components That Are Not Yet Accessible</Heading>
       </header>
 
       <List variant="bullet">
         <ListItem>
-          Sommige kaarten hebben objecten die geselecteerd kunnen worden, zoals
-          de kaart met afvalcontainers. Deze zijn met het toetsenbord te
-          bereiken, maar de selectie verdwijnt automatisch. Gebruikers die met
-          een toetsenbord door de site bladeren kunnen nu niet aangeven om welk
-          object het gaat.
+          Some maps have objects that can be selected, such as the map with
+          waste containers. These can be reached with the keyboard, but the
+          selection disappears automatically. Users who navigate the site with a
+          keyboard cannot now indicate which object they are referring to.
         </ListItem>
         <ListItem>
-          De kaart waar lantaarnpalen geselecteerd kunnen worden, hebben voor
-          screenreaders alleen een nummer. Dat is niet voor alle gebruikers even
-          duidelijk.
+          The map where street lights can be selected only has a number for
+          screen readers. This is not clear for all users.
         </ListItem>
         <ListItem>
-          Wanneer de gebruiker een foto plaatst met een bestandsgrootte kleiner
-          dan 30kB wordt er een tekst getoond: &lsquo;Dit bestand is te klein.
-          De minimale bestandsgrootte is 30kB.&rsquo; Deze tekst wordt niet
-          doorgegeven aan screenreaders.
+          When the user uploads a photo with a file size smaller than 30kB, a
+          text is displayed: 'This file is too small. The minimum file size is
+          30kB.' This text is not communicated to screen readers.
         </ListItem>
       </List>
       <Paragraph>
-        Voor 1 maart 2022 zullen deze onderdelen opgelost zijn. Vanaf dan
-        voldoet de website aan alle eisen van de internationale
-        toegankelijkheidsstandaard WCAG 2.1 niveau AA.
+        These components will be resolved by March 1, 2022. From then on, the
+        website will comply with all requirements of the international
+        accessibility standard WCAG 2.1 level AA.
       </Paragraph>
     </section>
 
     <section>
       <header>
         <Heading as="h2">
-          Aanpak om de toegankelijkheid van onze website te bevorderen
+          Approach to Promote the Accessibility of Our Website
         </Heading>
       </header>
 
       <Paragraph>
-        Dit is wat wij doen om het online melden toegankelijk te maken en te
-        houden voor iedereen:
+        This is what we do to make and keep online reporting accessible to
+        everyone:
       </Paragraph>
 
       <List variant="bullet">
         <ListItem>
-          Wij laten regelmatig een toegankelijkheidsonderzoek doen van
-          (onderdelen van) onze website door een onafhankelijke partij.
+          We regularly have an accessibility assessment done of (parts of) our
+          website by an independent party.
         </ListItem>
         <ListItem>
-          Wij ontwikkelen het online melden samen met u, de Amsterdammer.
+          We develop the online reporting system together with you, the
+          Amsterdam resident.
         </ListItem>
         <ListItem>
-          Bij het ontwikkelen houden we rekening met de toegankelijkheid.
+          During development, we take accessibility into account.
         </ListItem>
         <ListItem>
-          Onze medewerkers houden hun kennis over toegankelijkheid op peil.
+          Our employees keep their knowledge of accessibility up to date.
         </ListItem>
       </List>
     </section>
@@ -143,19 +141,18 @@ const Toegankelijkheidsverklaring: FC = () => (
     <section>
       <header>
         <Heading as="h2">
-          Probleem met de toegankelijkheid van deze website?
+          Problem with the Accessibility of this Website?
         </Heading>
       </header>
 
       <Paragraph>
-        Als u ondanks de maatregelen die wij al hebben genomen een
-        toegankelijkheidsprobleem hebt op onze website, laat het ons dan weten.
-        Meld het via{' '}
+        If, despite the measures we have already taken, you have an
+        accessibility problem on our website, please let us know. Report it via{' '}
         <Link
           variant="inline"
           href="https://formulieren.amsterdam.nl/tripleforms/DirectRegelen/formulier/nl-NL/evAmsterdam/Klachtenformulier.aspx"
         >
-          ons contactformulier
+          our contact form
         </Link>
         .
       </Paragraph>

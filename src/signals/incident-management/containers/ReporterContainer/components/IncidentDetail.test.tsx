@@ -59,7 +59,7 @@ describe('IncidentDetail', () => {
     )
 
     expect(
-      await screen.findByText('Standaardmelding', { exact: false })
+      await screen.findByText('Standard report', { exact: false })
     ).toBeInTheDocument()
 
     await screen.findByRole('list')

@@ -10,7 +10,7 @@ import RadioInput from '.'
 describe('<RadioInput />', () => {
   const props = {
     name: 'priority',
-    display: 'Urgentie',
+    display: 'Urgency',
     values: priorityList,
   }
 
@@ -35,7 +35,7 @@ describe('<RadioInput />', () => {
     const currentValue = priorityList[0]
     const props = {
       name: 'priority',
-      display: 'Urgentie',
+      display: 'Urgency',
     }
 
     const { queryByText } = render(

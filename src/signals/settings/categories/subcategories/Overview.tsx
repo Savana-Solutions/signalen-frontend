@@ -25,12 +25,12 @@ import filterData from '../../utils/filterData'
 export const colMap = {
   fk: 'fk',
   id: 'id',
-  value: 'Subcategorie',
+  value: 'Subcategory',
   is_active: 'Status',
-  sla: 'Afhandeltermijn',
+  sla: 'Closing period',
 }
 
-const columnHeaders = ['Subcategorie', 'Afhandeltermijn', 'Status']
+const columnHeaders = ['Subcategory', 'Closing period', 'Status']
 
 interface Params {
   pageNum: string
@@ -53,8 +53,8 @@ export const OverviewContainer = () => {
     .map((category) => ({
       ...category,
       sla: `${category.sla.n_days} ${
-        !category.sla.use_calendar_days ? 'werk' : ''
-      }dagen`,
+        !category.sla.use_calendar_days ? 'work' : ''
+      }days`,
     }))
   const data = filterData(pagedData, colMap)
   const isLoading = !subCategories
@@ -99,7 +99,7 @@ export const OverviewContainer = () => {
         <PageHeader
           dataTestId={'settings-page-header'}
           title={`Subcategorieën ${count ? `(${count})` : ''}`}
-          BackLink={<BackLink to={BASE_URL}>Terug naar instellingen</BackLink>}
+          BackLink={<BackLink to={BASE_URL}>Back to setings</BackLink>}
         />
       </Row>
 

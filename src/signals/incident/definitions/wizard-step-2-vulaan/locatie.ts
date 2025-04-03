@@ -3,15 +3,15 @@ import { QuestionFieldType } from 'types/question'
 const locatie = {
   meta: {
     featureTypes: [],
-    label: 'Waar is het?',
+    label: 'Where is it?',
     language: {
-      title: 'Selecteer de locatie',
-      subTitle: 'Waar is het?',
+      title: 'Select the location',
+      subTitle: 'Where is it?',
       description:
-        'Typ het dichtstbijzijnde adres, klik de locatie aan op de kaart of gebruik "Mijn locatie"',
+        'Enter the nearest address, click the location on the map or use "My location"',
       submit: 'Bevestigen',
     },
-    shortLabel: 'Waar is het?',
+    shortLabel: 'Where is it?',
   },
   render: QuestionFieldType.LocationSelect,
   options: {

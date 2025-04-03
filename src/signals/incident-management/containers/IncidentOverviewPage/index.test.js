@@ -90,7 +90,7 @@ describe('signals/incident-management/containers/IncidentOverviewPage', () => {
     )
 
     expect(screen.getByText('Filter').tagName).toEqual('BUTTON')
-    expect(screen.getByText('Mijn filters').tagName).toEqual('BUTTON')
+    expect(screen.getByText('My filters').tagName).toEqual('BUTTON')
   })
 
   it('should render a list of incidents', () => {
@@ -212,7 +212,7 @@ describe('signals/incident-management/containers/IncidentOverviewPage', () => {
       withAppContext(<IncidentOverviewPageContainerComponent {...props} />)
     )
 
-    expect(screen.getByText('Geen meldingen')).toBeInTheDocument()
+    expect(screen.getByText('No reports')).toBeInTheDocument()
   })
 
   it('should show notification when sorting is not working', async () => {
@@ -294,7 +294,7 @@ describe('signals/incident-management/containers/IncidentOverviewPage', () => {
     expect(props.pageChangedAction).not.toHaveBeenCalled()
 
     const nextPageButton = screen.getAllByRole('button', {
-      name: 'Volgende pagina',
+      name: 'Next page',
     })[0]
 
     act(() => {

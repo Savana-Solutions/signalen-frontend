@@ -195,8 +195,8 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
     expect(checkbox).toBeChecked()
     expect(checkbox).toBeDisabled()
 
-    // verify that the label '(niet verplicht)' is not in the document
-    expect(screen.queryByText('(niet verplicht)')).not.toBeInTheDocument()
+    // verify that the label '(not required)' is not in the document
+    expect(screen.queryByText('(not required)')).not.toBeInTheDocument()
 
     // select a status that will not disable the checkbox
     userEvent.selectOptions(screen.getByTestId('select-status'), [
@@ -207,8 +207,8 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
     expect(checkbox).not.toBeChecked()
     expect(checkbox).not.toBeDisabled()
 
-    // verify that the label '(niet verplicht)' is in the document
-    expect(screen.queryByText('(niet verplicht)')).toBeInTheDocument()
+    // verify that the label '(not required)' is in the document
+    expect(screen.queryByText('(not required)')).toBeInTheDocument()
   })
 
   it('renders a disabled checkbox when changing from verzoek tot heropenen to afgehandeld', () => {
@@ -273,12 +273,12 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
     expect(checkbox).toBeDisabled()
 
     // submit the form
-    userEvent.click(screen.getByRole('button', { name: 'Verstuur' }))
+    userEvent.click(screen.getByRole('button', { name: 'Send' }))
 
     await screen.findByTestId('status-form')
 
     // verify that an error message is shown
-    expect(screen.queryByText('Dit veld is verplicht')).toBeInTheDocument()
+    expect(screen.queryByText('This field is required')).toBeInTheDocument()
 
     // verify that 'update' has NOT been called
     expect(update).not.toHaveBeenCalled()
@@ -289,7 +289,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
     userEvent.type(textarea, value)
 
     // verify that an error message is NOT shown
-    expect(screen.queryByText('Dit veld is verplicht')).not.toBeInTheDocument()
+    expect(screen.queryByText('This field is required')).not.toBeInTheDocument()
   })
 
   it('toggles the requirement for the text field', () => {
@@ -304,22 +304,22 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
 
     expect(checkbox).not.toBeChecked()
 
-    // verify that the label '(niet verplicht)' is in the document
-    expect(screen.getByText('(niet verplicht)')).toBeInTheDocument()
+    // verify that the label '(not required)' is in the document
+    expect(screen.getByText('(not required)')).toBeInTheDocument()
 
     // check the box
     userEvent.click(checkbox)
 
     expect(checkbox).toBeChecked()
 
-    // verify that the label '(niet verplicht)' is not in the document
-    expect(screen.queryByText('(niet verplicht)')).not.toBeInTheDocument()
+    // verify that the label '(not required)' is not in the document
+    expect(screen.queryByText('(not required)')).not.toBeInTheDocument()
 
     // toggle the box
     userEvent.click(checkbox)
 
-    // verify that the label '(niet verplicht)' is in the document
-    expect(screen.getByText('(niet verplicht)')).toBeInTheDocument()
+    // verify that the label '(not required)' is in the document
+    expect(screen.getByText('(not required)')).toBeInTheDocument()
   })
 
   it('clears the text field when a default text is selected', async () => {
@@ -403,7 +403,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
     userEvent.click(screen.getByRole('button', { name: 'Opslaan' }))
 
     expect(screen.getByRole('alert').textContent).toBe(
-      `Je hebt meer dan de maximale ${DEFAULT_TEXT_MAX_LENGTH} tekens ingevoerd.`
+      `You have entered more than the maximum of ${DEFAULT_TEXT_MAX_LENGTH} characters.`
     )
   })
 
@@ -479,12 +479,12 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
     ])
 
     // submit the form
-    userEvent.click(screen.getByRole('button', { name: 'Verstuur' }))
+    userEvent.click(screen.getByRole('button', { name: 'Send' }))
 
     await screen.findByTestId('status-form')
 
     // verify that an error message is shown
-    expect(screen.queryByText('Dit veld is verplicht')).toBeInTheDocument()
+    expect(screen.queryByText('This field is required')).toBeInTheDocument()
 
     // select another status
     userEvent.selectOptions(screen.getByTestId('select-status'), [
@@ -492,7 +492,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
     ])
 
     // verify that an error message is NOT shown
-    expect(screen.queryByText('Dit veld is verplicht')).not.toBeInTheDocument()
+    expect(screen.queryByText('This field is required')).not.toBeInTheDocument()
   })
 
   it('shows a warning that is specific to certain statuses', async () => {
@@ -573,7 +573,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
     ])
     userEvent.click(screen.getByRole('button', { name: 'Opslaan' }))
 
-    expect(screen.queryByText('Dit veld is verplicht')).not.toBeInTheDocument()
+    expect(screen.queryByText('This field is required')).not.toBeInTheDocument()
   })
 
   it('is required to provide text new status is an end state of a split incident', () => {
@@ -597,7 +597,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
     ])
     userEvent.click(screen.getByRole('button', { name: 'Opslaan' }))
 
-    expect(screen.getByText('Dit veld is verplicht')).toBeInTheDocument()
+    expect(screen.getByText('This field is required')).toBeInTheDocument()
   })
 
   it('shows a warning that is specific to a deelmelding', () => {
@@ -750,7 +750,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
       StatusCode.Afgehandeld,
     ])
 
-    expect(screen.getByRole('button', { name: 'Verstuur' })).toBeDisabled()
+    expect(screen.getByRole('button', { name: 'Send' })).toBeDisabled()
     expect(
       screen.getByText('Deze statuswijziging is niet mogelijk')
     ).toBeInTheDocument()
@@ -778,14 +778,14 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
       StatusCode.Afgehandeld,
     ])
 
-    expect(screen.getByRole('button', { name: 'Verstuur' })).not.toBeDisabled()
+    expect(screen.getByRole('button', { name: 'Send' })).not.toBeDisabled()
     expect(actions.showGlobalNotification).not.toHaveBeenCalledWith()
   })
 
   // eslint-disable-next-line jest/no-disabled-tests
   it.skip('opens the email preview modal and calls update after hitting the send button', async () => {
     const htmlString =
-      '<!DOCTYPE html><html lang="nl"><head><meta charset="UTF-8"><title>Uw melding SIA-1</title></head><body><p>Geachte melder,</p><p>Op 9 februari 2022 om 13.00 uur hebt u een melding gedaan bij de gemeente. In deze e-mail leest u de stand van zaken van uw melding.</p><p><strong>U liet ons het volgende weten</strong><br />Just some text<br /> Some text on the next line</p><p><strong>Stand van zaken</strong><br />Wij pakken dit z.s.m. op</p><p><strong>Gegevens van uw melding</strong><br />Nummer: SIA-1<br />Gemeld op: 9 februari 2022, 13.00 uur<br />Plaats: Amstel 1, 1011 PN Amsterdam</p><p><strong>Meer weten?</strong><br />Voor vragen over uw melding in Amsterdam kunt u bellen met telefoonnummer 14 020, maandag tot en met vrijdag van 9.00 - 17.00 uur. Voor Weesp kunt u bellen met 0294 491 391, maandag tot en met vrijdag van 08.30 tot 17.00 uur. Geef dan ook het nummer van uw melding door: SIA-1.</p><p>Met vriendelijke groet,</p><p>Gemeente Amsterdam</p></body></html>'
+      '<!DOCTYPE html><html lang="nl"><head><meta charset="UTF-8"><title>Uw melding SIA-1</title></head><body><p>Geachte melder,</p><p>Op 9 februari 2022 om 13.00 uur hebt u een melding gedaan bij de gemeente. In deze e-mail leest u de stand van zaken van uw melding.</p><p><strong>U liet ons het volgende weten</strong><br />Just some text<br /> Some text on the next line</p><p><strong>Stand van zaken</strong><br />Wij pakken dit z.s.m. op</p><p><strong>Gegevens van uw melding</strong><br />Nummer: SIA-1<br />Reported on: 9 februari 2022, 13.00 uur<br />Plaats: Amstel 1, 1011 PN Amsterdam</p><p><strong>Meer weten?</strong><br />Voor vragen over uw melding in Amsterdam kunt u bellen met telefoonnummer 14 020, maandag tot en met vrijdag van 9.00 - 17.00 uur. Voor Weesp kunt u bellen met 0294 491 391, maandag tot en met vrijdag van 08.30 tot 17.00 uur. Geef dan ook het nummer van uw melding door: SIA-1.</p><p>Met vriendelijke groet,</p><p>Gemeente Amsterdam</p></body></html>'
     const mockResponse = JSON.stringify({
       subject: 'melding 123',
       html: htmlString,
@@ -806,7 +806,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
     const value = 'Foo bar baz'
     userEvent.type(textarea, value)
     // submit the form
-    userEvent.click(screen.getByRole('button', { name: 'Verstuur' }))
+    userEvent.click(screen.getByRole('button', { name: 'Send' }))
     // verify that the email preview is shown and update has not been called yet
     await screen.findByText('Controleer bericht aan melder')
     expect(update).not.toHaveBeenCalled()
@@ -843,7 +843,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
     const value = 'Foo bar baz'
     userEvent.type(textarea, value)
     // submit the form
-    userEvent.click(screen.getByRole('button', { name: 'Verstuur' }))
+    userEvent.click(screen.getByRole('button', { name: 'Send' }))
     await waitFor(() => {
       expect(actions.showGlobalNotification).toHaveBeenCalledWith(
         expect.objectContaining({

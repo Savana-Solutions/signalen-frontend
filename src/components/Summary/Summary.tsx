@@ -106,7 +106,7 @@ const Summary: FC<SummaryProps> = ({
   let summaryAddress = address ? formatAddress(address) : ''
   summaryAddress =
     !summaryAddress && coordinates
-      ? 'Locatie is gepind op de kaart'
+      ? 'Location is pinned on the map'
       : summaryAddress
 
   const dispatch = useDispatch()

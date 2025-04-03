@@ -40,7 +40,7 @@ export const makeSelectDirectingDepartments = createSelector(
       (department) => department.can_direct
     )
     return [
-      { key: 'null', value: 'Verantwoordelijke afdeling' },
+      { key: 'null', value: 'Responsible department' },
       ...directingDepartments.map(({ code }) => ({ key: code, value: code })),
     ]
   }

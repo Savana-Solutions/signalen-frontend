@@ -15,7 +15,7 @@ describe('Filter', () => {
     )
 
     expect(screen.getByTestId('period').textContent?.trim()).toEqual(
-      'Van 01-01-1970 t/m NU'
+      'From 01-01-1970 till NOW'
     )
 
     unmount()
@@ -28,7 +28,7 @@ describe('Filter', () => {
     )
 
     expect(screen.getByTestId('period').textContent?.trim()).toEqual(
-      'Van 04-07-1054 t/m NU'
+      'From 04-07-1054 till NOW'
     )
   })
 

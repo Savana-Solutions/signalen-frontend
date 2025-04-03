@@ -32,7 +32,7 @@ export const controls = {
         pdokInput: 'Adres',
         submit: 'Bevestigen',
         description:
-          'Typ het dichtstbijzijnde adres, klik de locatie aan op de kaart of gebruik "Mijn locatie"',
+          'Enter the nearest address, click the location on the map or use "My location"',
       },
       label: 'Kies de container waar het om gaat',
       shortLabel: 'Container(s)',
@@ -122,7 +122,7 @@ export const controls = {
         },
         {
           description: 'De container staat niet op de kaart',
-          label: 'Onbekend',
+          label: 'Unknown',
           icon: {
             iconUrl: '/assets/images/feature-unknown-marker.svg',
           },

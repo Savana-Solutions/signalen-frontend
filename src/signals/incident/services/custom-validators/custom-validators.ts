@@ -29,7 +29,7 @@ export const falsyOrNumberOrNow = (control: Control<any>) => {
     return null
   }
   return {
-    custom: 'Dit is een verplicht veld',
+    custom: 'This is a required field',
   }
 }
 

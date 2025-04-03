@@ -28,5 +28,5 @@ export const SUBMITTED_TITLE = 'Bedankt'
 export const SUBMITTED_CONTENT =
   'Wij gaan aan het werk met uw melding. Uw informatie helpt hierbij.'
 
-export const GENERIC_ERROR_TITLE = 'Er is iets misgegaan'
+export const GENERIC_ERROR_TITLE = 'Something went wrong'
 export const GENERIC_ERROR_CONTENT = 'Probeer het later nog eens.'

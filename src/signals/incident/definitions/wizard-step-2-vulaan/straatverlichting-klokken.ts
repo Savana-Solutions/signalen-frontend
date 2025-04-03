@@ -115,7 +115,7 @@ const straatverlichtingKlokken = {
         },
         {
           description: 'Het lichtpunt staat niet op de kaart',
-          label: 'Onbekend',
+          label: 'Unknown',
           icon: {
             iconUrl: '/assets/images/feature-unknown-marker.svg',
           },
@@ -186,15 +186,15 @@ const straatverlichtingKlokken = {
         ],
       },
       values: {
-        niet_gevaarlijk: 'Nee, niet gevaarlijk',
-        drie_of_meer_kapot: 'Ja, 3 of meer lampen in de straat zijn kapot',
-        is_gevolg_van_aanrijding: 'Ja, het is een gevolg van een aanrijding',
+        niet_gevaarlijk: 'No, niet gevaarlijk',
+        drie_of_meer_kapot: 'Yes, 3 of meer lampen in de straat zijn kapot',
+        is_gevolg_van_aanrijding: 'Yes, het is een gevolg van een aanrijding',
         lamp_op_grond_of_scheef:
-          'Ja, de lamp of lantaarnpaal ligt op de grond of staat gevaarlijk scheef',
+          'Yes, de lamp of lantaarnpaal ligt op de grond of staat gevaarlijk scheef',
         deurtje_weg_of_open:
-          'Ja, er zit geen deurtje meer in de mast of het deurtje staat open',
+          'Yes, er zit geen deurtje meer in de mast of het deurtje staat open',
         losse_kabels_zichtbaar_of_lamp_los:
-          'Ja, er hangen losse stroomkabels of de lamp hangt los',
+          'Yes, er hangen losse stroomkabels of de lamp hangt los',
       },
       pathMerge: 'extra_properties',
     },
@@ -266,7 +266,7 @@ const straatverlichtingKlokken = {
         },
         {
           description: 'De klok staat niet op de kaart',
-          label: 'Onbekend',
+          label: 'Unknown',
           icon: {
             iconUrl: '/assets/images/feature-unknown-marker.svg',
           },
@@ -317,14 +317,14 @@ const straatverlichtingKlokken = {
         subcategory: 'klok',
       },
       values: {
-        niet_gevaarlijk: 'Nee, niet gevaarlijk',
-        is_gevolg_van_aanrijding: 'Ja, het is een gevolg van een aanrijding',
+        niet_gevaarlijk: 'No, niet gevaarlijk',
+        is_gevolg_van_aanrijding: 'Yes, het is een gevolg van een aanrijding',
         klok_op_grond_of_scheef:
-          'Ja, de klok ligt op de grond of staat gevaarlijk scheef',
+          'Yes, de klok ligt op de grond of staat gevaarlijk scheef',
         deurtje_weg_of_open:
-          'Ja, er zit geen deurtje meer in de mast of het deurtje staat open',
+          'Yes, er zit geen deurtje meer in de mast of het deurtje staat open',
         losse_kabels_zichtbaar_of_lamp_los:
-          'Ja, er hangen losse stroomkabels of de klok hangt los',
+          'Yes, er hangen losse stroomkabels of de klok hangt los',
       },
       pathMerge: 'extra_properties',
     },

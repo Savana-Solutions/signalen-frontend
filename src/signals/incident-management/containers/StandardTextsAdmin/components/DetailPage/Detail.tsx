@@ -175,7 +175,7 @@ export const Detail = () => {
                   dataTestId={'defaulttextadmin-page-header'}
                   title={title}
                   BackLink={
-                    <BackLink to={'../../'}>Terug naar overzicht</BackLink>
+                    <BackLink to={'../../'}>Back to overview</BackLink>
                   }
                 />
               </Row>
@@ -236,7 +236,7 @@ export const Detail = () => {
                               name={name}
                               value={value}
                               onChange={onChange}
-                              placeholder={'Titel'}
+                              placeholder={'Title'}
                               error={error?.message}
                             />
                           )}

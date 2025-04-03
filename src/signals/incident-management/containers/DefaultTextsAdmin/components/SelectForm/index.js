@@ -81,7 +81,7 @@ const SelectForm = ({ defaultTextsOptionList, onFetchDefaultTexts }) => {
         render={({ field: { name, onChange } }) => (
           <SelectInput
             name={name}
-            display="Subcategorie"
+            display="Subcategory"
             values={subcategoryOptions}
             groups={subcategoryGroups}
             onChange={onChange}

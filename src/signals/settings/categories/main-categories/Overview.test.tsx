@@ -64,7 +64,7 @@ describe('OverviewContainer', () => {
       screen.getByRole('heading', { name: 'Hoofdcategorieën (1)' })
     ).toBeInTheDocument()
     expect(
-      screen.getByRole('link', { name: 'Terug naar instellingen' })
+      screen.getByRole('link', { name: 'Back to setings' })
     ).toBeInTheDocument()
     expect(
       screen.getByRole('cell', { name: 'Wegen, verkeer, straatmeubilair' })

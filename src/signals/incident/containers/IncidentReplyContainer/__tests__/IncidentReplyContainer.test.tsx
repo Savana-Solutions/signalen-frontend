@@ -53,10 +53,10 @@ describe('IncidentReplyContainer', () => {
         screen.getByRole('heading', { name: 'Aanvullende informatie' })
         screen.getByRole('heading', { name: 'Uw melding' })
         screen.getByText('Nummer: SIA-1234')
-        screen.getByText('Gemeld op: 26 juli 2021, 17.43 uur')
+        screen.getByText('Reported on: 26 juli 2021, 17.43 uur')
         screen.getByRole('textbox', { name: 'Wat voor kleur heeft de auto?' })
-        screen.getByLabelText(/Foto's toevoegen/)
-        screen.getByRole('button', { name: 'Verstuur' })
+        screen.getByLabelText(/Add photos/)
+        screen.getByRole('button', { name: 'Send' })
         expect(
           screen.queryByTestId('loading-indicator')
         ).not.toBeInTheDocument()
@@ -70,11 +70,11 @@ describe('IncidentReplyContainer', () => {
         screen.getByRole('heading', { name: 'Aanvullende informatie' })
       })
 
-      userEvent.click(screen.getByRole('button', { name: 'Verstuur' }))
+      userEvent.click(screen.getByRole('button', { name: 'Send' }))
 
       await waitFor(() => {
         expect(screen.getByRole('alert')).toHaveTextContent(
-          'Dit is een verplicht veld'
+          'This is a required field'
         )
       })
     })
@@ -94,7 +94,7 @@ describe('IncidentReplyContainer', () => {
           'Rood'
         )
       })
-      userEvent.click(screen.getByRole('button', { name: 'Verstuur' }))
+      userEvent.click(screen.getByRole('button', { name: 'Send' }))
 
       await waitFor(() => {
         screen.getByRole('heading', { name: constants.SUBMITTED_TITLE })
@@ -119,12 +119,12 @@ describe('IncidentReplyContainer', () => {
       })
 
       // Upload file to file input
-      const fileInput = screen.getByLabelText(/Foto's toevoegen/)
+      const fileInput = screen.getByLabelText(/Add photos/)
       const file = new File(['hello'], 'hello.png', { type: 'image/png' })
       Object.defineProperty(file, 'size', { value: 1024 * 1024 + 1 }) // 1 MB
       userEvent.upload(fileInput, file)
 
-      userEvent.click(screen.getByRole('button', { name: 'Verstuur' }))
+      userEvent.click(screen.getByRole('button', { name: 'Send' }))
 
       await waitFor(() => {
         screen.getByRole('heading', { name: constants.SUBMITTED_TITLE })
@@ -157,7 +157,7 @@ describe('IncidentReplyContainer', () => {
         },
       })
 
-      userEvent.click(screen.getByRole('button', { name: 'Verstuur' }))
+      userEvent.click(screen.getByRole('button', { name: 'Send' }))
 
       await waitFor(() => {
         expect(mockedGlobalNotification).toHaveBeenCalledWith(

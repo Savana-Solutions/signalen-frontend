@@ -65,7 +65,7 @@ describe('signals/incident/components/form/DescriptionInput', () => {
 
       expect(getByTestId('description-info')).toBeInTheDocument()
       expect(getByTestId('description-info').textContent).toEqual(
-        `${description.length}/100 tekens`
+        `${description.length}/100 characters`
       )
     })
   })

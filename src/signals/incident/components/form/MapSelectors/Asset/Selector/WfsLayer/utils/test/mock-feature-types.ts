@@ -103,7 +103,7 @@ export const mockContainerFeatureTypes: FeatureType[] = [
   },
   {
     description: 'De container staat niet op de kaart',
-    label: 'Onbekend',
+    label: 'Unknown',
     icon: {
       options: {
         className: 'object-marker',
@@ -190,7 +190,7 @@ export const mockPublicLightsFeatureTypes: FeatureType[] = [
   },
   {
     description: 'Het lichtpunt staat niet op de kaart',
-    label: 'Onbekend',
+    label: 'Unknown',
     icon: {
       options: {
         className: 'object-marker',
@@ -221,7 +221,7 @@ export const mockCaterpillarFeatureTypes: FeatureType[] = [
   },
   {
     idField: 'UNKNOWN',
-    label: 'Onbekend',
+    label: 'Unknown',
     description: 'De boom staat niet op de kaart',
     icon: {
       options: {

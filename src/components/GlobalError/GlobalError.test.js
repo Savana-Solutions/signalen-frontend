@@ -8,7 +8,7 @@ import { withAppContext } from 'test/utils'
 import GlobalError from './index'
 
 const defaultErrorMessage =
-  'U hebt niet alle vragen beantwoord. Vul hieronder aan alstublieft.'
+  'You have not answered all questions. Fill in below.'
 
 const invalidErrorMessage =
   'U hebt niet alle vragen (juist) beantwoord. Vul hieronder aan alstublieft.'

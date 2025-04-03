@@ -48,7 +48,7 @@ const Edit = ({ onClose, incident, submit }: Props) => {
   const { errors, dirtyFields } = formState
   return (
     <EditFormWrapper>
-      <StyledH2 forwardedAs="h2">Contactgegevens melder wijzigen</StyledH2>
+      <StyledH2 forwardedAs="h2">Contact details melder wijzigen</StyledH2>
 
       <StyledForm
         onSubmit={handleSubmit((data) => {
@@ -59,7 +59,7 @@ const Edit = ({ onClose, incident, submit }: Props) => {
           <StyledInput
             {...register('phone')}
             id={'phone'}
-            placeholder="Telefoon melder"
+            placeholder="Phone reporter"
             defaultValue={incident.reporter.phone}
             showError={!!errors.phone}
           />
@@ -74,7 +74,7 @@ const Edit = ({ onClose, incident, submit }: Props) => {
           <StyledInput
             {...register('email')}
             id={'email'}
-            placeholder={'E-mail melder'}
+            placeholder={'Email reporter'}
             defaultValue={incident.reporter.email}
             showError={!!errors.email}
           />

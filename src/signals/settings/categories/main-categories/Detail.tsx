@@ -6,7 +6,7 @@ import { CategoryDetail } from '../components'
 export const DetailContainer = () => (
   <CategoryDetail
     isMainCategory={true}
-    entityName="Hoofdcategorie"
+    entityName="Main category"
     isPublicAccessibleLabel="Toon meldingen van deze hoofdcategorie op openbare kaarten en op de kaart in het meldformulier."
   />
 )

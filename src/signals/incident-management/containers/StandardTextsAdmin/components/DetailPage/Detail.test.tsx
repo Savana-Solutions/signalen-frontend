@@ -55,7 +55,7 @@ describe('Detail', () => {
 
     await waitFor(() => {
       expect(screen.getByText('Standaardtekst wijzigen')).toBeInTheDocument()
-      expect(screen.getByText('Terug naar overzicht')).toBeInTheDocument()
+      expect(screen.getByText('Back to overview')).toBeInTheDocument()
       expect(screen.getByText('Mooie omschrijving')).toBeInTheDocument()
       expect(screen.getByDisplayValue('Mooie titel')).toBeInTheDocument()
       expect(screen.getByRole('checkbox', { name: 'Actief' })).toBeChecked()

@@ -18,7 +18,7 @@ const Reporter: React.FC<ReporterProps> = ({
   id,
 }) => (
   <Fragment>
-    <dt data-testid="detail-reporter-definition">Meldingen van deze melder</dt>
+    <dt data-testid="detail-reporter-definition">Reports of this reporter</dt>
     <dd data-testid="detail-reporter-value">
       <AscLink
         as={Link}
@@ -28,7 +28,7 @@ const Reporter: React.FC<ReporterProps> = ({
         {signal_count} {signal_count === 1 ? 'melding' : 'meldingen'}
       </AscLink>
       <div>
-        {negative_count}x niet tevreden / {open_count}x openstaand
+        {negative_count}x not satisfied / {open_count}x open
       </div>
     </dd>
   </Fragment>

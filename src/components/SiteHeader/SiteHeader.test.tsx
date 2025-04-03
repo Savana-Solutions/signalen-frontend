@@ -55,7 +55,7 @@ describe('components/SiteHeader', () => {
     )
 
     // menu items
-    expect(queryByText('Melden')).not.toBeInTheDocument()
+    expect(queryByText('Report')).not.toBeInTheDocument()
     expect(queryByText('Help')).not.toBeInTheDocument()
 
     // inline menu should not be visible
@@ -97,9 +97,9 @@ describe('components/SiteHeader', () => {
     )
 
     // menu items
-    expect(queryByText('Melden')).toBeInTheDocument()
+    expect(queryByText('Report')).toBeInTheDocument()
     expect(queryByText('Help')).toBeInTheDocument()
-    expect(queryByText('Instellingen')).toBeInTheDocument()
+    expect(queryByText('Settings')).toBeInTheDocument()
 
     expect(container.querySelector('#header')).toHaveStyleRule('z-index: 2')
 
@@ -369,19 +369,19 @@ describe('components/SiteHeader', () => {
     const toggle = screen.getByRole('button')
 
     expect(
-      screen.queryByRole('link', { name: 'Instellingen' })
+      screen.queryByRole('link', { name: 'Settings' })
     ).not.toBeInTheDocument()
 
     userEvent.click(toggle)
 
-    const link = screen.getByRole('link', { name: 'Instellingen' })
+    const link = screen.getByRole('link', { name: 'Settings' })
     expect(link).toBeInTheDocument()
 
     userEvent.click(link)
 
     await waitFor(() => {
       expect(
-        screen.queryByRole('link', { name: 'Instellingen' })
+        screen.queryByRole('link', { name: 'Settings' })
       ).not.toBeInTheDocument()
     })
   })

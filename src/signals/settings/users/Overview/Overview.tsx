@@ -167,13 +167,13 @@ const UsersOverviewContainer = () => {
     [filters, navigate]
   )
 
-  const columnHeaders = ['Gebruikersnaam', 'Rol', 'Afdeling', 'Status']
+  const columnHeaders = ['Username', 'Role', 'Department', 'Status']
   return (
     <Fragment>
       <Row>
         <PageHeader
           title={`Gebruikers${count ? ` (${count})` : ''}`}
-          BackLink={<BackLink to={BASE_URL}>Terug naar instellingen</BackLink>}
+          BackLink={<BackLink to={BASE_URL}>Back to settings</BackLink>}
         >
           {userCan('add_user') && (
             <HeaderButton

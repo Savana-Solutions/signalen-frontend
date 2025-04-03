@@ -135,7 +135,7 @@ export const DefaultTextsAdminContainer = ({
   return (
     <Row>
       <Column span={12}>
-        <StyledH1>Beheer standaard teksten</StyledH1>
+        <StyledH1>Manage standard texts</StyledH1>
       </Column>
 
       {!subCategories && <LoadingIndicator />}

@@ -42,7 +42,7 @@ const DescriptionInfo = ({ info }) => {
   return (
     <DescriptionInfoWrapper data-testid="description-info">
       <div>{info}</div>
-      {suggestion && <div>{`Subcategorie voorstel: ${suggestion.name}`}</div>}
+      {suggestion && <div>{`Subcategory voorstel: ${suggestion.name}`}</div>}
     </DescriptionInfoWrapper>
   )
 }

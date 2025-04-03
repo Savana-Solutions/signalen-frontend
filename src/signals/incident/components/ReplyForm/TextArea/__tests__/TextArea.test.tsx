@@ -42,7 +42,7 @@ describe('<TextArea />', () => {
     render(withAppContext(<WrappedTextArea />))
 
     screen.getByLabelText('Foo')
-    screen.getByText(`0/${maxLength} tekens`)
+    screen.getByText(`0/${maxLength} characters`)
   })
 
   describe('validates input', () => {
@@ -53,7 +53,7 @@ describe('<TextArea />', () => {
 
       await waitFor(() => {
         expect(
-          screen.getByText('Dit is een verplicht veld')
+          screen.getByText('This is a required field')
         ).toBeInTheDocument()
       })
     })
@@ -67,13 +67,13 @@ describe('<TextArea />', () => {
       userEvent.click(screen.getByRole('button', { name: 'Opslaan' }))
 
       expect(
-        screen.getByText(`${maxLength + 1}/${maxLength} tekens`)
+        screen.getByText(`${maxLength + 1}/${maxLength} characters`)
       ).toBeInTheDocument()
 
       await waitFor(() => {
         expect(
           screen.getByText(
-            `U heeft meer dan de maximale ${maxLength} tekens ingevoerd`
+            `U heeft meer dan de maximale ${maxLength} characters entered`
           )
         ).toBeInTheDocument()
       })

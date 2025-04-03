@@ -19,7 +19,7 @@ import type { Incident } from '../../types'
 const Block = styled.div``
 
 const defaultAddress: PdokAddress = {
-  openbare_ruimte: 'Onbekend',
+  openbare_ruimte: 'Unknown',
   huisnummer: '',
   postcode: '',
   woonplaats: '',
@@ -48,7 +48,7 @@ export const DetailPanel = ({ onClose, incident }: Props) => {
 
   useEffect(() => {
     const button = detailWrapperRef.current?.querySelector(
-      'button[title="Sluiten"]'
+      'button[title="Close"]'
     ) as HTMLElement
     button.focus()
   }, [])
@@ -58,7 +58,7 @@ export const DetailPanel = ({ onClose, incident }: Props) => {
       <CloseButton
         type="button"
         variant="blank"
-        title="Sluiten"
+        title="Close"
         aria-label="Detail panel sluiten"
         iconSize={20}
         onClick={onClose}
@@ -66,13 +66,13 @@ export const DetailPanel = ({ onClose, incident }: Props) => {
       />
 
       <StyledList>
-        <dt>Melding</dt>
+        <dt>Report</dt>
         <Heading forwardedAs="h2">{properties.category.name}</Heading>
 
-        <dt>Datum melding</dt>
+        <dt>Date of report</dt>
         <dd>{capitalize(format(date, 'd MMMM yyyy', { locale: nl }))}</dd>
 
-        <dt>Adres dichtbij</dt>
+        <dt>Nearby adress</dt>
         <dd>
           {address.openbare_ruimte} {address.huisnummer}
         </dd>

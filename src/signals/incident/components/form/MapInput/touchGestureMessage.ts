@@ -11,9 +11,9 @@ export const TOUCH_GESTURE_MESSAGE_OPTION = {
   gestureHandling: true,
   gestureHandlingOptions: {
     text: {
-      touch: 'Gebruik twee vingers om de kaart te verplaatsen',
-      scroll: 'Gebruik Ctrl + scrollen om in- en uit te zoomen op de kaart',
-      scrollMac: 'Gebruik \u2318 + scrollen om in en uit te zoomen op de kaart',
+      touch: 'Use two fingers to move the map',
+      scroll: 'Use Ctrl + scrolling to zoom in and out on the map',
+      scrollMac: 'Use \u2318 + scrolling to zoom in and out on the map',
     },
   },
 }

@@ -19,8 +19,8 @@
     "_display": "submit (submit)",
     "key": "submit",
     "uuid": "fe2e367a-38f4-4e09-acca-ccd8bc939b59",
-    "label": "Verstuur",
-    "short_label": "Verstuur",
+    "label": "Send",
+    "short_label": "Send",
     "field_type": "submit",
     "next_rules": null,
     "required": true

@@ -487,7 +487,7 @@ const IncidentDetail = () => {
           </Preview>
         )}
         {!showAttachmentViewer && state.preview && (
-          <CloseButton close={closeDispatch} aria-label="Sluiten" />
+          <CloseButton close={closeDispatch} aria-label="Close" />
         )}
       </StyledRow>
       {showAttachmentViewer && (

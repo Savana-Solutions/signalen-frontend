@@ -27,15 +27,15 @@ describe('components/LoginPage', () => {
     render(withAppContext(<LoginPage />))
 
     expect(
-      screen.getByText('Om deze pagina te zien dient u ingelogd te zijn.')
+      screen.getByText('To view this page, you need to be logged in.')
     ).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: 'Inloggen' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Login' })).toBeInTheDocument()
   })
 
-  it('should login when Inloggen button is clicked', async () => {
+  it('should login when Login button is clicked', async () => {
     render(withAppContext(<LoginPage />))
 
-    const button = screen.getByRole('button', { name: 'Inloggen' })
+    const button = screen.getByRole('button', { name: 'Login' })
     userEvent.click(button)
 
     expect(mockUseDispatch).toHaveBeenCalledWith(doLogin())

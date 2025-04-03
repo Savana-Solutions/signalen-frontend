@@ -32,7 +32,7 @@ describe('IncidentSplitFormIncident', () => {
 
     expect(
       screen.queryAllByTestId('incident-split-form-incident-title')[0]
-    ).toHaveTextContent(/^Deelmelding 1$/)
+    ).toHaveTextContent(/^Split report 1$/)
 
     expect(screen.getByRole('textbox')).toBeInTheDocument()
     expect(screen.getByTestId('add-note')).toBeInTheDocument()
@@ -65,7 +65,7 @@ describe('IncidentSplitFormIncident', () => {
 
     expect(
       screen.queryAllByTestId('incident-split-form-incident-title')[9]
-    ).toHaveTextContent(/^Deelmelding 10$/)
+    ).toHaveTextContent(/^Split report 10$/)
 
     // eslint-disable-next-line
     // @ts-ignore
@@ -103,10 +103,10 @@ describe('IncidentSplitFormIncident', () => {
     )
 
     expect(
-      screen.getAllByRole('heading', { name: /^Deelmelding \d+$/ })
+      screen.getAllByRole('heading', { name: /^Split report \d+$/ })
     ).toHaveLength(1)
     expect(
-      screen.getByRole('heading', { name: 'Deelmelding 4' })
+      screen.getByRole('heading', { name: 'Split report 4' })
     ).toBeInTheDocument()
   })
 

@@ -69,7 +69,7 @@ HTML:
 
 ```html
 <!-- toggle -->
-<label> Alles selecteren </label>
+<label> Select everything </label>
 
 <!-- checkboxes -->
 <input
@@ -115,7 +115,7 @@ HTML:
 ```html
 <!-- toggle -->
 <label>
-  Alles selecteren
+  Select everything
   <input name="qux" type="checkbox" value="stadsdeel" />
 </label>
 
@@ -168,7 +168,7 @@ HTML:
 
 ```html
 <!-- toggle -->
-<label> Alles selecteren </label>
+<label> Select everything </label>
 
 <!-- checkboxes -->
 <input

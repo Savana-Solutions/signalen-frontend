@@ -62,14 +62,14 @@ describe('IncidentDetail', () => {
     )
   })
 
-  it('should call the onBack callback when clicking on "Terug naar filter"', () => {
+  it('should call the onBack callback when clicking on "Back to filter"', () => {
     const spy = jest.fn()
 
     render(
       withAppContext(<IncidentDetail incident={mockIncident()} onBack={spy} />)
     )
 
-    const link = screen.getByRole('link', { name: 'Terug naar filter' })
+    const link = screen.getByRole('link', { name: 'Back to filter' })
 
     link.click()
 
@@ -88,7 +88,7 @@ describe('IncidentDetail', () => {
       withAppContext(<IncidentDetail incident={incident} onBack={jest.fn()} />)
     )
 
-    const link = screen.getByRole('link', { name: 'Standaardmelding 1234' })
+    const link = screen.getByRole('link', { name: 'Standard report 1234' })
 
     expect(link).toHaveAttribute('href', '/manage/incident/1234')
     expect(link).toHaveAttribute('target', '_blank')
@@ -124,10 +124,10 @@ describe('IncidentDetail', () => {
     )
 
     expect(
-      screen.queryByRole('link', { name: 'Standaardmelding 1234' })
+      screen.queryByRole('link', { name: 'Standard report 1234' })
     ).not.toBeInTheDocument()
     expect(
-      screen.queryByRole('link', { name: 'Deelmelding 1234' })
+      screen.queryByRole('link', { name: 'Split report 1234' })
     ).not.toBeInTheDocument()
     expect(
       screen.queryByRole('link', { name: 'Hoofdmelding 1234' })
@@ -142,10 +142,10 @@ describe('IncidentDetail', () => {
     )
 
     expect(
-      screen.queryByRole('link', { name: 'Standaardmelding 4321' })
+      screen.queryByRole('link', { name: 'Standard report 4321' })
     ).toBeInTheDocument()
     expect(
-      screen.queryByRole('link', { name: 'Deelmelding 4321' })
+      screen.queryByRole('link', { name: 'Split report 4321' })
     ).not.toBeInTheDocument()
     expect(
       screen.queryByRole('link', { name: 'Hoofdmelding 4321' })
@@ -158,10 +158,10 @@ describe('IncidentDetail', () => {
     )
 
     expect(
-      screen.queryByRole('link', { name: 'Standaardmelding 5678' })
+      screen.queryByRole('link', { name: 'Standard report 5678' })
     ).not.toBeInTheDocument()
     expect(
-      screen.queryByRole('link', { name: 'Deelmelding 5678' })
+      screen.queryByRole('link', { name: 'Split report 5678' })
     ).toBeInTheDocument()
     expect(
       screen.queryByRole('link', { name: 'Hoofdmelding 5678' })

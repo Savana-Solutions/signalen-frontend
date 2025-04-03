@@ -32,14 +32,14 @@ describe('<ExtraProperties />', () => {
         label: 'Gebeurt het vaker?',
         category_url:
           '/signals/v1/public/terms/categories/wegen-verkeer-straatmeubilair/sub_categories/straatverlichting-openbare-klok',
-        answer: { label: 'Ja, het gebeurt vaker', value: false },
+        answer: { label: 'Yes, het gebeurt vaker', value: false },
       },
       {
         id: 'extra_bedrijven_gezien',
         label: 'Heeft u het gezien?',
         category_url:
           '/signals/v1/public/terms/categories/wegen-verkeer-straatmeubilair/sub_categories/straatverlichting-openbare-klok',
-        answer: { label: 'Ja, het gebeurt vaker', value: true },
+        answer: { label: 'Yes, het gebeurt vaker', value: true },
       },
       {
         id: 'lampen',
@@ -78,13 +78,13 @@ describe('<ExtraProperties />', () => {
     ).toHaveTextContent(/^Gebeurt het vaker\?$/)
     expect(
       screen.queryAllByTestId('extra-properties-value')[2]
-    ).toHaveTextContent(/^Nee$/)
+    ).toHaveTextContent(/^No$/)
     expect(
       screen.queryAllByTestId('extra-properties-definition')[3]
     ).toHaveTextContent(/^Heeft u het gezien\?$/)
     expect(
       screen.queryAllByTestId('extra-properties-value')[3]
-    ).toHaveTextContent(/^Ja, het gebeurt vaker$/)
+    ).toHaveTextContent(/^Yes, het gebeurt vaker$/)
     expect(
       screen.queryAllByTestId('extra-properties-definition')[4]
     ).toHaveTextContent(/^Welke lampen\?$/)
@@ -138,12 +138,12 @@ describe('<ExtraProperties />', () => {
           },
           {
             id: '',
-            type: 'Onbekend',
+            type: 'Unknown',
             description: 'De container staat niet op de kaart',
           },
           {
             id: '1234',
-            type: 'Onbekend',
+            type: 'Unknown',
             description: undefined,
           } as unknown as Item,
           {

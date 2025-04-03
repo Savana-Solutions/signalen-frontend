@@ -59,8 +59,8 @@ export const onderhuur = {
       shortLabel: 'Bewoners familie',
       pathMerge: 'extra_properties',
       values: {
-        ja: 'Ja, ze zijn familie van elkaar',
-        nee: 'Nee, ze zijn geen familie van elkaar',
+        ja: 'Yes, ze zijn familie van elkaar',
+        nee: 'No, ze zijn geen familie van elkaar',
         weet_ik_niet: 'Weet ik niet',
       },
     },
@@ -111,9 +111,9 @@ export const onderhuur = {
       shortLabel: 'Huurder woont',
       pathMerge: 'extra_properties',
       values: {
-        aangegeven_adres: 'Ja, op het aangegeven adres',
-        ander_adres: 'Ja, op een ander adres',
-        weet_ik_niet: 'Nee, weet ik niet',
+        aangegeven_adres: 'Yes, op het aangegeven adres',
+        ander_adres: 'Yes, op een ander adres',
+        weet_ik_niet: 'No, weet ik niet',
       },
     },
     options: {

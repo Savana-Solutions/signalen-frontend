@@ -45,8 +45,8 @@ export const leegstand = {
       shortLabel: 'Woning gebruik',
       pathMerge: 'extra_properties',
       values: {
-        ja: 'Ja, soms is er iemand in de woning',
-        nee: 'Nee, er is nooit iemand in de woning',
+        ja: 'Yes, soms is er iemand in de woning',
+        nee: 'No, er is nooit iemand in de woning',
         weet_ik_niet: 'Weet ik niet',
       },
     },

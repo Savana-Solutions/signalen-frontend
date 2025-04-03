@@ -41,7 +41,7 @@ describe('signals/incident/components/form/FormField', () => {
       withAppContext(<FormField {...props} options={{}} />)
     )
 
-    expect(screen.queryByText('(niet verplicht)')).toBeInTheDocument()
+    expect(screen.queryByText('(not required)')).toBeInTheDocument()
 
     rerender(
       withAppContext(
@@ -49,13 +49,13 @@ describe('signals/incident/components/form/FormField', () => {
       )
     )
 
-    expect(screen.queryByText('(niet verplicht)')).toBeInTheDocument()
+    expect(screen.queryByText('(not required)')).toBeInTheDocument()
 
     rerender(
       withAppContext(<FormField {...props} options={{ validators: [] }} />)
     )
 
-    expect(screen.queryByText('(niet verplicht)')).toBeInTheDocument()
+    expect(screen.queryByText('(not required)')).toBeInTheDocument()
 
     rerender(
       withAppContext(
@@ -67,7 +67,7 @@ describe('signals/incident/components/form/FormField', () => {
       )
     )
 
-    expect(screen.queryByText('(niet verplicht)')).not.toBeInTheDocument()
+    expect(screen.queryByText('(not required)')).not.toBeInTheDocument()
 
     rerender(
       withAppContext(
@@ -75,7 +75,7 @@ describe('signals/incident/components/form/FormField', () => {
       )
     )
 
-    expect(screen.queryByText('(niet verplicht)')).not.toBeInTheDocument()
+    expect(screen.queryByText('(not required)')).not.toBeInTheDocument()
 
     rerender(
       withAppContext(
@@ -83,7 +83,7 @@ describe('signals/incident/components/form/FormField', () => {
       )
     )
 
-    expect(screen.queryByText('(niet verplicht)')).not.toBeInTheDocument()
+    expect(screen.queryByText('(not required)')).not.toBeInTheDocument()
   })
 
   it('should render subtitle', () => {
@@ -112,7 +112,7 @@ describe('signals/incident/components/form/FormField', () => {
   it('should render required error with default message', () => {
     const hasError = (prop: string) => prop === 'required'
     const getError = () => true
-    const error = 'Dit is een verplicht veld'
+    const error = 'This is a required field'
 
     const { rerender } = render(withAppContext(<FormField {...props} />))
 
@@ -128,7 +128,7 @@ describe('signals/incident/components/form/FormField', () => {
   })
 
   it('should render required error with custom message', () => {
-    const error = 'Dit is een verplicht veld'
+    const error = 'This is a required field'
     const hasError = (prop: string) => prop === 'required'
     const getError = () => error
 
@@ -163,7 +163,7 @@ describe('signals/incident/components/form/FormField', () => {
     const requiredLength = 300
     const hasError = (prop: string) => prop === 'max'
     const getError = () => requiredLength
-    const error = `U heeft meer dan de maximale ${requiredLength} tekens ingevoerd`
+    const error = `U heeft meer dan de maximale ${requiredLength} characters entered`
 
     const { rerender } = render(
       withAppContext(<FormField {...props} getError={getError} />)
@@ -206,7 +206,7 @@ describe('signals/incident/components/form/FormField', () => {
   // it('should not render error', () => {
   //   const hasError = (prop: string) => prop === 'required'
   //   const getError = () => true
-  //   const error = 'Dit is een verplicht veld'
+  //   const error = 'This is a required field'
   //
   //   const { rerender } = render(
   //     withAppContext(<FormField {...props} hasError={hasError} />)

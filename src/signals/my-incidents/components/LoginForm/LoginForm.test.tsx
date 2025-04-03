@@ -49,7 +49,7 @@ describe('LoginForm', () => {
 
     expect(screen.getByText('E-mailadres')).toBeInTheDocument()
     expect(screen.getByRole('textbox')).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: 'Inloggen' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Login' })).toBeInTheDocument()
   })
 
   it('should submit email when submitting', async () => {
@@ -73,7 +73,7 @@ describe('LoginForm', () => {
     expect(screen.getByRole('textbox')).toHaveValue('test@email.com')
 
     const submitButton = screen.getByRole('button', {
-      name: 'Inloggen',
+      name: 'Login',
     })
 
     await waitFor(() => {
@@ -100,7 +100,7 @@ describe('LoginForm', () => {
     expect(screen.getByRole('textbox')).toHaveValue('myemail')
 
     const submitButton = screen.getByRole('button', {
-      name: 'Inloggen',
+      name: 'Login',
     })
 
     await waitFor(() => {
@@ -143,7 +143,7 @@ describe('LoginForm', () => {
     })
 
     expect(setErrorMessageMock).toHaveBeenCalledWith(
-      'Het inloggen is mislukt. Probeer het later opnieuw.'
+      'Login failed. Please try again later.'
     )
   })
 })

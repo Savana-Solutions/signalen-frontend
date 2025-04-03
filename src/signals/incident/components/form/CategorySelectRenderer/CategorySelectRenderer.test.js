@@ -34,7 +34,7 @@ describe('signals/incident/components/form/CategorySelectRenderer', () => {
   }
 
   const meta = {
-    label: 'Subcategorie',
+    label: 'Subcategory',
     path: 'category',
     name: 'category',
     isVisible: true,

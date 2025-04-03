@@ -110,7 +110,7 @@ const IncidentPreview: FC<IncidentPreviewProps> = ({
               ))}
             </Dl>
           ) : (
-            'U hebt geen contactgegevens ingevuld. We kunnen u niet laten weten wat wij hebben gedaan met uw melding.'
+            'You have not filled in any contact details. We cannot let you know what we have done with your report.'
           )}
 
           <LinkContainer>

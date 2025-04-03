@@ -43,8 +43,8 @@ export const overlastPersonenEnGroepen = {
       shortLabel: 'Verkoop drugs',
       pathMerge: 'extra_properties',
       values: {
-        ja: 'Ja, ik denk dat er drugs worden verkocht',
-        nee: 'Nee, ik denk dat er geen drugs worden verkocht',
+        ja: 'Yes, ik denk dat er drugs worden verkocht',
+        nee: 'No, ik denk dat er geen drugs worden verkocht',
       },
     },
     options: {
@@ -73,7 +73,7 @@ export const overlastPersonenEnGroepen = {
         '1-3': '1, 2 of 3',
         '4-6': '4, 5 of 6',
         '7_of_meer': '7 of meer',
-        onbekend: 'Onbekend',
+        Unknown: 'Unknown',
       },
     },
     options: {

@@ -21,7 +21,7 @@ const configuration = appConfiguration as unknown as typeof ConfigurationType
 export const controls = {
   extra_bomen: {
     meta: {
-      label: 'Waar is het?',
+      label: 'Where is it?',
       language: {
         title: 'Selecteer de boom',
         subTitle: 'Kies een boom op de kaart',
@@ -50,7 +50,7 @@ export const controls = {
           typeField: 'type_soortnaam',
         },
         {
-          label: 'Onbekend',
+          label: 'Unknown',
           description: 'De boom staat niet op de kaart',
           icon: {
             options,

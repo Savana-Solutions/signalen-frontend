@@ -84,7 +84,6 @@ const MapInput = ({
 
   const clickFunc = useCallback(
     async ({ latlng }) => {
-
       hasInitialViewRef.current = false
       dispatch && dispatch(setLoadingAction(true))
       dispatch && dispatch(setLocationAction(latlng))
@@ -101,7 +100,9 @@ const MapInput = ({
           }
           const newPopup = L.popup()
             .setLatLng(latlng)
-            .setContent(`Deze app werkt alleen binnen de gemeente ${gemeente}.`)
+            .setContent(
+              `This app only works within the municipality ${gemeente}.`
+            )
             .openOn(map)
 
           setPopup(newPopup)

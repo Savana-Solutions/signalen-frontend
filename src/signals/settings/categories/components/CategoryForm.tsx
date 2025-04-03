@@ -116,7 +116,7 @@ export const CategoryForm = ({
                 {responsibleDepartments.length > 0 && (
                   <FieldGroup as="dl">
                     <StyledDefinitionTerm>
-                      <strong>Verantwoordelijke afdeling</strong>
+                      <strong>Responsible department</strong>
                     </StyledDefinitionTerm>
                     <dd data-testid="responsible_departments">
                       {responsibleDepartments.join(', ')}
@@ -228,7 +228,7 @@ export const CategoryForm = ({
                       }}
                     />
                     <FieldGroup>
-                      <StyledHeading>Afhandeltermijn</StyledHeading>
+                      <StyledHeading>Closing period</StyledHeading>
                       <CombinedFields>
                         <Input
                           {...formMethods.register('n_days')}
@@ -245,8 +245,8 @@ export const CategoryForm = ({
                           disabled={readOnly}
                           id="use_calendar_days"
                         >
-                          <option value="1">Dagen</option>
-                          <option value="0">Werkdagen</option>
+                          <option value="1">Days</option>
+                          <option value="0">Work days</option>
                         </StyledSelect>
                       </CombinedFields>
                     </FieldGroup>

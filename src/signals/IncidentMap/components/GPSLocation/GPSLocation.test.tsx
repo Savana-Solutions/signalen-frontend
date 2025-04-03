@@ -90,8 +90,7 @@ describe('GPSLocation', () => {
     expect(defaultProps.setNotification).toHaveBeenCalledWith(
       <>
         <strong>
-          {`${configuration.language.siteAddress} heeft geen
-                            toestemming om uw locatie te gebruiken.`}
+          {`${configuration.language.siteAddress} has no permission to use your location.`}
         </strong>
         <p>
           Dit kunt u wijzigen in de voorkeuren of instellingen van uw browser of
@@ -127,7 +126,7 @@ describe('GPSLocation', () => {
     userEvent.click(screen.getByRole('button', { name: 'Huidige locatie' }))
 
     expect(defaultProps.setNotification).toHaveBeenCalledWith(
-      'Uw locatie valt buiten de kaart en is daardoor niet te zien'
+      'Your location is outside the map and therefore not visible'
     )
   })
 })

@@ -57,7 +57,7 @@ export const Confirmation = () => {
     () => (
       <>
         <Button variant="secondary" onClick={onResubmit}>
-          Verstuur opnieuw
+          Send opnieuw
         </Button>
         <Button variant="primaryInverted" onClick={onCancel}>
           Annuleren

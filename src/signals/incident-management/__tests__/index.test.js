@@ -207,7 +207,7 @@ describe.skip('signals/incident-management', () => {
   })
 
   describe('routing', () => {
-    const loginText = 'Om deze pagina te zien dient u ingelogd te zijn.'
+    const loginText = 'To view this page, you need to be logged in.'
 
     describe('incident list', () => {
       it('should show warning when not authenticated', async () => {

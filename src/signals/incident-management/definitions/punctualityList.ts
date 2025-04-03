@@ -14,15 +14,15 @@ export type Punctuality = {
 const punctualityList: Array<Punctuality> = [
   {
     key: PunctualityKey.ON_TIME,
-    value: 'Binnen de afhandeltermijn',
+    value: 'Inside the handling period',
   },
   {
     key: PunctualityKey.LATE,
-    value: 'Buiten de afhandeltermijn',
+    value: 'Outside the handling period',
   },
   {
     key: PunctualityKey.LATE_FACTOR_3,
-    value: '3x buiten de afhandeltermijn',
+    value: '3x Outside the handling period',
   },
 ]
 

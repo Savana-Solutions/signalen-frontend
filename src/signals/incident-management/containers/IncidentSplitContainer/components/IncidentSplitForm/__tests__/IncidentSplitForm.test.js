@@ -19,7 +19,7 @@ jest.mock('react-router-dom', () => ({
 }))
 
 const directingDepartments = [
-  { key: 'null', value: 'Verantwoordelijke afdeling' },
+  { key: 'null', value: 'Responsible department' },
   { key: departments.list[0].code, value: departments.list[0].code },
 ]
 

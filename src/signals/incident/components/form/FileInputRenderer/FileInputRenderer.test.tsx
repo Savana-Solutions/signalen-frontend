@@ -17,8 +17,8 @@ const defaultProps: Props = {
     meta: {} as Props['parent']['meta'],
   },
   meta: {
-    label: "Foto's toevoegen",
-    subtitle: 'Voeg een foto toe om de situatie te verduidelijken',
+    label: 'Add photos',
+    subtitle: 'Add a photo to clarify the situation',
     minFileSize: 30720,
     maxFileSize: 20971520,
     allowedFileTypes: Object.values(FileTypes),

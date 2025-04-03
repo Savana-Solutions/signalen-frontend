@@ -106,8 +106,8 @@ export const verhuurderschap = {
       shortLabel: 'Bewijs discriminatie',
       pathMerge: 'extra_properties',
       values: {
-        ja: 'Ja',
-        nee: 'Nee',
+        ja: 'Yes',
+        nee: 'No',
       },
     },
     options: {
@@ -152,8 +152,8 @@ export const verhuurderschap = {
       shortLabel: 'Bewijs intimidatie',
       pathMerge: 'extra_properties',
       values: {
-        ja: 'Ja',
-        nee: 'Nee',
+        ja: 'Yes',
+        nee: 'No',
       },
     },
     options: {
@@ -184,8 +184,8 @@ export const verhuurderschap = {
       shortLabel: 'Huurcontract',
       pathMerge: 'extra_properties',
       values: {
-        ja: 'Ja',
-        nee: 'Nee',
+        ja: 'Yes',
+        nee: 'No',
       },
     },
     options: {
@@ -203,8 +203,8 @@ export const verhuurderschap = {
       shortLabel: 'Borg vastelling',
       pathMerge: 'extra_properties',
       values: {
-        ja: 'Ja',
-        nee: 'Nee',
+        ja: 'Yes',
+        nee: 'No',
       },
     },
     options: {
@@ -223,8 +223,8 @@ export const verhuurderschap = {
       shortLabel: 'Borgtermijn vastelling',
       pathMerge: 'extra_properties',
       values: {
-        ja: 'Ja',
-        nee: 'Nee',
+        ja: 'Yes',
+        nee: 'No',
       },
     },
     options: {
@@ -258,8 +258,8 @@ export const verhuurderschap = {
       shortLabel: 'Bewijs incorrect huurcontract',
       pathMerge: 'extra_properties',
       values: {
-        ja: 'Ja',
-        nee: 'Nee',
+        ja: 'Yes',
+        nee: 'No',
       },
     },
     options: {
@@ -290,8 +290,8 @@ export const verhuurderschap = {
       shortLabel: 'Extra bemiddelingskosten',
       pathMerge: 'extra_properties',
       values: {
-        ja: 'Ja',
-        nee: 'Nee',
+        ja: 'Yes',
+        nee: 'No',
       },
     },
     options: {
@@ -325,8 +325,8 @@ export const verhuurderschap = {
       shortLabel: 'Bewijs bemiddelingskosten',
       pathMerge: 'extra_properties',
       values: {
-        ja: 'Ja',
-        nee: 'Nee',
+        ja: 'Yes',
+        nee: 'No',
       },
     },
     options: {
@@ -357,8 +357,8 @@ export const verhuurderschap = {
       shortLabel: 'Servicekostenspecificatie',
       pathMerge: 'extra_properties',
       values: {
-        ja: 'Ja',
-        nee: 'Nee',
+        ja: 'Yes',
+        nee: 'No',
       },
     },
     options: {
@@ -377,8 +377,8 @@ export const verhuurderschap = {
       shortLabel: 'Servicekosten jaarlijkse afrekening',
       pathMerge: 'extra_properties',
       values: {
-        ja: 'Ja',
-        nee: 'Nee',
+        ja: 'Yes',
+        nee: 'No',
       },
     },
     options: {
@@ -396,8 +396,8 @@ export const verhuurderschap = {
       shortLabel: 'Servicekosten te hoog',
       pathMerge: 'extra_properties',
       values: {
-        ja: 'Ja',
-        nee: 'Nee',
+        ja: 'Yes',
+        nee: 'No',
       },
     },
     options: {
@@ -490,8 +490,8 @@ export const verhuurderschap = {
       shortLabel: 'Arbeidsmigrant',
       pathMerge: 'extra_properties',
       values: {
-        ja: 'Ja',
-        nee: 'Nee',
+        ja: 'Yes',
+        nee: 'No',
       },
     },
     options: {
@@ -509,8 +509,8 @@ export const verhuurderschap = {
       shortLabel: 'Arbeidsmigrant huurcontract',
       pathMerge: 'extra_properties',
       values: {
-        ja: 'Ja',
-        nee: 'Nee',
+        ja: 'Yes',
+        nee: 'No',
       },
     },
     options: {
@@ -528,8 +528,8 @@ export const verhuurderschap = {
       shortLabel: 'Arbeidsmigrant huurcontract taal',
       pathMerge: 'extra_properties',
       values: {
-        ja: 'Ja',
-        nee: 'Nee',
+        ja: 'Yes',
+        nee: 'No',
       },
     },
     options: {
@@ -547,8 +547,8 @@ export const verhuurderschap = {
       shortLabel: 'Arbeidsmigrant arbeidscontract',
       pathMerge: 'extra_properties',
       values: {
-        ja: 'Ja',
-        nee: 'Nee',
+        ja: 'Yes',
+        nee: 'No',
       },
     },
     options: {
@@ -575,8 +575,8 @@ export const verhuurderschap = {
       shortLabel: 'Consent stichting !WOON',
       pathMerge: 'extra_properties',
       values: {
-        ja: 'Ja',
-        nee: 'Nee',
+        ja: 'Yes',
+        nee: 'No',
       },
     },
     options: {

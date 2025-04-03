@@ -106,7 +106,7 @@ const DetailPanel: FunctionComponent<DetailPanelProps> = ({
       incident.category?.main) && (
       <StyledMetaList>
         {incident.created_at && (
-          <dt data-testid="meta-list-date-definition">Gemeld op</dt>
+          <dt data-testid="meta-list-date-definition">Reported on</dt>
         )}
         {incident.created_at && (
           <dd data-testid="meta-list-date-value">
@@ -123,7 +123,7 @@ const DetailPanel: FunctionComponent<DetailPanelProps> = ({
           </dd>
         )}
         {incident.category?.sub && (
-          <dt data-testid="meta-list-subcategory-definition">Subcategorie</dt>
+          <dt data-testid="meta-list-subcategory-definition">Subcategory</dt>
         )}
         {incident.category?.sub && (
           <dd data-testid="meta-list-subcategory-value">
@@ -131,7 +131,7 @@ const DetailPanel: FunctionComponent<DetailPanelProps> = ({
           </dd>
         )}
         {incident.category?.main && (
-          <dt data-testid="meta-list-category-definition">Hoofdcategorie</dt>
+          <dt data-testid="meta-list-category-definition">Main category</dt>
         )}
         {incident.category?.main && (
           <dd data-testid="meta-list-category-value">

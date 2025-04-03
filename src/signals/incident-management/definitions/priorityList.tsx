@@ -9,7 +9,7 @@ const priorityList: Priority[] = [
     info: 'melding met spoed oppakken',
     icon: 'PriorityHigh',
   },
-  { key: 'normal', value: 'Normaal' },
+  { key: 'normal', value: 'Normal' },
   {
     key: 'low',
     value: 'Laag',

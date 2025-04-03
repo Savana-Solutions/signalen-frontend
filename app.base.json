@@ -36,20 +36,20 @@
     "themeColor": "#fff"
   },
   "language": {
-    "consentToContactSharing": "Ja, ik geef de gemeente Oss toestemming om mijn contactgegevens te delen met andere organisaties, als dat nodig is om mijn melding goed op te lossen.",
-    "district": "Wijk",
+    "consentToContactSharing": "Yes, I give the municipality of Oss permission to share my contact details with other organizations, if necessary to properly resolve my report.",
+    "district": "District",
     "headerTitle": "",
-    "helpText": "Wij zijn bereikbaar van maandag tot en met vrijdag van 9.00 - 17.00 uur.",
-    "helpTextHeader": "Lukt het niet om een melding te doen? Bel het telefoonnummer [14 0412]",
-    "logoDescription": "Logo gemeente",
-    "mapDescription": "Weet u het adres niet, bel dan 14 0412 om telefonisch de melding te maken.",
+    "helpText": "We are available Monday through Friday from 9:00 AM - 5:00 PM.",
+    "helpTextHeader": "Having trouble making a report? Call the phone number [14 0412]",
+    "logoDescription": "Municipality logo",
+    "mapDescription": "If you don't know the address, call 14 0412 to make the report by phone.",
     "phoneNumber": "14 0412",
-    "shortTitle": "Signalen",
+    "shortTitle": "Signals",
     "siteAddress": "signalen.org",
-    "siteTitle": "Signalen",
+    "siteTitle": "Signals",
     "smallHeaderTitle": "",
-    "title": "Signalen",
-    "urgentContactInfo": "Voor spoedeisende zaken kunt u ook telefonisch contact opnemen."
+    "title": "Signals",
+    "urgentContactInfo": "For urgent matters, you can also contact us by phone."
   },
   "links": {
     "about": "",
@@ -72,10 +72,19 @@
     "municipality": "den haag",
     "options": {
       "crs": "EPSG:28992",
-      "center": [52.3731081, 4.8932945],
+      "center": [
+        52.3731081,
+        4.8932945
+      ],
       "maxBounds": [
-        [52.25168, 4.64034],
-        [52.50536, 5.10737]
+        [
+          52.25168,
+          4.64034
+        ],
+        [
+          52.50536,
+          5.10737
+        ]
       ],
       "maxNumberOfAssets": {
         "straatverlichting": 3,
@@ -132,7 +141,7 @@
         "https://service.pdok.nl/brt/achtergrondkaart/wmts/v2_0/standaard/EPSG:28992/{z}/{x}/{y}.png"
       ],
       "options": {
-        "attribution": "Kaartgegevens &copy; Kadaster",
+        "attribution": "Map information &copy; Kadaster",
         "maxNativeZoom": 14,
         "tms": false
       }

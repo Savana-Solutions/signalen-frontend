@@ -6,7 +6,7 @@ describe('utils', () => {
   describe('formattedDate', () => {
     it('should format a date correctly', () => {
       const date = '2020-11-05T13:58:56.917372+00:00'
-      expect(formattedDate(date)).toEqual('Gemeld op: 05 november')
+      expect(formattedDate(date)).toEqual('Reported on: 05 november')
     })
   })
 })

@@ -90,11 +90,11 @@ const DetailHeader = () => {
   const parentId = incident?._links?.['sia:parent']?.href?.split('/').pop()
 
   const hasChildren = incident?._links?.['sia:children']?.length > 0
-  let headingText = 'Standaardmelding'
+  let headingText = 'Standard report'
   if (hasChildren) {
     headingText = 'Hoofdmelding'
   } else if (parentId) {
-    headingText = 'Deelmelding'
+    headingText = 'Split report'
   }
 
   const patchIncident = useCallback(() => {
@@ -114,7 +114,7 @@ const DetailHeader = () => {
 
   return (
     <Header className="detail-header">
-      <StyledBackLink to={referrer}>Terug naar overzicht</StyledBackLink>
+      <StyledBackLink to={referrer}>Back to overview</StyledBackLink>
 
       <HeadingContainer>
         <StyledHeading data-testid="detail-header-title">
@@ -131,7 +131,7 @@ const DetailHeader = () => {
               to={`split`}
               data-testid="detail-header-button-split"
             >
-              Delen
+              Split
             </Button>
           )}
 

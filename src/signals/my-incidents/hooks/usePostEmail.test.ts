@@ -79,7 +79,7 @@ describe('usePostEmail', () => {
     const [, { errorMessage }] = result.current
 
     expect(errorMessage).toEqual(
-      'Het inloggen is mislukt. Probeer het later opnieuw.'
+      'Login failed. Please try again later.'
     )
   })
 })

@@ -68,7 +68,7 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
 
     const textareaInfoText =
       maxContentLength && maxContentLength > 0
-        ? `${contents.length}/${maxContentLength} tekens`
+        ? `${contents.length}/${maxContentLength} characters`
         : infoText
 
     useEffect(() => {

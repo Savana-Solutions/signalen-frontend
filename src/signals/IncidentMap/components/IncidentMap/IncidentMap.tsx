@@ -100,7 +100,7 @@ export const IncidentMap = () => {
 
       if (response?.data?.coordinateIsValid == false) {
         const gemeente = configuration.map?.municipality || ''
-        const message = `Deze app werkt alleen binnen de gemeente ${gemeente}.`
+        const message = `This app only works within the municipality ${gemeente}.`
 
         const newPopup = L.popup()
           .setLatLng(newCoordinates)
@@ -205,7 +205,7 @@ export const IncidentMap = () => {
 
   useEffect(() => {
     if (error) {
-      setNotification('Er konden geen meldingen worden opgehaald.')
+      setNotification('No reports could be retrieved.')
     }
   }, [error, setNotification])
 

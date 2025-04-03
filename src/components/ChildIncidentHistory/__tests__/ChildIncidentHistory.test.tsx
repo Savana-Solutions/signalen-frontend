@@ -42,14 +42,14 @@ describe('<ChildIncidentHistory />', () => {
       expect(screen.queryByText(NEW_EVENT)).toBeInTheDocument()
       expect(screen.queryByText(OLD_EVENT)).not.toBeInTheDocument()
 
-      userEvent.click(screen.getByRole('link', { name: 'Toon geschiedenis' }))
+      userEvent.click(screen.getByRole('link', { name: 'Show history' }))
 
       expect(screen.getAllByRole('listitem')).toHaveLength(4)
       expect(screen.queryByText(NEW_EVENT)).toBeInTheDocument()
       expect(screen.queryByText(OLD_EVENT)).toBeInTheDocument()
 
       userEvent.click(
-        screen.getByRole('link', { name: 'Verberg geschiedenis' })
+        screen.getByRole('link', { name: 'Hide history' })
       )
 
       expect(screen.getAllByRole('listitem')).toHaveLength(1)
@@ -69,7 +69,7 @@ describe('<ChildIncidentHistory />', () => {
       expect(screen.queryByText(NEW_EVENT)).not.toBeInTheDocument()
       expect(screen.queryByText(OLD_EVENT)).not.toBeInTheDocument()
       expect(
-        screen.queryByRole('link', { name: 'Toon geschiedenis' })
+        screen.queryByRole('link', { name: 'Show history' })
       ).not.toBeInTheDocument()
     })
   })
@@ -94,7 +94,7 @@ describe('<ChildIncidentHistory />', () => {
 
       expect(
         screen.queryByText(
-          'Je hebt geen toestemming om meldingen in deze categorie te bekijken'
+          'You have no permission to view reports in this category'
         )
       ).toBeInTheDocument()
     })
@@ -113,7 +113,7 @@ describe('<ChildIncidentHistory />', () => {
       )
 
       expect(screen.queryAllByRole('listitem')).toHaveLength(0)
-      expect(screen.queryByText('Geen nieuwe wijzigingen')).toBeInTheDocument()
+      expect(screen.queryByText('No new changes')).toBeInTheDocument()
     })
 
     it('should render toggle to show all history', () => {
@@ -128,19 +128,19 @@ describe('<ChildIncidentHistory />', () => {
       )
 
       expect(screen.queryAllByRole('listitem')).toHaveLength(0)
-      expect(screen.queryByText('Geen nieuwe wijzigingen')).toBeInTheDocument()
+      expect(screen.queryByText('No new changes')).toBeInTheDocument()
 
-      userEvent.click(screen.getByRole('link', { name: 'Toon geschiedenis' }))
+      userEvent.click(screen.getByRole('link', { name: 'Show history' }))
 
       expect(screen.queryAllByRole('listitem')).toHaveLength(4)
-      expect(screen.queryByText('Geen nieuwe wijzigingen')).toBeInTheDocument()
+      expect(screen.queryByText('No new changes')).toBeInTheDocument()
 
       userEvent.click(
-        screen.getByRole('link', { name: 'Verberg geschiedenis' })
+        screen.getByRole('link', { name: 'Hide history' })
       )
 
       expect(screen.queryAllByRole('listitem')).toHaveLength(0)
-      expect(screen.queryByText('Geen nieuwe wijzigingen')).toBeInTheDocument()
+      expect(screen.queryByText('No new changes')).toBeInTheDocument()
     })
   })
 })

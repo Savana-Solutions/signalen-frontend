@@ -80,7 +80,7 @@ describe('<IncidentPreview />', () => {
             optional: true,
             label: 'foo bar',
             render: ({ value }: { value: { value?: string } }) => (
-              <span>{value.value ? 'Ja' : 'Nee'}</span>
+              <span>{value.value ? 'Yes' : 'No'}</span>
             ),
           },
         },
@@ -96,9 +96,9 @@ describe('<IncidentPreview />', () => {
           contact: 'Contact',
         },
         edit: {
-          vulaan: 'Wijzig vulaan',
-          beschrijf: 'Wijzig beschrijf',
-          contact: 'Wijzig bar baz qux',
+          vulaan: 'Edit vulaan',
+          beschrijf: 'Edit beschrijf',
+          contact: 'Edit bar baz qux',
         },
       },
     }
@@ -172,9 +172,9 @@ describe('<IncidentPreview />', () => {
           contact: 'Contact',
         },
         edit: {
-          beschrijf: 'Wijzig beschrijf',
-          vulaan: 'Wijzig aanvullen',
-          contact: 'Wijzig contact',
+          beschrijf: 'Edit beschrijf',
+          vulaan: 'Edit aanvullen',
+          contact: 'Edit contact',
         },
       },
       incident,

@@ -12,7 +12,7 @@ const DescriptionInput = ({ handler, value, meta, parent }) => {
   const getCharactersInfo = useCallback(
     () =>
       meta.maxLength > 0 &&
-      `${value ? value.length : '0'}/${meta.maxLength} tekens`,
+      `${value ? value.length : '0'}/${meta.maxLength} characters`,
     [value, meta.maxLength]
   )
 

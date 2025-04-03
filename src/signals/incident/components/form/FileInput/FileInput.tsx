@@ -65,9 +65,7 @@ const FileInput = ({ handler, parent, meta }: Props) => {
       }
 
       if (!files.every(checkNumberOfFiles)) {
-        errorMessages.push(
-          `U kunt maximaal ${maxNumberOfFiles} bestanden uploaden.`
-        )
+        errorMessages.push(`You can upload a maximum of ${maxNumberOfFiles}.`)
       }
 
       return errorMessages

@@ -11,7 +11,7 @@ const mockExtraProperties = [
     answer: {
       id: 'nee',
       info: '',
-      label: 'Nee, ik denk dat er geen drugs worden verkocht',
+      label: 'No, ik denk dat er geen drugs worden verkocht',
     },
     category_url:
       '/signals/v1/public/terms/categories/overlast-van-en-door-personen-of-groepen/sub_categories/overige-overlast-door-personen',
@@ -33,7 +33,7 @@ const mockExtraProperties = [
     answer: {
       id: 'ja',
       info: '',
-      label: 'Ja, het gebeurt vaker',
+      label: 'Yes, het gebeurt vaker',
     },
     category_url:
       '/signals/v1/public/terms/categories/overlast-van-en-door-personen-of-groepen/sub_categories/overige-overlast-door-personen',
@@ -53,10 +53,10 @@ describe('ExtraProperties', () => {
 
     expect(screen.getByText('Verkoop drugs')).toBeInTheDocument()
     expect(
-      screen.getByText('Nee, ik denk dat er geen drugs worden verkocht')
+      screen.getByText('No, ik denk dat er geen drugs worden verkocht')
     ).toBeInTheDocument()
     expect(screen.getByText('Vaker')).toBeInTheDocument()
-    expect(screen.getByText('Ja, het gebeurt vaker')).toBeInTheDocument()
+    expect(screen.getByText('Yes, het gebeurt vaker')).toBeInTheDocument()
   })
 
   it('should render an object of additional answers correctly', () => {

@@ -12,13 +12,13 @@ describe('Form component <CheckboxInput />', () => {
       const props = {
         meta: {
           name: 'input-field-name',
-          value: 'Ja, dat is goed',
+          value: 'Yes, dat is goed',
           isVisible: true,
         },
         handler: () => ({
           value: {
             value: true,
-            label: 'Ja dat wil ik',
+            label: 'Yes dat wil ik',
           },
         }),
       }
@@ -95,7 +95,7 @@ describe('Form component <CheckboxInput />', () => {
         handler: () => ({
           value: {
             value: true,
-            label: 'Ja dat wil ik',
+            label: 'Yes dat wil ik',
           },
         }),
       }
@@ -114,7 +114,7 @@ describe('Form component <CheckboxInput />', () => {
       const props = {
         meta: {
           name: 'input-field-name',
-          value: 'Ja, dat is goed',
+          value: 'Yes, dat is goed',
           isVisible: true,
         },
         parent: {
@@ -125,7 +125,7 @@ describe('Form component <CheckboxInput />', () => {
         handler: () => ({
           value: {
             value: true,
-            label: 'Ja dat wil ik',
+            label: 'Yes dat wil ik',
           },
         }),
       }

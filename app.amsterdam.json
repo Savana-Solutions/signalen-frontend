@@ -34,7 +34,7 @@
     "themeColor": "#fff"
   },
   "language": {
-    "consentToContactSharing": "Ja, ik geef de gemeente Amsterdam toestemming om mijn melding door te sturen naar andere organisaties als de melding niet voor de gemeente is bestemd.",
+    "consentToContactSharing": "Yes, ik geef de gemeente Amsterdam toestemming om mijn melding door te sturen naar andere organisaties als de melding niet voor de gemeente is bestemd.",
     "district": "Stadsdeel",
     "headerTitle": "",
     "helpText": "Wij zijn bereikbaar van maandag tot en met vrijdag van 9.00 - 17.00 uur.",
@@ -42,9 +42,9 @@
     "logoDescription": "Gemeente Amsterdam logo - Home",
     "mapDescription": "Weet u het adres niet, bel dan 14 020 om telefonisch de melding te maken.",
     "phoneNumber": "14 020",
-    "shortTitle": "Meldingen",
+    "shortTitle": "Reports",
     "siteAddress": "meldingen.amsterdam.nl",
-    "siteTitle": "Meldingen",
+    "siteTitle": "Report",
     "smallHeaderTitle": "Signalen",
     "title": "Meldingen Amsterdam",
     "urgentContactInfo": "Voor spoedeisende zaken kunt u ook telefonisch contact opnemen met 14 020."
@@ -98,7 +98,7 @@
     "tiles": {
       "args": ["https://{s}.data.amsterdam.nl/topo_rd/{z}/{x}/{y}.png"],
       "options": {
-        "attribution": "<span aria-hidden='true'>Kaartgegevens CC-BY-4.0 Gemeente Amsterdam</span>",
+        "attribution": "<span aria-hidden='true'>Map information CC-BY-4.0 Gemeente Amsterdam</span>",
         "subdomains": ["t1", "t2", "t3", "t4"],
         "tms": true
       }

@@ -25,9 +25,9 @@ describe('ReporterContainer', () => {
 
     expect(screen.getByTestId('reporter-container')).toBeInTheDocument()
 
-    await screen.findByRole('link', { name: 'Terug naar melding' })
+    await screen.findByRole('link', { name: 'Back to report' })
     screen.getByRole('heading', {
-      name: 'Meldingen van me@email.com (2)',
+      name: 'Reports of me@email.com (2)',
     })
     screen.getByRole('link', { name: 'Hoofdmelding 4440' })
 

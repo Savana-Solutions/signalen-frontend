@@ -106,12 +106,12 @@ const IncidentDetail: FunctionComponent<IncidentDetailProps> = ({
       </IncidentDescription>
       <CompactThemeProvider>
         <InfoStyle>
-          <span data-testid="label-date-definition">Gemeld op</span>
+          <span data-testid="label-date-definition">Reported on</span>
           <Value data-testid="value-date-definition">
             {format(new Date(date), 'dd-MM-yyyy HH:mm')}
           </Value>
           <span data-testid="label-subcategory">
-            Subcategorie (verantwoordelijke afdeling){' '}
+            Subcategory (responsible department){' '}
           </span>
           <Value data-testid="value-subcategory">{subcategory}</Value>
           <span data-testid="label-status">Status </span>

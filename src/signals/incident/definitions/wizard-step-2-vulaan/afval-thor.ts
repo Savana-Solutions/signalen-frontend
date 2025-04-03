@@ -33,8 +33,8 @@ export const controls = {
       shortLabel: 'Welke eigenaar',
       pathMerge: 'extra_properties',
       values: {
-        ja: 'Ja',
-        nee: 'Nee',
+        ja: 'Yes',
+        nee: 'No',
       },
     },
     options: {
@@ -48,7 +48,7 @@ export const controls = {
         extra_afval_handhaving_owner: 'ja',
       },
       value:
-        'Wij willen graag telefonisch contact met u hierover. Als u dat goed vindt, vul dan uw telefoonnummer in op de volgende pagina.',
+        'We would like to contact you by phone about this. If you are okay with this, please fill in your phone number on the next page.',
       type: 'info',
     },
     render: QuestionFieldType.PlainText,

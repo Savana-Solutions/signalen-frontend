@@ -165,7 +165,7 @@ const AssetSelect: FC<AssetSelectProps> = ({ value, layer, meta, parent }) => {
         if (mapRef.current) {
           const newPopup = L.popup()
             .setLatLng(latLng)
-            .setContent(`Deze app werkt alleen binnen de gemeente ${gemeente}.`)
+            .setContent(`This app only works within the municipality ${gemeente}.`)
 
           // Use addTo instead of openOn to avoid the type error
           newPopup.addTo(mapRef.current)
@@ -208,7 +208,7 @@ const AssetSelect: FC<AssetSelectProps> = ({ value, layer, meta, parent }) => {
         if (mapRef.current) {
           const newPopup = L.popup()
             .setLatLng(location.coordinates)
-            .setContent(`Deze app werkt alleen binnen de gemeente ${gemeente}.`)
+            .setContent(`This app only works within the municipality ${gemeente}.`)
             .addTo(mapRef.current)
 
           setPopup(newPopup)

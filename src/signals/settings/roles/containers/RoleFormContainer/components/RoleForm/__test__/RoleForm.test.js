@@ -54,14 +54,14 @@ describe('/signals/settings/roles/components/RoleForm', () => {
     const { getByTestId, queryByTestId, queryByText } = render(
       withAppContext(<RoleForm {...emptyNameProps} />)
     )
-    expect(queryByText('Dit veld is verplicht')).not.toBeInTheDocument()
+    expect(queryByText('This field is required')).not.toBeInTheDocument()
 
     act(() => {
       fireEvent.click(getByTestId('submit-btn'), { preventDefault: jest.fn() })
     })
 
     expect(queryByTestId('roles-form-field-name')).toHaveValue('')
-    expect(queryByText('Dit veld is verplicht')).toBeInTheDocument()
+    expect(queryByText('This field is required')).toBeInTheDocument()
 
     const event = {
       target: {
@@ -76,12 +76,12 @@ describe('/signals/settings/roles/components/RoleForm', () => {
     expect(queryByTestId('roles-form-field-name')).toHaveValue(
       'nieuwe Behandelaar'
     )
-    expect(queryByText('Dit veld is verplicht')).toBeInTheDocument()
+    expect(queryByText('This field is required')).toBeInTheDocument()
 
     act(() => {
       fireEvent.click(getByTestId('submit-btn'), { preventDefault: jest.fn() })
     })
-    expect(queryByText('Dit veld is verplicht')).not.toBeInTheDocument()
+    expect(queryByText('This field is required')).not.toBeInTheDocument()
   })
 
   it('should handle submit flow when patching an existing role', async () => {

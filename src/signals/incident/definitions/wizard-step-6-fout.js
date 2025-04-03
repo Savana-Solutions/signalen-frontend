@@ -7,7 +7,7 @@ import IncidentNavigation from '../components/IncidentNavigation'
 
 export default {
   label: 'Fout',
-  previousButtonLabel: 'Vorige',
+  previousButtonLabel: 'Previous',
   previousButtonClass: 'action startagain',
   formAction: 'UPDATE_INCIDENT',
   form: {
