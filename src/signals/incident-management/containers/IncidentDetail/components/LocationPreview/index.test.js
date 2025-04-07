@@ -27,7 +27,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Locat
       const { queryByTestId, queryAllByTestId } = render(renderWithContext())
 
       expect(queryByTestId('location-preview-button-edit')).toHaveTextContent(
-        /^Locatie wijzigen$/
+        /^Edit location$/
       )
       expect(queryAllByTestId('location-preview-map')).toHaveLength(1)
     })

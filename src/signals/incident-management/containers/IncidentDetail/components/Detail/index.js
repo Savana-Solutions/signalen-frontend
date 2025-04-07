@@ -86,7 +86,7 @@ const Detail = ({ context }) => {
       <DefinitionList
         autoRowsStart={4 + (memoIncident.extra_properties?.length || 0)}
       >
-        <dt>Overlast</dt>
+        <dt>Problem</dt>
         <dd>
           {string2date(incident.incident_date_start)}{' '}
           {string2time(incident.incident_date_start)}&nbsp;

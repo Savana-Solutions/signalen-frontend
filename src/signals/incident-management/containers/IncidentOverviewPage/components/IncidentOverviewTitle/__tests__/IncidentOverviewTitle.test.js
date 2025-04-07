@@ -24,7 +24,7 @@ describe('containers/IncidentOverviewTitle', () => {
     )
 
     expect(
-      screen.getByRole('heading', { name: 'Meldingen' })
+      screen.getByRole('heading', { name: 'Reports' })
     ).toBeInTheDocument()
   })
 
@@ -41,7 +41,7 @@ describe('containers/IncidentOverviewTitle', () => {
     )
 
     expect(
-      screen.getByRole('heading', { name: 'Meldingen' })
+      screen.getByRole('heading', { name: 'Reports' })
     ).toBeInTheDocument()
 
     rerender(
@@ -56,7 +56,7 @@ describe('containers/IncidentOverviewTitle', () => {
     )
 
     expect(
-      screen.getByRole('heading', { name: 'Meldingen (0)' })
+      screen.getByRole('heading', { name: 'Reports (0)' })
     ).toBeInTheDocument()
 
     rerender(
@@ -71,7 +71,7 @@ describe('containers/IncidentOverviewTitle', () => {
     )
 
     expect(
-      screen.getByRole('heading', { name: 'Meldingen (10)' })
+      screen.getByRole('heading', { name: 'Reports (10)' })
     ).toBeInTheDocument()
 
     rerender(

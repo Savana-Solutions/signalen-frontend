@@ -45,7 +45,7 @@ export const IncidentsDetail = ({
       createdAt: attachment.created_at,
       createdBy: attachment.created_by,
       location: attachment.href,
-      stateShown: attachment.created_by ? 'foto gemeente' : 'melder',
+      stateShown: attachment.created_by ? 'photo municipality' : 'reporter',
       caption: attachment.caption,
     })) || []
 
@@ -60,22 +60,22 @@ export const IncidentsDetail = ({
   return (
     <ContentWrapper>
       <StyledBacklink to={`/mijn-meldingen/${token}`}>
-        Mijn meldingen
+        My reports
       </StyledBacklink>
 
       <header>
-        <StyledHeading>{`Meldingsnummer: ${_display}`}</StyledHeading>
+        <StyledHeading>{`Report number: ${_display}`}</StyledHeading>
       </header>
       <dl>
         <DescriptionWrapper>
-          <FormTitle>Omschrijving</FormTitle>
+          <FormTitle>Description</FormTitle>
           <StyledDD>{text}</StyledDD>
         </DescriptionWrapper>
 
         {attachmentsUser?.length > 0 && (
           <DescriptionWrapper>
             <FormTitle>
-              Foto{attachmentsUser.length > 1 && "'s"} gestuurd door u
+              Photo{attachmentsUser.length > 1 && "'s"} sent by you
             </FormTitle>
 
             <ImagesWrapper>
@@ -97,8 +97,8 @@ export const IncidentsDetail = ({
         {attachmentsMunicipality?.length > 0 && (
           <DescriptionWrapper>
             <FormTitle>
-              Foto{attachmentsMunicipality.length > 1 && "'s"} gestuurd door de
-              gemeente
+              Photo{attachmentsMunicipality.length > 1 && "'s"} sent to the
+              municipality
             </FormTitle>
 
             <ImagesWrapper>
@@ -121,12 +121,12 @@ export const IncidentsDetail = ({
         )}
 
         <DescriptionWrapper>
-          <FormTitle>Locatie</FormTitle>
+          <FormTitle>Location</FormTitle>
           <StyledDD style={{ marginBottom: 0 }}>
             {location.address_text}
           </StyledDD>
           <StyledLink variant="inline" onClick={() => setShowMap(true)}>
-            Bekijk op kaart
+            View on map
           </StyledLink>
         </DescriptionWrapper>
 

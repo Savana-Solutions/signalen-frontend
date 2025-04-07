@@ -62,7 +62,7 @@ const Location = ({ location }) => {
 
   return (
     <Fragment>
-      <dt data-testid="detail-location">Locatie</dt>
+      <dt data-testid="detail-location">Location</dt>
       <Description>
         <StyledEditButton
           data-testid="edit-location-button"

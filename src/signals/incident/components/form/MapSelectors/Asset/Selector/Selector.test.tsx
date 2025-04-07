@@ -353,7 +353,7 @@ describe('signals/incident/components/form/AssetSelect/Selector', () => {
     render(withAssetSelectContext(<Selector />))
 
     expect(fetchLocation).not.toHaveBeenCalled()
-    userEvent.click(screen.getByRole('button', { name: 'Huidige locatie' }))
+    userEvent.click(screen.getByRole('button', { name: 'Current location' }))
 
     expect(fetchLocation).toHaveBeenCalledWith({
       lat: coords.latitude,
@@ -413,7 +413,7 @@ describe('signals/incident/components/form/AssetSelect/Selector', () => {
 
     expect(screen.getByTestId('map-message')).toBeInTheDocument()
     expect(screen.getByTestId('map-message')).toHaveTextContent(
-      `${configuration.language.siteAddress} heeft geen toestemming om uw locatie te gebruiken.`
+      `${configuration.language.siteAddress} has no permission to use your location.`
     )
   })
 

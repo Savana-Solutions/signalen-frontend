@@ -56,16 +56,16 @@ export const Overview = () => {
           defaultTitle={configuration.language.siteTitle}
           titleTemplate={`${configuration.language.siteTitle} - %s`}
         >
-          <title>{'Mijn Meldingen'}</title>
+          <title>{'My Reports'}</title>
         </Helmet>
 
         <header>
-          <StyledHeading>{'Mijn meldingen'}</StyledHeading>
+          <StyledHeading>{'My reports'}</StyledHeading>
         </header>
 
         <StyledEmail>{email}</StyledEmail>
         <Paragraph>
-          Dit zijn de meldingen die u de afgelopen 12 maanden heeft gemaakt:
+          These are the reports you made in the last 12 months:
         </Paragraph>
         <StyledLink
           to="/incident/beschrijf"
@@ -83,7 +83,7 @@ export const Overview = () => {
           fontSize={16}
           forwardedAs={Link}
         >
-          Maak een nieuwe melding
+          Make a new report
         </StyledLink>
 
         <IncidentsList token={token} />

@@ -44,7 +44,7 @@ describe('GPSLocation', () => {
     render(<GPSLocation {...defaultProps} />)
 
     expect(
-      screen.getByRole('button', { name: 'Huidige locatie' })
+      screen.getByRole('button', { name: 'Current location' })
     ).toBeInTheDocument()
   })
 
@@ -55,7 +55,7 @@ describe('GPSLocation', () => {
 
     render(<GPSLocation {...defaultProps} />)
 
-    userEvent.click(screen.getByRole('button', { name: 'Huidige locatie' }))
+    userEvent.click(screen.getByRole('button', { name: 'Current location' }))
 
     expect(defaultProps.setCoordinates).toHaveBeenCalledWith({
       lat: coords.latitude,
@@ -85,7 +85,7 @@ describe('GPSLocation', () => {
 
     expect(defaultProps.setNotification).not.toHaveBeenCalled()
 
-    userEvent.click(screen.getByRole('button', { name: 'Huidige locatie' }))
+    userEvent.click(screen.getByRole('button', { name: 'Current location' }))
 
     expect(defaultProps.setNotification).toHaveBeenCalledWith(
       <>
@@ -123,7 +123,7 @@ describe('GPSLocation', () => {
 
     render(<GPSLocation {...defaultProps} />)
 
-    userEvent.click(screen.getByRole('button', { name: 'Huidige locatie' }))
+    userEvent.click(screen.getByRole('button', { name: 'Current location' }))
 
     expect(defaultProps.setNotification).toHaveBeenCalledWith(
       'Your location is outside the map and therefore not visible'

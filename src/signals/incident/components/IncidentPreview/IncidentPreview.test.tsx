@@ -199,7 +199,7 @@ describe('<IncidentPreview />', () => {
             render: PreviewComponents.DateTime,
           },
           location: {
-            label: 'Locatie',
+            label: 'Location',
             render: () => Summary(summaryProps),
           },
         },

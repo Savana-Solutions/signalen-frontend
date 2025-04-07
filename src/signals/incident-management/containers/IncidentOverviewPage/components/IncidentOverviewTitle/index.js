@@ -39,7 +39,7 @@ export const IncidentOverviewTitle = ({
   showsMap,
 }) => {
   const headerTitle = useMemo(() => {
-    let title = filter.name || 'Meldingen'
+    let title = filter.name || 'Reports'
     const hasCount = incidentsCount !== null && incidentsCount >= 0
     title += hasCount ? ` (${incidentsCount.toLocaleString('nl-NL')})` : ''
 

@@ -44,7 +44,7 @@ describe('IncidentsDetail', () => {
 
     expect(container.querySelector('img')).toBeInTheDocument()
 
-    expect(screen.getByText('Locatie')).toBeInTheDocument()
+    expect(screen.getByText('Location')).toBeInTheDocument()
 
     expect(screen.getByText('Bekijk op kaart')).toBeInTheDocument()
 

@@ -47,7 +47,7 @@ const LocationPreview = () => {
           onClick={() => edit('location')}
           data-testid="location-preview-button-edit"
         >
-          Locatie wijzigen
+          Edit location
         </EditButton>
 
         <StyledMap

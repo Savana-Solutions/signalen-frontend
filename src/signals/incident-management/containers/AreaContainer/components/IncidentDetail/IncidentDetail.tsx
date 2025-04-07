@@ -106,7 +106,7 @@ const IncidentDetail: React.FC<IncidentDetailProps> = ({
       </Heading>
 
       <DefinitionList>
-        <SectionTerm data-testid="location-label">Locatie</SectionTerm>
+        <SectionTerm data-testid="location-label">Location</SectionTerm>
         <SectionDescription>
           <span data-testid="location">
             {incident.location?.address_text || 'Location is pinned on the map'}

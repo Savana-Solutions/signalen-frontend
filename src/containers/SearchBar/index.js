@@ -57,7 +57,7 @@ export const SearchBarComponent = ({
       <StyledSearchBar
         className={className}
         data-testid="search-bar"
-        placeholder="Zoek op meldingsinformatie"
+        placeholder="Search on report information"
         onChange={onChange}
         onClear={() => resetSearchQueryAction()}
         value={query}

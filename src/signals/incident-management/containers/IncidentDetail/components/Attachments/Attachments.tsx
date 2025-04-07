@@ -160,7 +160,7 @@ const Attachments: FC<AttachmentsProps> = ({
     <Wrapper className={className} data-testid="attachments-definition">
       {hasAttachments && !selectedEditAttachment && (
         <Title forwardedAs="h2" styleAs="h4">
-          Bestanden
+          Files
         </Title>
       )}
       {attachments.map((attachment) => {
@@ -197,7 +197,7 @@ const Attachments: FC<AttachmentsProps> = ({
                     src={attachment.location}
                     alt={
                       attachment.caption ||
-                      `Bestand met locatie ${attachment.location}`
+                      `File with location ${attachment.location}`
                     }
                   />
                   <StyledGradient />
@@ -205,10 +205,10 @@ const Attachments: FC<AttachmentsProps> = ({
               )}
               <StyledBoxContent>
                 {!attachment.created_by && (
-                  <StyledReporter>Melder</StyledReporter>
+                  <StyledReporter>Reporter</StyledReporter>
                 )}
                 {attachment.public && attachment.created_by && (
-                  <StyledReporter>Openbaar</StyledReporter>
+                  <StyledReporter>Public</StyledReporter>
                 )}
                 <StyledDetails isPdf={isPdf(attachment.location)}>
                   {fileName && <StyledName>{fileName}</StyledName>}
@@ -238,7 +238,7 @@ const Attachments: FC<AttachmentsProps> = ({
                           event.stopPropagation()
                           setSelectedEditAttachment(attachment.location)
                         }}
-                        title="Openbaar maken"
+                        title="Make public"
                         variant="application"
                         disabled={isRemoving || !!selectedEditAttachment}
                       />
@@ -251,11 +251,11 @@ const Attachments: FC<AttachmentsProps> = ({
                       onClick={(event) => {
                         event.stopPropagation()
                         window.confirm(
-                          `Weet je zeker dat je de bijlage '${fileName}' wilt verwijderen?`
+                          `Are you sure that you wish to delete the attachment '${fileName}'?`
                         ) && remove(attachment)
                         setSelectedEditAttachment(null)
                       }}
-                      title="Bijlage verwijderen"
+                      title="Remove attachment"
                       variant="application"
                       disabled={isRemoving}
                     />
@@ -285,7 +285,7 @@ const Attachments: FC<AttachmentsProps> = ({
                   setFiles([])
                 }}
                 variant="application"
-                title="Bijlage sluiten"
+                title="Close attachment"
               />
             </StyledBoxContent>
           </StyledBox>
@@ -301,7 +301,7 @@ const Attachments: FC<AttachmentsProps> = ({
             <StyledBoxContent>
               <StyledDetails>
                 <StyledName>{file.name}</StyledName>
-                <StyledDate>wordt geüpload</StyledDate>
+                <StyledDate>will be uploaded</StyledDate>
               </StyledDetails>
             </StyledBoxContent>
           </StyledBox>

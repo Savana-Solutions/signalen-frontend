@@ -66,7 +66,7 @@ describe('<Location />', () => {
         renderWithContext()
       )
 
-      await findByText('Locatie')
+      await findByText('Location')
 
       expect(
         queryByTestId('location-value-address-district')
@@ -86,7 +86,7 @@ describe('<Location />', () => {
 
       const { findByText, queryByTestId } = render(renderWithContext())
 
-      await findByText('Locatie')
+      await findByText('Location')
 
       expect(
         queryByTestId('location-value-address-district')
@@ -97,7 +97,7 @@ describe('<Location />', () => {
       it('renders a map', async () => {
         const { findByText, queryByTestId } = render(renderWithContext())
 
-        await findByText('Locatie')
+        await findByText('Location')
 
         expect(queryByTestId('map-detail')).toBeInTheDocument()
       })

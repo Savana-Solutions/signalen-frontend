@@ -180,7 +180,7 @@ describe('signals/incident-management/containers/IncidentDetail', () => {
 
     userEvent.click(await screen.findByTestId('preview-location-button'))
 
-    userEvent.click(screen.getByText('Locatie wijzigen'))
+    userEvent.click(screen.getByText('Edit location'))
 
     expect(screen.getByText('Opslaan')).toBeInTheDocument()
 
@@ -196,7 +196,7 @@ describe('signals/incident-management/containers/IncidentDetail', () => {
   it('should not respond to other key presses', async () => {
     const { container } = render(withAppContext(<IncidentDetail />))
     userEvent.click(await screen.findByTestId('preview-location-button'))
-    userEvent.click(screen.getByText('Locatie wijzigen'))
+    userEvent.click(screen.getByText('Edit location'))
 
     expect(screen.getByText('Opslaan')).toBeInTheDocument()
     userEvent.type(container, 'Some other keys')

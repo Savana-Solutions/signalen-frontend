@@ -168,13 +168,13 @@ describe('Attachments', () => {
       })
       expect(add).toHaveBeenCalledWith(files)
       expect(await screen.findByText('bloem.jpeg')).toBeInTheDocument()
-      expect(screen.getByText(/wordt geüpload/i)).toBeInTheDocument()
+      expect(screen.getByText(/will be uploaded/i)).toBeInTheDocument()
       expect(screen.getByText('progress-0')).toBeInTheDocument()
       expect(
-        screen.queryByText(/dit bestand is te groot/i)
+        screen.queryByText(/this file is too big/i)
       ).not.toBeInTheDocument()
       expect(
-        screen.queryByText(/dit bestand is te klein/i)
+        screen.queryByText(/this file is too small/i)
       ).not.toBeInTheDocument()
     })
 
@@ -381,9 +381,9 @@ describe('Attachments', () => {
         target: { files },
       })
       expect(add).not.toHaveBeenCalled()
-      expect(screen.getByText(/dit bestand is te groot/i)).toBeInTheDocument()
+      expect(screen.getByText(/this file is too big/i)).toBeInTheDocument()
       expect(
-        screen.queryByText(/dit bestand is te klein/i)
+        screen.queryByText(/this file is too small/i)
       ).not.toBeInTheDocument()
     })
 
@@ -418,9 +418,9 @@ describe('Attachments', () => {
       })
       expect(add).not.toHaveBeenCalled()
       expect(
-        screen.queryByText(/dit bestand is te groot/i)
+        screen.queryByText(/this file is too big/i)
       ).not.toBeInTheDocument()
-      expect(screen.getByText(/dit bestand is te klein/i)).toBeInTheDocument()
+      expect(screen.getByText(/this file is too small/i)).toBeInTheDocument()
     })
   })
 
