@@ -121,7 +121,7 @@ export const OverviewPage = () => {
           <form onSubmit={onSearchSubmit}>
             <Label
               htmlFor="Searchbar"
-              label={`Zoek op standaardtekst (${data?.count ?? 0})`}
+              label={`Search on standard text (${data?.count ?? 0})`}
             >
               <SearchBar
                 id="Searchbar"

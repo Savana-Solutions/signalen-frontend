@@ -171,7 +171,7 @@ describe.skip('signals/incident-management/components/FilterForm', () => {
     expect(
       container.querySelectorAll('input[type="text"][name="name"]')
     ).toHaveLength(1)
-    expect(await findAllByPlaceholderText('Zoek op straatnaam')).toHaveLength(1)
+    expect(await findAllByPlaceholderText('Search on street name')).toHaveLength(1)
   })
 
   it('should render a refresh checkbox', async () => {

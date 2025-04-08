@@ -650,7 +650,7 @@ const FilterForm = ({
               onChange={onAddressChange}
               onSelect={onAddressSelect}
               onClear={onAddressClear}
-              placeholder="Zoek op straatnaam"
+              placeholder="Search on street name"
               value={state.options.address_text}
               streetNameOnly
               showNoResultFeedback={false}

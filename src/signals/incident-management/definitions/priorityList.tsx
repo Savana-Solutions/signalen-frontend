@@ -5,14 +5,14 @@ import type { Priority } from './types'
 const priorityList: Priority[] = [
   {
     key: 'high',
-    value: 'Hoog',
+    value: 'High',
     info: 'melding met spoed oppakken',
     icon: 'PriorityHigh',
   },
   { key: 'normal', value: 'Normal' },
   {
     key: 'low',
-    value: 'Laag',
+    value: 'Low',
     info: 'interne melding zonder servicebelofte',
   },
 ]

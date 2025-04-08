@@ -17,7 +17,7 @@ const sources = [
     can_be_selected: false,
   },
 ]
-const expectedSources = [{ '': 'Vul bron in' }, { 'Source 1': 'Source 1' }]
+const expectedSources = [{ '': 'Fill in source' }, { 'Source 1': 'Source 1' }]
 
 let formFactory
 

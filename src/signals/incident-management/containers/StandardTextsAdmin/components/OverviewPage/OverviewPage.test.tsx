@@ -63,11 +63,11 @@ describe('OverviewPage', () => {
 
   it('renders the component with standard texts', async () => {
     renderComponent()
-    expect(screen.getByText('Zoek op standaardtekst (0)')).toBeInTheDocument()
+    expect(screen.getByText('Search on standard text (0)')).toBeInTheDocument()
 
     await waitFor(() => {
       expect(
-        screen.getByText('Zoek op standaardtekst (16)')
+        screen.getByText('Search on standard text (16)')
       ).toBeInTheDocument()
       expect(screen.getByText('Filter op status')).toBeInTheDocument()
       expect(

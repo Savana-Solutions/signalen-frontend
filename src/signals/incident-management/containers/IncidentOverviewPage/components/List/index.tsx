@@ -175,7 +175,7 @@ const List: FunctionComponent<ListProps> = ({
               changeOrder={changeOrder}
               sortingDisabled={sortingDisabled}
             />
-            <ThDay $isDisabled={true}>Dag</ThDay>
+            <ThDay $isDisabled={true}>Day</ThDay>
             <ThSort
               StyledComponent={ThDate}
               sortOption={SortOptions.CREATED_AT_DESC}

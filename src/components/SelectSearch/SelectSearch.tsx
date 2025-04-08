@@ -196,7 +196,7 @@ export const SelectSearch = ({
           value={inputValue}
           id="combobox"
           role="combobox"
-          placeholder="Zoek op subcategorie"
+          placeholder="Search on subcategory"
         />
         <AbsoluteContentWrapper>
           {!isOpen && <SelectIcon />}
@@ -206,7 +206,7 @@ export const SelectSearch = ({
         <OptionUl ref={optionUlRef} role="listbox" data-testid={name} id={id}>
           {filteredGroups?.length === 0 && (
             <OptionLiGroup key="empty" role="group" aria-label="empty">
-              {'Geen opties beschikbaar'}
+              {'No options available'}
             </OptionLiGroup>
           )}
           {filteredGroups &&

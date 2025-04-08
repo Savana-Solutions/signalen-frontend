@@ -28,7 +28,7 @@ const selectableSources = (sources) =>
 const reduceSources = (sources) =>
   sources.reduce(
     (acc, { value }) => [...acc, { [value]: value }],
-    [{ '': 'Vul bron in' }]
+    [{ '': 'Fill in source' }]
   )
 
 export const renderSources = () => {
@@ -49,8 +49,7 @@ const getControls = memoize(
       info_text: {
         meta: {
           type: 'message',
-          value: `Voordat u een melding doet kunt u op de [meldingenkaart](/meldingenkaart) zien welke meldingen bekend zijn bij de
-          gemeente.`,
+          value: `Before you can create a report, you can see which reports are known by the municipality on the [map](/meldingenkaart).`,
         },
         render: configuration.featureFlags.enablePublicIncidentsMap
           ? FormComponents.PlainText
@@ -58,7 +57,7 @@ const getControls = memoize(
       },
       source: {
         meta: {
-          label: 'Hoe komt de melding binnen?',
+          label: 'How did the report arrive??',
           path: 'source',
           values: sources ? reduceSources(selectableSources(sources)) : [],
           name: 'source',
