@@ -52,7 +52,7 @@ export const getAddNoteError = (config: {
   }
 
   if (shouldContainAtLeastOneChar && text.trim() === '') {
-    return `De ${fieldName} mag niet leeg zijn`
+    return `The ${fieldName} can not be empty`
   }
 
   if (text.length > maxContentLength) {
@@ -150,7 +150,7 @@ const AddNote = forwardRef<HTMLTextAreaElement, AddNoteProps>(
               type="submit"
               variant="secondary"
             >
-              Opslaan
+              Save
             </NoteButton>
 
             <NoteButton
@@ -159,7 +159,7 @@ const AddNote = forwardRef<HTMLTextAreaElement, AddNoteProps>(
               type="button"
               onClick={handleCancel}
             >
-              Annuleer
+              Cancel
             </NoteButton>
           </>
         )}

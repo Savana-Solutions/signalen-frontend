@@ -92,7 +92,7 @@ const Edit = ({ onClose, incident, submit }: Props) => {
             type="submit"
             variant="secondary"
           >
-            Opslaan
+            Save
           </StyledButton>
 
           <StyledButton
@@ -100,7 +100,7 @@ const Edit = ({ onClose, incident, submit }: Props) => {
             variant="tertiary"
             onClick={onClose}
           >
-            Annuleer
+            Cancel
           </StyledButton>
         </div>
       </StyledForm>

@@ -287,9 +287,9 @@ export const Detail = () => {
                     </Grid>
 
                     <StyledFormFooter
-                      cancelBtnLabel="Annuleer"
+                      cancelBtnLabel="Cancel"
                       onCancel={handleOnCancel}
-                      submitBtnLabel="Opslaan"
+                      submitBtnLabel="Save"
                     />
                   </Form>
                 </Column>

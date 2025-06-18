@@ -216,7 +216,7 @@ const ForwardToExternal = ({ onClose }: ForwardToExternalProps) => {
           variant="tertiary"
           onClick={onClose}
         >
-          Annuleer
+          Cancel
         </StyledButton>
       </div>
 

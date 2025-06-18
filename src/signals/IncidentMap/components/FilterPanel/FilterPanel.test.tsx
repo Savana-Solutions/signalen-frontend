@@ -55,7 +55,7 @@ describe('FilterPanel', () => {
     renderFilterPanel({ filters: mockFiltersLong })
 
     expect(
-      screen.getByRole('heading', { name: 'Filter op onderwerp' })
+      screen.getByRole('heading', { name: 'Filter on subject' })
     ).toBeInTheDocument()
 
     expect(
@@ -73,7 +73,7 @@ describe('FilterPanel', () => {
     renderFilterPanel()
 
     expect(mockSetMapFilter).toBeCalledWith(
-      'Er konden geen filter categorieën worden opgehaald.'
+      'No filter categories could be retrieved.'
     )
   })
 

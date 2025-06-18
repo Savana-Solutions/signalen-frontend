@@ -82,7 +82,7 @@ describe('ConfirmationProvider', () => {
     expect(screen.getByText('prompt')).toBeInTheDocument()
     expect(answer).not.toHaveBeenCalled()
 
-    userEvent.click(screen.getByText('Annuleer'))
+    userEvent.click(screen.getByText('Cancel'))
 
     expect(await screen.findByText('title')).not.toBeInTheDocument()
     expect(screen.queryByText('prompt')).not.toBeInTheDocument()

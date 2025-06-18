@@ -303,7 +303,7 @@ export const CategoryForm = ({
                     <TextArea
                       disabled={readOnly}
                       id={name}
-                      label={<strong>Notitie</strong>}
+                      label={<strong>Note</strong>}
                       name={name}
                       onChange={onChange}
                       readOnly={readOnly}
@@ -319,9 +319,9 @@ export const CategoryForm = ({
 
             {!readOnly && (
               <StyledFormFooter
-                cancelBtnLabel="Annuleer"
+                cancelBtnLabel="Cancel"
                 onCancel={onCancel}
-                submitBtnLabel="Opslaan"
+                submitBtnLabel="Save"
               />
             )}
           </Row>

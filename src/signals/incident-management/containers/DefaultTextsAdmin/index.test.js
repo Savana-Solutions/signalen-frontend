@@ -110,7 +110,7 @@ describe('<DefaultTextsAdmin />', () => {
         type: 'up',
       })
 
-      userEvent.click(screen.getByText('Opslaan'))
+      userEvent.click(screen.getByText('Save'))
       expect(props.onSubmitTexts).toHaveBeenCalledTimes(1)
     })
 

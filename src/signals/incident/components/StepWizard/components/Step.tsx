@@ -12,7 +12,7 @@ export default function Step({
   id: string
 }) {
   useEffect(() => {
-    // Do not log the 'Opslaan' page
+    // Do not log the 'Save' page
     id !== 'incident/opslaan' &&
       (window as any).dataLayer?.push({
         event: 'interaction.component.virtualPageview',

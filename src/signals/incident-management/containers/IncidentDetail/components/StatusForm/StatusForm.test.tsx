@@ -151,7 +151,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
     expect(screen.queryByTestId('standard-text-button-v1')).toBeInTheDocument()
     expect(screen.getByText('Standaardtekst (0)')).toBeInTheDocument()
     expect(screen.getByRole('textbox')).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: 'Opslaan' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Save' })).toBeInTheDocument()
     expect(screen.getByTestId('status-form-cancel-button')).toBeInTheDocument()
     expect(screen.getByTestId('send-email-checkbox')).toBeInTheDocument()
     expect(screen.getByText(MELDING_CHECKBOX_DESCRIPTION)).toBeInTheDocument()
@@ -400,7 +400,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
 
     userEvent.type(textarea, 'A'.repeat(DEFAULT_TEXT_MAX_LENGTH + 1))
 
-    userEvent.click(screen.getByRole('button', { name: 'Opslaan' }))
+    userEvent.click(screen.getByRole('button', { name: 'Save' }))
 
     expect(screen.getByRole('alert').textContent).toBe(
       `You have entered more than the maximum of ${DEFAULT_TEXT_MAX_LENGTH} characters.`
@@ -420,7 +420,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
     expect(screen.queryByRole('alert')).not.toBeInTheDocument()
 
     // submit the form
-    userEvent.click(screen.getByRole('button', { name: 'Opslaan' }))
+    userEvent.click(screen.getByRole('button', { name: 'Save' }))
 
     await screen.findByTestId('status-form')
 
@@ -440,7 +440,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
     const valueWithUnderscores = 'Foo __bar__ baz'
     userEvent.type(textarea, valueWithUnderscores)
 
-    userEvent.click(screen.getByRole('button', { name: 'Opslaan' }))
+    userEvent.click(screen.getByRole('button', { name: 'Save' }))
 
     // verify that an error message is shown
     expect(screen.getByRole('alert')).toBeInTheDocument()
@@ -453,7 +453,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
     userEvent.type(textarea, validValue)
 
     // submit the form
-    userEvent.click(screen.getByRole('button', { name: 'Opslaan' }))
+    userEvent.click(screen.getByRole('button', { name: 'Save' }))
 
     await screen.findByTestId('status-form')
 
@@ -571,7 +571,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
     userEvent.selectOptions(screen.getByTestId('select-status'), [
       StatusCode.Afwachting,
     ])
-    userEvent.click(screen.getByRole('button', { name: 'Opslaan' }))
+    userEvent.click(screen.getByRole('button', { name: 'Save' }))
 
     expect(screen.queryByText('This field is required')).not.toBeInTheDocument()
   })
@@ -595,7 +595,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
     userEvent.selectOptions(screen.getByTestId('select-status'), [
       StatusCode.Afgehandeld,
     ])
-    userEvent.click(screen.getByRole('button', { name: 'Opslaan' }))
+    userEvent.click(screen.getByRole('button', { name: 'Save' }))
 
     expect(screen.getByText('This field is required')).toBeInTheDocument()
   })
@@ -718,7 +718,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
 
     render(renderWithContext(withoutReporterEmail))
 
-    const submitButton = screen.getByRole('button', { name: 'Opslaan' })
+    const submitButton = screen.getByRole('button', { name: 'Save' })
 
     expect(submitButton).not.toBeDisabled()
     userEvent.selectOptions(screen.getByTestId('select-status'), [

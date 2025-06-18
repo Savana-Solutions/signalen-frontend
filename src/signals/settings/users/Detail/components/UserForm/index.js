@@ -314,9 +314,9 @@ const UserForm = ({ data, history, onCancel, onSubmit, readOnly }) => {
 
         {!readOnly && (
           <StyledFormFooter
-            cancelBtnLabel="Annuleer"
+            cancelBtnLabel="Cancel"
             onCancel={onCancelForm}
-            submitBtnLabel="Opslaan"
+            submitBtnLabel="Save"
             onSubmitForm={onSubmitForm}
           />
         )}

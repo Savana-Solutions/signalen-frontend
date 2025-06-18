@@ -178,7 +178,7 @@ export const DefaultTextsAdminContainer = ({
         )}
       </Column>
 
-      <StyledFormFooter submitBtnLabel="Opslaan" onSubmitForm={handleSubmit} />
+      <StyledFormFooter submitBtnLabel="Save" onSubmitForm={handleSubmit} />
     </Row>
   )
 }

@@ -117,7 +117,7 @@ export default function EditAttachment({
             type="submit"
             variant="secondary"
           >
-            Opslaan
+            Save
           </Button>
 
           <Button
@@ -125,7 +125,7 @@ export default function EditAttachment({
             variant="tertiary"
             onClick={() => setSelectedEditAttachment(null)}
           >
-            Annuleer
+            Cancel
           </Button>
         </ButtonsWrapper>
       </StyledForm>

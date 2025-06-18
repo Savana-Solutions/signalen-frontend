@@ -735,10 +735,10 @@ const FilterForm = ({
 
         <ControlsWrapper>
           <Fieldset>
-            <legend>Filter categorieën</legend>
+            <legend>Filter categories</legend>
 
             <Label forwardedAs="span" htmlFor="not_used" isGroupHeader>
-              Categorie
+              Category
             </Label>
 
             {categories && (
@@ -781,11 +781,11 @@ const FilterForm = ({
         </ControlsWrapper>
 
         <FormFooterWrapper
-          cancelBtnLabel="Annuleer"
+          cancelBtnLabel="Cancel"
           onCancel={onCancel}
           onResetForm={onResetForm}
           onSubmitForm={onSubmitForm}
-          resetBtnLabel="Nieuw filter"
+          resetBtnLabel="New filter"
           submitBtnLabel={state.submitBtnLabel}
         />
       </Form>

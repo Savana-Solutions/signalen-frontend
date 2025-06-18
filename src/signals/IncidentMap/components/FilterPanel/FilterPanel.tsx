@@ -55,7 +55,7 @@ export const FilterPanel = ({ filters, setFilters, setMapMessage }: Props) => {
 
   useEffect(() => {
     if (error) {
-      setMapMessage('Er konden geen filter categorieën worden opgehaald.')
+      setMapMessage('No filter categories could be retrieved.')
     }
   }, [error, setMapMessage])
 
@@ -65,7 +65,7 @@ export const FilterPanel = ({ filters, setFilters, setMapMessage }: Props) => {
 
   return (
     <>
-      <Heading as="h4">Filter op onderwerp</Heading>
+      <Heading as="h4">Filter on subject</Heading>
       <Underlined />
       {filters
         .filter((filter: Filter) => filter.incidentsCount)

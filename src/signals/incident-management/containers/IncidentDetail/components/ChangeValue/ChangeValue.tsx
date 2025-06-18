@@ -222,7 +222,7 @@ const ChangeValue: FunctionComponent<ChangeValueProps> = ({
           variant="secondary"
           type="submit"
         >
-          Opslaan
+          Save
         </SaveButton>
 
         <Button
@@ -233,7 +233,7 @@ const ChangeValue: FunctionComponent<ChangeValueProps> = ({
           type="button"
           onClick={handleCancel}
         >
-          Annuleer
+          Cancel
         </Button>
       </ButtonBar>
     </form>

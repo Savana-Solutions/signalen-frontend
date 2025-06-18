@@ -92,7 +92,7 @@ describe('CategoryForm', () => {
     expect(screen.getByText('Status')).toBeInTheDocument()
     expect(screen.getByRole('textbox', { name: 'Notitie' })).toBeInTheDocument()
     expect(screen.getByText('History')).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: 'Annuleer' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Cancel' })).toBeInTheDocument()
     expect(
       screen.getByRole('checkbox', {
         name: 'Toon meldingen van deze subcategorie op openbare kaarten en op de kaart in het meldformulier.',
@@ -162,7 +162,7 @@ describe('CategoryForm', () => {
     render(<Wrapper readOnly />)
 
     expect(
-      screen.queryByRole('button', { name: 'Annuleer' })
+      screen.queryByRole('button', { name: 'Cancel' })
     ).not.toBeInTheDocument()
   })
 

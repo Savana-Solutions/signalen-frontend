@@ -31,7 +31,7 @@ const WrappedTextArea: FunctionComponent = () => {
         rules={{ maxLength }}
       />
       <button onClick={() => trigger(id)} type="button">
-        Opslaan
+        Save
       </button>
     </>
   )
@@ -49,7 +49,7 @@ describe('<TextArea />', () => {
     it('validates required', async () => {
       render(withAppContext(<WrappedTextArea />))
 
-      userEvent.click(screen.getByRole('button', { name: 'Opslaan' }))
+      userEvent.click(screen.getByRole('button', { name: 'Save' }))
 
       await waitFor(() => {
         expect(
@@ -64,7 +64,7 @@ describe('<TextArea />', () => {
       const input = screen.getByLabelText('Foo')
 
       userEvent.type(input, 'A'.repeat(maxLength + 1))
-      userEvent.click(screen.getByRole('button', { name: 'Opslaan' }))
+      userEvent.click(screen.getByRole('button', { name: 'Save' }))
 
       expect(
         screen.getByText(`${maxLength + 1}/${maxLength} characters`)

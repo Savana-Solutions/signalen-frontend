@@ -136,10 +136,10 @@ export const RoleForm = ({
 
         {!readOnly && (
           <FormFooter
-            cancelBtnLabel="Annuleer"
+            cancelBtnLabel="Cancel"
             onCancel={handleCancel}
             onSubmitForm={validate}
-            submitBtnLabel="Opslaan"
+            submitBtnLabel="Save"
           />
         )}
       </StyledForm>

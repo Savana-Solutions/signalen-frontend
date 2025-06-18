@@ -65,10 +65,10 @@ describe('Detail', () => {
       expect(screen.queryByText('Afgehandeld')).not.toBeNull()
       expect(screen.queryByDisplayValue('o')).not.toBeNull()
       expect(
-        screen.getByRole('button', { name: 'Annuleer' })
+        screen.getByRole('button', { name: 'Cancel' })
       ).toBeInTheDocument()
       expect(
-        screen.getByRole('button', { name: 'Opslaan' })
+        screen.getByRole('button', { name: 'Save' })
       ).toBeInTheDocument()
       expect(
         screen.getByRole('button', { name: 'Verwijderen' })
@@ -89,7 +89,7 @@ describe('Detail', () => {
     })
   })
 
-  it('navigates to the previous page when there is a change and the button Opslaan is clicked', async () => {
+  it('navigates to the previous page when there is a change and the button Save is clicked', async () => {
     jest
       .spyOn(reactRouterDom, 'useNavigate')
       .mockImplementation(() => mockNavigate)
@@ -108,7 +108,7 @@ describe('Detail', () => {
 
     expect(checkbox).not.toBeChecked()
 
-    userEvent.click(screen.getByRole('button', { name: 'Opslaan' }))
+    userEvent.click(screen.getByRole('button', { name: 'Save' }))
 
     await waitFor(async () => {
       expect(screen.getByTestId('loading-indicator')).toBeInTheDocument()
@@ -118,14 +118,14 @@ describe('Detail', () => {
     })
   })
 
-  it('navigates to the previous page when there is no change and the button Opslaan is clicked', async () => {
+  it('navigates to the previous page when there is no change and the button Save is clicked', async () => {
     jest
       .spyOn(reactRouterDom, 'useNavigate')
       .mockImplementation(() => mockNavigate)
     render(withAppContext(<Detail />))
 
     await waitFor(() => {
-      userEvent.click(screen.getByRole('button', { name: 'Opslaan' }))
+      userEvent.click(screen.getByRole('button', { name: 'Save' }))
       expect(mockNavigate).toBeCalledWith(-1)
       expect(screen.queryByTestId('loading-indicator')).not.toBeInTheDocument()
     })
@@ -147,7 +147,7 @@ describe('Detail', () => {
     await waitFor(() => expect(success).toEqual(true))
   })
 
-  it("doesn't delete the standard text when the button Verwijderen-> Annuleer is pressed", async () => {
+  it("doesn't delete the standard text when the button Verwijderen-> Cancel is pressed", async () => {
     server.use(
       http.delete(API.STANDARD_TEXTS_DETAIL_ENDPOINT, () => {
         success = true
@@ -160,7 +160,7 @@ describe('Detail', () => {
     userEvent.click(screen.getByRole('button', { name: 'Verwijderen' }))
     userEvent.click(
       getByRole(screen.getByTestId('modal-dialog'), 'button', {
-        name: 'Annuleer',
+        name: 'Cancel',
       })
     )
 
@@ -173,7 +173,7 @@ describe('Detail', () => {
       .mockImplementation(() => mockNavigate)
     render(withAppContext(<Detail />))
 
-    userEvent.click(screen.getByRole('button', { name: 'Annuleer' }))
+    userEvent.click(screen.getByRole('button', { name: 'Cancel' }))
 
     expect(mockNavigate).toBeCalledWith(-1)
   })
@@ -230,11 +230,11 @@ describe('Detail', () => {
 
     expect(categoryCheckbox).toBeChecked()
 
-    userEvent.click(screen.getByRole('button', { name: 'Opslaan' }))
+    userEvent.click(screen.getByRole('button', { name: 'Save' }))
 
     expect(screen.getByText('Standaardtekst toevoegen')).toBeInTheDocument()
 
-    userEvent.click(screen.getByRole('button', { name: 'Opslaan' }))
+    userEvent.click(screen.getByRole('button', { name: 'Save' }))
 
     await waitFor(() => {
       expect(screen.getByTestId('loading-indicator')).toBeInTheDocument()
@@ -285,7 +285,7 @@ describe('Detail', () => {
 
       render(withAppContext(<Detail />))
 
-      userEvent.click(screen.getByRole('button', { name: 'Opslaan' }))
+      userEvent.click(screen.getByRole('button', { name: 'Save' }))
 
       await waitFor(() => {
         expect(
@@ -318,7 +318,7 @@ describe('Detail', () => {
       userEvent.type(textArea, 'Nieuwe standaardtekst')
 
       await waitFor(() => {
-        userEvent.click(screen.getByRole('button', { name: 'Opslaan' }))
+        userEvent.click(screen.getByRole('button', { name: 'Save' }))
         expect(mockNavigate).toBeCalledWith(-1)
       })
     })

@@ -1174,7 +1174,7 @@ describe.skip('signals/incident-management/components/FilterForm', () => {
       })
 
       const submitButtonSave = screen.getByRole('button', {
-        name: 'Opslaan en filter',
+        name: 'Save and filter',
       })
       userEvent.click(submitButtonSave)
 
@@ -1229,7 +1229,7 @@ describe.skip('signals/incident-management/components/FilterForm', () => {
 
       act(() => {
         userEvent.click(
-          screen.getByRole('button', { name: 'Opslaan en filter' })
+          screen.getByRole('button', { name: 'Save and filter' })
         )
       })
 

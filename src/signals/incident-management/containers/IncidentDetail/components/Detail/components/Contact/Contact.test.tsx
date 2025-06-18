@@ -169,7 +169,7 @@ describe('Contact', () => {
       userEvent.click(screen.getByText(/Verificatie annuleren/))
     })
 
-    expect(screen.queryByText(/Annuleer e-mail wijziging/)).toBeInTheDocument()
+    expect(screen.queryByText(/Cancel e-mail wijziging/)).toBeInTheDocument()
 
     expect(screen.getByText('Reden van de wijziging')).toBeInTheDocument()
 

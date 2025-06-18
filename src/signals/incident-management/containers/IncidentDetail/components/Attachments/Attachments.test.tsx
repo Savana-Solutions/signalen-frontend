@@ -891,7 +891,7 @@ describe('Attachments', () => {
 
       userEvent.click(screen.getByRole('checkbox', { name: 'Openbaar tonen' }))
 
-      userEvent.click(screen.getByRole('button', { name: 'Opslaan' }))
+      userEvent.click(screen.getByRole('button', { name: 'Save' }))
 
       await waitFor(() =>
         expect(patch).toHaveBeenCalledWith(
@@ -906,7 +906,7 @@ describe('Attachments', () => {
 
       userEvent.type(screen.getByRole('textbox'), 'test')
 
-      userEvent.click(screen.getByRole('button', { name: 'Opslaan' }))
+      userEvent.click(screen.getByRole('button', { name: 'Save' }))
 
       await waitFor(() =>
         expect(patch).toHaveBeenCalledWith(
@@ -956,7 +956,7 @@ describe('Attachments', () => {
 
       userEvent.clear(screen.getByRole('textbox'))
 
-      userEvent.click(screen.getByRole('button', { name: 'Opslaan' }))
+      userEvent.click(screen.getByRole('button', { name: 'Save' }))
 
       await waitFor(() =>
         expect(patch).toHaveBeenCalledWith(
@@ -998,7 +998,7 @@ describe('Attachments', () => {
 
       userEvent.type(screen.getByRole('textbox'), 'test')
 
-      userEvent.click(screen.getByRole('button', { name: 'Annuleer' }))
+      userEvent.click(screen.getByRole('button', { name: 'Cancel' }))
 
       await waitFor(() => expect(patch).not.toHaveBeenCalled())
     })

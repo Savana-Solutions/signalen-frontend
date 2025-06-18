@@ -81,11 +81,11 @@ const LocationForm = () => {
               )}
             />
             <FormFooter
-              cancelBtnLabel="Annuleer"
+              cancelBtnLabel="Cancel"
               inline
               onCancel={close}
               onSubmitForm={() => {}}
-              submitBtnLabel="Opslaan"
+              submitBtnLabel="Save"
             />
           </MapContext>
         </form>

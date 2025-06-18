@@ -420,7 +420,7 @@ const StatusForm: FunctionComponent<StatusFormProps> = ({
           variant="secondary"
           disabled={disableSubmit}
         >
-          {state.flags.hasEmail && state.check.checked ? 'Send' : 'Opslaan'}
+          {state.flags.hasEmail && state.check.checked ? 'Send' : 'Save'}
         </StyledButton>
 
         <StyledButton
@@ -428,7 +428,7 @@ const StatusForm: FunctionComponent<StatusFormProps> = ({
           variant="tertiary"
           onClick={onClose}
         >
-          Annuleer
+          Cancel
         </StyledButton>
         {modalEmailPreviewIsOpen && (
           <EmailPreview

@@ -149,7 +149,7 @@ describe('IconInput', () => {
 
     expect(inputTwo.files?.[0]?.name).toBe('test.svg')
 
-    const cancelButton = screen.getByText('Annuleer')
+    const cancelButton = screen.getByText('Cancel')
 
     await waitFor(() => {
       userEvent.click(cancelButton)

@@ -39,7 +39,7 @@ describe('ModalDialog', () => {
 
     expect(screen.getByRole('heading', { name: title })).toBeInTheDocument()
     expect(screen.getByText(content)).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: 'Annuleer' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Cancel' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Bevestig' })).toBeInTheDocument()
   })
 
@@ -65,7 +65,7 @@ describe('ModalDialog', () => {
   it('handles clicking the close button', () => {
     renderModal()
 
-    userEvent.click(screen.getByRole('button', { name: 'Annuleer' }))
+    userEvent.click(screen.getByRole('button', { name: 'Cancel' }))
 
     expect(mockClose).toHaveBeenCalled()
   })
@@ -97,7 +97,7 @@ describe('ModalDialog', () => {
     expect(screen.getByRole('heading', { name: title })).toBeInTheDocument()
     expect(screen.getByText(content)).toBeInTheDocument()
     expect(
-      screen.queryByRole('button', { name: 'Annuleer' })
+      screen.queryByRole('button', { name: 'Cancel' })
     ).not.toBeInTheDocument()
     expect(
       screen.queryByRole('button', { name: 'Bevestig' })

@@ -130,10 +130,10 @@ export const Subcategories = ({ onChange, value = [], defaultText }: Props) => {
             })}
           </CategoryColumns>
           <FormFooter
-            cancelBtnLabel="Annuleer"
+            cancelBtnLabel="Cancel"
             onCancel={onCancel}
             onSubmitForm={onSubmitForm}
-            submitBtnLabel="Opslaan"
+            submitBtnLabel="Save"
           />
         </Column>
       </Row>

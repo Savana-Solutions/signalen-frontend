@@ -169,7 +169,7 @@ const IncidentSplitForm: FC<IncidentSplitFormProps> = ({
               variant="secondary"
               disabled={isSubmitting}
             >
-              Opslaan
+              Save
             </StyledSubmitButton>
 
             <Button
@@ -178,7 +178,7 @@ const IncidentSplitForm: FC<IncidentSplitFormProps> = ({
               onClick={onCancel}
               disabled={isSubmitting}
             >
-              Annuleer
+              Cancel
             </Button>
           </StyledButtonContainer>
         </StyledForm>

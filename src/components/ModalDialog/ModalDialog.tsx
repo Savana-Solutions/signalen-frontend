@@ -19,13 +19,13 @@ export type ModalDialogProps = {
 }
 
 const ModalDialog = ({
-  cancelBtnLabel = 'Annuleer',
+  cancelBtnLabel = 'Cancel',
   children,
   isConfirmation = false,
   onClose,
   onConfirm,
   open = true,
-  submitBtnLabel = 'Bevestig',
+  submitBtnLabel = 'Confirm',
   title,
   $hasIframe = false,
 }: ModalDialogProps) => (

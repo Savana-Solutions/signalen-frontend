@@ -183,7 +183,7 @@ describe('SubCategories', () => {
 
       expect(screen.queryAllByRole('checkbox').length).toBe(0)
 
-      expect(screen.queryAllByRole('Opslaan')).toEqual([])
+      expect(screen.queryAllByRole('Save')).toEqual([])
     })
   })
 })
