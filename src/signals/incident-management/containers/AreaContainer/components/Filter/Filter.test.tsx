@@ -91,6 +91,6 @@ describe('Filter', () => {
 
     render(<Filter subcategory="foo" startDate={new Date().toISOString()} />)
 
-    expect(screen.getByText('Straal 66m')).toBeInTheDocument()
+    expect(screen.getByText('Radius 66m')).toBeInTheDocument()
   })
 })

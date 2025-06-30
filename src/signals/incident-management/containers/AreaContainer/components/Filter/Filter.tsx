@@ -98,9 +98,9 @@ const Filter: React.FC<FilterProps> = (props) => {
           </ListItem>
           <ListItem>
             <StyledIcon size={ICON_SIZE}>
-              <img alt="Straal" src="/assets/images/area-map/icon-radius.svg" />
+              <img alt="Radius" src="/assets/images/area-map/icon-radius.svg" />
             </StyledIcon>
-            {`Straal ${configuration.map.optionsAreaMap.focusRadiusMeters}m`}
+            {`Radius ${configuration.map.optionsAreaMap.focusRadiusMeters}m`}
           </ListItem>
         </List>
       </Field>
