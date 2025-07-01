@@ -11,6 +11,7 @@ import { VARIANT_ERROR, TYPE_LOCAL } from 'containers/Notification/constants'
 import useDebounce from 'hooks/useDebounce'
 import { getErrorMessage } from 'shared/services/api/api'
 import { getAuthHeaders } from 'shared/services/auth/auth'
+import forwardGeocoderService from 'shared/services/forward-geocoder'
 import type { PdokResponse } from 'shared/services/map-location'
 import type { RevGeo } from 'types/pdok/revgeo'
 
@@ -81,7 +82,7 @@ const AutoSuggest = ({
 }: AutoSuggestProps) => {
   const [showInlineButton, setShowInlineButton] = useState(!!value)
 
-  const [data, setData] = useState<RevGeo>()
+  const [data, setData] = useState<RevGeo | PdokResponse[]>()
   const [initialRender, setInitialRender] = useState(false)
   const [showList, setShowList] = useState(false)
   const [activeIndex, setActiveIndex] = useState(-1)
@@ -213,20 +214,27 @@ const AutoSuggest = ({
     async (inputValue) => {
       if (inputValue.length >= 3) {
         try {
-          const response = await fetch(
-            `${url}${encodeURIComponent(inputValue)}`,
-            {
-              headers: {
-                ...requestHeaders,
-                ...(includeAuthHeaders ? getAuthHeaders() : {}),
-              },
-            }
-          )
-
-          const responseData = await response.json()
-
-          if (response.ok) {
+          // Check if we should use the Google geocoding service
+          if (url === 'GOOGLE_GEOCODING_SERVICE') {
+            const responseData = await forwardGeocoderService(inputValue)
             setData(responseData)
+          } else {
+            // Use the original PDOK-style GET request
+            const response = await fetch(
+              `${url}${encodeURIComponent(inputValue)}`,
+              {
+                headers: {
+                  ...requestHeaders,
+                  ...(includeAuthHeaders ? getAuthHeaders() : {}),
+                },
+              }
+            )
+
+            const responseData = await response.json()
+
+            if (response.ok) {
+              setData(responseData)
+            }
           }
         } catch (error) {
           dispatch(
@@ -326,7 +334,7 @@ const AutoSuggest = ({
 
   useEffect(() => {
     /* istanbul ignore next */
-    if (data?.response?.numFound === 0) {
+    if (data && 'response' in data && data.response?.numFound === 0) {
       setShowList(true)
     }
   }, [data])
