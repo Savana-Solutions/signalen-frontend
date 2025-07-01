@@ -9,7 +9,7 @@ import styled from 'styled-components'
 
 import FormFooter from 'components/FormFooter'
 import MapContext from 'containers/MapContext'
-import { coordinatesToFeature } from 'shared/services/map-location'
+import { coordinatesToAPIFeature } from 'shared/services/map-location'
 import MapInput from 'signals/incident-management/components/MapInput'
 import type { Context as IncidentDetailContextType } from 'signals/incident-management/containers/IncidentDetail/types'
 
@@ -47,9 +47,7 @@ const LocationForm = () => {
     const patch = { location: { ...location, ...formValueLocation } }
 
     if (coordinates) {
-      patch.location.geometrie = coordinatesToFeature(coordinates)
-      // the API expects a specifc order of coordinates: lng,lat
-      patch.location.geometrie.coordinates.reverse()
+      patch.location.geometrie = coordinatesToAPIFeature(coordinates)
     }
 
     update({
