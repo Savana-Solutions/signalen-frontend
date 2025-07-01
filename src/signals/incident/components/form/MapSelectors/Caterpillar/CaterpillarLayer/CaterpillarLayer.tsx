@@ -65,7 +65,12 @@ export const CaterpillarLayer: FC = () => {
         // Check if coordinate is valid
         const response = await reverseGeocoderService(coordinates)
 
-        if (response?.data?.coordinateIsValid === false) {
+        if (
+          !response ||
+          !response.data ||
+          !response.data.address ||
+          !response.data.address.openbare_ruimte
+        ) {
           if (popup) {
             popup.remove()
           }
@@ -73,7 +78,9 @@ export const CaterpillarLayer: FC = () => {
           const gemeente = configuration.map?.municipality || ''
           const newPopup = L.popup()
             .setLatLng(coordinates)
-            .setContent(`This app only works within the municipality ${gemeente}.`)
+            .setContent(
+              `This app only works within the municipality ${gemeente}.`
+            )
             .openOn(mapInstance)
 
           setPopup(newPopup)
@@ -157,7 +164,12 @@ export const CaterpillarLayer: FC = () => {
 
     const coordinates = featureToCoordinates(feature.geometry as Geometrie)
     const response = await reverseGeocoderService(coordinates)
-    return response?.data?.coordinateIsValid !== false
+    return (
+      response &&
+      response.data &&
+      response.data.address &&
+      response.data.address.openbare_ruimte
+    )
   })
 
   return (

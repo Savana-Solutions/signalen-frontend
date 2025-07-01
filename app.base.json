@@ -69,21 +69,21 @@
     "keys": {
       "dataPlatform": ""
     },
-    "municipality": "den haag",
+    "municipality": "jaipur",
     "options": {
-      "crs": "EPSG:28992",
+      "crs": "EPSG:4326",
       "center": [
-        52.3731081,
-        4.8932945
+        26.9124,
+        75.7873
       ],
       "maxBounds": [
         [
-          52.25168,
-          4.64034
+          26.55,
+          75.45
         ],
         [
-          52.50536,
-          5.10737
+          27.15,
+          76.25
         ]
       ],
       "maxNumberOfAssets": {

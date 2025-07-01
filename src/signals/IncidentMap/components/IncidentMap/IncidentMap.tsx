@@ -84,7 +84,6 @@ export const IncidentMap = () => {
 
   const handleCoordinateChange = useCallback(
     async (newCoordinates?: LatLngLiteral) => {
-
       if (!map || !newCoordinates) {
         return
       }
@@ -98,7 +97,12 @@ export const IncidentMap = () => {
       // First check if coordinates are valid before setting any markers
       const response = await reverseGeocoderService(newCoordinates)
 
-      if (response?.data?.coordinateIsValid == false) {
+      if (
+        !response ||
+        !response.data ||
+        !response.data.address ||
+        !response.data.address.openbare_ruimte
+      ) {
         const gemeente = configuration.map?.municipality || ''
         const message = `This app only works within the municipality ${gemeente}.`
 
@@ -112,10 +116,8 @@ export const IncidentMap = () => {
         return
       }
 
-      if (response?.data?.coordinateIsValid == true) {
-        // Only set coordinates if they are valid
-        setCoordinates(newCoordinates)
-      }
+      // If we reach here, coordinates are valid, so set them
+      setCoordinates(newCoordinates)
     },
     [map, popup]
   )

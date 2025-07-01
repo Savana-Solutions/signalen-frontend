@@ -154,7 +154,12 @@ const AssetSelect: FC<AssetSelectProps> = ({ value, layer, meta, parent }) => {
     async (latLng: LatLngLiteral) => {
       const response = await reverseGeocoderService(latLng)
 
-      if (response?.data?.coordinateIsValid === false) {
+      if (
+        !response ||
+        !response.data ||
+        !response.data.address ||
+        !response.data.address.openbare_ruimte
+      ) {
         if (popup) {
           popup.remove()
         }
@@ -165,7 +170,9 @@ const AssetSelect: FC<AssetSelectProps> = ({ value, layer, meta, parent }) => {
         if (mapRef.current) {
           const newPopup = L.popup()
             .setLatLng(latLng)
-            .setContent(`This app only works within the municipality ${gemeente}.`)
+            .setContent(
+              `This app only works within the municipality ${gemeente}.`
+            )
 
           // Use addTo instead of openOn to avoid the type error
           newPopup.addTo(mapRef.current)
@@ -198,7 +205,12 @@ const AssetSelect: FC<AssetSelectProps> = ({ value, layer, meta, parent }) => {
     async (location: Location) => {
       const response = await reverseGeocoderService(location.coordinates)
 
-      if (response?.data?.coordinateIsValid === false) {
+      if (
+        !response ||
+        !response.data ||
+        !response.data.address ||
+        !response.data.address.openbare_ruimte
+      ) {
         if (popup) {
           popup.remove()
         }
@@ -208,7 +220,9 @@ const AssetSelect: FC<AssetSelectProps> = ({ value, layer, meta, parent }) => {
         if (mapRef.current) {
           const newPopup = L.popup()
             .setLatLng(location.coordinates)
-            .setContent(`This app only works within the municipality ${gemeente}.`)
+            .setContent(
+              `This app only works within the municipality ${gemeente}.`
+            )
             .addTo(mapRef.current)
 
           setPopup(newPopup)

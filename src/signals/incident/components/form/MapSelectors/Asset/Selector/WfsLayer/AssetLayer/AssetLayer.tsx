@@ -86,11 +86,18 @@ export const AssetLayer: FC = () => {
 
       // Validate coordinates only when clicking
       const response = await reverseGeocoderService(coordinates)
-      if (response?.data?.coordinateIsValid === false) {
+      if (
+        !response ||
+        !response.data ||
+        !response.data.address ||
+        !response.data.address.openbare_ruimte
+      ) {
         const gemeente = configuration.map?.municipality || ''
         const newPopup = L.popup()
           .setLatLng(coordinates)
-          .setContent(`This app only works within the municipality ${gemeente}.`)
+          .setContent(
+            `This app only works within the municipality ${gemeente}.`
+          )
         setPopup(newPopup)
         return
       }

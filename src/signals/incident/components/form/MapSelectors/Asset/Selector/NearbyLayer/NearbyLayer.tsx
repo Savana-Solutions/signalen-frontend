@@ -93,7 +93,12 @@ export const NearbyLayer: FC<NearbyLayerProps> = ({ zoomLevel }) => {
         // Check if coordinate is valid
         const response = await reverseGeocoderService(coordinates)
 
-        if (response?.data?.coordinateIsValid === false) {
+        if (
+          !response ||
+          !response.data ||
+          !response.data.address ||
+          !response.data.address.openbare_ruimte
+        ) {
           if (popup) {
             popup.remove()
           }
@@ -101,7 +106,9 @@ export const NearbyLayer: FC<NearbyLayerProps> = ({ zoomLevel }) => {
           const gemeente = configuration.map?.municipality || ''
           const newPopup = L.popup()
             .setLatLng(coordinates)
-            .setContent(`This app only works within the municipality ${gemeente}.`)
+            .setContent(
+              `This app only works within the municipality ${gemeente}.`
+            )
             .openOn(mapInstance)
 
           setPopup(newPopup)
@@ -205,7 +212,12 @@ export const NearbyLayer: FC<NearbyLayerProps> = ({ zoomLevel }) => {
       // Check if coordinate is valid before creating marker
       const response = await reverseGeocoderService(coordinates)
 
-      if (response?.data?.coordinateIsValid === false) {
+      if (
+        !response ||
+        !response.data ||
+        !response.data.address ||
+        !response.data.address.openbare_ruimte
+      ) {
         return null
       }
 
