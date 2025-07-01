@@ -3,12 +3,35 @@
 import type { LatLngLiteral } from 'leaflet'
 
 import configuration from 'shared/services/configuration/configuration'
-import { formatGoogleResponse } from 'shared/services/map-location'
+import { wgs84ToRd } from 'shared/services/crs-converter/crs-converter.js'
+import {
+  formatGoogleResponse,
+  pdokResponseFieldList,
+} from 'shared/services/map-location'
 import type { PdokResponse } from 'shared/services/map-location'
 import type {
   GoogleGeocodingResponse,
   GoogleReverseGeocodingRequest,
 } from 'types/google/geocoding'
+
+const flParams = pdokResponseFieldList.join(',')
+
+// Create the base URL
+const baseUrl = configuration.map.pdok.reverse.startsWith('http')
+  ? configuration.map.pdok.reverse
+  : `${window.location.origin}${configuration.map.pdok.reverse}`
+
+export const serviceURL = `${baseUrl}?type=adres&rows=1&fl=${flParams}`
+
+export const formatRequest = (
+  baseUrl: URL | string,
+  wgs84point: LatLngLiteral,
+  distance = configuration.map.pdok.distance
+) => {
+  const { x, y } = wgs84ToRd(wgs84point)
+  const urlString = typeof baseUrl === 'string' ? baseUrl : baseUrl.toString()
+  return `${urlString}&X=${x}&Y=${y}&distance=${distance}`
+}
 
 const reverseGeocoderService = async (
   location: LatLngLiteral
