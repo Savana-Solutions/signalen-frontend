@@ -53,6 +53,7 @@ export interface Datetime {
 export interface Location {
   coordinates: LatLngLiteral
   address?: Address
+  geometrie?: Geometrie
 }
 
 export interface Geometrie {

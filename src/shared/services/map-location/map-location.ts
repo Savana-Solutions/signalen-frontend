@@ -5,9 +5,12 @@ import type { LatLngLiteral, LatLngTuple } from 'leaflet'
 import configuration from 'shared/services/configuration/configuration'
 import { formatAddress } from 'shared/services/format-address'
 import type { Incident } from 'types/api/incident'
+import type {
+  GoogleGeocodingResponse,
+  GoogleGeocodingPayload,
+} from 'types/google/geocoding'
 import type { Geometrie, Location } from 'types/incident'
 import type { RevGeo, Doc } from 'types/pdok/revgeo'
-import type { GoogleGeocodingResponse, GoogleGeocodingPayload } from 'types/google/geocoding'
 
 export type LatLng = [number, number]
 
@@ -174,7 +177,9 @@ export const formatPDOKResponse = (
 /**
  * Convert Google geocoding response to object with values that can be consumed by our API
  */
-export const googleResultToAddress = (payload: GoogleGeocodingPayload): PdokAddress => ({
+export const googleResultToAddress = (
+  payload: GoogleGeocodingPayload
+): PdokAddress => ({
   openbare_ruimte: payload.address.Address,
   huisnummer: '', // Google API doesn't provide separate house number
   postcode: payload.address.Postal,

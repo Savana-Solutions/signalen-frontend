@@ -29,6 +29,7 @@ import useDelayedDoubleClick from 'hooks/useDelayedDoubleClick'
 import configuration from 'shared/services/configuration/configuration'
 import { markerIcon } from 'shared/services/configuration/map-markers'
 import type { FormatMapLocation } from 'shared/services/map-location'
+import { coordinatesToAPIFeature } from 'shared/services/map-location'
 import reverseGeocoderService from 'shared/services/reverse-geocoder'
 import type { Location } from 'types/incident'
 
@@ -122,6 +123,7 @@ const MapInput = ({
       const onChangePayload = {
         coordinates: latlng,
         address: response && response.data.address,
+        geometrie: coordinatesToAPIFeature(latlng),
       }
       const addressText = response?.value || ''
       const address = response?.data?.address || ''
@@ -148,6 +150,7 @@ const MapInput = ({
       onChange({
         coordinates: option.data.location,
         address: option.data.address,
+        geometrie: coordinatesToAPIFeature(option.data.location),
       })
 
       map?.flyTo(option.data.location)
