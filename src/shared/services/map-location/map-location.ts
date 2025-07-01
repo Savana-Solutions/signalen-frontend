@@ -7,6 +7,7 @@ import { formatAddress } from 'shared/services/format-address'
 import type { Incident } from 'types/api/incident'
 import type { Geometrie, Location } from 'types/incident'
 import type { RevGeo, Doc } from 'types/pdok/revgeo'
+import type { GoogleGeocodingResponse, GoogleGeocodingPayload } from 'types/google/geocoding'
 
 export type LatLng = [number, number]
 
@@ -168,6 +169,62 @@ export const formatPDOKResponse = (
   )
 
   return [...uniqueAddressesList.values()]
+}
+
+/**
+ * Convert Google geocoding response to object with values that can be consumed by our API
+ */
+export const googleResultToAddress = (payload: GoogleGeocodingPayload): PdokAddress => ({
+  openbare_ruimte: payload.address.Address,
+  huisnummer: '', // Google API doesn't provide separate house number
+  postcode: payload.address.Postal,
+  woonplaats: payload.address.City,
+})
+
+export const formatGoogleResponse = (
+  request?: GoogleGeocodingResponse | null
+): Array<PdokResponse> => {
+  if (
+    !request?.response?.length ||
+    request.response[0].http !== 200 ||
+    !request.response[0].payload
+  ) {
+    // Return array with single response containing coordinateIsValid as false for failed requests
+    return [
+      {
+        id: '',
+        value: '',
+        data: {
+          location: { lat: 0, lng: 0 },
+          address: {
+            openbare_ruimte: '',
+            huisnummer: '',
+            postcode: '',
+            woonplaats: '',
+          },
+          coordinateIsValid: false,
+        },
+      },
+    ]
+  }
+
+  const payload = request.response[0].payload
+
+  // Handle both single payload and array of payloads
+  const payloads = Array.isArray(payload) ? payload : [payload]
+
+  return payloads.map((item, index) => ({
+    id: index.toString(),
+    value: item.address.LongLabel,
+    data: {
+      location: {
+        lat: item.address.latitude,
+        lng: item.address.longitude,
+      },
+      address: googleResultToAddress(item),
+      coordinateIsValid: true,
+    },
+  }))
 }
 
 export const pointWithinBounds = (

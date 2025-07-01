@@ -1,28 +1,24 @@
 // SPDX-License-Identifier: MPL-2.0
 // Copyright (C) 2020 - 2021 Gemeente Amsterdam
-import type { LatLngLiteral } from 'leaflet'
-
 import configuration from 'shared/services/configuration/configuration'
 import { formatGoogleResponse } from 'shared/services/map-location'
 import type { PdokResponse } from 'shared/services/map-location'
 import type {
   GoogleGeocodingResponse,
-  GoogleReverseGeocodingRequest,
+  GoogleForwardGeocodingRequest,
 } from 'types/google/geocoding'
 
-const reverseGeocoderService = async (
-  location: LatLngLiteral
-): Promise<PdokResponse | undefined> => {
+const forwardGeocoderService = async (
+  searchString: string
+): Promise<PdokResponse[]> => {
   // Use configuration URL (will be set via helm chart to geo-dev URL)
-  const baseUrl = configuration.map.pdok.reverse.startsWith('http')
-    ? configuration.map.pdok.reverse
-    : `${window.location.origin}${configuration.map.pdok.reverse}`
+  const baseUrl = configuration.map.pdok.suggest.startsWith('http')
+    ? configuration.map.pdok.suggest
+    : `${window.location.origin}${configuration.map.pdok.suggest}`
 
-  const requestBody: GoogleReverseGeocodingRequest = {
-    latitude: location.lat,
-    longitude: location.lng,
+  const requestBody: GoogleForwardGeocodingRequest = {
+    searchString,
     countryCode: 'IN', // Default to India, could be made configurable
-    city: 'jaipur', // Default city, could be made configurable
   }
 
   const result: GoogleGeocodingResponse = await fetch(baseUrl, {
@@ -43,9 +39,7 @@ const reverseGeocoderService = async (
       ],
     }))
 
-  const formattedResponse = formatGoogleResponse(result)
-
-  return formattedResponse[0]
+  return formatGoogleResponse(result)
 }
 
-export default reverseGeocoderService
+export default forwardGeocoderService
