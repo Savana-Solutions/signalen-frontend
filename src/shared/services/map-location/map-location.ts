@@ -85,7 +85,7 @@ export const formatMapLocation = (
   if (!location?.geometrie) return {}
 
   return {
-    coordinates: featureToCoordinates(location.geometrie),
+    coordinates: apiFeatureToCoordinates(location.geometrie),
     addressText: location.address ? formatAddress(location.address) : '',
     address: location.address ?? undefined,
   }
@@ -188,10 +188,10 @@ export const formatPDOKResponse = (
 export const googleResultToAddress = (
   payload: GoogleGeocodingPayload
 ): PdokAddress => ({
-  openbare_ruimte: payload.address.Address,
+  openbare_ruimte: payload.address.Address || '',
   huisnummer: '', // Google API doesn't provide separate house number
-  postcode: payload.address.Postal,
-  woonplaats: payload.address.City,
+  postcode: payload.address.Postal || '',
+  woonplaats: payload.address.City || '',
 })
 
 export const formatGoogleResponse = (
@@ -228,7 +228,7 @@ export const formatGoogleResponse = (
 
   return payloads.map((item, index) => ({
     id: index.toString(),
-    value: item.address.LongLabel,
+    value: item.address.LongLabel || item.address.Address || 'Unknown location',
     data: {
       location: {
         lat: item.address.latitude,

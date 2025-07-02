@@ -91,12 +91,11 @@ const MapInput = ({
 
       const response = await reverseGeocoderService(latlng)
 
-      // Check if the coordinate is valid (for Google API, check if response exists and has valid data)
+      // Check if the coordinate is valid (for Google API, check if response exists and coordinateIsValid is true)
       if (
         !response ||
         !response.data ||
-        !response.data.address ||
-        !response.data.address.openbare_ruimte
+        response.data.coordinateIsValid === false
       ) {
         const gemeente = configuration.map?.municipality || ''
 
