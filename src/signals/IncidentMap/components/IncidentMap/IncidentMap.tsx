@@ -100,8 +100,7 @@ export const IncidentMap = () => {
       if (
         !response ||
         !response.data ||
-        !response.data.address ||
-        !response.data.address.openbare_ruimte
+        response.data.coordinateIsValid === false
       ) {
         const gemeente = configuration.map?.municipality || ''
         const message = `This app only works within the municipality ${gemeente}.`

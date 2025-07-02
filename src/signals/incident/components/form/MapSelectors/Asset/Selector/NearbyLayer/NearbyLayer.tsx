@@ -96,8 +96,7 @@ export const NearbyLayer: FC<NearbyLayerProps> = ({ zoomLevel }) => {
         if (
           !response ||
           !response.data ||
-          !response.data.address ||
-          !response.data.address.openbare_ruimte
+          response.data.coordinateIsValid === false
         ) {
           if (popup) {
             popup.remove()
@@ -215,8 +214,7 @@ export const NearbyLayer: FC<NearbyLayerProps> = ({ zoomLevel }) => {
       if (
         !response ||
         !response.data ||
-        !response.data.address ||
-        !response.data.address.openbare_ruimte
+        response.data.coordinateIsValid === false
       ) {
         return null
       }

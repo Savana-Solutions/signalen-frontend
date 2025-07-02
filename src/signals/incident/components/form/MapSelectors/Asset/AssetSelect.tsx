@@ -157,8 +157,7 @@ const AssetSelect: FC<AssetSelectProps> = ({ value, layer, meta, parent }) => {
       if (
         !response ||
         !response.data ||
-        !response.data.address ||
-        !response.data.address.openbare_ruimte
+        response.data.coordinateIsValid === false
       ) {
         if (popup) {
           popup.remove()
@@ -208,8 +207,7 @@ const AssetSelect: FC<AssetSelectProps> = ({ value, layer, meta, parent }) => {
       if (
         !response ||
         !response.data ||
-        !response.data.address ||
-        !response.data.address.openbare_ruimte
+        response.data.coordinateIsValid === false
       ) {
         if (popup) {
           popup.remove()

@@ -68,8 +68,7 @@ export const CaterpillarLayer: FC = () => {
         if (
           !response ||
           !response.data ||
-          !response.data.address ||
-          !response.data.address.openbare_ruimte
+          response.data.coordinateIsValid === false
         ) {
           if (popup) {
             popup.remove()
@@ -165,10 +164,7 @@ export const CaterpillarLayer: FC = () => {
     const coordinates = featureToCoordinates(feature.geometry as Geometrie)
     const response = await reverseGeocoderService(coordinates)
     return (
-      response &&
-      response.data &&
-      response.data.address &&
-      response.data.address.openbare_ruimte
+      response && response.data && response.data.coordinateIsValid !== false
     )
   })
 

@@ -89,8 +89,7 @@ export const AssetLayer: FC = () => {
       if (
         !response ||
         !response.data ||
-        !response.data.address ||
-        !response.data.address.openbare_ruimte
+        response.data.coordinateIsValid === false
       ) {
         const gemeente = configuration.map?.municipality || ''
         const newPopup = L.popup()
