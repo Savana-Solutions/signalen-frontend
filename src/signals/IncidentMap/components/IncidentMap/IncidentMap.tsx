@@ -12,7 +12,7 @@ import configuration from 'shared/services/configuration/configuration'
 import { dynamicIcon } from 'shared/services/configuration/map-markers'
 import MAP_OPTIONS from 'shared/services/configuration/map-options'
 import { formatAddress } from 'shared/services/format-address'
-import { featureToCoordinates } from 'shared/services/map-location'
+import { apiFeatureToCoordinates } from 'shared/services/map-location'
 import reverseGeocoderService from 'shared/services/reverse-geocoder'
 import { MapMessage } from 'signals/incident/components/form/MapSelectors/components/MapMessage'
 import type { Bbox } from 'signals/incident/components/form/MapSelectors/hooks/useBoundingBox'
@@ -124,7 +124,7 @@ export const IncidentMap = () => {
 
   const handleIncidentSelect = useCallback(
     (incident: Incident) => {
-      const sanitizedCoords = featureToCoordinates(incident.geometry)
+      const sanitizedCoords = apiFeatureToCoordinates(incident.geometry)
       if (
         map &&
         isMobile(deviceMode) &&

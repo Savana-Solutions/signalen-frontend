@@ -1,4 +1,5 @@
 export {
+  apiFeatureToCoordinates,
   coordinatesToAPIFeature,
   coordinatesToFeature,
   featureToCoordinates,

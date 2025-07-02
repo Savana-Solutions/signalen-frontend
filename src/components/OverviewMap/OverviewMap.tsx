@@ -34,7 +34,7 @@ import {
   markerIcon,
 } from 'shared/services/configuration/map-markers'
 import MAP_OPTIONS from 'shared/services/configuration/map-options'
-import { featureToCoordinates } from 'shared/services/map-location'
+import { apiFeatureToCoordinates } from 'shared/services/map-location'
 import type { PdokResponse } from 'shared/services/map-location'
 import { makeSelectFilterParams } from 'signals/incident-management/selectors'
 import type { Geometrie } from 'types/incident'
@@ -205,7 +205,7 @@ const OverviewMap: FC<OverviewMapProps> = ({
     if (!data?.features || !layerInstance) return
 
     data.features.forEach((feature) => {
-      const latlng = featureToCoordinates(feature.geometry)
+      const latlng = apiFeatureToCoordinates(feature.geometry)
 
       const clusteredMarker = L.marker(latlng, {
         icon: getIncidentIcon(feature.properties.status),

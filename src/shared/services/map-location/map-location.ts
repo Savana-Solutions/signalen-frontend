@@ -45,6 +45,14 @@ export const featureToCoordinates = ({
   return { lat, lng }
 }
 
+export const apiFeatureToCoordinates = ({
+  coordinates,
+}: Geometrie): LatLngLiteral => {
+  // API coordinates are already in [longitude, latitude] format
+  const [lng, lat] = coordinates
+  return { lat, lng }
+}
+
 export const wktPointToLocation = (wktPoint: string): LatLngLiteral => {
   const pointMatch = wktPoint.match(/\d+\.\d+/gi)
 

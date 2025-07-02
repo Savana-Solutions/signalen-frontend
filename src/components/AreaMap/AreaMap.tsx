@@ -20,7 +20,7 @@ import {
   currentIncidentIcon,
 } from 'shared/services/configuration/map-markers'
 import MAP_OPTIONS from 'shared/services/configuration/map-options'
-import { featureToCoordinates } from 'shared/services/map-location'
+import { apiFeatureToCoordinates } from 'shared/services/map-location'
 import { isStatusEnd } from 'signals/incident-management/definitions/statusList'
 import type { Geography, Property } from 'types/api/geography'
 import type { Incident } from 'types/api/incident'
@@ -60,7 +60,7 @@ const AreaMap: FunctionComponent<AreaMapProps> = ({
   const [map, setMap] = useState<L.Map>()
   const selectedFeatureId = useRef<number>()
   const coordinates =
-    location?.geometrie && featureToCoordinates(location?.geometrie)
+    location?.geometrie && apiFeatureToCoordinates(location?.geometrie)
 
   useEffect(() => {
     selectedFeatureId.current = selectedFeature?.properties.id
