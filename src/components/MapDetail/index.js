@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: MPL-2.0
 // Copyright (C) 2018 - 2022 Gemeente Amsterdam, Vereniging van Nederlandse Gemeenten
+import { useEffect, useState } from 'react'
 import { Marker } from '@amsterdam/react-maps'
 import PropTypes from 'prop-types'
 
@@ -7,6 +8,7 @@ import Map from 'components/Map'
 import { markerIcon } from 'shared/services/configuration/map-markers'
 import MAP_OPTIONS from 'shared/services/configuration/map-options'
 import { featureToCoordinates } from 'shared/services/map-location'
+import reverseGeocoderService from 'shared/services/reverse-geocoder'
 import { locationType } from 'shared/types'
 
 const MapDetail = ({
@@ -17,9 +19,32 @@ const MapDetail = ({
   canFocusMarker,
   hasZoomControls,
 }) => {
+  const [isValidCoordinate, setIsValidCoordinate] = useState(true)
+
   const { lat, lng } = value?.geometrie
     ? featureToCoordinates(value.geometrie)
     : {}
+
+  // Validate coordinates using the reverse geocoder service
+  useEffect(() => {
+    if (lat && lng) {
+      reverseGeocoderService({ lat, lng })
+        .then((response) => {
+          if (
+            !response ||
+            !response.data ||
+            response.data.coordinateIsValid === false
+          ) {
+            setIsValidCoordinate(false)
+          } else {
+            setIsValidCoordinate(true)
+          }
+        })
+        .catch(() => {
+          setIsValidCoordinate(false)
+        })
+    }
+  }, [lat, lng])
 
   const mapOptions = {
     ...MAP_OPTIONS,
@@ -27,7 +52,8 @@ const MapDetail = ({
     attributionControl: false,
     center: [lat, lng],
   }
-  return lat && lng ? (
+
+  return lat && lng && isValidCoordinate ? (
     <Map
       data-testid="map-detail"
       mapOptions={mapOptions}
