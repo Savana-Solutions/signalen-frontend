@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 import Map from 'components/Map'
 import { markerIcon } from 'shared/services/configuration/map-markers'
 import MAP_OPTIONS from 'shared/services/configuration/map-options'
-import { featureToCoordinates } from 'shared/services/map-location'
+import { apiFeatureToCoordinates } from 'shared/services/map-location'
 import reverseGeocoderService from 'shared/services/reverse-geocoder'
 import { locationType } from 'shared/types'
 
@@ -22,7 +22,7 @@ const MapDetail = ({
   const [isValidCoordinate, setIsValidCoordinate] = useState(true)
 
   const { lat, lng } = value?.geometrie
-    ? featureToCoordinates(value.geometrie)
+    ? apiFeatureToCoordinates(value.geometrie)
     : {}
 
   // Validate coordinates using the reverse geocoder service
