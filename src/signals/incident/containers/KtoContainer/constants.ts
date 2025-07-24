@@ -28,15 +28,15 @@ export interface RenderSections {
 
 export const renderSections: RenderSections = {
   TOO_LATE: {
-    title: 'Helaas, u kunt niet meer reageren op deze melding',
-    body: 'Na ons antwoord hebt u 2 weken de tijd om een reactie te geven.',
+    title: 'Unfortunately, you can no longer respond to this report',
+    body: 'After our response, you have 2 weeks to provide feedback.',
   },
   FILLED_OUT: {
-    title: 'U hebt al een reactie gegeven op deze melding',
-    body: 'Door uw reactie weten we wat we goed doen en wat we kunnen verbeteren.',
+    title: 'You have already given a response to this report',
+    body: 'Through your response, we know what we do well and what we can improve.',
   },
   NOT_FOUND: {
-    title: 'Het feedback formulier voor deze melding kon niet gevonden worden',
+    title: 'The feedback form for this report could not be found',
   },
 }
 
@@ -45,24 +45,24 @@ export const successSections: SuccessSections = configuration.featureFlags
   .reporterMailHandledNegativeContactEnabled
   ? {
       ja: {
-        title: 'Bedankt voor uw reactie',
-        body: 'Door uw reactie weten we wat we goed doen en wat we kunnen verbeteren.',
+        title: 'Thank you for your response',
+        body: 'Through your response, we know what we do well and what we can improve.',
       },
       nee: {
-        title: 'Bedankt voor uw reactie',
-        body: `Door uw reactie weten we wat we kunnen verbeteren.`,
+        title: 'Thank you for your response',
+        body: `Through your response, we know what we can improve.`,
       },
     }
   : {
       ja: {
-        title: 'Bedankt voor uw feedback!',
-        body: 'We zijn voortdurend bezig onze dienstverlening te verbeteren.',
+        title: 'Thank you for your feedback!',
+        body: 'We are continuously working to improve our services.',
       },
       nee: {
-        title: 'Bedankt voor uw feedback!',
-        body: `We zijn voortdurend bezig onze dienstverlening te verbeteren.`,
+        title: 'Thank you for your feedback!',
+        body: `We are continuously working to improve our services.`,
       },
     }
 
 export const contactAllowedText =
-  '\n U ontvangt direct een e-mail met een overzicht van uw reactie. Binnen 3 werkdagen leest u wat wij ermee gaan doen.'
+  '\n You will immediately receive an email with an overview of your response. Within 3 working days you will read what we are going to do with it.'

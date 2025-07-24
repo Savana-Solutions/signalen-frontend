@@ -274,9 +274,9 @@ export const IncidentMap = () => {
         >
           <DrawerContentWrapper>
             <StyledParagraph>
-              Op deze kaart staan meldingen in de openbare ruimte waarmee we aan
-              het werk zijn. Vanwege privacy staat een klein deel van de
-              meldingen niet op de kaart.
+              This map shows reports in public spaces that we are working on.
+              Due to privacy reasons, a small portion of the reports are not
+              shown on the map.
             </StyledParagraph>
 
             {!isMobile(deviceMode) && (
