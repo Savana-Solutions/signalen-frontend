@@ -87,13 +87,13 @@ const IncidentSplitForm: FC<IncidentSplitFormProps> = ({
           data-testid="incident-split-form"
         >
           <StyledMainContainer>
-            <Heading>Split report maken</Heading>
+            <Heading>Create split report</Heading>
 
             <fieldset>
-              <Heading forwardedAs="h2">Hoofdmelding</Heading>
+              <Heading forwardedAs="h2">Main report</Heading>
 
               <StyledDefinitionList>
-                <dt>Melding</dt>
+                <dt>Report</dt>
                 <dd data-testid="incident-split-form-parent-incident-id">
                   {parentIncident.id}
                 </dd>
@@ -147,7 +147,7 @@ const IncidentSplitForm: FC<IncidentSplitFormProps> = ({
                     isStandalone={false}
                     label={
                       <Fragment>
-                        Notitie hoofdmelding{' '}
+                        Note main report{' '}
                         <ThinLabel>(not required)</ThinLabel>
                       </Fragment>
                     }

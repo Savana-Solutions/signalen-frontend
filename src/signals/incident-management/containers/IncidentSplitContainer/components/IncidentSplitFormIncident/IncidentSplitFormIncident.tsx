@@ -130,12 +130,10 @@ const IncidentSplitFormIncident: FC<IncidentSplitFormIncidentProps> = ({
               render={({ field, fieldState: { error } }) => (
                 <StyledAddNote
                   {...field}
-                  description="Zorg ervoor dat hier duidelijk staat wat het specifieke probleem is
-                  dat de afdeling moet behandelen. Verwijder uit de meldtekst wat niet
-                  van belang is. En verduidelijk het verzoek waar dat nodig is."
+                  description="Ensure that it is clearly stated here what the specific problem is that the department needs to address. Remove from the report text what is not relevant. And clarify the request where necessary."
                   error={error && error.message}
                   isStandalone={false}
-                  label="Omschrijving"
+                  label="Description"
                   maxContentLength={maxDescriptionLength}
                 />
               )}
@@ -187,7 +185,7 @@ const IncidentSplitFormIncident: FC<IncidentSplitFormIncidentProps> = ({
             variant="primaryInverted"
             onClick={addSubIncident}
           >
-            Extra deelmelding toevoegen
+            Add extra split report
           </Button>
         </StyledExtraIncidentButtonContainer>
       )}
