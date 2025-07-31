@@ -109,7 +109,7 @@ export const mock: Incident = {
   images: [],
   type: {
     id: 'SIG',
-    label: 'Melding',
+    label: 'Report',
   },
   source: 'online',
   email: 'noreply@amsterdam.nl',

@@ -226,10 +226,10 @@ const IncidentReplyContainer = () => {
     <Row>
       <Column span={8}>
         <Wrapper>
-          <StyledHeading>Aanvullende informatie</StyledHeading>
-          <StyledSubHeading as="h2">Uw melding</StyledSubHeading>
+          <StyledHeading>Additional information</StyledHeading>
+          <StyledSubHeading as="h2">Your report</StyledSubHeading>
           <Content>
-            <Paragraph>Nummer: {incident._display}</Paragraph>
+            <Paragraph>Number: {incident._display}</Paragraph>
             <Paragraph>Reported on: {formattedDate}</Paragraph>
           </Content>
           <QuestionnaireComponent

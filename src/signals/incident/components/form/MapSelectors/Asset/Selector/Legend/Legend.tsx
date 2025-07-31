@@ -29,7 +29,7 @@ const Legend = ({ onLegendToggle }: Props) => {
   const featureStatusTypes = meta.featureStatusTypes || []
 
   const nearbyLegendItem = {
-    label: 'Bestaande melding',
+    label: 'Existing report',
     icon: {
       iconUrl: '/assets/images/area-map/icon-pin.svg',
       iconSize: [40, 40],

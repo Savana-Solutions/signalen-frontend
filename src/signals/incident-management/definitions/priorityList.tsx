@@ -6,14 +6,14 @@ const priorityList: Priority[] = [
   {
     key: 'high',
     value: 'High',
-    info: 'melding met spoed oppakken',
+    info: 'pick up report with haste',
     icon: 'PriorityHigh',
   },
   { key: 'normal', value: 'Normal' },
   {
     key: 'low',
     value: 'Low',
-    info: 'interne melding zonder servicebelofte',
+    info: 'internal report without service promise',
   },
 ]
 

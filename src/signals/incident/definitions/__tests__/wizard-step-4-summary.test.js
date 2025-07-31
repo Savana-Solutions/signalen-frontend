@@ -54,7 +54,7 @@ describe('Wizard summary', () => {
     const controls = {
       extra_bedrijven_horeca_wat: {
         meta: {
-          label: 'Uw melding gaat over:',
+          label: 'Your report is about:',
           canBeNull: true,
         },
         options: { validators: ['required'] },
@@ -62,7 +62,7 @@ describe('Wizard summary', () => {
       },
       extra_bedrijven_horeca_naam: {
         meta: {
-          label: 'Wie of wat zorgt voor deze overlast, denkt u?',
+          label: 'Who or what do you think is responsible for this problem?',
         },
         render: 'TextInput',
       },
@@ -71,13 +71,13 @@ describe('Wizard summary', () => {
     it('should return mapped values', () => {
       expect(summary(controls)).toStrictEqual({
         extra_bedrijven_horeca_wat: {
-          label: 'Uw melding gaat over:',
+          label: 'Your report is about:',
           optional: true,
           render: ObjectLabel,
           canBeNull: true,
         },
         extra_bedrijven_horeca_naam: {
-          label: 'Wie of wat zorgt voor deze overlast, denkt u?',
+          label: 'Who or what do you think is responsible for this problem?',
           optional: true,
           render: Label,
           canBeNull: false,
@@ -145,12 +145,12 @@ describe('Wizard summary', () => {
         vulaan: {
           dateTime: {
             canBeNull: true,
-            label: 'Wanneer was het?',
+            label: 'When was it?',
             optional: true,
             render: PreviewComponents.DateTime,
           },
           extra_afval: {
-            label: 'Waar komt het afval vandaan, denkt u?',
+            label: 'Where do you think the garbage came from?',
             optional: true,
             render: expect.any(Function),
             canBeNull: false,

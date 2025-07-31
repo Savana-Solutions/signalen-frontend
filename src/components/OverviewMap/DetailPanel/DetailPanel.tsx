@@ -87,10 +87,10 @@ const DetailPanel: FunctionComponent<DetailPanelProps> = ({
           variant="inline"
           to={`../${INCIDENT_URL}/${incident.id}`}
         >
-          Melding {incident.id}
+          Report {incident.id}
         </AscLink>
       ) : (
-        `Melding ${incident.id}`
+        `Report ${incident.id}`
       )}
       <Button
         size={36}

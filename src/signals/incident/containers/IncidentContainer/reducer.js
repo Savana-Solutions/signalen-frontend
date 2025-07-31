@@ -48,7 +48,7 @@ export const initialState = fromJS({
     source: undefined,
     type: {
       id: 'SIG',
-      label: 'Melding',
+      label: 'Report',
     },
     maxAssetWarning: false,
   },

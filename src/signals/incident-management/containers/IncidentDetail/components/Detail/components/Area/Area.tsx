@@ -14,7 +14,7 @@ const Area: React.FC<{ count: number; id: number }> = ({ count, id }) => (
         variant="inline"
         to={`../${INCIDENT_URL}/${id}/omgeving`}
       >
-        {count} {count === 1 ? 'melding' : 'meldingen'} in deze omgeving
+        {count} {count === 1 ? 'report' : 'reports'} in this environment
       </AscLink>
     </dd>
   </>

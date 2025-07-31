@@ -38,13 +38,13 @@ export const LinkExpired = () => {
     <BasePage
       buttons={buttons}
       pageInfo={{
-        documentTitle: 'Link verlopen',
+        documentTitle: 'Link expired',
         dataTestId: 'expiredLinkMyIncidents',
-        pageTitle: 'Link verlopen',
+        pageTitle: 'Link expired',
       }}
       paragraphs={[
-        `De link om uw aanmelding te bevestigen is verlopen. Begin opnieuw om een
-    nieuwe bevestigingslink te ontvangen.`,
+        `The link to confirm your registration has expired. Start over to receive a
+    new confirmation link.`,
       ]}
     />
   )

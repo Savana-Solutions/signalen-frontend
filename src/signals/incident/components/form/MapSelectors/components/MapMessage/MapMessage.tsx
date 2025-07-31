@@ -105,7 +105,7 @@ export const MapMessage: FC<MapMessageProps> = ({
       onClick={onClick}
       icon={<Close />}
       variant="blank"
-      aria-label="Melding sluiten"
+      aria-label="Close report"
     />
   </MessageOverlay>
 )

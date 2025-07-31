@@ -98,7 +98,7 @@ const IncidentDetail: FunctionComponent<IncidentDetailProps> = ({
         target="_blank"
       >
         <Heading data-testid="incident-heading" as="h2" styleAs="h5">
-          {`${isParent ? 'Main' : 'Standard'}melding ${id}`}
+          {`${isParent ? 'Main' : 'Standard'} report ${id}`}
         </Heading>
       </StyledLink>
       <IncidentDescription data-testid="incident-description">

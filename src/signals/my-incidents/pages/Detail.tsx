@@ -63,7 +63,7 @@ export const Detail = () => {
         defaultTitle={configuration.language.siteTitle}
         titleTemplate={`${configuration.language.siteTitle} - %s`}
       >
-        <title>{`Meldingsnummer: ${data._display}`}</title>
+        <title>{`Report number: ${data._display}`}</title>
       </Helmet>
       {showMap ? (
         <Map close={() => setShowMap(false)} location={data.location} />

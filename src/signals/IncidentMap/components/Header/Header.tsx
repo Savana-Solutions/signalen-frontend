@@ -24,7 +24,7 @@ export const Header = () => {
         <MenuToggle align="right">
           <Item>
             <Button forwardedAs="a" href="/incident/beschrijf" target="_blank">
-              Doe een melding
+              Create a report
             </Button>
           </Item>
         </MenuToggle>
@@ -34,7 +34,7 @@ export const Header = () => {
     return (
       <Item>
         <Button forwardedAs="a" href="/incident/beschrijf" target="_blank">
-          Doe een melding
+          Create a report
         </Button>
       </Item>
     )

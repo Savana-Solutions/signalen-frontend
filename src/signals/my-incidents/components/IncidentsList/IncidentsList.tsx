@@ -84,7 +84,7 @@ export const IncidentsList = ({ token }: Props) => {
                 forwardedAs={Link}
                 role="link"
               >
-                Bekijk melding
+                View report
               </StyledLink>
             </Wrapper>
           </Fragment>

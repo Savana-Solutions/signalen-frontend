@@ -25,7 +25,7 @@ const Reporter: React.FC<ReporterProps> = ({
         variant="inline"
         to={`../${INCIDENT_URL}/${id}/melder`}
       >
-        {signal_count} {signal_count === 1 ? 'melding' : 'meldingen'}
+        {signal_count} {signal_count === 1 ? 'report' : 'reports'}
       </AscLink>
       <div>
         {negative_count}x not satisfied / {open_count}x open

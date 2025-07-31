@@ -7,7 +7,7 @@ export const DetailContainer = () => (
   <CategoryDetail
     isMainCategory={false}
     entityName="Subcategory"
-    isPublicAccessibleLabel="Toon meldingen van deze subcategorie op openbare kaarten en op de kaart in het meldformulier."
+    isPublicAccessibleLabel="Show notifications from this subcategory on public maps and on the map in the notification form."
   />
 )
 

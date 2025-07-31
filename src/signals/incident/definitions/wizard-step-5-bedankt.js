@@ -10,9 +10,9 @@ const navigation = configuration.featureFlags.appMode
   ? {
       app_close_window_action: {
         meta: {
-          title: 'Wilt u nog een andere melding doen?',
-          labelCloseButton: 'Sluit venster',
-          labelLinkButton: 'Doe nog een melding',
+          title: 'Do you wish to make another a report?',
+          labelCloseButton: 'Close window',
+          labelLinkButton: 'Create another report',
           hrefLinkButton: '/',
         },
         render: FormComponents.AppNavigation,
@@ -21,7 +21,7 @@ const navigation = configuration.featureFlags.appMode
   : {
       next_incident_action: {
         meta: {
-          label: 'Doe nog een melding',
+          label: 'Create another report',
           href: '/',
         },
         render: FormComponents.LinkButton,
@@ -29,22 +29,22 @@ const navigation = configuration.featureFlags.appMode
     }
 
 export default {
-  label: 'Bedankt!',
+  label: 'Thanks!',
   form: {
     controls: {
       confirmation_message: {
         meta: {
           type: 'message',
-          value: `Uw melding is bij ons bekend onder nummer: {incident.id_display}.
-            \n Hebt u een e-mailadres ingevuld? Dan ontvangt u een e-mail met alle gegevens van uw melding.`,
-          valueAuthenticated: `Uw melding is bij ons bekend onder nummer: [{incident.id_display}](/manage/incident/{incident.id}).
-            \n Hebt u een e-mailadres ingevuld? Dan ontvangt u een e-mail met alle gegevens van uw melding.`,
+          value: `Your report is known to us under number: {incident.id_display}.
+        \n Did you provide an email address? Then you will receive an email with all the details of your report.`,
+          valueAuthenticated: `Your report is known to us under number: [{incident.id_display}](/manage/incident/{incident.id}).
+        \n Did you provide an email address? Then you will receive an email with all the details of your report.`,
         },
         render: FormComponents.PlainText,
       },
       handling_message: {
         meta: {
-          title: 'Wat doen we met uw melding?',
+          title: 'What do we do with your report?',
           key: 'incident.handling_message',
         },
         render: FormComponents.HandlingMessage,

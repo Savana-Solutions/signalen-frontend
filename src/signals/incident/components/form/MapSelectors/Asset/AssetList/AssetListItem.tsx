@@ -107,7 +107,7 @@ export const AssetListItem: FunctionComponent<ItemType> = ({
       )}
       {selectionIncident?.categoryName && selectionIncident?.createdAt && (
         <SelectionNearby key={selectionIncident.createdAt}>
-          <strong>Deze melding is al bij ons bekend:</strong>
+          <strong>This report is already known to us:</strong>
           <p>{selectionIncident.categoryName}</p>
           <span>{selectionIncident.createdAt}</span>
         </SelectionNearby>

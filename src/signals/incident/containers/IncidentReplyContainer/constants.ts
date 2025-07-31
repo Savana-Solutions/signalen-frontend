@@ -15,18 +15,18 @@ export const SUBMITTED_PREVIOUSLY_DETAIL = 'Already used!'
 /**
  * Notices
  */
-export const INACCESSIBLE_TITLE = 'U kunt niet meer reageren op onze vragen'
+export const INACCESSIBLE_TITLE = 'You can no longer respond to our questions'
 export const INACCESSIBLE_CONTENT =
-  'U hebt hierover een email ontvangen of u krijgt deze binnenkort nog.'
+  'You have received an email about this or you will receive one shortly.'
 
 export const SUBMITTED_PREVIOUSLY_TITLE =
-  'U hebt onze vragen al eerder beantwoord'
+  'You have already answered our questions before'
 export const SUBMITTED_PREVIOUSLY_CONTENT =
-  'Wij bedanken u nogmaals voor de extra informatie die u ons hebt gegeven.'
+  'We thank you once again for the additional information you have provided us.'
 
-export const SUBMITTED_TITLE = 'Bedankt'
+export const SUBMITTED_TITLE = 'Thank you'
 export const SUBMITTED_CONTENT =
-  'Wij gaan aan het werk met uw melding. Uw informatie helpt hierbij.'
+  'We will get to work with your report. Your information helps with this.'
 
 export const GENERIC_ERROR_TITLE = 'Something went wrong'
-export const GENERIC_ERROR_CONTENT = 'Probeer het later nog eens.'
+export const GENERIC_ERROR_CONTENT = 'Please try again later.'

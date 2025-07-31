@@ -75,7 +75,7 @@ export const Overview = () => {
               meta: {
                 category: 'interaction.generic.component.linkClick',
                 action: 'myIncidentsOverview - intern',
-                label: 'Maak een nieuwe melding - /incident/beschrijf',
+                label: 'Create a new report - /incident/beschrijf',
               },
             })
           }
@@ -83,7 +83,7 @@ export const Overview = () => {
           fontSize={16}
           forwardedAs={Link}
         >
-          Make a new report
+          Create a new report
         </StyledLink>
 
         <IncidentsList token={token} />

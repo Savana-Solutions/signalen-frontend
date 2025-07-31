@@ -85,7 +85,7 @@ const IncidentSplitFormIncident: FC<IncidentSplitFormIncidentProps> = ({
                   iconSize={16}
                   onClick={(event) => removeSubIncident(event, id)}
                   variant="application"
-                  aria-label="Verwijder deelmelding"
+                  aria-label="Remove split report"
                 />
               )}
             </StyledHeadingWrapper>

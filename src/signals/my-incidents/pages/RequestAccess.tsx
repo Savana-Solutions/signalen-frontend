@@ -22,10 +22,10 @@ export const RequestAccess = () => {
       pageInfo={{
         documentTitle: 'Login',
         dataTestId: 'requestAccessMyIncidents',
-        pageTitle: 'Mijn meldingen',
+        pageTitle: 'My reports',
       }}
       paragraphs={[
-        `Log in met het e-mailadres waarmee u meldingen maakt. U krijgt dan een bevestigingsmail om naar het meldingenoverzicht te gaan.`,
+        `Log in with the email address you use to make reports. You will then receive a confirmation email to go to the reports overview.`,
       ]}
       errorMessage={errorMessage}
     >
