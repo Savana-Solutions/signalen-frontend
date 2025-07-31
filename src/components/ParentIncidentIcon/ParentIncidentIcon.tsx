@@ -22,7 +22,7 @@ const ParentIncidentIcon: FunctionComponent<ParentIncidentIconProps> = ({
 }) => (
   <Wrapper
     role="img"
-    aria-label="Hoofdmelding"
+    aria-label="Main report"
     className={className}
     data-testid="parent-icon"
   >

@@ -284,7 +284,7 @@ export default {
 
     contact: {
       phone: {
-        label: 'What is your phonenumber?',
+        label: 'What is your phone number?',
         optional: true,
         render: ({ value }) => value,
       },

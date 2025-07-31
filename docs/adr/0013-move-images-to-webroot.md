@@ -14,7 +14,7 @@ Different image contents can be set by the Django admin and are applied when the
 
 The downside of having images as text, is that all of the available SVG images are at all times present in the `signals-frontend` production bundle which will unnessarily increase the size of the bundle. Also, images cannot be cached by the browser and cannot be preloaded (if that would be required).
 
-Being able to maintain the different images by means of a CMS -in our case Django- is not required since images hardly ever change and only have to be provided once when the application is deployed for the first time. With the correct Dockerfile, assets can be overwritten at build time. See for instance [the Dockerfile for the Weesp domain](https://github.com/Amsterdam/signalen/blob/develop/domains/weesp/Dockerfile).
+Being able to maintain the different images by means of a CMS -in our case Django- is not mandatory since images hardly ever change and only have to be provided once when the application is deployed for the first time. With the correct Dockerfile, assets can be overwritten at build time. See for instance [the Dockerfile for the Weesp domain](https://github.com/Amsterdam/signalen/blob/develop/domains/weesp/Dockerfile).
 
 
 To summarize, Moving the SVG images to the application's web root will allow us to:

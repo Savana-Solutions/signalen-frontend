@@ -10,8 +10,7 @@ import GlobalError from './index'
 const defaultErrorMessage =
   'You have not answered all questions. Fill in below.'
 
-const invalidErrorMessage =
-  'U hebt niet alle vragen (juist) beantwoord. Vul hieronder aan alstublieft.'
+const invalidErrorMessage = `You have not answered all questions ${invalid}. Please complete below.`
 
 jest.mock('react-hook-form', () => ({
   ...jest.requireActual('react-hook-form'),

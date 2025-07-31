@@ -19,12 +19,12 @@ const GlobalError = ({ meta }: Props) => {
   }
 
   const invalid =
-    formState.errors?.dateTime?.type === 'custom' ? '(juist) ' : ''
+    formState.errors?.dateTime?.type === 'custom' ? '(correctly) ' : ''
 
   return !isEmpty(formState?.errors) ? (
     <StyledErrorAlert>
       {label ||
-        `U hebt niet alle vragen ${invalid}beantwoord. Vul hieronder aan alstublieft.`}
+        `You have not answered all questions ${invalid}. Please complete below.`}
     </StyledErrorAlert>
   ) : null
 }

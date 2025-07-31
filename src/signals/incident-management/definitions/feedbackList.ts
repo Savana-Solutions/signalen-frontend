@@ -14,15 +14,15 @@ export type Feedback = {
 const feedbackList: Array<Feedback> = [
   {
     key: FeedbackKey.SATISFIED,
-    value: 'Tevreden',
+    value: 'Satisfied',
   },
   {
     key: FeedbackKey.NOT_SATISFIED,
-    value: 'Niet tevreden',
+    value: 'Not satisfied',
   },
   {
     key: FeedbackKey.NOT_RECEIVED,
-    value: 'Niet ontvangen',
+    value: 'Not received',
   },
 ]
 

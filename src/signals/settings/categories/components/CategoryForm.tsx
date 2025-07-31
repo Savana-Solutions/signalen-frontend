@@ -154,7 +154,7 @@ export const CategoryForm = ({
 
                   {isMainCategory && (
                     <>
-                      <StyledHeading>Meldingenkaartfilter</StyledHeading>
+                      <StyledHeading>Map of reports filter</StyledHeading>
                       <Controller
                         name="show_children_in_filter"
                         control={formMethods.control}

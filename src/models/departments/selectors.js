@@ -29,7 +29,7 @@ export const makeSelectDepartments = createSelector(
 export const inputSelectDepartmentsSelector = createSelector(
   selectDepartmentsDomain,
   (state) => [
-    { key: '', name: 'Alles', value: '*' },
+    { key: '', name: 'All', value: '*' },
     ...departmentsInputOptions(state),
   ]
 )
@@ -51,7 +51,7 @@ export const makeSelectRoutingDepartments = createSelector(
   (state) => {
     const routingDepartments = state?.list
     return [
-      { key: 'null', value: 'Niet gekoppeld' },
+      { key: 'null', value: 'Not routed' },
       ...routingDepartments.map(({ code, name }) => ({
         key: code,
         value: name,

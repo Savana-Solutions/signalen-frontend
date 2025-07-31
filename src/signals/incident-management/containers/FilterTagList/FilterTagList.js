@@ -44,7 +44,7 @@ const FilterWrapper = styled.div`
   }
 `
 
-export const allLabelAppend = ': Alles'
+export const allLabelAppend = ': All'
 
 export const mapKeys = (key) => {
   switch (key) {

@@ -26,7 +26,7 @@ const rolesInputOptions = (state) => [
 export const inputSelectRolesSelector = createSelector(
   selectRolesDomain,
   (state) => [
-    { key: 'all', name: 'Alles', value: '*' },
+    { key: 'all', name: 'All', value: '*' },
     ...rolesInputOptions(state),
   ]
 )

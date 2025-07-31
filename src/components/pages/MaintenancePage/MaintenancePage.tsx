@@ -8,13 +8,13 @@ import BasePage from '../BasePage'
 
 const MaintenancePage: FunctionComponent = () => (
   <BasePage
-    documentTitle="Onderhoudspagina"
-    pageTitle={'Melding openbare ruimte en overlast'}
+    documentTitle="Maintenance Page"
+    pageTitle={'Public Space and Nuisance Reporting'}
   >
     <Alert
       level="error"
-      heading="Tijdelijk niet te gebruiken"
-      content="Wij zijn dit formulier aan het verbeteren. Daarom kunt u het formulier korte tijd niet gebruiken. Probeer het later nog eens."
+      heading="Temporarily unusable"
+      content="We are improving this form. Therefore, you cannot use the form for a short time. Please try again later."
     />
   </BasePage>
 )

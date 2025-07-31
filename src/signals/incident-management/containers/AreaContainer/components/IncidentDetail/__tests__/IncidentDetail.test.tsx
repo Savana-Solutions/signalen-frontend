@@ -130,7 +130,7 @@ describe('IncidentDetail', () => {
       screen.queryByRole('link', { name: 'Split report 1234' })
     ).not.toBeInTheDocument()
     expect(
-      screen.queryByRole('link', { name: 'Hoofdmelding 1234' })
+      screen.queryByRole('link', { name: 'Main report 1234' })
     ).toBeInTheDocument()
 
     unmount()
@@ -148,7 +148,7 @@ describe('IncidentDetail', () => {
       screen.queryByRole('link', { name: 'Split report 4321' })
     ).not.toBeInTheDocument()
     expect(
-      screen.queryByRole('link', { name: 'Hoofdmelding 4321' })
+      screen.queryByRole('link', { name: 'Main report 4321' })
     ).not.toBeInTheDocument()
 
     rerender(
@@ -164,7 +164,7 @@ describe('IncidentDetail', () => {
       screen.queryByRole('link', { name: 'Split report 5678' })
     ).toBeInTheDocument()
     expect(
-      screen.queryByRole('link', { name: 'Hoofdmelding 5678' })
+      screen.queryByRole('link', { name: 'Main report 5678' })
     ).not.toBeInTheDocument()
   })
 })

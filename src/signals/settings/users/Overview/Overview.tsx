@@ -69,9 +69,9 @@ const StyledCompactPager = styled(CompactPager)`
 `
 
 const selectUserActive = [
-  { key: 'all', name: 'Alles', value: '*' },
-  { key: 'active', name: 'Actief', value: 'true' },
-  { key: 'inactive', name: 'Niet actief', value: 'false' },
+  { key: 'all', name: 'All', value: '*' },
+  { key: 'active', name: 'Active', value: 'true' },
+  { key: 'inactive', name: 'Not active', value: 'false' },
 ]
 
 const UsersOverviewContainer = () => {
@@ -172,7 +172,7 @@ const UsersOverviewContainer = () => {
     <Fragment>
       <Row>
         <PageHeader
-          title={`Gebruikers${count ? ` (${count})` : ''}`}
+          title={`Users${count ? ` (${count})` : ''}`}
           BackLink={<BackLink to={BASE_URL}>Back to settings</BackLink>}
         >
           {userCan('add_user') && (

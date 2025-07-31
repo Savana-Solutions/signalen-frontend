@@ -82,7 +82,7 @@ const FileInput: FunctionComponent<FileInputProps> = ({
       {label && (
         <Label inline htmlFor="fileUpload">
           <strong>{label}</strong>
-          {!required && ' (not required)'}
+          {!required && ' (not mandatory)'}
         </Label>
       )}
 

@@ -31,7 +31,7 @@ export default {
           // https://bytes.grubhub.com/disabling-safari-autofill-for-a-single-line-address-input-b83137b5b1c7
           autoComplete: 'search_tel',
           autoRemove: /[^\d ()+-]/g,
-          label: 'What is your phonenumber?',
+          label: 'What is your phone number?',
           path: 'reporter.phone',
           subtitle: '',
           type: 'tel',

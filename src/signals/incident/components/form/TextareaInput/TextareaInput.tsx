@@ -44,7 +44,7 @@ const TextareaInput: FunctionComponent<TextAreaInputProps> = ({
     maxContentLength: maxLength || undefined,
     label: (
       <>
-        {label} <ThinLabel>(not required)</ThinLabel>
+        {label} <ThinLabel>(not mandatory)</ThinLabel>
       </>
     ),
     onBlur,

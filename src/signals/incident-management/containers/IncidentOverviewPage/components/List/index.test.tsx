@@ -275,7 +275,7 @@ describe('List', () => {
       )
       expect(screen.queryByTestId('parent-icon')).toHaveAttribute(
         'aria-label',
-        'Hoofdmelding'
+        'Main report'
       )
     })
 

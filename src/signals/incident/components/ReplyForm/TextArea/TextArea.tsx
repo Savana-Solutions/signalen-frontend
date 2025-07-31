@@ -69,7 +69,7 @@ const TextArea: FunctionComponent<FieldProps> = ({
             },
           },
           maxLength: {
-            message: `U heeft meer dan de maximale ${maxLength} characters entered`,
+            message: `You have more than the maximum ${maxLength} characters entered`,
             value: maxLength,
           },
         })}

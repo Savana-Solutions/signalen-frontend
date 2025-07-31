@@ -95,7 +95,7 @@ describe('Contact', () => {
     })
 
     screen.getByText(
-      'Vul een geldig e-mailadres in, met een @ en een domeinnaam. Bijvoorbeeld: naam@domein.nl.'
+      'Enter a valid email address, with an @ and a domain name. For example: name@domain.com'
     )
 
     userEvent.type(screen.getByPlaceholderText('Phone reporter'), 'test')

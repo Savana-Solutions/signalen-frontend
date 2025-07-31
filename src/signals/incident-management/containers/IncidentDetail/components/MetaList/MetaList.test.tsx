@@ -265,7 +265,7 @@ describe('MetaList', () => {
 
       expect(
         screen.queryByTestId('meta-list-parent-definition')
-      ).toHaveTextContent(/^Hoofdmelding$/)
+      ).toHaveTextContent(/^Main report$/)
       expect(screen.queryByTestId('meta-list-parent-value')).toHaveTextContent(
         /^parent-link$/
       )

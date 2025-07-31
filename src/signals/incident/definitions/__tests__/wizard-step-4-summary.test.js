@@ -121,7 +121,7 @@ describe('Wizard summary', () => {
           render: expect.any(Function),
         },
         phone: {
-          label: 'What is your phonenumber?',
+          label: 'What is your phone number?',
           optional: true,
           render: expect.any(Function),
         },

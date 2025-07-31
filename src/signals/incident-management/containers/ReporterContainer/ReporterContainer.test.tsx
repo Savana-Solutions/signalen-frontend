@@ -29,7 +29,7 @@ describe('ReporterContainer', () => {
     screen.getByRole('heading', {
       name: 'Reports of me@email.com (2)',
     })
-    screen.getByRole('link', { name: 'Hoofdmelding 4440' })
+    screen.getByRole('link', { name: 'Main report 4440' })
 
     expect(screen.getByTestId('incident-list')).toBeInTheDocument()
     expect(screen.getByTestId('incident-detail')).toBeInTheDocument()

@@ -363,7 +363,7 @@ const StatusForm: FunctionComponent<StatusFormProps> = ({
                     ? state.text.label
                     : 'Toelichting'}
                 </strong>
-                {!state.text.required && <span>&nbsp;(not required)</span>}
+                {!state.text.required && <span>&nbsp;(not mandatory)</span>}
               </>
             }
           />

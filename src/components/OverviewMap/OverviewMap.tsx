@@ -251,7 +251,7 @@ const OverviewMap: FC<OverviewMapProps> = ({
               fieldList={['centroide_ll']}
               municipality={configuration.map?.municipality}
               onSelect={onSelect}
-              placeholder="Zoom naar adres"
+              placeholder="Zoom to address"
             />
           }
           topRight={

@@ -92,7 +92,7 @@ const DetailHeader = () => {
   const hasChildren = incident?._links?.['sia:children']?.length > 0
   let headingText = 'Standard report'
   if (hasChildren) {
-    headingText = 'Hoofdmelding'
+    headingText = 'Main report'
   } else if (parentId) {
     headingText = 'Split report'
   }

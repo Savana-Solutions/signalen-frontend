@@ -52,9 +52,7 @@ describe('<TextArea />', () => {
       userEvent.click(screen.getByRole('button', { name: 'Save' }))
 
       await waitFor(() => {
-        expect(
-          screen.getByText('This is a required field')
-        ).toBeInTheDocument()
+        expect(screen.getByText('This is a required field')).toBeInTheDocument()
       })
     })
 
@@ -73,7 +71,7 @@ describe('<TextArea />', () => {
       await waitFor(() => {
         expect(
           screen.getByText(
-            `U heeft meer dan de maximale ${maxLength} characters entered`
+            `You have more than the maximum ${maxLength} characters entered`
           )
         ).toBeInTheDocument()
       })

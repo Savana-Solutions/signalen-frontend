@@ -8,8 +8,6 @@ describe('ParentIncidentIcon', () => {
   it('renders', () => {
     render(<ParentIncidentIcon />)
 
-    expect(
-      screen.getByRole('img', { name: 'Hoofdmelding' })
-    ).toBeInTheDocument()
+    expect(screen.getByRole('img', { name: 'Main report' })).toBeInTheDocument()
   })
 })

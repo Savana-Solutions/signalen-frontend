@@ -456,7 +456,7 @@ const MetaList: FC<MetaListProps> = ({ defaultTexts, childIncidents }) => {
 
       {parentId && (
         <Fragment>
-          <dt data-testid="meta-list-parent-definition">Hoofdmelding</dt>
+          <dt data-testid="meta-list-parent-definition">Main report</dt>
           <dd data-testid="meta-list-parent-value">
             <AscLink
               variant="inline"

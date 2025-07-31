@@ -98,7 +98,7 @@ const FormField = ({
           >
             <Fragment>
               {meta.label}
-              {isOptional && <Optional>(not required)</Optional>}
+              {isOptional && <Optional>(not mandatory)</Optional>}
             </Fragment>
           </StyledLabel>
         )}
@@ -124,13 +124,13 @@ const FormField = ({
               {hasError('email') && (
                 <ErrorMessage
                   data-testid="invalid-mail"
-                  message="Vul een geldig e-mailadres in, met een @ en een domeinnaam. Bijvoorbeeld: naam@domein.nl"
+                  message="Enter a valid email address, with an @ and a domain name. For example: name@domain.com"
                 />
               )}
 
               {hasError('max') && (
                 <ErrorMessage
-                  message={`U heeft meer dan de maximale ${String(
+                  message={`You have more than the maximum ${String(
                     getError('max') as { requiredLength: number }
                   )} characters entered`}
                 />

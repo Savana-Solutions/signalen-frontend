@@ -411,7 +411,7 @@ const FilterForm = ({
         <ControlsWrapper>
           {filter.id && <input type="hidden" name="id" value={filter.id} />}
           <Fieldset>
-            <legend className="hiddenvisually">Naam van het filter</legend>
+            <legend className="hiddenvisually">Name of the filter</legend>
 
             <Label htmlFor="filter_name" isGroupHeader>
               Filter name
@@ -425,7 +425,7 @@ const FilterForm = ({
                 name="name"
                 onBlur={onNameBlur}
                 onChange={onNameChange}
-                placeholder="Geef deze filterinstelling een naam om deze op te slaan"
+                placeholder="Give this filter setting a name to save it"
                 type="text"
               />
             </div>
@@ -608,7 +608,7 @@ const FilterForm = ({
 
           <FilterGroup>
             <Label htmlFor="filter_date" isGroupHeader>
-              Datum
+              Date
             </Label>
 
             <DatesWrapper>
@@ -621,7 +621,7 @@ const FilterForm = ({
                   )
                 }}
                 selectedDate={dateFrom}
-                label="Vanaf"
+                label="From"
                 name="created_after"
               />
 
@@ -634,7 +634,7 @@ const FilterForm = ({
                   )
                 }}
                 selectedDate={dateBefore}
-                label="Tot en met"
+                label="Until"
                 name="created_before"
               />
             </DatesWrapper>
@@ -689,7 +689,7 @@ const FilterForm = ({
                 includeAuthHeaders={true}
                 onSelect={onAssignedSelect}
                 onClear={onAssignedClear}
-                placeholder="medewerker@example.com"
+                placeholder="employee@example.com"
                 url={USERS_AUTO_SUGGEST_URL}
                 formatResponse={getUserOptions}
                 numOptionsDeterminer={getUserCount}
@@ -757,7 +757,7 @@ const FilterForm = ({
             <CheckboxGroup
               defaultValue={state.options.directing_department}
               hasToggle={false}
-              label="Regie hoofdmelding"
+              label="Regional main report"
               name="directing_department"
               onChange={onGroupChange}
               onToggle={onGroupToggle}
@@ -769,7 +769,7 @@ const FilterForm = ({
             <CheckboxGroup
               defaultValue={state.options.has_changed_children}
               hasToggle={false}
-              label="Wijziging"
+              label="Change"
               name="has_changed_children"
               onChange={onGroupChange}
               onToggle={onGroupToggle}

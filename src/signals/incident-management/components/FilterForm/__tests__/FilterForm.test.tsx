@@ -396,7 +396,7 @@ describe.skip('signals/incident-management/components/FilterForm', () => {
     )
     const { container } = render(withContext(<FilterForm {...formProps} />))
 
-    expect(screen.getByText('Regie hoofdmelding')).toBeInTheDocument()
+    expect(screen.getByText('Regional main report')).toBeInTheDocument()
     expect(
       container.querySelectorAll(
         'input[type="checkbox"][name="directing_department"]'
@@ -794,7 +794,7 @@ describe.skip('signals/incident-management/components/FilterForm', () => {
 
     const value = '18-12-2018'
 
-    const inputElement = screen.getByRole('textbox', { name: 'Tot en met' })
+    const inputElement = screen.getByRole('textbox', { name: 'Until' })
 
     expect(document.querySelector('input[name=created_before]')).toHaveValue('')
 
@@ -811,7 +811,7 @@ describe.skip('signals/incident-management/components/FilterForm', () => {
     render(withContext(<FilterForm {...formProps} />))
 
     const value = '23-12-2018'
-    const inputElement = screen.getByRole('textbox', { name: 'Vanaf' })
+    const inputElement = screen.getByRole('textbox', { name: 'From' })
 
     expect(document.querySelector('input[name=created_after]')).toHaveValue('')
 
@@ -870,7 +870,7 @@ describe.skip('signals/incident-management/components/FilterForm', () => {
 
       const nameField = screen.getByRole('textbox', { name: 'Filter name' })
       const noteField = screen.getByRole('textbox', { name: 'Search in notes' })
-      const dateField = screen.getByRole('textbox', { name: 'Tot en met' })
+      const dateField = screen.getByRole('textbox', { name: 'Until' })
       const afvalToggle = container.querySelector(
         'input[type="checkbox"][value="afval"]'
       )

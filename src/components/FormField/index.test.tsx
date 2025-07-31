@@ -41,7 +41,7 @@ describe('signals/incident/components/form/FormField', () => {
       withAppContext(<FormField {...props} options={{}} />)
     )
 
-    expect(screen.queryByText('(not required)')).toBeInTheDocument()
+    expect(screen.queryByText('(not mandatory)')).toBeInTheDocument()
 
     rerender(
       withAppContext(
@@ -49,13 +49,13 @@ describe('signals/incident/components/form/FormField', () => {
       )
     )
 
-    expect(screen.queryByText('(not required)')).toBeInTheDocument()
+    expect(screen.queryByText('(not mandatory)')).toBeInTheDocument()
 
     rerender(
       withAppContext(<FormField {...props} options={{ validators: [] }} />)
     )
 
-    expect(screen.queryByText('(not required)')).toBeInTheDocument()
+    expect(screen.queryByText('(not mandatory)')).toBeInTheDocument()
 
     rerender(
       withAppContext(
@@ -67,7 +67,7 @@ describe('signals/incident/components/form/FormField', () => {
       )
     )
 
-    expect(screen.queryByText('(not required)')).not.toBeInTheDocument()
+    expect(screen.queryByText('(not mandatory)')).not.toBeInTheDocument()
 
     rerender(
       withAppContext(
@@ -75,7 +75,7 @@ describe('signals/incident/components/form/FormField', () => {
       )
     )
 
-    expect(screen.queryByText('(not required)')).not.toBeInTheDocument()
+    expect(screen.queryByText('(not mandatory)')).not.toBeInTheDocument()
 
     rerender(
       withAppContext(
@@ -83,7 +83,7 @@ describe('signals/incident/components/form/FormField', () => {
       )
     )
 
-    expect(screen.queryByText('(not required)')).not.toBeInTheDocument()
+    expect(screen.queryByText('(not mandatory)')).not.toBeInTheDocument()
   })
 
   it('should render subtitle', () => {
@@ -148,7 +148,7 @@ describe('signals/incident/components/form/FormField', () => {
   it('should render email error', () => {
     const hasError = (prop: string) => prop === 'email'
     const error =
-      'Vul een geldig e-mailadres in, met een @ en een domeinnaam. Bijvoorbeeld: naam@domein.nl'
+      'Enter a valid email address, with an @ and a domain name. For example: name@domain.com'
 
     const { rerender } = render(withAppContext(<FormField {...props} />))
 
@@ -163,7 +163,7 @@ describe('signals/incident/components/form/FormField', () => {
     const requiredLength = 300
     const hasError = (prop: string) => prop === 'max'
     const getError = () => requiredLength
-    const error = `U heeft meer dan de maximale ${requiredLength} characters entered`
+    const error = `You have more than the maximum ${requiredLength} characters entered`
 
     const { rerender } = render(
       withAppContext(<FormField {...props} getError={getError} />)

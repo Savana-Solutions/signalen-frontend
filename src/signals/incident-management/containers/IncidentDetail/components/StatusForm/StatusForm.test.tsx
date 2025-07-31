@@ -195,8 +195,8 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
     expect(checkbox).toBeChecked()
     expect(checkbox).toBeDisabled()
 
-    // verify that the label '(not required)' is not in the document
-    expect(screen.queryByText('(not required)')).not.toBeInTheDocument()
+    // verify that the label '(not mandatory)' is not in the document
+    expect(screen.queryByText('(not mandatory)')).not.toBeInTheDocument()
 
     // select a status that will not disable the checkbox
     userEvent.selectOptions(screen.getByTestId('select-status'), [
@@ -207,8 +207,8 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
     expect(checkbox).not.toBeChecked()
     expect(checkbox).not.toBeDisabled()
 
-    // verify that the label '(not required)' is in the document
-    expect(screen.queryByText('(not required)')).toBeInTheDocument()
+    // verify that the label '(not mandatory)' is in the document
+    expect(screen.queryByText('(not mandatory)')).toBeInTheDocument()
   })
 
   it('renders a disabled checkbox when changing from verzoek tot heropenen to afgehandeld', () => {
@@ -304,22 +304,22 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
 
     expect(checkbox).not.toBeChecked()
 
-    // verify that the label '(not required)' is in the document
-    expect(screen.getByText('(not required)')).toBeInTheDocument()
+    // verify that the label '(not mandatory)' is in the document
+    expect(screen.getByText('(not mandatory)')).toBeInTheDocument()
 
     // check the box
     userEvent.click(checkbox)
 
     expect(checkbox).toBeChecked()
 
-    // verify that the label '(not required)' is not in the document
-    expect(screen.queryByText('(not required)')).not.toBeInTheDocument()
+    // verify that the label '(not mandatory)' is not in the document
+    expect(screen.queryByText('(not mandatory)')).not.toBeInTheDocument()
 
     // toggle the box
     userEvent.click(checkbox)
 
-    // verify that the label '(not required)' is in the document
-    expect(screen.getByText('(not required)')).toBeInTheDocument()
+    // verify that the label '(not mandatory)' is in the document
+    expect(screen.getByText('(not mandatory)')).toBeInTheDocument()
   })
 
   it('clears the text field when a default text is selected', async () => {
@@ -552,7 +552,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
     expect(screen.getByTestId('has-no-email-reply-warning')).toBeInTheDocument()
   })
 
-  it('is not required to provide text when new status is not an end state of a split incident', () => {
+  it('is not mandatory to provide text when new status is not an end state of a split incident', () => {
     const deelmelding = {
       ...incidentFixture,
       _links: {

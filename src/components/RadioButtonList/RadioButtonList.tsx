@@ -49,7 +49,7 @@ export interface RadioButtonListProps<T = RadioButtonOptionType> {
  */
 const RadioButtonList = <T extends RadioButtonOptionType>({
   className,
-  emptySelectionLabel = 'Alles',
+  emptySelectionLabel = 'All',
   hasEmptySelectionButton = true,
   defaultValue = '',
   disabled = false,

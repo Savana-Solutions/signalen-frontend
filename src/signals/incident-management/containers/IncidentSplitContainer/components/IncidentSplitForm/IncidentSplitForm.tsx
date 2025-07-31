@@ -148,7 +148,7 @@ const IncidentSplitForm: FC<IncidentSplitFormProps> = ({
                     label={
                       <Fragment>
                         Note main report{' '}
-                        <ThinLabel>(not required)</ThinLabel>
+                        <ThinLabel>(not mandatory)</ThinLabel>
                       </Fragment>
                     }
                     maxContentLength={maxNoteLength}

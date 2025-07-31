@@ -34,9 +34,9 @@ const FeedbackStatus: FunctionComponent<FeedbackStatusProps> = ({
 }) => {
   const text = useMemo(() => {
     if (!feedback) return '-'
-    if (!feedback.submittedAt) return 'Niet ontvangen'
+    if (!feedback.submittedAt) return 'Not received'
 
-    return feedback.isSatisfied ? 'Tevreden' : 'Niet tevreden'
+    return feedback.isSatisfied ? 'Satisfied' : 'Not satisfied'
   }, [feedback])
 
   return (

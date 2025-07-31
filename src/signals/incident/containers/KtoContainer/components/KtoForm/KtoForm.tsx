@@ -220,7 +220,7 @@ const KtoForm = ({
             <GridArea>
               <StyledLabel htmlFor="text_extra">
                 {'Add photos? '}
-                <Optional>(not required)</Optional>
+                <Optional>(not mandatory)</Optional>
               </StyledLabel>
               <HelpText id="subtitle-kto">
                 Add a photo to clarify the situation.
@@ -249,7 +249,7 @@ const KtoForm = ({
           <GridArea>
             <StyledLabel htmlFor="text_extra">
               Would you like to mention or explain anything else?{' '}
-              <Optional>(not required)</Optional>
+              <Optional>(not mandatory)</Optional>
             </StyledLabel>
             <StyledTextArea
               id="text_extra"
@@ -279,7 +279,7 @@ const KtoForm = ({
               ) : (
                 <StyledLabel id="subtitle-allows-contact">
                   May we contact you regarding your feedback?{' '}
-                  <Optional>(not required)</Optional>
+                  <Optional>(not mandatory)</Optional>
                 </StyledLabel>
               )}
 

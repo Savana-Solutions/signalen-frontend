@@ -130,7 +130,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Detai
     )
 
     expect(screen.queryByTestId('detail-header-title')).toHaveTextContent(
-      `Hoofdmelding ${incidentFixture.id}`
+      `Main report ${incidentFixture.id}`
     )
   })
 

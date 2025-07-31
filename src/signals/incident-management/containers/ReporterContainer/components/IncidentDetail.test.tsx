@@ -73,7 +73,7 @@ describe('IncidentDetail', () => {
     render(withAppContext(<IncidentDetail incident={parentIncident} />))
 
     expect(
-      await screen.findByText('Hoofdmelding', { exact: false })
+      await screen.findByText('Main report', { exact: false })
     ).toBeInTheDocument()
 
     await screen.findByRole('list')

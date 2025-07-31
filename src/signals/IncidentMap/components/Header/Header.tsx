@@ -44,7 +44,7 @@ export const Header = () => {
     <HeaderWrapper>
       <Title>
         <Logo tall={false} />
-        <Heading>Meldingenkaart</Heading>
+        <Heading>Map of reports</Heading>
       </Title>
       <Navigation />
     </HeaderWrapper>

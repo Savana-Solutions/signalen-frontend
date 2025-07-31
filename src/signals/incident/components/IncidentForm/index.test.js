@@ -18,8 +18,8 @@ import FormComponents from '../form'
 import IncidentNavigation from '../IncidentNavigation'
 import { Wizard, Step, Steps } from '../StepWizard'
 
-const PHONE_LABEL_REQUIRED = 'What is your phonenumber?'
-const PHONE_LABEL = `${PHONE_LABEL_REQUIRED}(not required)`
+const PHONE_LABEL_REQUIRED = 'What is your phone number?'
+const PHONE_LABEL = `${PHONE_LABEL_REQUIRED}(not mandatory)`
 const mockForm = {
   nextButtonLabel: 'Next',
   previousButtonLabel: 'Previous',
@@ -27,7 +27,7 @@ const mockForm = {
     controls: {
       phone: {
         meta: {
-          label: 'What is your phonenumber?',
+          label: 'What is your phone number?',
         },
         render: FormComponents.TextInput,
       },
