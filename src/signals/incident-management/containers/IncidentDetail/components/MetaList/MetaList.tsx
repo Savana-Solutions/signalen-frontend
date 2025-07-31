@@ -219,7 +219,7 @@ const MetaList: FC<MetaListProps> = ({ defaultTexts, childIncidents }) => {
 
     return routingDepartments
       ? options
-      : options && [{ key: null, value: 'Niet gekoppeld' }, ...options]
+      : options && [{ key: null, value: 'Not routed' }, ...options]
   }, [categoryDepartments, routingDepartments])
 
   const handlingTime = useMemo(

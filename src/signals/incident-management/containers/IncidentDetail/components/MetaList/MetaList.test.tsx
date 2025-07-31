@@ -979,8 +979,8 @@ describe('MetaList', () => {
 
   describe('assign department', () => {
     const departmentLabel = 'Department'
-    const notFound = 'Niet gevonden'
-    const notLinked = 'Niet gekoppeld'
+    const notFound = 'Not found'
+    const notLinked = 'Not routed'
 
     it('should not show assigned department by default', () => {
       render(renderWithContext())

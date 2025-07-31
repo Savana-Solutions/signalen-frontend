@@ -4,7 +4,7 @@ import type { FunctionComponent } from 'react'
 
 import BasePage from '../BasePage'
 
-export const DEFAULT_MESSAGE = 'Pagina niet gevonden'
+export const DEFAULT_MESSAGE = 'Page not found'
 
 interface NotFoundPageProps {
   message?: string
@@ -12,6 +12,6 @@ interface NotFoundPageProps {
 
 const NotFoundPage: FunctionComponent<NotFoundPageProps> = ({
   message = DEFAULT_MESSAGE,
-}) => <BasePage documentTitle="Pagina niet gevonden" pageTitle={message} />
+}) => <BasePage documentTitle="Page not found" pageTitle={message} />
 
 export default NotFoundPage

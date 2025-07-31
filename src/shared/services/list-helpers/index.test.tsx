@@ -57,7 +57,7 @@ describe('The list helper service', () => {
     })
 
     it('should return not found value when it does not exist', () => {
-      expect(getListValueByKey(list, 'NOT_FOUND')).toEqual('Niet gevonden')
+      expect(getListValueByKey(list, 'NOT_FOUND')).toEqual('Not found')
     })
 
     it('should be able to handle null keys with a falsy key parameter', () => {

@@ -189,7 +189,7 @@ describe('<App />', () => {
       })
 
       expect(
-        await screen.findByText(/niet gevonden/i, { exact: false })
+        await screen.findByText(/not found/i, { exact: false })
       ).toBeInTheDocument()
     })
 

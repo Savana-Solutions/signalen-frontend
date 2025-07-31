@@ -78,16 +78,16 @@ export function* postCall(url, params) {
 }
 
 export const errorMessageDictionary = {
-  default: 'De opgevraagde gegevens konden niet gevonden worden',
-  400: 'Deze wijziging is niet toegestaan in deze situatie.',
-  401: 'Om de opgevraagde gegevens te bekijken is een geautoriseerde sessie noodzakelijk',
-  403: 'Je hebt niet voldoende rechten om deze actie uit te voeren.',
-  408: 'Het verzoek kan niet verwerkt worden door een timeout op de server',
-  413: 'De grootte van de payload overschrijdt de toegestane limiet',
+  default: 'The requested data could not be found',
+  400: 'This change is not allowed in this situation.',
+  401: 'An authorized session is required to view the requested data',
+  403: 'You do not have sufficient rights to perform this action.',
+  408: 'The request cannot be processed due to a server timeout',
+  413: 'The payload size exceeds the allowed limit',
   418: 'The server refuses to brew coffee because it is a teapot',
-  429: 'Er zijn teveel verzoeken verstuurd',
-  500: 'Interne fout op de server. Probeer het nogmaals',
-  503: 'Server is op dit moment niet beschikbaar. Probeer het nogmaals',
+  429: 'Too many requests have been sent',
+  500: 'Internal server error. Please try again',
+  503: 'Server is currently unavailable. Please try again',
 }
 
 /**

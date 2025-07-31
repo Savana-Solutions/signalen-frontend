@@ -146,7 +146,7 @@ describe('ChangeValue', () => {
       })
     )
 
-    expect(screen.getByText('Niet gevonden')).toBeInTheDocument()
+    expect(screen.getByText('Not found')).toBeInTheDocument()
   })
 
   it('should not show any value when no option selected', () => {

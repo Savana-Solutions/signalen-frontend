@@ -14,7 +14,7 @@ export const getListValueByKey = (
   const comparator =
     list && key ? (s: Definition) => s.key === key : (s: Definition) => !s.key
   const item = list?.find(comparator)
-  const value = item ? item.value : 'Niet gevonden'
+  const value = item ? item.value : 'Not found'
 
   return item || key ? value : false
 }
