@@ -74,7 +74,7 @@ const Overview: FunctionComponent<Props> = ({ showItems }) => {
                 <StyledTopTaskLink
                   forwardedAs="div"
                   icon={PersonalLogin}
-                  title="Gebruikers"
+                  title="Users"
                 />
               </StyledNavLink>
               <p>
@@ -95,7 +95,7 @@ const Overview: FunctionComponent<Props> = ({ showItems }) => {
                 <StyledTopTaskLink
                   forwardedAs="div"
                   icon={Student}
-                  title="Rollen"
+                  title="Roles"
                 />
               </StyledNavLink>
               <p>
@@ -113,7 +113,7 @@ const Overview: FunctionComponent<Props> = ({ showItems }) => {
                 <StyledTopTaskLink
                   forwardedAs="div"
                   icon={Buildings}
-                  title="Afdelingen"
+                  title="Departments"
                 />
               </StyledNavLink>
               <p>
@@ -137,7 +137,7 @@ const Overview: FunctionComponent<Props> = ({ showItems }) => {
                 <StyledTopTaskLink
                   forwardedAs="div"
                   icon={ThumbnailResults}
-                  title="Subcategorieën"
+                  title="Sub categories"
                 />
               </StyledNavLink>
               <p>
@@ -161,7 +161,7 @@ const Overview: FunctionComponent<Props> = ({ showItems }) => {
                   <StyledTopTaskLink
                     forwardedAs="div"
                     icon={ThumbnailResults}
-                    title="Hoofdcategorieën"
+                    title="Main categories"
                   />
                 </StyledNavLink>
                 <p>

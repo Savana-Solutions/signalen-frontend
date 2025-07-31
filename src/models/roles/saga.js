@@ -41,7 +41,7 @@ export function* fetchRoles() {
     yield put(
       showGlobalNotification({
         title: getErrorMessage(error),
-        message: 'Het rollen overzicht kon niet opgehaald worden',
+        message: 'The role overview could not be fetched',
         variant: VARIANT_ERROR,
         type: TYPE_LOCAL,
       })
@@ -61,7 +61,7 @@ export function* fetchPermissions() {
     yield put(
       showGlobalNotification({
         title: getErrorMessage(error),
-        message: 'Het permissie overzicht kon niet opgehaald worden',
+        message: 'The permissions overview could not be fetched',
         variant: VARIANT_ERROR,
         type: TYPE_LOCAL,
       })
@@ -81,7 +81,7 @@ export function* saveRole(action) {
     yield put(
       showGlobalNotification({
         title: getErrorMessage(error),
-        message: 'De rol kon niet opgeslagen worden',
+        message: 'The role could not be saved',
         variant: VARIANT_ERROR,
         type: TYPE_LOCAL,
       })
@@ -102,7 +102,7 @@ export function* patchRole(action) {
     yield put(
       showGlobalNotification({
         title: getErrorMessage(error),
-        message: 'De rol kon niet bijgewerkt worden',
+        message: 'The role could not be edited',
         variant: VARIANT_ERROR,
         type: TYPE_LOCAL,
       })

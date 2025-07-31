@@ -49,25 +49,25 @@ export const allLabelAppend = ': Alles'
 export const mapKeys = (key) => {
   switch (key) {
     case 'source':
-      return 'bron'
+      return 'source'
 
     case 'priority':
-      return 'urgentie'
+      return 'priority'
 
     case 'contact_details':
-      return 'contact'
+      return 'contact details'
 
     case 'directing_department':
       return 'responsible department'
 
     case 'routing_department':
-      return 'gekoppelde afdeling'
+      return 'routing department'
 
     case 'has_changed_children':
-      return 'wijziging in deelmeldingen'
+      return 'changes in split reports'
 
     case 'kind':
-      return 'soort'
+      return 'kind'
 
     default:
       return key
@@ -140,13 +140,13 @@ export const FilterTagListComponent = (props) => {
     if (!tagsList.created_after && !tagsList.created_before) return undefined
 
     return [
-      'Datum:',
+      'Date:',
       tagsList.created_after &&
         format(parseISO(tagsList.created_after), 'dd-MM-yyyy'),
-      't/m',
+      'to',
       (tagsList.created_before &&
         format(parseISO(tagsList.created_before), 'dd-MM-yyyy')) ||
-        'nu',
+        'now',
     ]
       .filter(Boolean)
       .join(' ')
@@ -174,7 +174,7 @@ export const FilterTagListComponent = (props) => {
       )}
       {showClearButton && (
         <Button variant="textButton" onClick={props.onClear}>
-          Wis filter
+          Reset filter
         </Button>
       )}
     </FilterWrapper>

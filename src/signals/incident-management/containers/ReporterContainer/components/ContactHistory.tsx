@@ -16,9 +16,9 @@ import configuration from 'shared/services/configuration/configuration'
 import type { History } from 'types/history'
 
 const headerMapper: Record<string, string> = {
-  ['Feedback van melder ontvangen']: 'Feedback',
-  ['Status gewijzigd naar: Afgehandeld']: 'Toelichting bij Afgehandeld',
-  ['Status gewijzigd naar: Heropend']: 'Toelichting bij Heropend',
+  ['Feedback from reporter received']: 'Feedback',
+  ['Status edited to: Afgehandeld']: 'Toelichting bij Afgehandeld',
+  ['Status edited to: Heropend']: 'Toelichting bij Heropend',
 }
 
 const Text = styled.p`
@@ -42,8 +42,7 @@ const ContactHistory: FunctionComponent<ContactHistoryProps> = ({ id }) => {
     if (error) {
       storeDispatch(
         showGlobalNotification({
-          title:
-            'De data kon niet opgehaald worden. probeer het later nog eens.',
+          title: 'The data could not be retrieved. Try again later.',
           variant: VARIANT_ERROR,
           type: TYPE_LOCAL,
         })

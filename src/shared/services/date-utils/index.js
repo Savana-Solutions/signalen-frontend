@@ -19,8 +19,8 @@ export const capitalize = (value) =>
   value && value[0].toUpperCase() + value.substring(1)
 
 export const formatWeekOrWorkdays = (days, isCalendarDays) => {
-  const dayString = days === 1 ? 'dag' : 'dagen'
-  return isCalendarDays ? dayString : `werk${dayString}`
+  const dayString = days === 1 ? 'day' : 'days'
+  return isCalendarDays ? dayString : `work${dayString}`
 }
 
 export const getDaysString = (days, isCalendarDays) =>

@@ -38,7 +38,7 @@ export function* fetchDefaultTexts(action) {
     yield put(
       showGlobalNotification({
         title: getErrorMessage(error),
-        message: 'Het standaard teksten overzicht kon niet opgehaald worden',
+        message: 'The standard texts voerview could not be fetched',
         variant: VARIANT_ERROR,
         type: TYPE_LOCAL,
       })
@@ -62,7 +62,7 @@ export function* storeDefaultTexts(action) {
 
     yield put(
       showGlobalNotification({
-        title: `Standaard teksten bijgewerkt voor ${subcategory.value}, ${payload.status.value}`,
+        title: `Standard texts edited for ${subcategory.value}, ${payload.status.value}`,
         variant: VARIANT_SUCCESS,
         type: TYPE_LOCAL,
       })
@@ -73,7 +73,7 @@ export function* storeDefaultTexts(action) {
     yield put(
       showGlobalNotification({
         title: getErrorMessage(error),
-        message: 'De standaard teksten konden niet opgeslagen worden',
+        message: 'The standard texts could not be saved',
         variant: VARIANT_ERROR,
         type: TYPE_LOCAL,
       })

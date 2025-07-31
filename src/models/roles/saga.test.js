@@ -183,7 +183,7 @@ describe('models/roles/saga', () => {
         .put(
           actions.showGlobalNotification({
             title: getErrorMessage(error),
-            message: 'De rol kon niet bijgewerkt worden',
+            message: 'The role could not be edited',
             variant: VARIANT_ERROR,
             type: TYPE_LOCAL,
           })

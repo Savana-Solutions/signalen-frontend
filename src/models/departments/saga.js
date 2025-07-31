@@ -20,7 +20,7 @@ export function* fetchDepartments() {
     yield put(
       showGlobalNotification({
         title: getErrorMessage(error),
-        message: 'De lijst van afdelingen kon niet opgehaald worden',
+        message: 'The list of departments could not be retrieved',
         variant: VARIANT_ERROR,
         type: TYPE_LOCAL,
       })

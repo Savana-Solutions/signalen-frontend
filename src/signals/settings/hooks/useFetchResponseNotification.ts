@@ -59,16 +59,16 @@ const useFetchResponseNotification = ({
     }
 
     if (isSuccess) {
-      const entityLabel = entityName || 'Gegevens'
+      const entityLabel = entityName || 'Data'
       const actionMap: { [key: string]: string } = {
-        [RequestType.DELETE]: 'verwijderd',
-        [RequestType.PATCH]: 'bijgewerkt',
-        [RequestType.PUT]: 'bijgewerkt',
-        [RequestType.POST]: 'toegevoegd',
+        [RequestType.DELETE]: 'removed',
+        [RequestType.PATCH]: 'edited',
+        [RequestType.PUT]: 'edited',
+        [RequestType.POST]: 'added',
       }
 
       message = `${entityLabel} ${
-        requestType ? actionMap[requestType] : 'bijgewerkt'
+        requestType ? actionMap[requestType] : 'edited'
       }`
     }
     showNotification(variant, message)
