@@ -98,7 +98,7 @@ const IncidentDetail: FunctionComponent<IncidentDetailProps> = ({
         target="_blank"
       >
         <Heading data-testid="incident-heading" as="h2" styleAs="h5">
-          {`${isParent ? 'Hoofd' : 'Standaard'}melding ${id}`}
+          {`${isParent ? 'Main' : 'Standard'}melding ${id}`}
         </Heading>
       </StyledLink>
       <IncidentDescription data-testid="incident-description">
@@ -118,9 +118,7 @@ const IncidentDetail: FunctionComponent<IncidentDetailProps> = ({
           <Value data-testid="value-status">{status}</Value>
         </InfoStyle>
       </CompactThemeProvider>
-      <Text data-testid="label-history">
-        Contactgeschiedenis vanaf afgehandeld
-      </Text>
+      <Text data-testid="label-history">Contact history from closure</Text>
       <ContactHistory id={id} />
     </IncidentStyle>
   )

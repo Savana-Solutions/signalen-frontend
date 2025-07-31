@@ -87,7 +87,7 @@ const UserDetail = () => {
     [data, confirmedCancel]
   )
 
-  const title = `${entityName} ${isExistingUser ? 'wijzigen' : 'toevoegen'}`
+  const title = `${isExistingUser ? 'Edit' : 'Add'} ${entityName}`
 
   return (
     <Fragment>

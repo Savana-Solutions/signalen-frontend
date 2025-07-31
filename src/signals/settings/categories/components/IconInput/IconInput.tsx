@@ -40,12 +40,12 @@ export const IconInput = ({ formMethods, icon }: Props) => {
   const { upload, uploadSuccess, uploadError } = useUpload()
   const { categoryId } = useParams<{ categoryId: string }>()
 
-  const label = fileDataURL ? 'Icoon wijzigen' : 'Icoon toevoegen'
+  const label = fileDataURL ? 'Edit icon' : 'Add icon'
 
   const { del: deleteIcon, isLoading, isSuccess, error, type } = useFetch()
 
   useFetchResponseNotification({
-    entityName: 'Icoon',
+    entityName: 'Icon',
     error: error || uploadError,
     isLoading,
     isSuccess: isSuccess || uploadSuccess,
@@ -58,8 +58,8 @@ export const IconInput = ({ formMethods, icon }: Props) => {
       if (!fileDataURL) confirmed = true
       if (fileDataURL) {
         confirmed = await isConfirmed(
-          'Let op, je wijzigt het icoon ',
-          'Er wordt geen back-up van het icoon gemaakt.'
+          'Watch out, you are changing the icon',
+          'No backup of the icon will be made.'
         )
       }
 
@@ -87,8 +87,8 @@ export const IconInput = ({ formMethods, icon }: Props) => {
       event.preventDefault()
 
       const confirmed = await isConfirmed(
-        'Let op, je verwijdert het icoon ',
-        'Er wordt geen back-up van het icoon gemaakt.'
+        'Watch out, you are deleting the icon',
+        'No backup of the icon will be made.'
       )
 
       if (confirmed) {
@@ -133,8 +133,8 @@ export const IconInput = ({ formMethods, icon }: Props) => {
     <FieldGroup>
       <StyledHeading>Icoon</StyledHeading>
       <Detail
-        header={'Het icoon wordt getoond op de openbare meldingenkaart.'}
-        content={'Zorg voor een cirkel en exporteer als SVG.'}
+        header={'The icon is displayed on the public reports map.'}
+        content={'Make sure it is a circle and export as SVG.'}
       >
         {ICONEXAMPLE}
       </Detail>
@@ -145,7 +145,7 @@ export const IconInput = ({ formMethods, icon }: Props) => {
           <StyledDiv>
             {fileDataURL && (
               <StyledIcon size={32}>
-                <img width={32} height={32} alt="Icoon" src={fileDataURL} />
+                <img width={32} height={32} alt="Icon" src={fileDataURL} />
               </StyledIcon>
             )}
 
@@ -170,7 +170,7 @@ export const IconInput = ({ formMethods, icon }: Props) => {
                 <DeleteButton
                   icon={<TrashBin />}
                   iconSize={16}
-                  title="Icoon verwijderen"
+                  title="Delete icon"
                   variant="application"
                   onClick={handleOnDelete}
                 />

@@ -162,7 +162,7 @@ const StatusForm: FunctionComponent<StatusFormProps> = ({
         dispatch({
           type: 'SET_ERRORS',
           payload: {
-            text: "Er is een gereserveerd teken ('{{' of '__') in de toelichting gevonden.\nMogelijk staan er nog een of meerdere interne aanwijzingen in deze tekst. Pas de tekst aan.",
+            text: "There is a reserved character ('{{' of '__') found in the explanation.\nIt is possible there are one or more internal clarifications in this text. Edit the text.",
           },
         })
         return
@@ -256,7 +256,7 @@ const StatusForm: FunctionComponent<StatusFormProps> = ({
       storeDispatch(
         showGlobalNotification({
           title:
-            'Er is geen email template beschikbaar voor de gegeven statustransitie',
+            'There is no email template available for the given status transition',
           variant: VARIANT_ERROR,
           type: TYPE_LOCAL,
         })
@@ -266,7 +266,7 @@ const StatusForm: FunctionComponent<StatusFormProps> = ({
 
   return (
     <Form onSubmit={handleSubmit} data-testid="status-form" noValidate>
-      <StyledH2 forwardedAs="h2">Status wijzigen</StyledH2>
+      <StyledH2 forwardedAs="h2">Edit status</StyledH2>
 
       <StyledSection>
         <StyledLabel htmlFor="status" label="Status" />

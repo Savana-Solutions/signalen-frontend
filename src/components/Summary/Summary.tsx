@@ -169,7 +169,7 @@ const Summary: FC<SummaryProps> = ({
           variant="inline"
           tabIndex={0}
         >
-          Wijzigen
+          Edit
         </StyledLink>
       )}
     </Wrapper>

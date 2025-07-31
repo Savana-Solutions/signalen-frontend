@@ -77,7 +77,7 @@ export default function EditAttachment({
 
   return showEditAttachment ? (
     <EditAttachmentWrapper>
-      <StyledH2 forwardedAs="h2">Bestand wijzigen</StyledH2>
+      <StyledH2 forwardedAs="h2">Edit file</StyledH2>
       {children}
       <StyledForm onSubmit={handleSubmit(onSubmit)}>
         <Controller
@@ -85,7 +85,7 @@ export default function EditAttachment({
           control={control}
           render={({ field }) => {
             return (
-              <Label label={'Openbaar tonen'}>
+              <Label label={'Show publically'}>
                 <Checkbox {...field} checked={field.value} />
               </Label>
             )
@@ -102,7 +102,7 @@ export default function EditAttachment({
                   errorMessage={errors.caption?.message}
                   label={
                     <>
-                      <strong>Onderschrift</strong> (optioneel)
+                      <strong>Undertone</strong> (optional)
                     </>
                   }
                   maxContentLength={120}

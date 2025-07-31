@@ -38,9 +38,7 @@ export const DepartmentDetailContainer = ({
   const redirectURL = location.referrer || `${BASE_URL}/${routes.departments}`
   const confirmedCancel = useConfirmedCancel(redirectURL)
   const entityName = `Department${data ? ` '${data.name}'` : ''}`
-  const title = `${entityName} ${
-    isExistingDepartment ? 'wijzigen' : 'toevoegen'
-  }`
+  const title = `${isExistingDepartment ? 'Edit' : 'Add'} ${entityName}`
 
   useFetchResponseNotification({
     entityName,

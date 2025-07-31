@@ -61,12 +61,10 @@ export const Detail = () => {
   const { get, data, isLoading, patch, del, post, isSuccess, error, type } =
     useFetch<StandardTextDetailData>()
 
-  const title = params.id
-    ? 'Standaardtekst wijzigen'
-    : 'Standaardtekst toevoegen'
+  const title = params.id ? 'Edit standard text' : 'Add standard text'
 
   useFetchResponseNotification({
-    entityName: 'Standaard tekst',
+    entityName: 'Standard text',
     error,
     isLoading,
     isSuccess,
@@ -117,8 +115,8 @@ export const Detail = () => {
 
   const handleOnDelete = async () => {
     const confirmed = await isConfirmed(
-      'Let op, je verwijdert de standaardtekst',
-      'Er is geen back-up beschikbaar.'
+      'Pay attention, you are deleting the standard text.',
+      'There is no backup available.'
     )
     if (confirmed) {
       del(`${configuration.STANDARD_TEXTS_ENDPOINT}${params.id}`)
@@ -163,7 +161,7 @@ export const Detail = () => {
                     <GlobalErrorWrapper>
                       <GlobalError
                         meta={{
-                          label: 'De standaardtekst kan niet worden opgeslagen',
+                          label: 'The standard text cannot be saved',
                         }}
                       />
                     </GlobalErrorWrapper>
@@ -174,9 +172,7 @@ export const Detail = () => {
                 <PageHeader
                   dataTestId={'defaulttextadmin-page-header'}
                   title={title}
-                  BackLink={
-                    <BackLink to={'../../'}>Back to overview</BackLink>
-                  }
+                  BackLink={<BackLink to={'../../'}>Back to overview</BackLink>}
                 />
               </Row>
               {isLoading && <LoadingIndicator />}
@@ -262,7 +258,7 @@ export const Detail = () => {
                           name="active"
                           render={({ field: { name, value, onChange } }) => (
                             <div>
-                              <StyledLabel htmlFor={name} label="Actief">
+                              <StyledLabel htmlFor={name} label="Active">
                                 <Checkbox
                                   name={name}
                                   checked={value}
@@ -280,7 +276,7 @@ export const Detail = () => {
                             onClick={handleOnDelete}
                             type="button"
                           >
-                            Verwijderen
+                            Remove
                           </Button>
                         )}
                       </RightSection>

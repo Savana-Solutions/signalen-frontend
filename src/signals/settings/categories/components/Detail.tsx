@@ -116,7 +116,7 @@ export const CategoryDetail = ({
     redirectURL,
   })
 
-  const title = `${entityName} wijzigen`
+  const title = `Edit ${entityName}`
 
   useEffect(() => {
     // Prefill form with data from query

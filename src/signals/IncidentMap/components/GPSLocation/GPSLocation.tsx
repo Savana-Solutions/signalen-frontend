@@ -29,8 +29,8 @@ export const GPSLocation = ({ setNotification, setCoordinates }: Props) => (
             {`${configuration.language.siteAddress} has no permission to use your location.`}
           </strong>
           <p>
-            Dit kunt u wijzigen in de voorkeuren of instellingen van uw browser
-            of systeem.
+            This can be changed in the preferences or settings of your browser
+            or system.
           </p>
         </>
       )

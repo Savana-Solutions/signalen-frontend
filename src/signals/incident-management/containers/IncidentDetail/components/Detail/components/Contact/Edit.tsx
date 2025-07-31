@@ -24,16 +24,16 @@ const Edit = ({ onClose, incident, submit }: Props) => {
     email: yup
       .string()
       .email(
-        'Vul een geldig e-mailadres in, met een @ en een domeinnaam. Bijvoorbeeld: naam@domein.nl.'
+        'Enter a valid email address with an @ and domain name. For example: name@domain.com.'
       )
       .required(
-        'E-mailadres mag niet leeg zijn. Vul een geldig e-mailadres in, met een @ en een domeinnaam. Bijvoorbeeld: naam@domein.nl.'
+        'Email address cannot be empty. Enter a valid email address with an @ and domain name. For example: name@domain.com.'
       ),
     phone: yup
       .string()
       .matches(
         /^(?:(\+|\(|\)|\s|-|[0-9]){3,20})?$/,
-        'Vul een geldig telefoonnummer in. Alleen cijfers, spaties, haakjes, + en - zijn toegestaan.'
+        'Enter a valid phone number. Only digits, spaces, parentheses, + and - are allowed.'
       ),
   })
 
@@ -48,7 +48,7 @@ const Edit = ({ onClose, incident, submit }: Props) => {
   const { errors, dirtyFields } = formState
   return (
     <EditFormWrapper>
-      <StyledH2 forwardedAs="h2">Contact details melder wijzigen</StyledH2>
+      <StyledH2 forwardedAs="h2">Edit contact details of the reporter</StyledH2>
 
       <StyledForm
         onSubmit={handleSubmit((data) => {

@@ -78,9 +78,9 @@ export const CategoryForm = ({
                     <Input
                       {...formMethods.register('name')}
                       disabled={readOnly}
-                      hint="Het wijzigen van de naam heeft geen invloed op het type melding"
+                      hint="Changing the name has no effect on the type of notification"
                       id="name"
-                      label="Naam"
+                      label="Name"
                       name="name"
                       readOnly={readOnly}
                       type="text"
@@ -88,7 +88,7 @@ export const CategoryForm = ({
                   ) : (
                     <>
                       <StyledDefinitionTerm>
-                        <strong>Naam</strong>
+                        <strong>Name</strong>
                       </StyledDefinitionTerm>
                       <dd data-testid="name">{defaultValues?.name}</dd>
                     </>
@@ -102,7 +102,7 @@ export const CategoryForm = ({
                         <TextArea
                           disabled={readOnly}
                           id={name}
-                          label={<strong>Omschrijving</strong>}
+                          label={<strong>Description</strong>}
                           name={name}
                           onChange={onChange}
                           readOnly={readOnly}
@@ -161,7 +161,7 @@ export const CategoryForm = ({
                         render={({ field: { name, value, onChange } }) => (
                           <StyledLabel
                             htmlFor={name}
-                            label="Toon alle subcategorieën in het filter op de meldingenkaart die openbaar getoond mogen worden"
+                            label="Show all subcategories in the filter on the reports map that may be displayed publicly"
                             data-testid="show_children_in_filter"
                             disabled={readOnly}
                           >
@@ -188,7 +188,7 @@ export const CategoryForm = ({
                     <Input
                       {...formMethods.register('public_name')}
                       id="public_name"
-                      label="Naam openbaar"
+                      label="Public name"
                       name="public_name"
                       type="text"
                       readOnly={readOnly}
@@ -258,7 +258,7 @@ export const CategoryForm = ({
                           <TextArea
                             disabled={readOnly}
                             id={name}
-                            label={<strong>Servicebelofte</strong>}
+                            label={<strong>Service promise</strong>}
                             name={name}
                             onChange={onChange}
                             readOnly={readOnly}
@@ -276,7 +276,7 @@ export const CategoryForm = ({
                         render={({ field: { onChange, name } }) => (
                           <FieldGroup>
                             <StyledH2 forwardedAs="h2" styleAs="h5">
-                              Standaardteksten volgorde
+                              Order of standard texts
                             </StyledH2>
                             <StandardTextsField
                               onChange={onChange}
