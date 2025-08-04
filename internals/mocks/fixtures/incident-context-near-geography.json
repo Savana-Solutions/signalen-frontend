@@ -9,7 +9,7 @@
         "created_at": "2021-05-19T10:14:29.694082+02:00",
         "status": {
           "state": "sent",
-          "state_display": "Verzonden naar extern systeem"
+          "state_display": "Sent naar extern systeem"
         }
       }
     },
@@ -22,7 +22,7 @@
       "properties": {
         "id": 8548,
         "created_at": "2021-06-03T11:04:09.219386+02:00",
-        "status": { "state": "o", "state_display": "Afgehandeld" }
+        "status": { "state": "o", "state_display": "Completed" }
       }
     }
   ]

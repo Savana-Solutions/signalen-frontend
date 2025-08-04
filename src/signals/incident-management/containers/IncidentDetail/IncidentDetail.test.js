@@ -237,7 +237,7 @@ describe('signals/incident-management/containers/IncidentDetail', () => {
 
     expect(screen.queryByTestId('forward-to-external')).not.toBeInTheDocument()
 
-    userEvent.click(screen.getByRole('button', { name: 'Extern' }))
+    userEvent.click(screen.getByRole('button', { name: 'External' }))
 
     expect(screen.getByTestId('forward-to-external')).toBeInTheDocument()
 

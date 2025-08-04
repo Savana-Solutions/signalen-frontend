@@ -24,7 +24,7 @@ describe('IncidentDetail', () => {
         address_text: '124 Conch St., Bikini Bottom',
       },
       status: {
-        state_display: 'Gemeld',
+        state_display: 'Reported',
       },
       category: {
         sub: 'Spongebob',
@@ -53,7 +53,7 @@ describe('IncidentDetail', () => {
     expect(screen.getByTestId('date').textContent?.trim()).toEqual(
       '01-01-1970 01.00'
     )
-    expect(screen.getByTestId('status').textContent?.trim()).toEqual('Gemeld')
+    expect(screen.getByTestId('status').textContent?.trim()).toEqual('Reported')
     expect(screen.getByTestId('departments').textContent?.trim()).toEqual(
       '(Patrick)'
     )

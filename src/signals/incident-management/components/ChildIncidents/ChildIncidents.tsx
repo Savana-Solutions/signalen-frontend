@@ -43,7 +43,7 @@ type ChildIncidentsProps = {
 type LiProps = Pick<ChildIncident, 'status' | 'changed'>
 
 const incidentIsHandled = (incident: ChildIncident) =>
-  ['Afgehandeld', 'Gesplitst', 'Geannuleerd'].includes(incident.values.status)
+  ['Completed', 'Split', 'Cancelled'].includes(incident.values.status)
 
 const DisplayValue = styled.span.attrs(() => ({
   'data-testid': 'child-incidents-display-value',

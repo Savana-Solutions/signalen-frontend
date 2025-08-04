@@ -19,9 +19,9 @@ describe('Filter', () => {
     expect(
       screen.getByRole('radio', { name: 'Alle statussen' })
     ).toBeInTheDocument()
-    expect(screen.getByRole('radio', { name: 'Gemeld' })).toBeInTheDocument()
+    expect(screen.getByRole('radio', { name: 'Reported' })).toBeInTheDocument()
     expect(
-      screen.getByRole('radio', { name: 'In behandeling' })
+      screen.getByRole('radio', { name: 'In progress' })
     ).toBeInTheDocument()
     expect(screen.getByRole('radio', { name: 'Alle' })).toBeInTheDocument()
     expect(

@@ -21,7 +21,7 @@ const defaultProps: Props = {
         title: 'wit',
         text: 'bruin en wit',
         active: true,
-        state: StatusCode.Behandeling,
+        state: StatusCode.InProgress,
         categories: [176],
         meta: {},
       },
@@ -30,7 +30,7 @@ const defaultProps: Props = {
         title: 'Behandeling en tot ziens',
         text: 'We hebben je melding in behandeling. Tot ziens.',
         active: true,
-        state: StatusCode.Behandeling,
+        state: StatusCode.InProgress,
         categories: [176],
         meta: {},
       },
@@ -38,7 +38,7 @@ const defaultProps: Props = {
   },
   modalStandardTextIsOpen: true,
   openStandardTextModal: jest.fn(),
-  status: StatusCode.Behandeling,
+  status: StatusCode.InProgress,
   useStandardText: jest.fn(),
 }
 

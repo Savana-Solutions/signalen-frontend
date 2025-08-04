@@ -14,11 +14,11 @@ describe('<DefaultTexts />', () => {
 
   beforeEach(() => {
     props = {
-      status: StatusCode.Afgehandeld,
+      status: StatusCode.Completed,
       onClose: jest.fn(),
       defaultTexts: [
         {
-          state: StatusCode.Afgehandeld,
+          state: StatusCode.Completed,
           templates: [
             {
               title: 'Titel 1',
@@ -74,7 +74,7 @@ describe('<DefaultTexts />', () => {
 
   it('should not render when wrong status is used', () => {
     const { queryAllByTestId } = render(
-      withAppContext(<DefaultTexts {...props} status={StatusCode.Ingepland} />)
+      withAppContext(<DefaultTexts {...props} status={StatusCode.Planned} />)
     )
 
     expect(queryAllByTestId('default-texts-item-text')).toHaveLength(0)

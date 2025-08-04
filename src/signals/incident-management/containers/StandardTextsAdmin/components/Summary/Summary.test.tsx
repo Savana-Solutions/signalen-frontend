@@ -12,7 +12,7 @@ const defaultProps: Props = {
     title: 'Titel #7',
     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     active: true,
-    state: StatusCode.Afgehandeld,
+    state: StatusCode.Completed,
     meta: {},
     categories: [1],
   },
@@ -32,7 +32,7 @@ describe('Summary', () => {
   it('renders the component with the correct status value', () => {
     render(<Summary {...defaultProps} />)
 
-    expect(screen.getByText('Afgehandeld')).toBeInTheDocument()
+    expect(screen.getByText('Completed')).toBeInTheDocument()
   })
 
   it('calls onClick with standardText.id when clicking ', () => {

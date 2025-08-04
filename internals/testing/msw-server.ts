@@ -212,7 +212,7 @@ const handlers = [
         return HttpResponse.json(
           {
             detail:
-              'Session invalidated is invalidated, associated signal not in state REACTIE_GEVRAAGD.',
+              'Session invalidated is invalidated, associated signal not in state REACTION_REQUESTED.',
           },
           { status: 500 }
         )

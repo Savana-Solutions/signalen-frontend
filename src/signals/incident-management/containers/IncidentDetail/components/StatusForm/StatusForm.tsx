@@ -214,8 +214,8 @@ const StatusForm: FunctionComponent<StatusFormProps> = ({
   const onStatusChange = useCallback((event) => {
     if (
       !configuration.featureFlags.reporterMailHandledNegativeContactEnabled &&
-      event.target.value === StatusCode.Afgehandeld &&
-      state.status.key === StatusCode.VerzoekTotHeropenen
+      event.target.value === StatusCode.Completed &&
+      state.status.key === StatusCode.RequestToReopen
     ) {
       setEmailIsNotSend(true)
     }
@@ -304,7 +304,7 @@ const StatusForm: FunctionComponent<StatusFormProps> = ({
           <StyledLegend>Send</StyledLegend>
 
           {state.flags.isSplitIncident &&
-            (state.status.key === StatusCode.ReactieGevraagd ? (
+            (state.status.key === StatusCode.ReactionRequested ? (
               <Alert data-testid="split-incident-reply-warning" level="info">
                 {constants.REPLY_DEELMELDING_EXPLANATION}
               </Alert>

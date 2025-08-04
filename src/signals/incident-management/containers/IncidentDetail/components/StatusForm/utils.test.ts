@@ -15,12 +15,12 @@ describe('utils', () => {
       jest.clearAllMocks()
     })
 
-    it('should return true when status change form Verzoek tot Heropenen naar Afgehandeld in new kto process', () => {
+    it('should return true when status change form Verzoek tot Heropenen naar Completed in new kto process', () => {
       configuration.featureFlags.reporterMailHandledNegativeContactEnabled =
         true
       const params = {
-        toStatus: StatusCode.Afgehandeld,
-        fromStatus: StatusCode.VerzoekTotHeropenen,
+        toStatus: StatusCode.Completed,
+        fromStatus: StatusCode.RequestToReopen,
         isSplitIncident: false,
       }
 
@@ -29,12 +29,12 @@ describe('utils', () => {
       expect(result).toEqual(true)
     })
 
-    it('should return false when status change form Verzoek tot Heropenen naar Afgehandeld in old kto process', () => {
+    it('should return false when status change form Verzoek tot Heropenen naar Completed in old kto process', () => {
       configuration.featureFlags.reporterMailHandledNegativeContactEnabled =
         false
       const params = {
-        toStatus: StatusCode.Afgehandeld,
-        fromStatus: StatusCode.VerzoekTotHeropenen,
+        toStatus: StatusCode.Completed,
+        fromStatus: StatusCode.RequestToReopen,
         isSplitIncident: false,
       }
 

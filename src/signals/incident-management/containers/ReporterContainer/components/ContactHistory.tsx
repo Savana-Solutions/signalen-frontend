@@ -17,8 +17,8 @@ import type { History } from 'types/history'
 
 const headerMapper: Record<string, string> = {
   ['Feedback from reporter received']: 'Feedback',
-  ['Status edited to: Afgehandeld']: 'Toelichting bij Afgehandeld',
-  ['Status edited to: Heropend']: 'Toelichting bij Heropend',
+  ['Status edited to: Completed']: 'Explanation for Completed',
+  ['Status edited to: Reopened']: 'Explanation for Reopened',
 }
 
 const Text = styled.p`

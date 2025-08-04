@@ -1,7 +1,7 @@
 {
   "id": 6010,
   "status": "m",
-  "statusDisplayName": "Gemeld",
+  "statusDisplayName": "Reported",
   "childrenCount": 0,
   "priority": "normal",
   "subcategory": "https://acc.api.data.amsterdam.nl/signals/v1/public/terms/categories/civiele-constructies/sub_categories/afwatering-brug",

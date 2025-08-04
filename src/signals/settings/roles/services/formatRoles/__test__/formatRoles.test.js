@@ -20,7 +20,7 @@ describe('formatRoles service', () => {
         id: 3,
       },
       {
-        Naam: 'Extern Systeem',
+        Naam: 'External Systeem',
         Rechten:
           'Leesrechten algemeen, Wijzigen van status van een melding, Melding aanmaken, Notitie toevoegen bij een melding, Schrijfrechten algemeen',
         id: 20,

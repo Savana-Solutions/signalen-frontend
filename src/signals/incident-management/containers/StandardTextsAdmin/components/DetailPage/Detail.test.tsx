@@ -62,7 +62,7 @@ describe('Detail', () => {
       expect(
         screen.getByText('Parkeeroverlast, Overige overlast door personen')
       ).toBeInTheDocument()
-      expect(screen.queryByText('Afgehandeld')).not.toBeNull()
+      expect(screen.queryByText('Completed')).not.toBeNull()
       expect(screen.queryByDisplayValue('o')).not.toBeNull()
       expect(
         screen.getByRole('button', { name: 'Cancel' })
@@ -182,15 +182,15 @@ describe('Detail', () => {
     render(withAppContext(<Detail />))
 
     expect(
-      screen.getByRole('radio', { name: 'In afwachting van behandeling' })
+      screen.getByRole('radio', { name: 'Awaiting handling' })
     ).not.toBeChecked()
 
     userEvent.click(
-      screen.getByRole('radio', { name: 'In afwachting van behandeling' })
+      screen.getByRole('radio', { name: 'Awaiting handling' })
     )
 
     expect(
-      screen.getByRole('radio', { name: 'In afwachting van behandeling' })
+      screen.getByRole('radio', { name: 'Awaiting handling' })
     ).toBeChecked()
   })
 

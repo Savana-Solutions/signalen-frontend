@@ -2,7 +2,7 @@
 // Copyright (C) 2020 - 2022 Gemeente Amsterdam
 import statusList, {
   changeStatusOptionList,
-  GEMELD,
+  REPORTED,
 } from 'signals/incident-management/definitions/statusList'
 import type { Status } from 'signals/incident-management/definitions/types'
 import { StatusCode } from 'types/status-code'
@@ -12,7 +12,7 @@ import * as constants from './constants'
 import reducer, { init } from './reducer'
 
 const someStatus = {
-  key: StatusCode.Gemeld,
+  key: StatusCode.Reported,
   email_sent_when_set: false,
   shows_remaining_sla_days: true,
   value: 'foo',
@@ -21,7 +21,7 @@ const someStatus = {
 // @ts-ignore
 const initialisedState = init({ incident: incidentFixture })
 const state = {
-  originalStatus: GEMELD,
+  originalStatus: REPORTED,
   status: someStatus,
   check: {
     checked: false,

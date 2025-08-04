@@ -16,7 +16,7 @@ const defaultProps: Props = {
   closeDefaultTextModal: jest.fn(),
   defaultTexts: [
     {
-      state: StatusCode.Afgehandeld,
+      state: StatusCode.Completed,
       templates: [
         {
           title: 'Titel 1',
@@ -38,7 +38,7 @@ const defaultProps: Props = {
   ],
   modalDefaultTextIsOpen: true,
   openDefaultTextModal: jest.fn(),
-  status: StatusCode.Afgehandeld,
+  status: StatusCode.Completed,
   useDefaultText: jest.fn(),
 }
 

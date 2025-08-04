@@ -20,7 +20,7 @@
         "main": "Afval",
         "main_slug": "afval"
       },
-      "status": { "state": "b", "state_display": "In behandeling" },
+      "status": { "state": "b", "state_display": "In progress" },
       "feedback": {
         "is_satisfied": true,
         "submitted_at": "2021-04-29:11:22.741716+02:00"
@@ -38,7 +38,7 @@
         "main": "Afval",
         "main_slug": "afval"
       },
-      "status": { "state": "b", "state_display": "In behandeling" },
+      "status": { "state": "b", "state_display": "In progress" },
       "feedback": null,
       "can_view_signal": true,
       "has_children": true
@@ -53,7 +53,7 @@
         "main": "Afval",
         "main_slug": "afval"
       },
-      "status": { "state": "b", "state_display": "In behandeling" },
+      "status": { "state": "b", "state_display": "In progress" },
       "feedback": null,
       "can_view_signal": false,
       "has_children": true

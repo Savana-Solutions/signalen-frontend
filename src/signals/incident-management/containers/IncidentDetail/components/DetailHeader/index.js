@@ -155,7 +155,7 @@ const DetailHeader = () => {
                 data-testid="detail-header-button-external"
                 title="Doorzetten naar extern"
               >
-                Extern
+                External
               </Button>
             )}
 

@@ -166,7 +166,7 @@ describe('signals/incident-management/components/CheckboxList', () => {
   })
 
   it('should check all boxes when group is checked', () => {
-    const groupId = StatusCode.Afgehandeld
+    const groupId = StatusCode.Completed
     const toggleAllLabel = 'Zork'
     const toggleNothingLabel = 'Dungeon'
     const { rerender } = render(

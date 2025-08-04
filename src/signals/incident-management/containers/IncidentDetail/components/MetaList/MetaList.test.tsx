@@ -76,11 +76,11 @@ const childIncident = {
 
 const defaultTexts = [
   {
-    state: StatusCode.Ingepland,
+    state: StatusCode.Planned,
     templates: [],
   },
   {
-    state: StatusCode.Afgehandeld,
+    state: StatusCode.Completed,
     templates: [],
   },
 ]
@@ -144,7 +144,7 @@ describe('MetaList', () => {
         screen.queryByTestId('meta-list-status-definition')
       ).toHaveTextContent(/^Status$/)
       expect(screen.queryByTestId('meta-list-status-value')).toHaveTextContent(
-        /^Gemeld$/
+        /^Reported$/
       )
 
       expect(screen.queryByText('Urgency')).toBeInTheDocument()
@@ -197,7 +197,7 @@ describe('MetaList', () => {
         screen.queryByTestId('meta-list-status-definition')
       ).toHaveTextContent(/^Status$/)
       expect(screen.queryByTestId('meta-list-status-value')).toHaveTextContent(
-        /^Gemeld$/
+        /^Reported$/
       )
 
       expect(screen.queryByText('Urgency')).toBeInTheDocument()
@@ -243,7 +243,7 @@ describe('MetaList', () => {
         screen.queryByTestId('meta-list-status-definition')
       ).toHaveTextContent(/^Status$/)
       expect(screen.queryByTestId('meta-list-status-value')).toHaveTextContent(
-        /^Gemeld$/
+        /^Reported$/
       )
 
       expect(screen.queryByText('Urgency')).toBeInTheDocument()
@@ -410,7 +410,7 @@ describe('MetaList', () => {
         },
         status: {
           ...plainIncident.status,
-          state: StatusCode.Afgehandeld,
+          state: StatusCode.Completed,
           created_at: statusChangeDate.toISOString(),
         },
       })

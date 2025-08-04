@@ -46,7 +46,7 @@ export const woningkwaliteit = {
         },
       },
       label: 'Hebt u de klacht al bij uw verhuurder, eigenaar of VvE gemeld?',
-      shortLabel: 'Gemeld bij eigenaar',
+      shortLabel: 'Reported bij eigenaar',
       pathMerge: 'extra_properties',
       values: {
         ja: 'Yes',

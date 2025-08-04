@@ -241,10 +241,10 @@ describe('List', () => {
         ...props,
         incidents: [
           ...props.incidents,
-          incidentWithStatus(StatusCode.Geannuleerd, 1),
-          incidentWithStatus(StatusCode.Gesplitst, 2),
-          incidentWithStatus(StatusCode.ReactieGevraagd, 3),
-          incidentWithStatus(StatusCode.Behandeling, 4),
+          incidentWithStatus(StatusCode.Cancelled, 1),
+          incidentWithStatus(StatusCode.Split, 2),
+          incidentWithStatus(StatusCode.ReactionRequested, 3),
+          incidentWithStatus(StatusCode.InProgress, 4),
         ],
       }
 

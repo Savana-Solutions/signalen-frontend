@@ -80,7 +80,7 @@
     "text": null,
     "user": null,
     "state": "m",
-    "state_display": "Gemeld",
+    "state_display": "Reported",
     "target_api": null,
     "extra_properties": {},
     "send_email": false,

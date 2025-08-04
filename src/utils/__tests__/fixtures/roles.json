@@ -172,9 +172,9 @@
         "href": "https://acc.api.data.amsterdam.nl/signals/v1/private/roles/20"
       }
     },
-    "_display": "Extern Systeem",
+    "_display": "External Systeem",
     "id": 20,
-    "name": "Extern Systeem",
+    "name": "External Systeem",
     "permissions": [
       {
         "_links": {

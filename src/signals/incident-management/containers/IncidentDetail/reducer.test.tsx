@@ -33,7 +33,7 @@ describe('signals/incident-management/containers/IncidentDetail/reducer', () => 
   }
 
   const someStatus = {
-    key: StatusCode.Gemeld,
+    key: StatusCode.Reported,
     email_sent_when_set: false,
     shows_remaining_sla_days: true,
     value: 'foo',
@@ -175,7 +175,7 @@ describe('signals/incident-management/containers/IncidentDetail/reducer', () => 
         address_text: '124 Conch St., Bikini Bottom',
       },
       status: {
-        state_display: 'Gemeld',
+        state_display: 'Reported',
       },
       category: {
         sub: 'Spongebob',

@@ -13,11 +13,11 @@ import fetch from 'jest-fetch-mock'
 import * as actions from 'containers/App/actions'
 import configuration from 'shared/services/configuration/configuration'
 import {
-  AFGEHANDELD,
+  Completed,
   changeStatusOptionList,
-  GEANNULEERD,
-  GEMELD,
-  INGEPLAND,
+  CANCELLED,
+  REPORTED,
+  PLANNED,
 } from 'signals/incident-management/definitions/statusList'
 import type { Status } from 'signals/incident-management/definitions/types'
 import { withAppContext } from 'test/utils'
@@ -64,7 +64,7 @@ const renderWithContext = (
     </IncidentDetailContext.Provider>
   )
 
-const statusSendsEmailWhenSet = AFGEHANDELD
+const statusSendsEmailWhenSet = Completed
 
 const statusDoesNotSendEmailWhenSet = changeStatusOptionList.filter(
   ({ email_sent_when_set }) => !email_sent_when_set
@@ -101,7 +101,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
   beforeEach(() => {
     defaultTexts = [
       {
-        state: StatusCode.Ingepland,
+        state: StatusCode.Planned,
         templates: [
           { title: 'Ingepland', text: 'Over 1 dag', is_active: true },
           { title: 'Ingepland', text: 'Over 2 dagen', is_active: true },
@@ -109,7 +109,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
         ],
       },
       {
-        state: StatusCode.Afgehandeld,
+        state: StatusCode.Completed,
         templates: [
           {
             title: 'Niet opgelost',
@@ -140,7 +140,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
   it('shows an explanation text when email will be sent', () => {
     render(renderWithContext())
 
-    userEvent.click(screen.getByText('Afgehandeld'))
+    userEvent.click(screen.getByText('Completed'))
     userEvent.click(screen.getByTestId('send-email-checkbox'))
 
     expect(screen.queryByText(DEFAULT_TEXT_LABEL)).toBeInTheDocument()
@@ -200,7 +200,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
 
     // select a status that will not disable the checkbox
     userEvent.selectOptions(screen.getByTestId('select-status'), [
-      StatusCode.Gemeld,
+      StatusCode.Reported,
     ])
 
     // verify that checkbox is NOT checked and NOT disabled
@@ -211,17 +211,17 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
     expect(screen.queryByText('(not mandatory)')).toBeInTheDocument()
   })
 
-  it('renders a disabled checkbox when changing from verzoek tot heropenen to afgehandeld', () => {
+  it('renders a disabled checkbox when changing from verzoek tot heropenen to Completed', () => {
     const withHeropenenStatus = { ...incidentFixture }
     if (withHeropenenStatus?.status?.state) {
-      withHeropenenStatus.status.state = StatusCode.VerzoekTotHeropenen
+      withHeropenenStatus.status.state = StatusCode.RequestToReopen
     }
 
     // render status verzoek tot heropenen
     render(renderWithContext(withHeropenenStatus))
 
     userEvent.selectOptions(screen.getByTestId('select-status'), [
-      StatusCode.Heropend,
+      StatusCode.Reopened,
     ])
 
     const checkbox = screen.getByTestId('send-email-checkbox')
@@ -230,18 +230,18 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
     expect(checkbox).toBeDisabled()
 
     userEvent.selectOptions(screen.getByTestId('select-status'), [
-      StatusCode.Afgehandeld,
+      StatusCode.Completed,
     ])
 
     expect(checkbox).toBeChecked()
     expect(checkbox).toBeDisabled()
   })
 
-  it("renders a notification 'not sending email' when changing from verzoek tot heropenen to afgehandeld in old kto flow", () => {
+  it("renders a notification 'not sending email' when changing from verzoek tot heropenen to Completed in old kto flow", () => {
     configuration.featureFlags.reporterMailHandledNegativeContactEnabled = false
     const withHeropenenStatus = { ...incidentFixture }
     if (withHeropenenStatus?.status?.state) {
-      withHeropenenStatus.status.state = StatusCode.VerzoekTotHeropenen
+      withHeropenenStatus.status.state = StatusCode.RequestToReopen
     }
 
     // render status verzoek tot heropenen
@@ -252,7 +252,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
     expect(checkbox).not.toBeDisabled()
 
     userEvent.selectOptions(screen.getByTestId('select-status'), [
-      StatusCode.Afgehandeld,
+      StatusCode.Completed,
     ])
 
     const noEmailNotification = screen.getByTestId('no-emaiI-is-sent-warning')
@@ -362,7 +362,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
 
     // select another status
     userEvent.selectOptions(screen.getByTestId('select-status'), [
-      StatusCode.Gemeld,
+      StatusCode.Reported,
     ])
 
     // verify that the text field is empty again
@@ -386,7 +386,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
 
     // select another status
     userEvent.selectOptions(screen.getByTestId('select-status'), [
-      StatusCode.Afwachting,
+      StatusCode.Awaiting,
     ])
 
     // verify that the text field is NOT empty
@@ -475,7 +475,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
     expect(screen.queryByRole('alert')).not.toBeInTheDocument()
 
     userEvent.selectOptions(screen.getByTestId('select-status'), [
-      StatusCode.Afgehandeld,
+      StatusCode.Completed,
     ])
 
     // submit the form
@@ -488,7 +488,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
 
     // select another status
     userEvent.selectOptions(screen.getByTestId('select-status'), [
-      StatusCode.ReactieGevraagd,
+      StatusCode.ReactionRequested,
     ])
 
     // verify that an error message is NOT shown
@@ -500,7 +500,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
 
     expect(screen.queryByTestId('end-status-warning')).not.toBeInTheDocument()
     userEvent.selectOptions(screen.getByTestId('select-status'), [
-      StatusCode.Afgehandeld,
+      StatusCode.Completed,
     ])
     expect(screen.getByTestId('end-status-warning')).toBeInTheDocument()
   })
@@ -513,7 +513,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
     render(renderWithContext(withoutReporterEmail))
 
     userEvent.selectOptions(screen.getByTestId('select-status'), [
-      StatusCode.Afgehandeld,
+      StatusCode.Completed,
     ])
     expect(screen.getByTestId('no-email-warning')).toBeInTheDocument()
   })
@@ -529,7 +529,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
     render(renderWithContext(contactNotAllowed))
 
     userEvent.selectOptions(screen.getByTestId('select-status'), [
-      StatusCode.Afgehandeld,
+      StatusCode.Completed,
     ])
     expect(screen.getByTestId('no-contact-allowed-warning')).toBeInTheDocument()
   })
@@ -547,7 +547,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
     render(renderWithContext(withoutReporterEmail))
 
     userEvent.selectOptions(screen.getByTestId('select-status'), [
-      StatusCode.ReactieGevraagd,
+      StatusCode.ReactionRequested,
     ])
     expect(screen.getByTestId('has-no-email-reply-warning')).toBeInTheDocument()
   })
@@ -569,7 +569,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
     render(renderWithContext(deelmelding))
 
     userEvent.selectOptions(screen.getByTestId('select-status'), [
-      StatusCode.Afwachting,
+      StatusCode.Awaiting,
     ])
     userEvent.click(screen.getByRole('button', { name: 'Save' }))
 
@@ -593,7 +593,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
     render(renderWithContext(deelmelding))
 
     userEvent.selectOptions(screen.getByTestId('select-status'), [
-      StatusCode.Afgehandeld,
+      StatusCode.Completed,
     ])
     userEvent.click(screen.getByRole('button', { name: 'Save' }))
 
@@ -623,7 +623,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
 
     // select a status that will show a warning
     userEvent.selectOptions(screen.getByTestId('select-status'), [
-      StatusCode.Heropend,
+      StatusCode.Reopened,
     ])
 
     // verify that explanation with text DEELMELDING_EXPLANATION is visible
@@ -631,7 +631,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
       DEELMELDING_EXPLANATION
     )
     userEvent.selectOptions(screen.getByTestId('select-status'), [
-      StatusCode.ReactieGevraagd,
+      StatusCode.ReactionRequested,
     ])
     expect(
       screen.getByTestId('split-incident-reply-warning')
@@ -639,7 +639,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
   })
 
   it('shows a warning when there are child incidents still open', async () => {
-    const childIncidents = getChildIncidents([GEMELD, INGEPLAND])
+    const childIncidents = getChildIncidents([REPORTED, PLANNED])
     render(renderWithContext(incidentFixture, childIncidents))
 
     expect(
@@ -647,7 +647,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
     ).not.toBeInTheDocument()
 
     userEvent.selectOptions(screen.getByTestId('select-status'), [
-      StatusCode.Afgehandeld,
+      StatusCode.Completed,
     ])
 
     expect(
@@ -658,7 +658,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
     ).toContain(DEELMELDINGEN_STILL_OPEN_CONTENT)
 
     userEvent.selectOptions(screen.getByTestId('select-status'), [
-      StatusCode.Ingepland,
+      StatusCode.Planned,
     ])
 
     expect(
@@ -666,7 +666,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
     ).not.toBeInTheDocument()
 
     userEvent.selectOptions(screen.getByTestId('select-status'), [
-      StatusCode.Geannuleerd,
+      StatusCode.Cancelled,
     ])
     expect(
       screen.getByTestId('has-open-child-incidents-warning').textContent
@@ -677,7 +677,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
   })
 
   it('shows NO warning when the child incidents are closed', async () => {
-    const childIncidents = getChildIncidents([AFGEHANDELD, GEANNULEERD])
+    const childIncidents = getChildIncidents([Completed, CANCELLED])
 
     render(renderWithContext(incidentFixture, childIncidents))
 
@@ -686,7 +686,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
     ).not.toBeInTheDocument()
 
     userEvent.selectOptions(screen.getByTestId('select-status'), [
-      StatusCode.Afgehandeld,
+      StatusCode.Completed,
     ])
 
     expect(
@@ -694,7 +694,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
     ).not.toBeInTheDocument()
 
     userEvent.selectOptions(screen.getByTestId('select-status'), [
-      StatusCode.Ingepland,
+      StatusCode.Planned,
     ])
 
     expect(
@@ -702,7 +702,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
     ).not.toBeInTheDocument()
 
     userEvent.selectOptions(screen.getByTestId('select-status'), [
-      StatusCode.Geannuleerd,
+      StatusCode.Cancelled,
     ])
 
     expect(
@@ -722,12 +722,12 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
 
     expect(submitButton).not.toBeDisabled()
     userEvent.selectOptions(screen.getByTestId('select-status'), [
-      StatusCode.ReactieGevraagd,
+      StatusCode.ReactionRequested,
     ])
     expect(submitButton).toBeDisabled()
   })
 
-  it('is not possible to submit the status Afgehandeld when category is Overig-Overig', async () => {
+  it('is not possible to submit the status Completed when category is Overig-Overig', async () => {
     const withCategoryOverigOverig = {
       ...incidentFixture,
       category: {
@@ -747,7 +747,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
     render(renderWithContext(withCategoryOverigOverig))
 
     userEvent.selectOptions(screen.getByTestId('select-status'), [
-      StatusCode.Afgehandeld,
+      StatusCode.Completed,
     ])
 
     expect(screen.getByRole('button', { name: 'Send' })).toBeDisabled()
@@ -756,7 +756,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
     ).toBeInTheDocument()
   })
 
-  it('is possible to submit the status Afgehandeld when featureFlag disableClosingCategoryOverigOverig is false', async () => {
+  it('is possible to submit the status Completed when featureFlag disableClosingCategoryOverigOverig is false', async () => {
     const withCategoryOverigOverig = {
       ...incidentFixture,
       category: {
@@ -775,7 +775,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
     render(renderWithContext(withCategoryOverigOverig))
 
     userEvent.selectOptions(screen.getByTestId('select-status'), [
-      StatusCode.Afgehandeld,
+      StatusCode.Completed,
     ])
 
     expect(screen.getByRole('button', { name: 'Send' })).not.toBeDisabled()
@@ -877,7 +877,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
             title: 'wit',
             text: 'bruin en wit',
             active: true,
-            state: StatusCode.Behandeling,
+            state: StatusCode.InProgress,
             categories: [176],
             meta: {},
           },
@@ -886,7 +886,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
             title: 'Behandeling en tot ziens',
             text: 'We hebben je melding in behandeling. Tot ziens.',
             active: true,
-            state: StatusCode.Behandeling,
+            state: StatusCode.InProgress,
             categories: [176],
             meta: {},
           },

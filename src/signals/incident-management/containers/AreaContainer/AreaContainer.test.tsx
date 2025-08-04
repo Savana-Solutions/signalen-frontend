@@ -64,7 +64,7 @@ jest.mock(
         properties: {
           id: 1234,
           created_at: '',
-          status: { state: mockStatusCode.Gemeld, state_display: '' },
+          status: { state: mockStatusCode.Reported, state_display: '' },
         },
       }
 

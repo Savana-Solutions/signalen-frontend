@@ -6,7 +6,7 @@ import fetchMock from 'jest-fetch-mock'
 
 import * as actions from 'containers/App/actions'
 import configuration from 'shared/services/configuration/configuration'
-import { DOORGEZET_NAAR_EXTERN } from 'signals/incident-management/definitions/statusList'
+import { FORWARDED_TO_EXTERN } from 'signals/incident-management/definitions/statusList'
 import { withAppContext } from 'test/utils'
 import type { Incident } from 'types/api/incident'
 import { StatusCode } from 'types/status-code'
@@ -163,7 +163,7 @@ describe('ForwardToExternal', () => {
             expect.objectContaining({
               method: 'POST',
               body: JSON.stringify({
-                status: StatusCode.DoorgezetNaarExtern,
+                status: StatusCode.ForwardedToExtern,
                 text: message,
                 email_override: email,
               }),
@@ -206,7 +206,7 @@ describe('ForwardToExternal', () => {
           type: PATCH_TYPE_STATUS,
           patch: {
             status: {
-              state: DOORGEZET_NAAR_EXTERN.key,
+              state: FORWARDED_TO_EXTERN.key,
               text: message,
               send_email: true,
               email_override: email,

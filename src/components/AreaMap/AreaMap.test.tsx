@@ -22,8 +22,8 @@ const features: Feature[] = [
       created_at: Date.now().toString(),
       id: 1,
       status: {
-        state: StatusCode.Gemeld,
-        state_display: 'Gemeld',
+        state: StatusCode.Reported,
+        state_display: 'Reported',
       },
     },
   },
@@ -37,8 +37,8 @@ const features: Feature[] = [
       created_at: Date.now().toString(),
       id: 2,
       status: {
-        state: StatusCode.Afgehandeld,
-        state_display: 'Afgehandeld',
+        state: StatusCode.Completed,
+        state_display: 'Completed',
       },
     },
   },

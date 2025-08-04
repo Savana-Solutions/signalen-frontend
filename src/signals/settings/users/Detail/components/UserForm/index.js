@@ -336,7 +336,7 @@ UserForm.propTypes = {
   data: userType,
   history: historyType,
   /**
-   * Callback handler called whenever form is canceled
+   * Callback handler called whenever form is cancelled
    * @param {Object} form data
    * @param {Object.form} current form data (used for comparing form changes)
    * @param {Object.postPatch} modified form data for post/patch requests

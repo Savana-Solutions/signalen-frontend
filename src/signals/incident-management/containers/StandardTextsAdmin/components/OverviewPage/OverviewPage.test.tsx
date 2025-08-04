@@ -205,7 +205,7 @@ describe('OverviewPage', () => {
     it('should fetch new data when status filter changes', async () => {
       renderComponent()
 
-      const statusGemeldOption = screen.getByRole('radio', { name: 'Gemeld' })
+      const statusGemeldOption = screen.getByRole('radio', { name: 'Reported' })
 
       userEvent.click(statusGemeldOption)
 
@@ -213,7 +213,7 @@ describe('OverviewPage', () => {
         ...mockProviderValue,
         standardTexts: {
           ...mockProviderValue.standardTexts,
-          statusFilter: { key: 'm', value: 'Gemeld' },
+          statusFilter: { key: 'm', value: 'Reported' },
         },
       }))
 
@@ -247,7 +247,7 @@ describe('OverviewPage', () => {
     it('should combine the filter as they change', async () => {
       renderComponent()
 
-      const statusGemeldOption = screen.getByRole('radio', { name: 'Gemeld' })
+      const statusGemeldOption = screen.getByRole('radio', { name: 'Reported' })
 
       userEvent.click(statusGemeldOption)
 
@@ -260,7 +260,7 @@ describe('OverviewPage', () => {
         standardTexts: {
           ...mockProviderValue.standardTexts,
           activeFilter: { key: 'true', value: 'Actief' },
-          statusFilter: { key: 'm', value: 'Gemeld' },
+          statusFilter: { key: 'm', value: 'Reported' },
         },
       }))
 

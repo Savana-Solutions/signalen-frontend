@@ -177,17 +177,17 @@ describe('signals/incident-management/components/RadioButtonList', () => {
     const statusFilters = [
       {
         key: 'm',
-        value: 'Gemeld',
+        value: 'Reported',
         count: 6,
       },
       {
         key: 'i',
-        value: 'In afwachting van behandeling',
+        value: 'Awaiting handling',
         count: 1,
       },
       {
         key: 'reaction requested',
-        value: 'Reactie gevraagd',
+        value: 'Reaction requested',
       },
     ]
 

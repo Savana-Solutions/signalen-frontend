@@ -24,7 +24,7 @@ describe('IncidentList', () => {
       id: 7743,
       createdAt: '2021-04-22T15:13:15.254123+02:00',
       category: 'Container papier vol',
-      status: 'Afgehandeld',
+      status: 'Completed',
       feedback: {
         isSatisfied: null,
         submittedAt: null,

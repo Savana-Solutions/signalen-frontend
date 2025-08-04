@@ -41,10 +41,10 @@ describe('SelectForm', () => {
     expect(queryByTestId('category_url').value).toEqual(subcategories[0].key)
 
     expect(queryByText('Status')).not.toBeNull()
-    expect(queryByText('Afgehandeld')).not.toBeNull()
+    expect(queryByText('Completed')).not.toBeNull()
     expect(queryByDisplayValue('o')).not.toBeNull()
     expect(queryByText('Ingepland')).not.toBeNull()
-    expect(queryByText('Heropend')).not.toBeNull()
+    expect(queryByText('Reopened')).not.toBeNull()
   })
 
   describe('events', () => {

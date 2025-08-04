@@ -71,7 +71,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Detai
     )
     expect(
       screen.queryByTestId('detail-header-button-external')
-    ).toHaveTextContent(/^Extern$/)
+    ).toHaveTextContent(/^External$/)
     expect(
       screen.queryAllByTestId('detail-header-button-download')
     ).toHaveLength(1)
@@ -95,7 +95,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Detai
     ).not.toBeInTheDocument()
   })
 
-  it('should not render Extern button when feature flag is disabled', () => {
+  it('should not render External button when feature flag is disabled', () => {
     configuration.featureFlags.enableForwardIncidentToExternal = false
 
     render(renderWithContext(incidentFixture))
@@ -246,7 +246,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Detai
     })
   })
 
-  it('should render no Extern button when status is "o" or "a"', () => {
+  it('should render no External button when status is "o" or "a"', () => {
     const { rerender } = render(
       renderWithContext({
         ...incidentFixture,
@@ -270,7 +270,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Detai
     ).not.toBeInTheDocument()
   })
 
-  it('should toggle external when Extern button is clicked', () => {
+  it('should toggle external when External button is clicked', () => {
     render(renderWithContext())
 
     expect(toggleExternal).not.toHaveBeenCalled()

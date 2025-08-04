@@ -12,7 +12,7 @@
     "identifier": "UPDATE_STATUS_16232",
     "when": "2021-04-29T09:35:17.762106+02:00",
     "what": "UPDATE_STATUS",
-    "action": "Status gewijzigd naar: Heropend",
+    "action": "Status gewijzigd naar: Reopened",
     "description": "asfdasdf",
     "who": "me@example.com",
     "_signal": 6254
@@ -21,7 +21,7 @@
     "identifier": "UPDATE_STATUS_15550",
     "when": "2021-03-30T10:30:23.182795+02:00",
     "what": "UPDATE_STATUS",
-    "action": "Status gewijzigd naar: Geannuleerd",
+    "action": "Status gewijzigd naar: Cancelled",
     "description": "Hoofdmelding is afgehandeld",
     "who": "Signalen systeem",
     "_signal": 6254
@@ -66,7 +66,7 @@
     "identifier": "UPDATE_STATUS_15547",
     "when": "2021-03-30T10:30:11.008451+02:00",
     "what": "UPDATE_STATUS",
-    "action": "Status gewijzigd naar: Gemeld",
+    "action": "Status gewijzigd naar: Reported",
     "description": null,
     "who": "me@example.com",
     "_signal": 6254

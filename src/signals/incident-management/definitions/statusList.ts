@@ -4,176 +4,174 @@ import { StatusCode } from 'types/status-code'
 
 import type { Status } from './types'
 
-export const GEMELD = {
-  key: StatusCode.Gemeld,
-  value: 'Gemeld',
+export const REPORTED = {
+  key: StatusCode.Reported,
+  value: 'Reported',
   color: 'red',
   email_sent_when_set: false,
   shows_remaining_sla_days: true,
 }
 
-export const AFWACHTING = {
-  key: StatusCode.Afwachting,
-  value: 'In afwachting van behandeling',
+export const AWAITING = {
+  key: StatusCode.Awaiting,
+  value: 'Awaiting handling',
   color: 'purple',
   email_sent_when_set: false,
   shows_remaining_sla_days: true,
 }
 
-export const BEHANDELING = {
-  key: StatusCode.Behandeling,
-  value: 'In behandeling',
+export const IN_PROGRESS = {
+  key: StatusCode.InProgress,
+  value: 'In progress',
   color: 'blue',
   email_sent_when_set: false,
   shows_remaining_sla_days: true,
 }
 
-export const AFGEHANDELD = {
-  key: StatusCode.Afgehandeld,
-  value: 'Afgehandeld',
+export const COMPLETED = {
+  key: StatusCode.Completed,
+  value: 'Completed',
   color: 'lightgreen',
   email_sent_when_set: true,
   shows_remaining_sla_days: false,
 }
 
-export const GESPLITST = {
-  key: StatusCode.Gesplitst,
-  value: 'Gesplitst',
+export const SPLIT = {
+  key: StatusCode.Split,
+  value: 'Split',
   color: 'lightgreen',
   email_sent_when_set: false,
   shows_remaining_sla_days: false,
 }
 
-export const INGEPLAND = {
-  key: StatusCode.Ingepland,
-  value: 'Ingepland',
+export const PLANNED = {
+  key: StatusCode.Planned,
+  value: 'Planned',
   color: 'grey',
   email_sent_when_set: false,
   shows_remaining_sla_days: true,
 }
 
-export const GEANNULEERD = {
-  key: StatusCode.Geannuleerd,
-  value: 'Geannuleerd',
+export const CANCELLED = {
+  key: StatusCode.Cancelled,
+  value: 'Cancelled',
   color: 'darkgrey',
   email_sent_when_set: false,
   shows_remaining_sla_days: false,
 }
 
-export const REACTIE_GEVRAAGD = {
-  key: StatusCode.ReactieGevraagd,
-  value: 'Reactie gevraagd',
+export const REACTION_REQUESTED = {
+  key: StatusCode.ReactionRequested,
+  value: 'Reaction requested',
   email_sent_when_set: true,
   shows_remaining_sla_days: false,
 }
 
-export const REACTIE_ONTVANGEN = {
-  key: StatusCode.ReactieOntvangen,
-  value: 'Reactie ontvangen',
+export const REACTION_RECEIVED = {
+  key: StatusCode.ReactionReceived,
+  value: 'Reaction received',
   email_sent_when_set: false,
   shows_remaining_sla_days: false,
 }
 
-export const VERZOEK_TOT_HEROPENEN = {
-  key: StatusCode.VerzoekTotHeropenen,
+export const REQUEST_TO_REOPEN = {
+  key: StatusCode.RequestToReopen,
   value: 'Request to reopen',
   color: 'orange',
   email_sent_when_set: false,
   shows_remaining_sla_days: false,
 }
 
-export const HEROPEND = {
-  key: StatusCode.Heropend,
-  value: 'Heropend',
+export const REOPENED = {
+  key: StatusCode.Reopened,
+  value: 'Reopened',
   color: 'orange',
   email_sent_when_set: true,
   shows_remaining_sla_days: true,
 }
 
-export const TE_VERZENDEN = {
-  key: StatusCode.TeVerzenden,
-  value: 'Extern: te verzenden',
+export const TO_SEND = {
+  key: StatusCode.ToSend,
+  value: 'External: to send',
   email_sent_when_set: false,
   shows_remaining_sla_days: true,
 }
 
-export const VERZONDEN = {
-  key: StatusCode.Verzonden,
-  value: 'Extern: verzonden',
+export const SENT = {
+  key: StatusCode.Sent,
+  value: 'External: sent',
   email_sent_when_set: false,
   shows_remaining_sla_days: true,
 }
 
-export const VERZENDEN_MISLUKT = {
-  key: StatusCode.VerzendenMislukt,
-  value: 'Extern: mislukt',
+export const SEND_FAILED = {
+  key: StatusCode.SendFailed,
+  value: 'External: failed',
   email_sent_when_set: false,
   shows_remaining_sla_days: true,
 }
 
-export const VERZOEK_TOT_AFHANDELING = {
-  key: StatusCode.VerzoekTotAfhandeling,
-  value: 'Extern: verzoek tot afhandeling',
+export const CLOSURE_REQUESTED = {
+  key: StatusCode.ClosureRequested,
+  value: 'External: closure requested',
   email_sent_when_set: false,
   shows_remaining_sla_days: true,
 }
 
-export const DOORGEZET_NAAR_EXTERN = {
-  key: StatusCode.DoorgezetNaarExtern,
-  value: 'Doorgezet naar extern',
+export const FORWARDED_TO_EXTERN = {
+  key: StatusCode.ForwardedToExtern,
+  value: 'Forwarded to extern',
   email_sent_when_set: true,
   shows_remaining_sla_days: true,
 }
 
-export const AFGEHANDELD_EXTERN = {
-  key: StatusCode.AfgehandeldExtern,
-  value: 'Extern: afgehandeld',
+export const DONE_EXTERNAL = {
+  key: StatusCode.DoneExternal,
+  value: 'External: completed',
   email_sent_when_set: false,
   shows_remaining_sla_days: true,
 }
 
 const statusList: Status[] = [
-  GEMELD,
-  AFWACHTING,
-  BEHANDELING,
-  REACTIE_GEVRAAGD,
-  REACTIE_ONTVANGEN,
-  AFGEHANDELD,
-  INGEPLAND,
-  GEANNULEERD,
-  GESPLITST,
-  VERZOEK_TOT_HEROPENEN,
-  HEROPEND,
-  TE_VERZENDEN,
-  VERZONDEN,
-  VERZENDEN_MISLUKT,
-  VERZOEK_TOT_AFHANDELING,
-  AFGEHANDELD_EXTERN,
-  DOORGEZET_NAAR_EXTERN,
+  REPORTED,
+  AWAITING,
+  IN_PROGRESS,
+  REACTION_REQUESTED,
+  REACTION_RECEIVED,
+  COMPLETED,
+  PLANNED,
+  CANCELLED,
+  SPLIT,
+  REQUEST_TO_REOPEN,
+  REOPENED,
+  TO_SEND,
+  SENT,
+  SEND_FAILED,
+  CLOSURE_REQUESTED,
+  DONE_EXTERNAL,
+  FORWARDED_TO_EXTERN,
 ]
 
 export default statusList
 
 export const changeStatusOptionList = [
-  GEMELD,
-  AFWACHTING,
-  REACTIE_GEVRAAGD,
-  INGEPLAND,
-  BEHANDELING,
-  VERZOEK_TOT_AFHANDELING,
-  AFGEHANDELD,
-  HEROPEND,
-  GEANNULEERD,
+  REPORTED,
+  AWAITING,
+  REACTION_REQUESTED,
+  PLANNED,
+  IN_PROGRESS,
+  CLOSURE_REQUESTED,
+  COMPLETED,
+  REOPENED,
+  CANCELLED,
 ]
 
 export const isStatusEnd = (status: StatusCode): boolean =>
-  [
-    StatusCode.Afgehandeld,
-    StatusCode.Geannuleerd,
-    StatusCode.Gesplitst,
-  ].includes(status)
+  [StatusCode.Completed, StatusCode.Cancelled, StatusCode.Split].includes(
+    status
+  )
 
 export const isStatusClosed = (status: StatusCode): boolean =>
-  [StatusCode.Afgehandeld, StatusCode.Geannuleerd].includes(status)
+  [StatusCode.Completed, StatusCode.Cancelled].includes(status)
 
 export const defaultTextsOptionList = [...changeStatusOptionList]

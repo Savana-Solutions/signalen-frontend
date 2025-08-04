@@ -24,8 +24,8 @@ export const emailSentWhenStatusChangedTo = ({
 
   if (
     !configuration.featureFlags.reporterMailHandledNegativeContactEnabled &&
-    fromStatus === StatusCode.VerzoekTotHeropenen &&
-    toStatus === StatusCode.Afgehandeld
+    fromStatus === StatusCode.RequestToReopen &&
+    toStatus === StatusCode.Completed
   ) {
     return false
   }
@@ -51,10 +51,10 @@ export const textIsRequired = ({
     !configuration.featureFlags.reporterMailHandledNegativeContactEnabled
   ) {
     return [
-      StatusCode.Afgehandeld,
-      StatusCode.Ingepland,
-      StatusCode.Heropend,
-      StatusCode.ReactieGevraagd,
+      StatusCode.Completed,
+      StatusCode.Planned,
+      StatusCode.Reopened,
+      StatusCode.ReactionRequested,
     ].includes(toStatus)
   } else {
     return emailSentWhenStatusChangedTo({
@@ -100,7 +100,7 @@ export const determineWarnings = ({
     })
   }
 
-  if (originalStatus === StatusCode.ReactieGevraagd && hasEmail) {
+  if (originalStatus === StatusCode.ReactionRequested && hasEmail) {
     warnings.push({
       key: 'has-open-reply-request-warning',
       heading: constants.REPLY_CHANGE_STATUS_HEADING,
@@ -111,7 +111,7 @@ export const determineWarnings = ({
 
   if (
     configuration.featureFlags.disableClosingCategoryOverigOverig &&
-    toStatus === StatusCode.Afgehandeld &&
+    toStatus === StatusCode.Completed &&
     categorySlug === 'overig'
   ) {
     warnings.push({
@@ -120,14 +120,14 @@ export const determineWarnings = ({
       content: constants.CATEGORY_OVERIG_CONTENT,
       level: 'error',
     })
-  } else if (toStatus === StatusCode.Afgehandeld)
+  } else if (toStatus === StatusCode.Completed)
     warnings.push({
       key: 'end-status-warning',
       content: constants.AFGEHANDELD_CONTENT,
       level: 'neutral',
     })
 
-  if (toStatus === StatusCode.ReactieGevraagd && !hasEmail) {
+  if (toStatus === StatusCode.ReactionRequested && !hasEmail) {
     warnings.push({
       key: 'has-no-email-reply-warning',
       heading: constants.REPLY_NO_MAIL_HEADING,
@@ -140,7 +140,7 @@ export const determineWarnings = ({
 }
 
 export const getTextConfig = (statusCode: StatusCode) => {
-  return statusCode === StatusCode.ReactieGevraagd
+  return statusCode === StatusCode.ReactionRequested
     ? {
         label: constants.REPLY_MAIL_LABEL,
         maxLength: constants.REPLY_MAIL_MAX_LENGTH,

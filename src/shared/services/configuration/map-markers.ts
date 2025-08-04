@@ -13,26 +13,26 @@ export enum StatusColorGroup {
 }
 
 export const statusToColorGroup: Record<StatusCode, StatusColorGroup> = {
-  [StatusCode.Gemeld]: StatusColorGroup.REPORTED,
-  [StatusCode.TeVerzenden]: StatusColorGroup.REPORTED,
+  [StatusCode.Reported]: StatusColorGroup.REPORTED,
+  [StatusCode.ToSend]: StatusColorGroup.REPORTED,
 
-  [StatusCode.Afwachting]: StatusColorGroup.IN_PROGRESS,
-  [StatusCode.Behandeling]: StatusColorGroup.IN_PROGRESS,
-  [StatusCode.Ingepland]: StatusColorGroup.IN_PROGRESS,
-  [StatusCode.ReactieGevraagd]: StatusColorGroup.IN_PROGRESS,
-  [StatusCode.ReactieOntvangen]: StatusColorGroup.IN_PROGRESS,
-  [StatusCode.Verzonden]: StatusColorGroup.IN_PROGRESS,
-  [StatusCode.DoorgezetNaarExtern]: StatusColorGroup.IN_PROGRESS,
-  [StatusCode.VerzoekTotHeropenen]: StatusColorGroup.IN_PROGRESS,
-  [StatusCode.Heropend]: StatusColorGroup.IN_PROGRESS,
-  [StatusCode.VerzoekTotAfhandeling]: StatusColorGroup.IN_PROGRESS,
+  [StatusCode.Awaiting]: StatusColorGroup.IN_PROGRESS,
+  [StatusCode.InProgress]: StatusColorGroup.IN_PROGRESS,
+  [StatusCode.Planned]: StatusColorGroup.IN_PROGRESS,
+  [StatusCode.ReactionRequested]: StatusColorGroup.IN_PROGRESS,
+  [StatusCode.ReactionReceived]: StatusColorGroup.IN_PROGRESS,
+  [StatusCode.Sent]: StatusColorGroup.IN_PROGRESS,
+  [StatusCode.ForwardedToExtern]: StatusColorGroup.IN_PROGRESS,
+  [StatusCode.RequestToReopen]: StatusColorGroup.IN_PROGRESS,
+  [StatusCode.Reopened]: StatusColorGroup.IN_PROGRESS,
+  [StatusCode.ClosureRequested]: StatusColorGroup.IN_PROGRESS,
 
-  [StatusCode.Afgehandeld]: StatusColorGroup.COMPLETED,
-  [StatusCode.AfgehandeldExtern]: StatusColorGroup.COMPLETED,
+  [StatusCode.Completed]: StatusColorGroup.COMPLETED,
+  [StatusCode.DoneExternal]: StatusColorGroup.COMPLETED,
 
-  [StatusCode.Geannuleerd]: StatusColorGroup.CANCELLED,
-  [StatusCode.Gesplitst]: StatusColorGroup.CANCELLED,
-  [StatusCode.VerzendenMislukt]: StatusColorGroup.CANCELLED,
+  [StatusCode.Cancelled]: StatusColorGroup.CANCELLED,
+  [StatusCode.Split]: StatusColorGroup.CANCELLED,
+  [StatusCode.SendFailed]: StatusColorGroup.CANCELLED,
 }
 
 export const getIncidentIcon = (status?: StatusCode) => {

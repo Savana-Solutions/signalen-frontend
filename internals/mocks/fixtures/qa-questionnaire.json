@@ -4,9 +4,9 @@
       "href": "https://acc.api.data.amsterdam.nl/signals/v1/public/qa/questionnaires/50f87d6e-2479-4358-bf59-f01c27191848"
     }
   },
-  "_display": "Questionnaire \"Reactie gevraagd\" ( active)",
+  "_display": "Questionnaire \"Reaction requested\" ( active)",
   "uuid": "50f87d6e-2479-4358-bf59-f01c27191848",
-  "name": "Reactie gevraagd",
+  "name": "Reaction requested",
   "description": null,
   "is_active": true,
   "first_question": {

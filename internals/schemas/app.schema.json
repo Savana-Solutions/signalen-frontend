@@ -150,7 +150,7 @@
           "type": "boolean"
         },
         "disableClosingCategoryOverigOverig": {
-          "description": "Disallows processing of an issue that has category Overig-overig and status Afgehandeld",
+          "description": "Disallows processing of an issue that has category Overig-overig and status Completed",
           "type": "boolean"
         },
         "showStandardTextAdminV1": {

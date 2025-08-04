@@ -15,7 +15,7 @@ import { showGlobalNotification } from 'containers/App/actions'
 import { TYPE_LOCAL, VARIANT_ERROR } from 'containers/Notification/constants'
 import { useFetch } from 'hooks'
 import configuration from 'shared/services/configuration/configuration'
-import { DOORGEZET_NAAR_EXTERN } from 'signals/incident-management/definitions/statusList'
+import { FORWARDED_TO_EXTERN } from 'signals/incident-management/definitions/statusList'
 
 import {
   Form,
@@ -91,7 +91,7 @@ const ForwardToExternal = ({ onClose }: ForwardToExternalProps) => {
       type: PATCH_TYPE_STATUS,
       patch: {
         status: {
-          state: DOORGEZET_NAAR_EXTERN.key,
+          state: FORWARDED_TO_EXTERN.key,
           text: getValues('message'),
           send_email: true,
           email_override: getValues('email'),
@@ -107,7 +107,7 @@ const ForwardToExternal = ({ onClose }: ForwardToExternalProps) => {
     getEmailTemplate(
       `${configuration.INCIDENTS_ENDPOINT}${incident?.id}/email/preview`,
       {
-        status: DOORGEZET_NAAR_EXTERN.key,
+        status: FORWARDED_TO_EXTERN.key,
         text: getValues('message'),
         email_override: getValues('email'),
       }
