@@ -13,7 +13,7 @@ import fetch from 'jest-fetch-mock'
 import * as actions from 'containers/App/actions'
 import configuration from 'shared/services/configuration/configuration'
 import {
-  Completed,
+  COMPLETED,
   changeStatusOptionList,
   CANCELLED,
   REPORTED,
@@ -64,7 +64,7 @@ const renderWithContext = (
     </IncidentDetailContext.Provider>
   )
 
-const statusSendsEmailWhenSet = Completed
+const statusSendsEmailWhenSet = COMPLETED
 
 const statusDoesNotSendEmailWhenSet = changeStatusOptionList.filter(
   ({ email_sent_when_set }) => !email_sent_when_set
@@ -677,7 +677,7 @@ describe('signals/incident-management/containers/IncidentDetail/components/Statu
   })
 
   it('shows NO warning when the child incidents are closed', async () => {
-    const childIncidents = getChildIncidents([Completed, CANCELLED])
+    const childIncidents = getChildIncidents([COMPLETED, CANCELLED])
 
     render(renderWithContext(incidentFixture, childIncidents))
 
